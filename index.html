@@ -250,153 +250,78 @@ body {
   }
 
 }
+  .cover {
+  width: 210mm;
+  height: 297mm;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cover-content {
+  transform: translateY(-20px);
+}
+
+/* LOGO */
+.cover .logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+  margin-bottom: 20px;
+}
+
+/* NAMA */
+.cover .restaurant-name {
+  font-size: 32px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+/* TAGLINE */
+.cover .tagline {
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: 2px;
+}
+
+/* GARIS */
+.cover .divider {
+  width: 60px;
+  height: 1px;
+  background: #d4af37;
+  margin: 20px auto 0;
+}
+.restaurant-name {
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(212,175,55,0.2);
+}
+.cover {
+  background: #0a0a0a url('noise.png');
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="cover">
 
-<!-- HEADER -->
-<div class="header">
-  <div class="logo">
-    <img src="logo.png">
+  <div class="cover-content">
+    
+    <div class="logo">
+      <img src="logo.png">
+    </div>
+
+    <div class="restaurant-name">OCEAN</div>
+    <div class="tagline">Kitchen & Lounge • EST. 2023</div>
+
+    <div class="divider"></div>
+
   </div>
-  <div class="restaurant-name">OCEAN</div>
-  <div class="tagline">Kitchen & Lounge • EST. 2023</div>
-  <div class="divider"></div>
-  <div class="info">
-    Jl. Ahmad Yani No.34 Sragen<br>
-    0857-4102-2111 || 0857-1246-9835
-  </div>
+
 </div>
-
-<!-- MENU -->
-<div class="menu-section">
-  <div class="menu-content">
-    <div class="section-title">Optionality Drink</div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Strawberry Milkshake</div>
-        <div class="item-desc">Strwaberry blend with fresh milk</div>
-      </div>
-      <div class="item-price">IDR.22K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Lychee Milkshake</div>
-        <div class="item-desc">Lychee blend with fresh milk</div>
-      </div>
-      <div class="item-price">IDR.22K</div>
-    </div>
-
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Choco Hazelnut Ice/Hot</div>
-        <div class="item-desc">Choco,hazelnut flavour,fresh milk</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Choco Salted Caramel Ice/Hot</div>
-        <div class="item-desc">Choco,salted caramel Flavour,Fresh milk</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Choco Caramel Ice/Hot</div>
-        <div class="item-desc">Choco,caramel Flavour,Fresh milk</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Choco Vanilla Ice/Hot</div>
-        <div class="item-desc">Choco,Vanilla flavour,Fresh milk</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Chocolate Ice/Hot</div>
-        <div class="item-desc">Choco,fresh milk,simple syrup</div>
-      </div>
-      <div class="item-price">IDR Ice.22K/Hot.20K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Taro Latte Ice/Hot</div>
-        <div class="item-desc">Taro powder,Fresh milk,simple syrup</div>
-      </div>
-      <div class="item-price">IDR Ice.22K/Hot.20K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Matcha Latte Ice/Hot</div>
-        <div class="item-desc">Matcha powder,fresh milk,simple syrup</div>
-      </div>
-      <div class="item-price">IDR Ice.25K/Hot.21K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Red Velvet Latte Ice/Hot</div>
-        <div class="item-desc">Red Velvet powder,fresh milk,simple syrup</div>
-      </div>
-      <div class="item-price">IDR Ice.28K/Hot.25K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Velvet Float Ice</div>
-        <div class="item-desc">Red Velvet powder,fresh milk,simple syrup,ice ceam</div>
-      </div>
-      <div class="item-price">IDR.25K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Sweet Yaku Berry Ice</div>
-        <div class="item-desc">Strawberry flavour,fresh milk,yakutl</div>
-      </div>
-      <div class="item-price">IDR.20.5K</div>
-    </div>
-  </div>
-</div>
-<div class="footer">
-  
-  <div class="social-inline">
-    <div class="social-item">
-      <i class="fab fa-instagram"></i> @ocean.srg
-    </div>
-
-    <div class="social-item">
-      <i class="fab fa-facebook-f"></i> ocean.srg
-    </div>
-
-    <div class="social-item">
-      <i class="fab fa-tiktok"></i> ocean.srg
-    </div>
-  </div>
-</div>
-  
-  <div class="next-page">
-  <a href="coffee-base.html">
-    <i class="fas fa-arrow-right"></i>
-  </a>
-</div>
-</div>
-
 </body>
 </html>
