@@ -250,57 +250,109 @@ body {
   }
 
 }
+  @media print {
+  body {
+    margin: 0;
+  }
+
   .cover {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+  }
+
+  .cover-frame {
+    width: 180mm;
+    height: 267mm;
+  }
+}
+ .cover {
   width: 210mm;
   height: 297mm;
   background: #0a0a0a;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
-.cover-content {
-  transform: translateY(-20px);
+/* FRAME DALAM */
+.cover-frame {
+  width: 180mm;
+  height: 267mm;
+  border: 1.5px solid #d4af37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* OPTIONAL: DOUBLE BORDER (SUPER PREMIUM) */
+.cover-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(212,175,55,0.5);
 }
 
 /* LOGO */
 .cover .logo img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   border: 1px solid #d4af37;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 /* NAMA */
 .cover .restaurant-name {
-  font-size: 32px;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
+  font-size: 34px;
+  letter-spacing: 5px;
+  color: #d4af37;
+  margin-bottom: 12px;
 }
 
 /* TAGLINE */
 .cover .tagline {
-  font-size: 12px;
+  font-size: 11px;
   color: #aaa;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 /* GARIS */
 .cover .divider {
-  width: 60px;
+  width: 50px;
   height: 1px;
   background: #d4af37;
-  margin: 20px auto 0;
+  margin: 25px auto 0;
 }
-.restaurant-name {
-  color: #d4af37;
-  text-shadow: 0 0 8px rgba(212,175,55,0.2);
+.cover-content {
+  text-align: center;
+  transform: translateY(-10px);
+  max-width: 60%;
 }
-.cover {
-  background: #0a0a0a url('noise.png');
+
+@media screen {
+  .cover {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 210 / 297;
+    padding: 20px;
+  }
+
+  .cover-frame {
+    width: 100%;
+    height: 100%;
+  }
+}
+  .cover-frame::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid #d4af37;
+  border-left: 1px solid #d4af37;
+  top: 10px;
+  left: 10px;
 }
 </style>
 </head>
@@ -309,18 +361,24 @@ body {
 
 <div class="cover">
 
-  <div class="cover-content">
-    
-    <div class="logo">
-      <img src="logo.png">
+  <div class="cover-frame">
+
+    <div class="cover-content">
+      
+      <div class="logo">
+        <img src="logo.png">
+      </div>
+
+      <div class="restaurant-name">OCEAN</div>
+      <div class="tagline">Kitchen & Lounge • EST. 2023</div>
+
+      <div class="divider"></div>
+
     </div>
 
-    <div class="restaurant-name">OCEAN</div>
-    <div class="tagline">Kitchen & Lounge • EST. 2023</div>
-
-    <div class="divider"></div>
-
   </div>
+
+</div>
 
 </div>
 </body>
