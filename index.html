@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
 <style>
-/* RESET DASAR */
+/* RESET */
 * {
   box-sizing: border-box;
 }
@@ -16,26 +16,28 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* 🔥 hilangin scroll samping */
+  overflow-x: hidden;
   background: #0a0a0a;
+  font-family: 'Playfair Display', serif;
+  color: #eaeaea;
 }
 
 /* =========================
-   SCREEN (HP & DESKTOP)
+   COVER LAYOUT
 ========================= */
 .cover {
   width: 100%;
-  height: 100dvh; /* 🔥 fix tinggi HP */
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* FRAME A4 RESPONSIVE */
+/* FRAME */
 .cover-frame {
   width: 90%;
   max-width: 420px;
-  aspect-ratio: 210 / 297; /* 🔥 kunci proporsi A4 */
+  aspect-ratio: 210 / 297;
   border: 1.5px solid #d4af37;
   display: flex;
   justify-content: center;
@@ -43,7 +45,7 @@ html, body {
   position: relative;
 }
 
-/* DOUBLE BORDER (OPSIONAL) */
+/* DOUBLE BORDER */
 .cover-frame::before {
   content: "";
   position: absolute;
@@ -52,31 +54,72 @@ html, body {
 }
 
 /* =========================
+   CONTENT
+========================= */
+.cover-content {
+  text-align: center;
+  width: 70%;
+}
+
+/* LOGO */
+.logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+  margin-bottom: 20px;
+}
+
+/* NAMA RESTO */
+.restaurant-name {
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+/* TAGLINE */
+.tagline {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 2px;
+}
+
+/* GARIS */
+.divider {
+  width: 50px;
+  height: 1px;
+  background: #d4af37;
+  margin: 20px auto 0;
+}
+
+/* =========================
    MOBILE FIX
 ========================= */
 @media (max-width: 600px) {
-  .cover {
-    height: 100dvh;
-  }
-
   .cover-frame {
     width: 92%;
+  }
+
+  .cover-content {
+    width: 80%;
   }
 }
 
 /* =========================
-   PRINT (A4 PRESISI)
+   PRINT MODE
 ========================= */
 @media print {
 
   html, body {
     overflow: hidden;
+    background: transparent;
   }
 
   .cover {
     width: 210mm;
     height: 297mm;
-    padding: 0;
   }
 
   .cover-frame {
@@ -86,11 +129,9 @@ html, body {
 }
 </style>
 </head>
-
 <body>
 
 <div class="cover">
-
   <div class="cover-frame">
 
     <div class="cover-content">
@@ -107,9 +148,7 @@ html, body {
     </div>
 
   </div>
-
 </div>
 
-</div>
 </body>
 </html>
