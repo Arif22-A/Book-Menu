@@ -8,251 +8,69 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
 <style>
-body {
+/* RESET DASAR */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 🔥 hilangin scroll samping */
   background: #0a0a0a;
-  color: #eaeaea;
-  font-family: 'Playfair Display', serif;
 }
 
-/* ===== LAYOUT ===== */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 18px;
-  padding-top: -5px;
+/* =========================
+   SCREEN (HP & DESKTOP)
+========================= */
+.cover {
+  width: 100%;
+  height: 100dvh; /* 🔥 fix tinggi HP */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (min-width: 1024px) {
-  .container {
-    padding: 60px 20px;
-  }
-}
-/* ===== HEADER ===== */
-.header {
-  text-align: center;
-  padding: 20px 15px;
-  margin-top: -20px;
-  margin-bottom: 0;
-}
-
-/* LOGO */
-.logo img {
-  width: 70px;              /* lebih kecil */
-  height: 70px;             /* biar benar-benar bulat */
-  object-fit: cover;        /* isi penuh lingkaran */
-  border-radius: 50%;
-  border: 1px solid #d4af37;
-}
-
-/* NAMA RESTO */
-.restaurant-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;          /* diperkecil */
-  margin-top: 10px;
-  letter-spacing: 3px;
-}
-
-/* TAGLINE */
-.tagline {
-  font-size: 11px;
-  color: #aaa;
-  letter-spacing: 2px;
-  margin-top: 5px;
-}
-
-/* GARIS */
-.divider {
-  width: 50px;
-  height: 1px;
-  background: #d4af37;
-  margin: 15px auto;
-  
-}
-
-/* INFO */
-.info {
-  font-size: 11px;
-  color: #888;
-  line-height: 1;
-  margin: 10px auto 0; /* bawah 0 biar nempel */
-}
-/* ===== CONTENT (MENU) ===== */
-.menu-section {
+/* FRAME A4 RESPONSIVE */
+.cover-frame {
+  width: 90%;
+  max-width: 420px;
+  aspect-ratio: 210 / 297; /* 🔥 kunci proporsi A4 */
+  border: 1.5px solid #d4af37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  margin: 50px 0;
-  padding: 40px;
-  border-top: 1px solid #d4af37;
-  border-bottom: 1px solid #d4af37;
 }
 
-/* BACKGROUND IMAGE */
-.menu-section::before {
+/* DOUBLE BORDER (OPSIONAL) */
+.cover-frame::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: url('hero.png') center/cover no-repeat;
-  opacity: 0.25;
-  z-index: 0;
+  inset: 8px;
+  border: 1px solid rgba(212,175,55,0.5);
 }
 
-.menu-content {
-  position: relative;
-  z-index: 1;
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 600px) {
+  .cover {
+    height: 100dvh;
+  }
+
+  .cover-frame {
+    width: 92%;
+  }
 }
 
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #d4af37;
-  padding-bottom: 10px;
-}
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
-}
-
-.item-name {
-  font-size: 13px;
-  color: #fff;
-}
-
-.item-desc {
-  font-size: 11px;
-  color: #888;
-  margin-top: 2px;
-}
-
-.item-price {
-  color: #d4af37;
-  font-size: 13px;
-}
-.menu-item {
-  page-break-inside: avoid;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* bikin isi ke tengah */
-}
-
-.social-inline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%; /* 🔥 ini kunci (nggak full lebar) */
-  max-width: 300px; /* biar tetap compact */
-}
-
-.social-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: #d4af37;
-}
-
-.social-item i {
-  color: #d4af37;
-  font-size: 13px;
-}
-.social-inline {
-  width: 75%;
-}
-/* TEXT BAWAH */
-.footer-text {
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-
-.next-page {
-  display: flex;
-  justify-content: flex-end; /* ke kanan */
-  margin-top: 20px;
-}
-
-.next-page a {
-  color: #d4af37;
-  font-size: 18px;
-  text-decoration: none;
-  border: 1px solid #d4af37;
-  border-radius: 50%;
-  padding: 8px 10px;
-  transition: 0.3s;
-}
-
-/* HOVER EFFECT */
-.next-page a:hover {
-  background: #d4af37;
-  color: #000;
-}
-.next-page {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-@page {
-  size: A4;
-  margin: 10mm;
-}
-
+/* =========================
+   PRINT (A4 PRESISI)
+========================= */
 @media print {
 
-  /* RESET & COLOR FIX */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  body {
-    background: transparent !important;
-  }
-
-  /* CONTAINER FIX (UKURAN A4) */
-  .container {
-    width: 210mm;
-    height: 297mm;
-    background: #000 !important;
-    padding: 15mm;
-    margin: 0 auto;
-    position: relative;
+  html, body {
     overflow: hidden;
-    page-break-after: always;
-  }
-
-  /* HAPUS NAVIGASI */
-  .next-page,
-  .prev-page {
-    display: none;
-  }
-
-  /* FOOTER NEMPEL BAWAH */
-  .footer {
-    position: absolute;
-    bottom: 10mm;
-    left: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* KASIH RUANG BUAT FOOTER */
-  .menu-section {
-    margin-bottom: 40px;
-  }
-
-}
-  @media print {
-  body {
-    margin: 0;
   }
 
   .cover {
@@ -265,94 +83,6 @@ body {
     width: 180mm;
     height: 267mm;
   }
-}
- .cover {
-  width: 210mm;
-  height: 297mm;
-  background: #0a0a0a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* FRAME DALAM */
-.cover-frame {
-  width: 180mm;
-  height: 267mm;
-  border: 1.5px solid #d4af37;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* OPTIONAL: DOUBLE BORDER (SUPER PREMIUM) */
-.cover-frame::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(212,175,55,0.5);
-}
-
-/* LOGO */
-.cover .logo img {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  border: 1px solid #d4af37;
-  margin-bottom: 25px;
-}
-
-/* NAMA */
-.cover .restaurant-name {
-  font-size: 34px;
-  letter-spacing: 5px;
-  color: #d4af37;
-  margin-bottom: 12px;
-}
-
-/* TAGLINE */
-.cover .tagline {
-  font-size: 11px;
-  color: #aaa;
-  letter-spacing: 3px;
-}
-
-/* GARIS */
-.cover .divider {
-  width: 50px;
-  height: 1px;
-  background: #d4af37;
-  margin: 25px auto 0;
-}
-.cover-content {
-  text-align: center;
-  transform: translateY(-10px);
-  max-width: 60%;
-}
-
-@media screen {
-  .cover {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 210 / 297;
-    padding: 20px;
-  }
-
-  .cover-frame {
-    width: 100%;
-    height: 100%;
-  }
-}
-  .cover-frame::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-top: 1px solid #d4af37;
-  border-left: 1px solid #d4af37;
-  top: 10px;
-  left: 10px;
 }
 </style>
 </head>
