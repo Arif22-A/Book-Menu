@@ -38,9 +38,13 @@ html, body {
   align-items: center;
 }
 .menu-grid {
+  flex: 1;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+
+  align-content: space-evenly; /* 🔥 lebih premium feel */
 }
 
 @media print {
@@ -56,9 +60,15 @@ html, body {
     padding: 0;
   }
 
-  .page-frame {
-    width: 190mm;
-    height: 277mm;
+   .page-frame {
+    width: 186mm;   /* 🔥 diperkecil dikit */
+    height: 267mm;  /* 🔥 kasih napas atas bawah */
+    
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: 0;
+    transform: none;
   }
 }
 /* FRAME */
@@ -214,16 +224,15 @@ html, body {
   
 .page-content {
   width: 75%;
-  height: 100%; /* 🔥 penting: isi penuh frame */
-  padding: 15px 0;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* 🔥 jangan space-between */
 
   text-align: center;
   color: #eaeaea;
 }
+  
   @media print {
 
   * {
