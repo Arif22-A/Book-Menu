@@ -269,6 +269,65 @@ body {
   }
 
 }
+
+/* NAVIGATION ARROWS */
+.nav-arrow {
+  position: fixed;
+  bottom: 20px;
+  z-index: 999;
+}
+
+.nav-arrow a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.nav-arrow a:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* POSISI */
+.nav-arrow.next {
+  right: 20px;
+}
+
+.nav-arrow.prev {
+  left: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 12px 20px;
+  border: 1px solid #d4af37;
+  background: #111;
+  color: #d4af37;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.actions button:hover {
+  background: #d4af37;
+  color: #000;
+}
 </style>
 </head>
 
@@ -409,13 +468,37 @@ body {
     </div>
   </div>
 </div>
+
+</div>
+<div class="actions">
+  <button onclick="window.print()">Export PDF</button>
+  <button onclick="downloadPNG()">Download PNG</button>
+</div>
   
-  <div class="next-page">
-  <a href="coffee-base.html">
-    <i class="fas fa-arrow-right"></i>
+<div class="nav-arrow prev">
+  <a href="page3.html">
+    <i class="fas fa-arrow-left"></i>
   </a>
 </div>
-</div>
 
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+async function downloadPNG() {
+  const target = document.querySelector(".frame");
+
+  const canvas = await html2canvas(target, {
+    scale: 7, // 🔥 ULTRA HD
+    useCORS: true,
+    backgroundColor: "#0a0a0a",
+    logging: false
+  });
+
+  const link = document.createElement("a");
+  link.download = "ocean-menu-ultra-hd.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
+  link.click();
+}
+</script>
 </body>
 </html>
