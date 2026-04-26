@@ -502,6 +502,98 @@ body {
   line-height: 1.6;
   margin-top: 4px;
 }
+
+/* ========================================
+   MOBILE FIX — PORTRAIT + LANDSCPE
+======================================== */
+
+@media (max-width: 992px) {
+
+  .menu-section {
+    padding: 28px 18px;
+    border-radius: 18px;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+
+  .menu-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+  /* hilangkan garis tengah */
+  .menu-content::after {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    display: none;
+  }
+
+  .menu-column {
+    gap: 0;
+  }
+
+  .menu-item {
+    padding: 14px 0;
+    gap: 14px;
+  }
+
+  .item-name {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .item-desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .item-price {
+    min-width: auto;
+    font-size: 14px;
+    padding-left: 12px;
+    text-align: right;
+  }
+
+  .item-price::before {
+    width: 8px;
+  }
+}
+
+/* extra kecil (iphone portrait brutal mode) */
+@media (max-width: 480px) {
+
+  .menu-section {
+    padding: 20px 14px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+
+  .item-name {
+    font-size: 15px;
+  }
+
+  .item-desc {
+    font-size: 12px;
+  }
+
+  .item-price {
+    font-size: 13px;
+  }
+}
 </style>
 </head>
 
