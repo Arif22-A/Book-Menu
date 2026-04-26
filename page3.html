@@ -176,7 +176,23 @@ body {
   }
 
 }
+.item img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
 
+  filter: brightness(0.9) contrast(1.05); /* 🔥 subtle premium feel */
+}
+
+/* portrait */
+.item.portrait img {
+  height: 130px;
+}
+
+/* landscape */
+.item.landscape img {
+  height: 85px;
+}
 </style>
 </head>
 
@@ -186,52 +202,55 @@ body {
   <div class="frame">
 
     <!-- HEADER -->
-    <div class="header">
-      <div class="logo"></div>
-      <img src="logo.png">
-      <div class="restaurant-name">OCEAN</div>
-      <div class="tagline">Kitchen & Lounge • EST. 2023</div>
-      <div class="divider"></div>
-      <div class="info">
-        Jl. Ahmad Yani No.34 Sragen<br>
-        0857-4102-2111 • 0857-1246-9835
-      </div>
-    </div>
+   <div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Ocean Logo">
+  </div>
+  <div class="restaurant-name">OCEAN</div>
+  <div class="tagline">Kitchen & Lounge • EST. 2023</div>
+  <div class="divider"></div>
+  <div class="info">
+    Jl. Ahmad Yani No.34 Sragen<br>
+    0857-4102-2111 • 0857-1246-9835
+  </div>
+</div>
 
-    <!-- CONTENT -->
-   <div class="menu">
 
-  <!-- KIRI ATAS (PORTRAIT) -->
+<div class="menu">
+
+  <!-- PORTRAIT -->
   <div class="item portrait">
-    <img src="hero.png">
+    <img src="hero.png" onerror="this.src='https://via.placeholder.com/200x300'">
     <div class="title">Ocean Latte</div>
     <div class="desc">Signature drink</div>
     <div class="price">IDR 32K</div>
   </div>
 
-  <!-- KANAN ATAS (LANDSCAPE) -->
+  <!-- LANDSCAPE -->
   <div class="item landscape">
-    <img src="signature.jpg">
+    <img src="signature.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
     <div class="title">Grilled Salmon</div>
     <div class="desc">Fresh ocean fish</div>
     <div class="price">IDR 65K</div>
   </div>
 
-  <!-- KIRI BAWAH (LANDSCAPE) -->
+  <!-- LANDSCAPE -->
   <div class="item landscape">
-    <img src="https://via.placeholder.com/300x200">
+    <img src="signature.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
     <div class="title">Beef Steak</div>
     <div class="desc">Premium beef</div>
     <div class="price">IDR 75K</div>
   </div>
 
-  <!-- KANAN BAWAH (PORTRAIT) -->
+  <!-- PORTRAIT -->
   <div class="item portrait">
-    <img src="https://via.placeholder.com/200x300">
+    <img src="hero.png" onerror="this.src='https://via.placeholder.com/200x300'">
     <div class="title">Matcha Latte</div>
     <div class="desc">Japanese matcha</div>
     <div class="price">IDR 28K</div>
   </div>
+
+</div>
 
 </div>
 
