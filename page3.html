@@ -25,17 +25,19 @@ body {
 
 /* PAGE */
 .page {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: flex-start;
 
+  padding: 20px 0;
+}
 /* FRAME */
 .frame {
-  width: min(92vw, 420px);
-  aspect-ratio: 210 / 297;
+  width: min(94vw, 480px);
+  min-height: 90vh;
 
   border: 1.5px solid #d4af37;
   padding: 20px;
@@ -188,23 +190,72 @@ body {
 
 /* PRINT */
 @media print {
-  body {
+
+  @page {
+    size: A4;
     margin: 0;
+  }
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
     background: white;
   }
 
   .page {
     width: 210mm;
-    height: 297mm;
+    min-height: 297mm;
+    padding: 0;
+    display: block;
   }
 
   .frame {
-    width: 180mm;
-    height: 267mm;
-    border: 1px solid #d4af37;
+    width: 210mm;
+    min-height: 297mm;
+    border: none;
+    padding: 15mm;
+    margin: 0;
+    box-sizing: border-box;
   }
 }
+  
+/* NAVIGATION ARROWS */
+.nav-arrow {
+  position: fixed;
+  bottom: 20px;
+  z-index: 999;
+}
 
+.nav-arrow a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.nav-arrow a:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* POSISI */
+.nav-arrow.next {
+  right: 20px;
+}
+
+.nav-arrow.prev {
+  left: 20px;
+}
 </style>
 </head>
 <body>
