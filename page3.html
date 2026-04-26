@@ -23,7 +23,7 @@ body {
   background: #0a0a0a;
 }
 
-/* FULL SCREEN CENTER */
+/* PAGE */
 .page {
   width: 100vw;
   height: 100vh;
@@ -32,13 +32,14 @@ body {
   align-items: center;
 }
 
-/* FRAME (A4 RATIO) */
+/* FRAME */
 .frame {
   width: min(92vw, 420px);
   aspect-ratio: 210 / 297;
 
   border: 1.5px solid #d4af37;
   padding: 20px;
+  background: #0a0a0a;
 
   display: flex;
   flex-direction: column;
@@ -46,38 +47,32 @@ body {
 
 /* HEADER */
 .header {
+  flex-shrink: 0;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .logo {
-  width: 50px;           /* 🔥 kontrol area */
-  height: 50px;
-  margin: 0 auto;        /* center */
-
+  width: 52px;
+  height: 52px;
+  margin: 0 auto;
   border-radius: 50%;
   border: 1.5px solid #d4af37;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;      /* 🔥 potong biar rapi */
-  background: #111;      /* fallback */
+  overflow: hidden;
+  background: #111;
 }
 
 .logo img {
   width: 100%;
   height: 100%;
-
-  object-fit: cover;     /* 🔥 isi penuh tanpa gepeng */
-  object-position: center;
+  object-fit: cover;
 }
+
 .restaurant-name {
   color: #d4af37;
   letter-spacing: 3px;
   font-size: 16px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .tagline {
@@ -89,8 +84,8 @@ body {
 .divider {
   height: 1px;
   background: rgba(212,175,55,0.4);
-  margin: 8px auto;
   width: 60%;
+  margin: 10px auto;
 }
 
 .info {
@@ -99,71 +94,77 @@ body {
   line-height: 1.5;
 }
 
-/* CONTENT GRID */
+/* MENU GRID */
 .menu {
   flex: 1;
   min-height: 0;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  align-content: space-between;
-  gap: 10px;
-}
-
-/* portrait (tinggi) */
-.item.portrait img {
-  height: 120px;
-}
-
-/* landscape (lebar) */
-.item.landscape img {
-  height: 80px;
+  gap: 14px;
+  align-content: start;
 }
 
 /* ITEM */
 .item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   text-align: center;
 }
 
-/* IMAGE */
-.item img {
+/* FIXED IMAGE BOX */
+.image-box {
   width: 100%;
-  height: 80px;
+  height: 110px; /* FIXED HEIGHT */
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,0.25);
+  background: #111;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 4px;
+  display: block;
 }
 
 /* TEXT */
 .title {
   color: #fff;
   font-size: 13px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .desc {
   color: #aaa;
   font-size: 10px;
-  line-height: 1.3;
+  line-height: 1.4;
+  margin-top: 2px;
 }
 
 .price {
   color: #d4af37;
   font-size: 11px;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 /* FOOTER */
 .footer {
-  margin-top: 10px;
-  text-align: center;   /* 🔥 center semua isi */
+  flex-shrink: 0;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+  text-align: center;
 }
 
 .social {
-  display: inline-flex; /* 🔥 kunci: treat kayak text */
-  gap: 20px;            /* jarak antar item */
+  display: inline-flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #bbb;
+  font-size: 10px;
 }
 
 .social div {
@@ -171,11 +172,12 @@ body {
   align-items: center;
   gap: 5px;
 }
+
 /* PRINT */
 @media print {
-
   body {
     margin: 0;
+    background: white;
   }
 
   .page {
@@ -186,92 +188,73 @@ body {
   .frame {
     width: 180mm;
     height: 267mm;
+    border: 1px solid #d4af37;
   }
-
-}
-.item img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-
-  filter: brightness(0.9) contrast(1.05); /* 🔥 subtle premium feel */
 }
 
-/* portrait */
-.item.portrait img {
-  height: 130px;
-}
-
-/* landscape */
-.item.landscape img {
-  height: 85px;
-}
-
-.header {
-  flex-shrink: 0;
-}
-
-.footer {
-  flex-shrink: 0;
-}
 </style>
 </head>
-
 <body>
 
 <div class="page">
   <div class="frame">
 
-    <!-- HEADER -->
-   <div class="header">
-  <div class="logo">
-    <img src="logo.png" alt="Ocean Logo">
-  </div>
-  <div class="restaurant-name">OCEAN</div>
-  <div class="tagline">Kitchen & Lounge • EST. 2023</div>
-  <div class="divider"></div>
-  <div class="info">
-    Jl. Ahmad Yani No.34 Sragen<br>
-    0857-4102-2111 • 0857-1246-9835
-  </div>
-</div>
+    <div class="header">
+      <div class="logo">
+        <img src="logo.png">
+      </div>
 
+      <div class="restaurant-name">OCEAN</div>
+      <div class="tagline">Kitchen & Lounge • EST. 2023</div>
 
-<div class="menu">
+      <div class="divider"></div>
 
-  <!-- PORTRAIT -->
-  <div class="item portrait">
-    <img src="hero.png" onerror="this.src='https://via.placeholder.com/200x300'">
-    <div class="title">Ocean Latte</div>
-    <div class="desc">Signature drink</div>
-    <div class="price">IDR 32K</div>
-  </div>
+      <div class="info">
+        Jl. Ahmad Yani No.34 Sragen<br>
+        0857-4102-2111 • 0857-1246-9835
+      </div>
+    </div>
 
-  <!-- LANDSCAPE -->
-  <div class="item landscape">
-    <img src="signature.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-    <div class="title">Grilled Salmon</div>
-    <div class="desc">Fresh ocean fish</div>
-    <div class="price">IDR 65K</div>
-  </div>
+    <div class="menu">
 
-  <!-- LANDSCAPE -->
-  <div class="item landscape">
-    <img src="nila-goreng.png" onerror="this.src='https://via.placeholder.com/300x200'">
-    <div class="title">Beef Steak</div>
-    <div class="desc">Premium beef</div>
-    <div class="price">IDR 75K</div>
-  </div>
+      <div class="item">
+        <div class="image-box">
+          <img src="hero.png">
+        </div>
+        <div class="title">Ocean Latte</div>
+        <div class="desc">Signature drink</div>
+        <div class="price">IDR 32K</div>
+      </div>
 
-  <!-- PORTRAIT -->
-  <div class="item portrait">
-    <img src="cookies-cream.png" onerror="this.src='https://via.placeholder.com/200x300'">
-    <div class="title">Matcha Latte</div>
-    <div class="desc">Japanese matcha</div>
-    <div class="price">IDR 28K</div>
-  </div>
+      <div class="item">
+        <div class="image-box">
+          <img src="signature.jpg">
+        </div>
+        <div class="title">Grilled Salmon</div>
+        <div class="desc">Fresh ocean fish</div>
+        <div class="price">IDR 65K</div>
+      </div>
 
-    <!-- FOOTER -->
+      <div class="item">
+        <div class="image-box">
+          <img src="nila-goreng.png">
+        </div>
+        <div class="title">Beef Steak</div>
+        <div class="desc">Premium beef</div>
+        <div class="price">IDR 75K</div>
+      </div>
+
+      <div class="item">
+        <div class="image-box">
+          <img src="cookies-cream.png">
+        </div>
+        <div class="title">Matcha Latte</div>
+        <div class="desc">Japanese matcha</div>
+        <div class="price">IDR 28K</div>
+      </div>
+
+    </div>
+
     <div class="footer">
       <div class="social">
         <div><i class="fab fa-instagram"></i> @ocean.srg</div>
@@ -281,7 +264,6 @@ body {
     </div>
 
   </div>
-</div>
 </div>
 
 </body>
