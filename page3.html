@@ -134,6 +134,8 @@ html, body {
 
 /* GRID */
 .menu-grid {
+  display: grid; /* 🔥 WAJIB ADA */
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom kanan kiri */
   gap: 12px;
   margin: 10px 0;
 }
@@ -141,6 +143,9 @@ html, body {
 /* ITEM */
 .menu-item {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* IMAGE */
