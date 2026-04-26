@@ -158,19 +158,12 @@ body {
 /* FOOTER */
 .footer {
   margin-top: 10px;
-
-  display: flex;
-  justify-content: center;
+  text-align: center;   /* 🔥 center semua isi */
 }
 
 .social {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-
-  width: 100%;
-  font-size: 10px;
-  color: #d4af37;
+  display: inline-flex; /* 🔥 kunci: treat kayak text */
+  gap: 20px;            /* jarak antar item */
 }
 
 .social div {
@@ -178,7 +171,6 @@ body {
   align-items: center;
   gap: 5px;
 }
-
 /* PRINT */
 @media print {
 
@@ -265,7 +257,7 @@ body {
 
   <!-- LANDSCAPE -->
   <div class="item landscape">
-    <img src="signature.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+    <img src="nila-goreng.png" onerror="this.src='https://via.placeholder.com/300x200'">
     <div class="title">Beef Steak</div>
     <div class="desc">Premium beef</div>
     <div class="price">IDR 75K</div>
@@ -273,7 +265,7 @@ body {
 
   <!-- PORTRAIT -->
   <div class="item portrait">
-    <img src="hero.png" onerror="this.src='https://via.placeholder.com/200x300'">
+    <img src="cookies-cream.png" onerror="this.src='https://via.placeholder.com/200x300'">
     <div class="title">Matcha Latte</div>
     <div class="desc">Japanese matcha</div>
     <div class="price">IDR 28K</div>
