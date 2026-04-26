@@ -90,12 +90,21 @@ body {
 .menu-section::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: url('hero.png') center/cover no-repeat;
-  opacity: 0.25;
+
+  width: 320px;
+  height: 420px;
+
+  right: -180px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: url("hero.png") center/cover no-repeat;
+
+  border-radius: 50% 0 0 50%; /* 🔥 half moon */
+
+  opacity: 0.18;
   z-index: 0;
 }
-
 .menu-content {
   position: relative;
   z-index: 1;
