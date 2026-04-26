@@ -102,11 +102,11 @@ body {
 /* CONTENT GRID */
 .menu {
   flex: 1;
-
+  min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-
+  align-content: space-between;
   gap: 10px;
 }
 
@@ -207,6 +207,14 @@ body {
 /* landscape */
 .item.landscape img {
   height: 85px;
+}
+
+.header {
+  flex-shrink: 0;
+}
+
+.footer {
+  flex-shrink: 0;
 }
 </style>
 </head>
