@@ -89,16 +89,27 @@ body {
   flex: 1;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 
   gap: 10px;
+}
+
+/* portrait (tinggi) */
+.item.portrait img {
+  height: 120px;
+}
+
+/* landscape (lebar) */
+.item.landscape img {
+  height: 80px;
 }
 
 /* ITEM */
 .item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
@@ -187,37 +198,41 @@ body {
     </div>
 
     <!-- CONTENT -->
-    <div class="menu">
+   <div class="menu">
 
-      <div class="item">
-        <img src="https://via.placeholder.com/300x200">
-        <div class="title">Ocean Latte</div>
-        <div class="desc">Signature coffee with ocean aroma</div>
-        <div class="price">IDR 32K</div>
-      </div>
+  <!-- KIRI ATAS (PORTRAIT) -->
+  <div class="item portrait">
+    <img src="https://via.placeholder.com/200x300">
+    <div class="title">Ocean Latte</div>
+    <div class="desc">Signature drink</div>
+    <div class="price">IDR 32K</div>
+  </div>
 
-      <div class="item">
-        <img src="https://via.placeholder.com/300x200">
-        <div class="title">Caramel Coffee</div>
-        <div class="desc">Sweet caramel blend</div>
-        <div class="price">IDR 30K</div>
-      </div>
+  <!-- KANAN ATAS (LANDSCAPE) -->
+  <div class="item landscape">
+    <img src="https://via.placeholder.com/300x200">
+    <div class="title">Grilled Salmon</div>
+    <div class="desc">Fresh ocean fish</div>
+    <div class="price">IDR 65K</div>
+  </div>
 
-      <div class="item">
-        <img src="https://via.placeholder.com/300x200">
-        <div class="title">Matcha Latte</div>
-        <div class="desc">Premium Japanese matcha</div>
-        <div class="price">IDR 28K</div>
-      </div>
+  <!-- KIRI BAWAH (LANDSCAPE) -->
+  <div class="item landscape">
+    <img src="https://via.placeholder.com/300x200">
+    <div class="title">Beef Steak</div>
+    <div class="desc">Premium beef</div>
+    <div class="price">IDR 75K</div>
+  </div>
 
-      <div class="item">
-        <img src="https://via.placeholder.com/300x200">
-        <div class="title">Chocolate Blend</div>
-        <div class="desc">Rich chocolate sensation</div>
-        <div class="price">IDR 29K</div>
-      </div>
+  <!-- KANAN BAWAH (PORTRAIT) -->
+  <div class="item portrait">
+    <img src="https://via.placeholder.com/200x300">
+    <div class="title">Matcha Latte</div>
+    <div class="desc">Japanese matcha</div>
+    <div class="price">IDR 28K</div>
+  </div>
 
-    </div>
+</div>
 
     <!-- FOOTER -->
     <div class="footer">
