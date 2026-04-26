@@ -99,20 +99,22 @@ body {
 /* MENU GRID */
 .menu {
   flex: 1;
-  min-height: 0;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1fr;   /* 🔥 semua card tinggi sama */
+  grid-template-rows: 1fr 1fr;
 
-  gap: 12px;
-  overflow: hidden;      /* 🔥 cegah dorong footer */
+  gap: 20px;
+
+  align-content: space-between; /* 🔥 penting */
+  justify-content: stretch;
 }
-
 /* ITEM */
 .item {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* 🔥 center vertikal */
+  align-items: center;
   text-align: center;
 }
 
@@ -196,18 +198,17 @@ body {
     margin: 0;
   }
 
-  html,
-  body {
+  html, body {
     width: 210mm;
     height: 297mm;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    background: white;
   }
 
   body {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .page {
@@ -222,22 +223,26 @@ body {
     width: 210mm;
     height: 297mm;
 
-    padding: 12mm;
+    padding: 14mm;
     margin: 0;
-
     border: 2px solid #d4af37 !important;
     background: #0a0a0a !important;
 
     box-sizing: border-box;
-    page-break-after: avoid;
   }
 
-  .image-box img {
-    max-height: 85px;
+  .menu {
+    height: 100%;
+    gap: 24px;
+    align-content: space-between;
+  }
+
+  .image-box {
+    height: 95px;
   }
 
   .title {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .desc {
