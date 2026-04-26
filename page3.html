@@ -412,14 +412,15 @@ async function downloadPNG() {
   const target = document.querySelector(".frame");
 
   const canvas = await html2canvas(target, {
-    scale: 3, // kualitas tinggi
+    scale: 5, // 🔥 ULTRA HD
     useCORS: true,
-    backgroundColor: "#0a0a0a"
+    backgroundColor: "#0a0a0a",
+    logging: false
   });
 
   const link = document.createElement("a");
-  link.download = "ocean-menu.png";
-  link.href = canvas.toDataURL("image/png");
+  link.download = "ocean-menu-ultra-hd.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
   link.click();
 }
 </script>
