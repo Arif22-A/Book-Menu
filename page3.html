@@ -228,6 +228,58 @@ html, body {
   display: flex;
   justify-content: space-between;
 }
+
+/* GRID */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 15px 0;
+}
+
+/* ITEM */
+.menu-item {
+  text-align: center;
+}
+
+/* IMAGE */
+.menu-item img {
+  width: 100%;
+  height: 90px; /* 🔥 kecil tapi proporsional */
+  object-fit: cover;
+  border-radius: 4px;
+
+  /* biar nyatu */
+  filter: brightness(0.85);
+}
+
+/* TITLE */
+.menu-item .title {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* PRICE */
+.menu-item .price {
+  font-size: 11px;
+  color: #d4af37;
+}
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header img {
+  width: 35px;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+}
+.footer {
+  font-size: 10px;
+  color: #d4af37;
+  display: flex;
+  justify-content: space-between;
+}
 </style>
 </head>
 
@@ -249,38 +301,33 @@ html, body {
     <div class="restaurant-name">OCEAN</div>
   </div>
 
-  <!-- MENU LIST -->
-  <div class="menu-wrapper">
+ <div class="menu-grid">
 
-    <!-- ITEM 1 -->
-    <div class="menu-block">
-      <div class="signature-img">
-        <img src="signature.jpg">
-      </div>
-      <div class="label">SIGNATURE</div>
-      <div class="title">Ocean Special Latte</div>
-      <div class="desc">
-        A smooth blend of premium coffee with creamy texture,
-        crafted to deliver a rich and unforgettable taste.
-      </div>
-      <div class="price">IDR 32K</div>
-    </div>
-
-    <!-- ITEM 2 -->
-    <div class="menu-block">
-      <div class="signature-img">
-        <img src="signature.jpg">
-      </div>
-      <div class="label">SIGNATURE</div>
-      <div class="title">Ocean Special Latte</div>
-      <div class="desc">
-        A smooth blend of premium coffee with creamy texture,
-        crafted to deliver a rich and unforgettable taste.
-      </div>
-      <div class="price">IDR 32K</div>
-    </div>
-
+  <div class="menu-item">
+    <img src="signature.jpg">
+    <div class="title">Ocean Latte</div>
+    <div class="price">IDR 32K</div>
   </div>
+
+  <div class="menu-item">
+    <img src="signature.jpg">
+    <div class="title">Caramel Coffee</div>
+    <div class="price">IDR 30K</div>
+  </div>
+
+  <div class="menu-item">
+    <img src="signature.jpg">
+    <div class="title">Matcha Latte</div>
+    <div class="price">IDR 28K</div>
+  </div>
+
+  <div class="menu-item">
+    <img src="signature.jpg">
+    <div class="title">Chocolate Blend</div>
+    <div class="price">IDR 29K</div>
+  </div>
+
+</div>
 
   <!-- FOOTER -->
   <div class="footer">
