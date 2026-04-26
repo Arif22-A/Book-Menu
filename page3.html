@@ -289,6 +289,29 @@ body {
 .nav-arrow.prev {
   left: 20px;
 }
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 12px 20px;
+  border: 1px solid #d4af37;
+  background: #111;
+  color: #d4af37;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.actions button:hover {
+  background: #d4af37;
+  color: #000;
+}
 </style>
 </head>
 <body>
@@ -364,6 +387,12 @@ body {
 </div>
 </div>
   
+  
+<div class="actions">
+  <button onclick="window.print()">Export PDF</button>
+  <button onclick="downloadPNG()">Download PNG</button>
+</div>
+  
 <div class="nav-arrow prev">
   <a href="page2.html">
     <i class="fas fa-arrow-left"></i>
@@ -375,5 +404,24 @@ body {
     <i class="fas fa-arrow-right"></i>
   </a>
 </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+async function downloadPNG() {
+  const target = document.querySelector(".frame");
+
+  const canvas = await html2canvas(target, {
+    scale: 3, // kualitas tinggi
+    useCORS: true,
+    backgroundColor: "#0a0a0a"
+  });
+
+  const link = document.createElement("a");
+  link.download = "ocean-menu.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+</script>
 </body>
 </html>
