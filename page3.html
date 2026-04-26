@@ -7,6 +7,7 @@
 <title>Ocean Menu - Signature</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
@@ -19,29 +20,37 @@
 
 body {
   font-family: 'Playfair Display', serif;
-  background: #0a0a0a;
+  background: radial-gradient(circle, #111 0%, #000 100%);
 }
 
 /* PAGE A4 */
 .page {
-  width: 210mm;
-  height: 297mm;
-  margin: auto;
+  width: 100vw;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  overflow: hidden; /* 🔥 NO SCROLL */
 }
 
 /* FRAME */
 .frame {
-  width: 188mm;
-  height: 277mm;
+  aspect-ratio: 210 / 297;
+
+  height: 95vh; /* 🔥 fit layar */
+  max-width: 90vw;
+
   border: 1.5px solid #d4af37;
   position: relative;
-  padding: 20mm 12mm;
+
+  padding: 20px 12px;
 
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
 }
 
 /* INNER BORDER */
@@ -55,21 +64,41 @@ body {
 /* HEADER */
 .header {
   text-align: center;
-  margin-bottom: 10mm;
+  margin-bottom: 8mm;
 }
 
-.header img {
-  width: 36px;
-  height: 36px;
+.logo img {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid #d4af37;
 }
 
 .restaurant-name {
-  font-size: 14px;
-  letter-spacing: 3px;
+  font-size: 16px;
+  letter-spacing: 4px;
   color: #d4af37;
-  margin-top: 5px;
+  margin-top: 6px;
+}
+
+.tagline {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.divider {
+  width: 60%;
+  height: 1px;
+  background: rgba(212,175,55,0.4);
+  margin: 8px auto;
+}
+
+.info {
+  font-size: 10px;
+  color: #aaa;
+  line-height: 1.6;
 }
 
 /* MENU GRID BASE */
@@ -143,14 +172,21 @@ body {
 
 /* FOOTER */
 .footer {
-  margin-top: 10mm;
+  margin-top: 8mm;
+}
+
+.social-inline {
   display: flex;
   justify-content: space-between;
   font-size: 10px;
   color: #d4af37;
 }
 
-/* PRINT FIX */
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
 @media print {
 
   body {
@@ -160,33 +196,25 @@ body {
   .page {
     width: 210mm;
     height: 297mm;
+    overflow: visible;
   }
 
   .frame {
-    margin: auto;
-    page-break-after: avoid;
+    width: 180mm;
+    height: 267mm;
   }
 
-}
-  
-.frame {
-  width: 180mm;   /* sebelumnya 188 */
-  height: 267mm;  /* sebelumnya 277 */
-}
+} 
 .menu {
-  margin: 10mm 0;
-}
-.menu-4 {
-  align-content: center;
+  margin: 20px 0;
 }
 
-.menu-6 {
-  align-content: space-between;
+@media print {
+  .menu {
+    margin: 10mm 0;
+  }
 }
 
-.menu-8 {
-  align-content: space-between;
-}
 </style>
 </head>
 
