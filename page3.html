@@ -37,20 +37,14 @@ body {
 
 /* FRAME */
 .frame {
+  width: min(90vw, 420px);
   aspect-ratio: 210 / 297;
 
-  width: min(90vw, 420px); /* 🔥 kontrol ukuran */
-  height: auto;            /* 🔥 HAPUS 95vh */
-
   border: 1.5px solid #d4af37;
-  position: relative;
-
   padding: 20px 12px;
 
   display: flex;
   flex-direction: column;
-
-  overflow: visible;
 }
 
 /* INNER BORDER */
@@ -104,9 +98,10 @@ body {
 /* MENU GRID BASE */
 .menu {
   flex: 1;
-  display: grid;
-  gap: 18px;
   min-height: 0;
+
+  display: grid;
+  gap: 12px; /* 🔥 JANGAN BESAR */
 }
 
 /* === AUTO LAYOUT === */
@@ -131,10 +126,12 @@ body {
 
 /* ITEM */
 .item {
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
 }
 
 /* IMAGE BASE */
@@ -170,6 +167,18 @@ body {
 .menu-8 .item img { height: 90px; }
 .menu-8 .title { font-size: 13px; }
 .menu-8 .price { font-size: 12px; }
+
+.menu-4 {
+  grid-template-rows: repeat(2, 1fr); /* 🔥 ini penting */
+}
+
+.menu-6 {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.menu-8 {
+  grid-template-rows: repeat(4, 1fr);
+}
 
 /* FOOTER */
 .footer {
