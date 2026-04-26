@@ -163,7 +163,71 @@ html, body {
     transform: translate(-50%, -50%);
   }
 }
+.page-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header .logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+}
+
+.restaurant-name {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-top: 5px;
+}
+
+/* MENU WRAPPER */
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* MENU BLOCK */
+.menu-block {
+  text-align: center;
+}
+
+/* IMAGE SIZE FIX (INI YANG LO BUTUH) */
+.signature-img img {
+  height: 120px; /* 🔥 DIPENDEKIN */
+}
+
+/* TEXT SCALE */
+.title {
+  font-size: 16px;
+}
+
+.desc {
+  font-size: 11px;
+}
+
+.price {
+  font-size: 12px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: #d4af37;
+  display: flex;
+  justify-content: space-between;
+}
 </style>
 </head>
 
@@ -174,39 +238,58 @@ html, body {
   <div class="bg-black"></div>
 
   <div class="page-frame">
+
     <div class="page-content">
 
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <img src="logo.png">
+    </div>
+    <div class="restaurant-name">OCEAN</div>
+  </div>
+
+  <!-- MENU LIST -->
+  <div class="menu-wrapper">
+
+    <!-- ITEM 1 -->
+    <div class="menu-block">
       <div class="signature-img">
         <img src="signature.jpg">
       </div>
-
       <div class="label">SIGNATURE</div>
-
       <div class="title">Ocean Special Latte</div>
-
       <div class="desc">
         A smooth blend of premium coffee with creamy texture,
         crafted to deliver a rich and unforgettable taste.
       </div>
-
       <div class="price">IDR 32K</div>
+    </div>
 
-       <div class="signature-img">
+    <!-- ITEM 2 -->
+    <div class="menu-block">
+      <div class="signature-img">
         <img src="signature.jpg">
       </div>
-
       <div class="label">SIGNATURE</div>
-
       <div class="title">Ocean Special Latte</div>
-
       <div class="desc">
         A smooth blend of premium coffee with creamy texture,
         crafted to deliver a rich and unforgettable taste.
       </div>
-
       <div class="price">IDR 32K</div>
-
     </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>@ocean.srg</div>
+    <div>ocean.srg</div>
+    <div>ocean.srg</div>
+  </div>
+
+</div>
   </div>
 
 </div>
