@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ocean Menu - Signature</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
@@ -12,295 +13,179 @@
 /* RESET */
 * {
   box-sizing: border-box;
-}
-
-html, body {
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: 'Playfair Display', serif;
-}
-
-/* BACKGROUND */
-.bg-black {
-  position: absolute;
-  inset: 0;
   background: #0a0a0a;
-  z-index: 0;
 }
+
+/* PAGE A4 */
 .page {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  padding: 20px 0;
-
+  width: 210mm;
+  height: 297mm;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.menu-grid {
-  flex: 1;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 18px; /* 🔥 lebih lega */
-  
-  align-content: space-between; /* 🔥 isi penuh atas-bawah */
-}
-
-@media print {
-  html, body {
-    width: 210mm;
-    height: 297mm;
-  }
-
-  .page {
-    width: 210mm;
-    height: 297mm;
-    display: block;
-    padding: 0;
-  }
-
-   .page-frame {
-    width: 186mm;   /* 🔥 diperkecil dikit */
-    height: 267mm;  /* 🔥 kasih napas atas bawah */
-    
-    position: relative;
-    margin: auto;
-    top: 0;
-    left: 0;
-    transform: none;
-  }
-}
 /* FRAME */
-.page-frame {
-  position: relative;
-  z-index: 1;
-  width: 94%; /* 🔥 lebih lebar */
-  max-width: 500px; /* 🔥 lebih besar */
-
-  aspect-ratio: 210 / 297;
-
+.frame {
+  width: 188mm;
+  height: 277mm;
   border: 1.5px solid #d4af37;
+  position: relative;
+  padding: 20mm 12mm;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-.page-frame::before {
+/* INNER BORDER */
+.frame::before {
   content: "";
   position: absolute;
   inset: 8px;
   border: 1px solid rgba(212,175,55,0.5);
 }
 
-/* LABEL */
-.label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #d4af37;
-  margin-bottom: 10px;
-}
-
-/* DESC */
-.desc {
-  font-size: 12px;
-  color: #aaa;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-/* PRICE */
-.price {
-  font-size: 14px;
-  color: #d4af37;
-  letter-spacing: 1px;
-}
-
-/* PRINT */
-@page {
-  size: A4;
-  margin: 0;
-}
-
 /* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 10mm;
+}
+
+.header img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+}
+
 .restaurant-name {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 3px;
   color: #d4af37;
   margin-top: 5px;
 }
 
-/* MENU WRAPPER */
-.menu-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* MENU GRID BASE */
+.menu {
+  flex: 1;
+  display: grid;
+  gap: 18px;
 }
 
-/* MENU BLOCK */
-.menu-block {
-  text-align: center;
+/* === AUTO LAYOUT === */
+
+/* 4 ITEM */
+.menu-4 {
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
 }
 
-/* IMAGE SIZE FIX (INI YANG LO BUTUH) */
-.signature-img img {
-  height: 120px; /* 🔥 DIPENDEKIN */
+/* 6 ITEM */
+.menu-6 {
+  grid-template-columns: repeat(2, 1fr);
+  align-content: space-between;
 }
 
-/* TEXT SCALE */
-.title {
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-
-.desc {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.price {
-  font-size: 12px;
-  color: #d4af37;
-}
-
-/* GRID */
-.menu-grid {
-  display: grid; /* 🔥 WAJIB ADA */
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom kanan kiri */
-  gap: 12px;
-  margin: 10px 0;
+/* 8 ITEM */
+.menu-8 {
+  grid-template-columns: repeat(2, 1fr);
+  align-content: space-between;
 }
 
 /* ITEM */
-.menu-item {
+.item {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-/* IMAGE */
-.menu-item img {
+/* IMAGE BASE */
+.item img {
   width: 100%;
-  height: 120px; /* 🔥 kecil tapi proporsional */
   object-fit: cover;
-  border-radius: 4px;
-
-  /* biar nyatu */
-  filter: brightness(0.85);
+  border-radius: 6px;
 }
 
-/* TITLE */
-.menu-item .title {
-  font-size: 15px;
+/* TEXT */
+.title {
   margin-top: 6px;
-}
-
-/* PRICE */
-.menu-item .price {
-  font-size: 13px;
-  color: #d4af37;
-}
-.header {
-  text-align: center;
-}
-
-.header img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid #d4af37;
-}
-  
-.footer {
-  margin-top: auto; /* 🔥 ini kunci */
-  font-size: 10px;
-  color: #d4af37;
-  display: flex;
-  justify-content: space-between;
-}
-  
-.page-content {
-  width: 82%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-
-  text-align: center;
   color: #eaeaea;
 }
-  @media print {
 
-  .menu-grid {
-    gap: 20px;
-    align-content: space-between;
-  }
-
-  .menu-item img {
-    height: 110px;
-  }
-
+.price {
+  color: #d4af37;
 }
-  
-  @media print {
 
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
+/* === SIZE SYSTEM === */
 
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    overflow: hidden; /* 🔥 penting */
+/* 4 ITEM (BESAR) */
+.menu-4 .item img { height: 140px; }
+.menu-4 .title { font-size: 16px; }
+.menu-4 .price { font-size: 14px; }
+
+/* 6 ITEM (MEDIUM) */
+.menu-6 .item img { height: 110px; }
+.menu-6 .title { font-size: 14px; }
+.menu-6 .price { font-size: 13px; }
+
+/* 8 ITEM (KECIL) */
+.menu-8 .item img { height: 90px; }
+.menu-8 .title { font-size: 13px; }
+.menu-8 .price { font-size: 12px; }
+
+/* FOOTER */
+.footer {
+  margin-top: 10mm;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #d4af37;
+}
+
+/* PRINT FIX */
+@media print {
+
+  body {
+    margin: 0;
   }
 
   .page {
     width: 210mm;
     height: 297mm;
-    margin: 0;
-    padding: 0;
   }
 
-  .page-frame {
-    width: 190mm;
-    height: 277mm;
+  .frame {
     margin: auto;
-    position: relative;
-    transform: none; /* 🔥 matiin translate */
-  }
-
-  .page-content {
-    height: 100%;
-    padding: 10mm 0; /* 🔥 biar aman gak kepotong */
-  }
-
-  .menu-item img {
-    height: 80px; /* 🔥 kecilin dikit biar muat */
-  }
-
-  .title {
-    font-size: 12px;
-  }
-
-  .price {
-    font-size: 11px;
-  }
-
-  .page,
-  .page-frame,
-  .page-content {
     page-break-after: avoid;
-    page-break-inside: avoid;
   }
+
 }
-.footer {
-  margin-bottom: 10px;
+  
+.frame {
+  width: 180mm;   /* sebelumnya 188 */
+  height: 267mm;  /* sebelumnya 277 */
+}
+.menu {
+  margin: 10mm 0;
+}
+.menu-4 {
+  align-content: center;
+}
+
+.menu-6 {
+  align-content: space-between;
+}
+
+.menu-8 {
+  align-content: space-between;
 }
 </style>
 </head>
@@ -308,65 +193,74 @@ html, body {
 <body>
 
 <div class="page">
+  <div class="frame">
 
-  <div class="bg-black"></div>
-
-  <div class="page-frame">
-
-    <div class="page-content">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="logo">
+    <!-- HEADER -->
+    <div class="header">
       <img src="logo.png">
+      <div class="restaurant-name">OCEAN</div>
     </div>
-    <div class="restaurant-name">OCEAN</div>
+
+    <!-- MENU (GANTI CLASS SESUAI JUMLAH) -->
+    <div class="menu menu-4">
+
+      <div class="item">
+        <img src="signature.jpg">
+        <div class="title">Ocean Latte</div>
+        <div class="price">IDR 32K</div>
+      </div>
+
+      <div class="item">
+        <img src="signature.jpg">
+        <div class="title">Caramel Coffee</div>
+        <div class="price">IDR 30K</div>
+      </div>
+
+      <div class="item">
+        <img src="signature.jpg">
+        <div class="title">Matcha Latte</div>
+        <div class="price">IDR 28K</div>
+      </div>
+
+      <div class="item">
+        <img src="signature.jpg">
+        <div class="title">Chocolate Blend</div>
+        <div class="price">IDR 29K</div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div>@ocean.srg</div>
+      <div>ocean.srg</div>
+      <div>ocean.srg</div>
+    </div>
+
   </div>
-
- <div class="menu-grid">
-
-  <div class="menu-item">
-    <img src="signature.jpg">
-    <div class="title">Ocean Latte</div>
-    <div class="price">IDR 32K</div>
-  </div>
-
-  <div class="menu-item">
-    <img src="signature.jpg">
-    <div class="title">Caramel Coffee</div>
-    <div class="price">IDR 30K</div>
-  </div>
-
-  <div class="menu-item">
-    <img src="signature.jpg">
-    <div class="title">Matcha Latte</div>
-    <div class="price">IDR 28K</div>
-  </div>
-
-  <div class="menu-item">
-    <img src="signature.jpg">
-    <div class="title">Chocolate Blend</div>
-    <div class="price">IDR 29K</div>
-  </div>
-
 </div>
+<script>
+function applyMenuLayout() {
+  const menu = document.querySelector('.menu');
+  if (!menu) return;
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div>@ocean.srg</div>
-    <div>ocean.srg</div>
-    <div>ocean.srg</div>
-  </div>
+  const items = menu.querySelectorAll('.item').length;
 
-</div>
-  </div>
+  menu.classList.remove('menu-4', 'menu-6', 'menu-8');
 
-</div>
-</div>
-<div class="nav-arrow prev">
-  <a href="page2.html">
-    <i class="fas fa-arrow-left"></i>
-  </a>
-</div>
+  if (items <= 4) {
+    menu.classList.add('menu-4');
+  } else if (items <= 6) {
+    menu.classList.add('menu-6');
+  } else {
+    menu.classList.add('menu-8');
+  }
+
+  // 🔥 TAMBAHAN: kasih marker buat debug print
+  menu.setAttribute('data-count', items);
+}
+
+window.addEventListener('DOMContentLoaded', applyMenuLayout);
+</script>
 </body>
 </html>
