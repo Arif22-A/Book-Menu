@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ocean Menu - Signature</title>
+<title>Ocean Menu</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,190 +13,141 @@
 
 /* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Playfair Display', serif;
-  background: radial-gradient(circle, #111 0%, #000 100%);
+  background: #0a0a0a;
 }
 
-/* PAGE A4 */
+/* FULL SCREEN CENTER */
 .page {
   width: 100vw;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  overflow: hidden; /* 🔥 NO SCROLL */
 }
 
-/* FRAME */
+/* FRAME (A4 RATIO) */
 .frame {
-  width: min(90vw, 420px);
+  width: min(92vw, 420px);
   aspect-ratio: 210 / 297;
 
   border: 1.5px solid #d4af37;
-  padding: 20px 12px;
+  padding: 20px;
 
   display: flex;
   flex-direction: column;
 }
 
-/* INNER BORDER */
-.frame::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(212,175,55,0.5);
-}
-
 /* HEADER */
 .header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
-.logo img {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+.logo {
+  width: 36px;
+  height: 36px;
   border: 1px solid #d4af37;
+  border-radius: 50%;
+  margin: auto;
 }
 
 .restaurant-name {
-  font-size: 16px;
-  letter-spacing: 4px;
   color: #d4af37;
+  letter-spacing: 3px;
+  font-size: 16px;
   margin-top: 6px;
 }
 
 .tagline {
-  font-size: 10px;
   color: #aaa;
-  letter-spacing: 2px;
+  font-size: 10px;
   margin-top: 4px;
 }
 
 .divider {
-  width: 60%;
   height: 1px;
   background: rgba(212,175,55,0.4);
   margin: 8px auto;
+  width: 60%;
 }
 
 .info {
+  color: #ccc;
   font-size: 10px;
-  color: #aaa;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* MENU GRID BASE */
+/* CONTENT GRID */
 .menu {
   flex: 1;
-  min-height: 0;
 
   display: grid;
-  gap: 12px; /* 🔥 JANGAN BESAR */
-}
-
-/* === AUTO LAYOUT === */
-
-/* 4 ITEM */
-.menu-4 {
   grid-template-columns: repeat(2, 1fr);
-  align-content: center;
-}
+  grid-auto-rows: 1fr;
 
-/* 6 ITEM */
-.menu-6 {
-  grid-template-columns: repeat(2, 1fr);
-  align-content: space-between;
-}
-
-/* 8 ITEM */
-.menu-8 {
-  grid-template-columns: repeat(2, 1fr);
-  align-content: space-between;
+  gap: 10px;
 }
 
 /* ITEM */
 .item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  overflow: hidden;
+  text-align: center;
 }
 
-/* IMAGE BASE */
+/* IMAGE */
 .item img {
   width: 100%;
+  height: 80px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 /* TEXT */
 .title {
-  margin-top: 6px;
-  color: #eaeaea;
+  color: #fff;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.desc {
+  color: #aaa;
+  font-size: 10px;
+  line-height: 1.3;
 }
 
 .price {
   color: #d4af37;
-}
-
-/* === SIZE SYSTEM === */
-
-/* 4 ITEM (BESAR) */
-.menu-4 .item img { height: 140px; }
-.menu-4 .title { font-size: 16px; }
-.menu-4 .price { font-size: 14px; }
-
-/* 6 ITEM (MEDIUM) */
-.menu-6 .item img { height: 110px; }
-.menu-6 .title { font-size: 14px; }
-.menu-6 .price { font-size: 13px; }
-
-/* 8 ITEM (KECIL) */
-.menu-8 .item img { height: 90px; }
-.menu-8 .title { font-size: 13px; }
-.menu-8 .price { font-size: 12px; }
-
-.menu-4 {
-  grid-template-rows: repeat(2, 1fr); /* 🔥 ini penting */
-}
-
-.menu-6 {
-  grid-template-rows: repeat(3, 1fr);
-}
-
-.menu-8 {
-  grid-template-rows: repeat(4, 1fr);
+  font-size: 11px;
+  margin-top: 2px;
 }
 
 /* FOOTER */
 .footer {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-.social-inline {
+.social {
   display: flex;
   justify-content: space-between;
   font-size: 10px;
   color: #d4af37;
 }
 
-.social-item {
+.social div {
   display: flex;
   align-items: center;
   gap: 4px;
 }
+
+/* PRINT */
 @media print {
 
   body {
@@ -206,7 +157,6 @@ body {
   .page {
     width: 210mm;
     height: 297mm;
-    overflow: visible;
   }
 
   .frame {
@@ -214,11 +164,6 @@ body {
     height: 267mm;
   }
 
-} 
-@media print {
-  .menu {
-    margin: 10mm 0;
-  }
 }
 
 </style>
@@ -231,34 +176,44 @@ body {
 
     <!-- HEADER -->
     <div class="header">
-      <img src="logo.png">
+      <div class="logo"></div>
       <div class="restaurant-name">OCEAN</div>
+      <div class="tagline">Kitchen & Lounge • EST. 2023</div>
+      <div class="divider"></div>
+      <div class="info">
+        Jl. Ahmad Yani No.34 Sragen<br>
+        0857-4102-2111 • 0857-1246-9835
+      </div>
     </div>
 
-    <!-- MENU (GANTI CLASS SESUAI JUMLAH) -->
-    <div class="menu menu-4">
+    <!-- CONTENT -->
+    <div class="menu">
 
       <div class="item">
-        <img src="signature.jpg">
+        <img src="https://via.placeholder.com/300x200">
         <div class="title">Ocean Latte</div>
+        <div class="desc">Signature coffee with ocean aroma</div>
         <div class="price">IDR 32K</div>
       </div>
 
       <div class="item">
-        <img src="signature.jpg">
+        <img src="https://via.placeholder.com/300x200">
         <div class="title">Caramel Coffee</div>
+        <div class="desc">Sweet caramel blend</div>
         <div class="price">IDR 30K</div>
       </div>
 
       <div class="item">
-        <img src="signature.jpg">
+        <img src="https://via.placeholder.com/300x200">
         <div class="title">Matcha Latte</div>
+        <div class="desc">Premium Japanese matcha</div>
         <div class="price">IDR 28K</div>
       </div>
 
       <div class="item">
-        <img src="signature.jpg">
+        <img src="https://via.placeholder.com/300x200">
         <div class="title">Chocolate Blend</div>
+        <div class="desc">Rich chocolate sensation</div>
         <div class="price">IDR 29K</div>
       </div>
 
@@ -266,35 +221,15 @@ body {
 
     <!-- FOOTER -->
     <div class="footer">
-      <div>@ocean.srg</div>
-      <div>ocean.srg</div>
-      <div>ocean.srg</div>
+      <div class="social">
+        <div><i class="fab fa-instagram"></i> @ocean.srg</div>
+        <div><i class="fab fa-facebook-f"></i> ocean.srg</div>
+        <div><i class="fab fa-tiktok"></i> ocean.srg</div>
+      </div>
     </div>
 
   </div>
 </div>
-<script>
-function applyMenuLayout() {
-  const menu = document.querySelector('.menu');
-  if (!menu) return;
 
-  const items = menu.querySelectorAll('.item').length;
-
-  menu.classList.remove('menu-4', 'menu-6', 'menu-8');
-
-  if (items <= 4) {
-    menu.classList.add('menu-4');
-  } else if (items <= 6) {
-    menu.classList.add('menu-6');
-  } else {
-    menu.classList.add('menu-8');
-  }
-
-  // 🔥 TAMBAHAN: kasih marker buat debug print
-  menu.setAttribute('data-count', items);
-}
-
-window.addEventListener('DOMContentLoaded', applyMenuLayout);
-</script>
 </body>
 </html>
