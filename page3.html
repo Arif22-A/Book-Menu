@@ -196,28 +196,56 @@ body {
     margin: 0;
   }
 
-  html, body {
+  html,
+  body {
     width: 210mm;
     height: 297mm;
-    margin: 0;
-    padding: 0;
-    background: white;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .page {
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
+    margin: 0;
     padding: 0;
     display: block;
   }
 
   .frame {
     width: 210mm;
-    min-height: 297mm;
-    border: none;
-    padding: 15mm;
+    height: 297mm;
+
+    padding: 12mm;
     margin: 0;
+
+    border: 2px solid #d4af37 !important;
+    background: #0a0a0a !important;
+
     box-sizing: border-box;
+    page-break-after: avoid;
+  }
+
+  .image-box img {
+    max-height: 85px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .desc {
+    font-size: 10px;
+  }
+
+  .price {
+    font-size: 11px;
   }
 }
   
