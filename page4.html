@@ -481,14 +481,19 @@ body {
   </a>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <script>
 async function downloadPNG() {
-  const target = document.querySelector(".frame");
+  const target = document.querySelector(".container");
+
+  if (!target) {
+    alert("Container tidak ditemukan bro 🔥");
+    return;
+  }
 
   const canvas = await html2canvas(target, {
-    scale: 6, // 🔥 ULTRA HD
+    scale: 6,
     useCORS: true,
     backgroundColor: "#0a0a0a",
     logging: false
