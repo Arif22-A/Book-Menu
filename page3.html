@@ -101,8 +101,10 @@ body {
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-content: start;
+  grid-auto-rows: 1fr;   /* 🔥 semua card tinggi sama */
+
+  gap: 12px;
+  overflow: hidden;      /* 🔥 cegah dorong footer */
 }
 
 /* ITEM */
@@ -115,7 +117,7 @@ body {
 /* FIXED IMAGE BOX */
 .image-box {
   width: 100%;
-  height: 120px;
+  height: 95px;
 
   display: flex;
   align-items: center;
@@ -143,28 +145,28 @@ body {
 /* TEXT */
 .title {
   color: #fff;
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 .desc {
   color: #aaa;
-  font-size: 10px;
-  line-height: 1.4;
+  font-size: 9px;
+  line-height: 1.35;
   margin-top: 2px;
 }
 
 .price {
   color: #d4af37;
-  font-size: 11px;
-  margin-top: 4px;
+  font-size: 10px;
+  margin-top: 3px;
 }
 
 /* FOOTER */
 .footer {
   flex-shrink: 0;
-  margin-top: 14px;
-  padding-top: 10px;
+  margin-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid rgba(212,175,55,0.2);
   text-align: center;
 }
