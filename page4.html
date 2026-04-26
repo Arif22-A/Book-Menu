@@ -345,6 +345,163 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
+/* ===== MENU CONTENT WRAPPER ===== */
+
+.menu-content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 20px 0;
+}
+
+/* ===== GARIS PEMISAH TENGAH ===== */
+
+.menu-content::after {
+  content: "";
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.45),
+    rgba(255,255,255,0.25),
+    transparent
+  );
+
+  transform: translateX(-50%);
+}
+
+/* ===== TITLE FULL WIDTH ===== */
+
+.section-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .menu-content {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-content::after {
+    display: none;
+  }
+}
+/* ===== PREMIUM PRICE STYLE ===== */
+
+.item-price {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+
+  min-width: 140px;
+  text-align: right;
+
+  color: #f5e6c8; /* gold soft tone */
+
+  position: relative;
+  padding-left: 20px;
+}
+
+/* garis kecil sebelum harga */
+.item-price::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+
+  background: rgba(245, 230, 200, 0.7);
+  transform: translateY(-50%);
+}
+
+/* hover effect halus */
+.menu-item:hover .item-price {
+  letter-spacing: 1.8px;
+  transition: 0.3s ease;
+}
+/* ===== ORNAMEN LUXURY STYLE ===== */
+
+/* title lebih mewah */
+.section-title {
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+/* garis ornamental kiri */
+.section-title::before {
+  content: "✦";
+  position: absolute;
+  left: 35%;
+  bottom: 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* garis ornamental kanan */
+.section-title::after {
+  content: "✦";
+  position: absolute;
+  right: 35%;
+  bottom: 0;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* garis bawah title */
+.section-title {
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* menu item lebih elegan */
+.menu-item {
+  position: relative;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* hover luxury */
+.menu-item:hover {
+  transform: translateY(-1px);
+  transition: 0.3s ease;
+}
+
+/* nama menu lebih classy */
+.item-name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* deskripsi lebih soft */
+.item-desc {
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 1.6;
+  margin-top: 4px;
+}
 </style>
 </head>
 
