@@ -119,7 +119,9 @@ body {
 }
 
 /* FIXED IMAGE BOX */
+/* IMAGE BOX */
 .image-box {
+  position: relative;
   width: 100%;
   height: 78px;
 
@@ -132,6 +134,7 @@ body {
   overflow: visible;
 }
 
+/* IMAGE */
 .image-box img {
   max-width: 100%;
   max-height: 100%;
@@ -142,8 +145,41 @@ body {
   object-fit: contain;
   display: block;
 
-  /* premium subtle effect */
   filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+}
+
+/* PRICE BADGE */
+.price-badge {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5d76e
+  );
+
+  color: #111;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  padding: 5px 10px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+
+  z-index: 5;
+}
+
+/* REMOVE OLD PRICE */
+.price {
+  display: none;
 }
 
 /* TEXT */
@@ -342,56 +378,55 @@ body {
 
       <div class="item">
         <div class="image-box">
-          <img src="nila-goreng.png">
-        </div>
-        <div class="title">Nila Goreng</div>
-        <div class="desc">Nila terbang,nasi,sambal</div>
-        <div class="price">IDR 30K</div>
-      </div>
+        <div class="price-badge">IDR 30K</div>
+       <img src="nila-goreng.png">
+       </div>
+       <div class="title">Nila Goreng</div>
+       <div class="desc">Nila terbang,nasi,sambal</div>
 
       <div class="item">
         <div class="image-box">
+          <div class="price-badge">IDR 26K</div>
           <img src="nasgor.png">
         </div>
         <div class="title">Nasi Goreng Special</div>
         <div class="desc">nasi goreng,telur ceplok,sate ayam</div>
-        <div class="price">IDR 24K</div>
       </div>
 
       <div class="item">
         <div class="image-box">
+          <div class="price-badge">IDR 28K</div>
           <img src="cordonbleu.png">
         </div>
         <div class="title">Chicken Cordon Bleu</div>
         <div class="desc">Chicken rolls</div>
-        <div class="price">IDR 26K</div>
       </div>
 
       <div class="item">
         <div class="image-box">
+          <div class="price-badge">IDR 20K</div>
           <img src="snitzel.png">
         </div>
         <div class="title">Chicken Schintzel</div>
         <div class="desc">Germany taste</div>
-        <div class="price">IDR 20K</div>
       </div>
 
        <div class="item">
         <div class="image-box">
+          <div class="price-badge">IDR 24K</div>
           <img src="seared-chicken.png">
         </div>
         <div class="title">Pan-seared Chicken</div>
         <div class="desc">grill chicken with creamy sauce</div>
-        <div class="price">IDR 23K</div>
       </div>
 
        <div class="item">
         <div class="image-box">
+          <div class="price-badge">IDR 24K</div>
           <img src="carbonara.png">
         </div>
         <div class="title">Pasta Carbonara</div>
         <div class="desc">Creamy pasta</div>
-        <div class="price">IDR 22K</div>
       </div>
 
     </div>
