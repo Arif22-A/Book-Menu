@@ -90,6 +90,15 @@ body.theme-warm {
   background: #5a4a35;
 }
 
+/* BACKGROUND REAL */
+.bg-black {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-main);
+  z-index: 0;
+  transition: 0.35s ease;
+}
+
 /* COVER BASE (SAMA DENGAN COVER 1) */
 .page {
   position: relative;
@@ -325,7 +334,7 @@ body.theme-warm {
 <script>
 async function downloadPNG() {
   /* 🔥 target tetap frame A4 */
-  const target = document.querySelector(".cover-frame");
+  const target = document.querySelector(".page-frame");
 
   const actions = document.querySelector(".actions");
   const themeSwitcher = document.querySelector(".theme-switcher");
