@@ -20,7 +20,7 @@
 
 body {
   font-family: 'Playfair Display', serif;
-  background: #07141d;
+  background: var(--bg-main);
 }
 
 /* PAGE */
@@ -34,6 +34,77 @@ body {
 
   padding: 20px 0;
 }
+
+/* =========================
+   THEME VARIABLES
+========================= */
+
+/* DEFAULT = sedikit gelap (deep ocean luxury) */
+:root {
+  --bg-main: #10222d;
+  --gold-main: #d4af37;
+  --gold-soft: rgba(212,175,55,0.5);
+  --text-soft: #b8b8b8;
+}
+
+/* Gelap sedang = sunset blue luxury */
+body.theme-mid {
+  --bg-main: #2f4a5a;
+  --gold-main: #f1c86a;
+  --gold-soft: rgba(241,200,106,0.5);
+  --text-soft: #f2dfc2;
+}
+
+/* Terang / hangat = golden sunset premium */
+body.theme-warm {
+  --bg-main: #6b4b3e;
+  --gold-main: #ffd98a;
+  --gold-soft: rgba(255,217,138,0.55);
+  --text-soft: #fff0d2;
+}
+/* =========================
+   COLOR SWITCHER
+========================= */
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 14px;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.theme-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: 0.25s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.12);
+}
+
+.theme-btn.dark {
+  background: #10222d;
+}
+
+.theme-btn.mid {
+  background: #18313f;
+}
+
+.theme-btn.warm {
+  background: #5a4a35;
+}
+  
 /* FRAME */
 .frame {
   width: min(94vw, 480px);
@@ -315,7 +386,16 @@ body {
 </style>
 </head>
 <body>
+ <!-- =========================
+     THEME SWITCHER
+========================= -->
 
+<div class="theme-switcher">
+  <div class="theme-btn dark" onclick="setTheme('dark')"></div>
+  <div class="theme-btn mid" onclick="setTheme('mid')"></div>
+  <div class="theme-btn warm" onclick="setTheme('warm')"></div>
+</div>
+  
 <div class="page">
   <div class="frame">
 
@@ -443,6 +523,19 @@ async function downloadPNG() {
   link.download = "ocean-menu-ultra-hd.png";
   link.href = canvas.toDataURL("image/png", 1.0);
   link.click();
+}
+</script>
+<script>
+function setTheme(mode) {
+  document.body.classList.remove("theme-mid", "theme-warm");
+
+  if (mode === "mid") {
+    document.body.classList.add("theme-mid");
+  }
+
+  if (mode === "warm") {
+    document.body.classList.add("theme-warm");
+  }
 }
 </script>
 </body>
