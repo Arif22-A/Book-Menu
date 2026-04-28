@@ -336,19 +336,35 @@ body.theme-warm {
 
 <script>
 async function downloadPNG() {
-  const target = document.querySelector(".frame");
+  const target = document.querySelector(".cover");
+  const actions = document.querySelector(".actions");
+  const themeSwitcher = document.querySelector(".theme-switcher");
+  const navArrow = document.querySelector(".nav-arrow");
+
+  /* 🔥 sembunyikan tombol sementara */
+  if (actions) actions.style.display = "none";
+  if (themeSwitcher) themeSwitcher.style.display = "none";
+  if (navArrow) navArrow.style.display = "none";
+
+  /* kasih delay kecil biar render bersih */
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: 7, // 🔥 ULTRA HD
+    scale: 5,
     useCORS: true,
-    backgroundColor: "#0a0a0a",
+    backgroundColor: null,
     logging: false
   });
 
   const link = document.createElement("a");
-  link.download = "ocean-menu-ultra-hd.png";
-  link.href = canvas.toDataURL("image/png", 1.0);
+  link.download = "ocean-menu-luxury.png";
+  link.href = canvas.toDataURL("image/png");
   link.click();
+
+  /* 🔥 tampilkan lagi setelah selesai */
+  if (actions) actions.style.display = "flex";
+  if (themeSwitcher) themeSwitcher.style.display = "flex";
+  if (navArrow) navArrow.style.display = "block";
 }
 </script>
 <script>
