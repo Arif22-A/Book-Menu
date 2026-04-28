@@ -258,6 +258,28 @@ body.theme-warm {
   }
 }
 
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 12px 20px;
+  border: 1px solid #d4af37;
+  background: #111;
+  color: #d4af37;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.actions button:hover {
+  background: #d4af37;
+  color: #000;
+}
 </style>
 </head>
 
@@ -298,12 +320,37 @@ body.theme-warm {
 
 </div>
 
+<div class="actions">
+  <button onclick="window.print()">Export PDF</button>
+  <button onclick="downloadPNG()">Download PNG</button>
+</div>
+
+
 <div class="nav-arrow next">
   <a href="page2.html">
     <i class="fas fa-arrow-right"></i>
   </a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+async function downloadPNG() {
+  const target = document.querySelector(".frame");
+
+  const canvas = await html2canvas(target, {
+    scale: 7, // 🔥 ULTRA HD
+    useCORS: true,
+    backgroundColor: "#0a0a0a",
+    logging: false
+  });
+
+  const link = document.createElement("a");
+  link.download = "ocean-menu-ultra-hd.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
+  link.click();
+}
+</script>
 <script>
 function setTheme(mode) {
   document.body.classList.remove("theme-mid", "theme-warm");
