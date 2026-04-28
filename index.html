@@ -318,12 +318,14 @@ body.theme-warm {
     </div>
   </div>
 
-</div>
-
-<div class="actions">
+  <div class="actions">
   <button onclick="window.print()">Export PDF</button>
   <button onclick="downloadPNG()">Download PNG</button>
 </div>
+  
+</div>
+
+
 
 
 <div class="nav-arrow next">
@@ -336,32 +338,34 @@ body.theme-warm {
 
 <script>
 async function downloadPNG() {
-  const target = document.querySelector(".cover");
+  /* 🔥 hanya ambil area frame A4 */
+  const target = document.querySelector(".cover-frame");
+
   const actions = document.querySelector(".actions");
   const themeSwitcher = document.querySelector(".theme-switcher");
   const navArrow = document.querySelector(".nav-arrow");
 
-  /* 🔥 sembunyikan tombol sementara */
+  /* sembunyikan tombol sementara */
   if (actions) actions.style.display = "none";
   if (themeSwitcher) themeSwitcher.style.display = "none";
   if (navArrow) navArrow.style.display = "none";
 
-  /* kasih delay kecil biar render bersih */
+  /* delay kecil agar render bersih */
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: 5,
+    scale: 7, /* lebih tajam untuk print */
     useCORS: true,
     backgroundColor: null,
     logging: false
   });
 
   const link = document.createElement("a");
-  link.download = "ocean-menu-luxury.png";
-  link.href = canvas.toDataURL("image/png");
+  link.download = "ocean-menu-HD.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
   link.click();
 
-  /* 🔥 tampilkan lagi setelah selesai */
+  /* tampilkan lagi */
   if (actions) actions.style.display = "flex";
   if (themeSwitcher) themeSwitcher.style.display = "flex";
   if (navArrow) navArrow.style.display = "block";
