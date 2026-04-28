@@ -20,6 +20,76 @@ html, body {
   font-family: 'Playfair Display', serif;
 }
 
+/* =========================
+   THEME VARIABLES
+========================= */
+
+/* DEFAULT = sedikit gelap (deep ocean luxury) */
+:root {
+  --bg-main: #10222d;
+  --gold-main: #d4af37;
+  --gold-soft: rgba(212,175,55,0.5);
+  --text-soft: #b8b8b8;
+}
+
+/* Gelap sedang = sunset blue luxury */
+body.theme-mid {
+  --bg-main: #2f4a5a;
+  --gold-main: #f1c86a;
+  --gold-soft: rgba(241,200,106,0.5);
+  --text-soft: #f2dfc2;
+}
+
+/* Terang / hangat = golden sunset premium */
+body.theme-warm {
+  --bg-main: #6b4b3e;
+  --gold-main: #ffd98a;
+  --gold-soft: rgba(255,217,138,0.55);
+  --text-soft: #fff0d2;
+}
+/* =========================
+   COLOR SWITCHER
+========================= */
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 14px;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.theme-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: 0.25s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.12);
+}
+
+.theme-btn.dark {
+  background: #10222d;
+}
+
+.theme-btn.mid {
+  background: #18313f;
+}
+
+.theme-btn.warm {
+  background: #5a4a35;
+}
+
 /* COVER BASE (SAMA DENGAN COVER 1) */
 .page {
   position: relative;
@@ -28,14 +98,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* BACKGROUND HITAM (ANTI PRINT BUG) */
-.bg-black {
-  position: absolute;
-  inset: 0;
-  background: #10222d;
-  z-index: 0;
 }
 
 /* FRAME */
@@ -184,6 +246,33 @@ html, body {
   font-size: 15px;
   line-height: 1.8;
 }
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 12px 20px;
+  border: 1px solid #d4af37;
+  background: #111;
+  color: #d4af37;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.actions button:hover {
+  background: #d4af37;
+  color: #000;
+}
+.actions {
+  position: relative;
+  z-index: 9999;
+}
 </style>
 </head>
 
@@ -213,6 +302,12 @@ html, body {
 </div>
 
 </div>
+
+<div class="actions">
+  <button onclick="window.print()">Export PDF</button>
+  <button onclick="downloadPNG()">Download PNG</button>
+</div>
+  
 <div class="nav-arrow prev">
   <a href="index.html">
     <i class="fas fa-arrow-left"></i>
@@ -224,5 +319,67 @@ html, body {
     <i class="fas fa-arrow-right"></i>
   </a>
 </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+async function downloadPNG() {
+  /* 🔥 target tetap frame A4 */
+  const target = document.querySelector(".cover-frame");
+
+  const actions = document.querySelector(".actions");
+  const themeSwitcher = document.querySelector(".theme-switcher");
+  const navArrow = document.querySelector(".nav-arrow");
+
+  /* ambil warna theme aktif dari background asli */
+  const bgColor = getComputedStyle(
+    document.querySelector(".bg-black")
+  ).backgroundColor;
+
+  /* sembunyikan tombol sementara */
+  if (actions) actions.style.display = "none";
+  if (themeSwitcher) themeSwitcher.style.display = "none";
+  if (navArrow) navArrow.style.display = "none";
+
+  /* 🔥 kasih background langsung ke frame sementara */
+  const originalBg = target.style.background;
+  target.style.background = bgColor;
+
+  /* delay kecil biar render bersih */
+  await new Promise(resolve => setTimeout(resolve, 200));
+
+  const canvas = await html2canvas(target, {
+    scale: 7,
+    useCORS: true,
+    backgroundColor: bgColor, /* penting: jangan null */
+    logging: false
+  });
+
+  const link = document.createElement("a");
+  link.download = "ocean-menu-HD.png";
+  link.href = canvas.toDataURL("image/png", 1.0);
+  link.click();
+
+  /* balikin seperti semula */
+  target.style.background = originalBg;
+
+  if (actions) actions.style.display = "flex";
+  if (themeSwitcher) themeSwitcher.style.display = "flex";
+  if (navArrow) navArrow.style.display = "block";
+}
+</script>
+<script>
+function setTheme(mode) {
+  document.body.classList.remove("theme-mid", "theme-warm");
+
+  if (mode === "mid") {
+    document.body.classList.add("theme-mid");
+  }
+
+  if (mode === "warm") {
+    document.body.classList.add("theme-warm");
+  }
+}
+</script>
 </body>
 </html>
