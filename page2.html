@@ -18,6 +18,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Playfair Display', serif;
+  background: var(--bg-main);
 }
 
 /* =========================
@@ -286,6 +287,17 @@ body.theme-warm {
 </head>
 
 <body>
+
+  <!-- =========================
+     THEME SWITCHER
+========================= -->
+
+<div class="theme-switcher">
+  <div class="theme-btn dark" onclick="setTheme('dark')"></div>
+  <div class="theme-btn mid" onclick="setTheme('mid')"></div>
+  <div class="theme-btn warm" onclick="setTheme('warm')"></div>
+</div>
+
 
 <div class="page">
 
