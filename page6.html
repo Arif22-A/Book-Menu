@@ -88,21 +88,24 @@ body {
   overflow: hidden;
 }
 
-/* BACKGROUND IMAGE */
+/* BACKGROUND IMAGE - FULL MOON CENTER */
 .menu-section::before {
   content: "";
   position: absolute;
 
+  /* 🔥 full moon bulat sempurna */
   width: 420px;
-  height: 520px;
+  height: 420px;
 
-  right: -180px;
+  /* 🔥 center posisi */
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   background: url("hero.png") center/cover no-repeat;
 
-  border-radius: 50% 0 0 50%;
+  /* 🔥 lingkaran sempurna */
+  border-radius: 50%;
 
   border: 1.5px solid rgba(212,175,55,0.28);
 
@@ -112,7 +115,6 @@ body {
 
   opacity: 0.20;
   z-index: 0;
-
   pointer-events: none;
 }
   
