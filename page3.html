@@ -511,19 +511,48 @@ body.theme-warm {
 
 <script>
 async function downloadPNG() {
-  const target = document.querySelector(".frame");
+  /* 🔥 target tetap frame A4 */
+  const target = document.querySelector(".page-frame");
+
+  const actions = document.querySelector(".actions");
+  const themeSwitcher = document.querySelector(".theme-switcher");
+  const navArrow = document.querySelector(".nav-arrow");
+
+  /* ambil warna theme aktif dari background asli */
+  const bgColor = getComputedStyle(
+    document.querySelector(".bg-black")
+  ).backgroundColor;
+
+  /* sembunyikan tombol sementara */
+  if (actions) actions.style.display = "none";
+  if (themeSwitcher) themeSwitcher.style.display = "none";
+  if (navArrow) navArrow.style.display = "none";
+
+  /* 🔥 kasih background langsung ke frame sementara */
+  const originalBg = target.style.background;
+  target.style.background = bgColor;
+
+  /* delay kecil biar render bersih */
+  await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: 7, // 🔥 ULTRA HD
+    scale: 7,
     useCORS: true,
-    backgroundColor: "#0a0a0a",
+    backgroundColor: bgColor, /* penting: jangan null */
     logging: false
   });
 
   const link = document.createElement("a");
-  link.download = "ocean-menu-ultra-hd.png";
+  link.download = "ocean-menu-HD.png";
   link.href = canvas.toDataURL("image/png", 1.0);
   link.click();
+
+  /* balikin seperti semula */
+  target.style.background = originalBg;
+
+  if (actions) actions.style.display = "flex";
+  if (themeSwitcher) themeSwitcher.style.display = "flex";
+  if (navArrow) navArrow.style.display = "block";
 }
 </script>
 <script>
