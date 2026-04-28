@@ -170,33 +170,6 @@ body {
   letter-spacing: 1px;
 }
 
-.next-page {
-  display: flex;
-  justify-content: flex-end; /* ke kanan */
-  margin-top: 20px;
-}
-
-.next-page a {
-  color: #d4af37;
-  font-size: 18px;
-  text-decoration: none;
-  border: 1px solid #d4af37;
-  border-radius: 50%;
-  padding: 8px 10px;
-  transition: 0.3s;
-}
-
-/* HOVER EFFECT */
-.next-page a:hover {
-  background: #d4af37;
-  color: #000;
-}
-.next-page {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
 @page {
   size: A4;
   margin: 10mm;
@@ -249,6 +222,42 @@ body {
     margin-bottom: 40px;
   }
 
+}
+
+/* NAVIGATION ARROWS */
+.nav-arrow {
+  position: fixed;
+  bottom: 20px;
+  z-index: 999;
+}
+
+.nav-arrow a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.nav-arrow a:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* POSISI */
+.nav-arrow.next {
+  right: 20px;
+}
+
+.nav-arrow.prev {
+  left: 20px;
 }
 </style>
 </head>
@@ -391,9 +400,15 @@ body {
   </div>
 </div>
   
-  <div class="next-page">
-  <a href="index.html">
+ <div class="nav-arrow prev">
+  <a href="page4.html">
     <i class="fas fa-arrow-left"></i>
+  </a>
+</div>
+
+  <div class="nav-arrow next">
+  <a href="page6.html">
+    <i class="fas fa-arrow-right"></i>
   </a>
 </div>
 </div>
