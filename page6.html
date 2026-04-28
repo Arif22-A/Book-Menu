@@ -594,6 +594,52 @@ body {
     font-size: 13px;
   }
 }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 34px;
+  margin-top: 40px;
+}
+
+.menu-category {
+  padding: 10px 0;
+}
+
+.section-title {
+  font-size: 18px;
+  color: #d4af37;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  padding-bottom: 8px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.item-name {
+  font-size: 15px;
+  color: #fff;
+}
+
+.item-desc {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.item-price {
+  font-size: 13px;
+  color: #d4af37;
+  white-space: nowrap;
+}
 </style>
 </head>
 
@@ -617,117 +663,69 @@ body {
 
 <!-- MENU -->
 <div class="menu-section">
-  <div class="menu-content">
+  <div class="menu-grid">
 
+  <!-- CATEGORY 1 -->
+  <div class="menu-category">
     <div class="section-title">Milk Based</div>
 
-    <!-- LEFT COLUMN -->
-    <div class="menu-column">
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Strawberry Milkshake</div>
-          <div class="item-desc">Strawberry blend with fresh milk</div>
-        </div>
-        <div class="item-price">IDR.22K</div>
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Strawberry Milkshake</div>
+        <div class="item-desc">Strawberry blend with fresh milk</div>
       </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Lychee Milkshake</div>
-          <div class="item-desc">Lychee blend with fresh milk</div>
-        </div>
-        <div class="item-price">IDR.22K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Choco Hazelnut Ice/Hot</div>
-          <div class="item-desc">Choco, hazelnut flavour, fresh milk</div>
-        </div>
-        <div class="item-price">IDR.28K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Choco Salted Caramel Ice/Hot</div>
-          <div class="item-desc">Choco, salted caramel flavour, fresh milk</div>
-        </div>
-        <div class="item-price">IDR.28K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Choco Caramel Ice/Hot</div>
-          <div class="item-desc">Choco, caramel flavour, fresh milk</div>
-        </div>
-        <div class="item-price">IDR.28K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Choco Vanilla Ice/Hot</div>
-          <div class="item-desc">Choco, vanilla flavour, fresh milk</div>
-        </div>
-        <div class="item-price">IDR.28K</div>
-      </div>
-
+      <div class="item-price">IDR.22K</div>
     </div>
 
-    <!-- RIGHT COLUMN -->
-    <div class="menu-column">
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Chocolate</div>
-          <div class="item-desc">Choco, fresh milk, simple syrup</div>
-        </div>
-        <div class="item-price">IDR Ice.22K / Hot.20K</div>
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Lychee Milkshake</div>
+        <div class="item-desc">Lychee blend with fresh milk</div>
       </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Taro Latte</div>
-          <div class="item-desc">Taro powder, fresh milk, simple syrup</div>
-        </div>
-        <div class="item-price">IDR Ice.22K / Hot.20K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Matcha Latte</div>
-          <div class="item-desc">Matcha powder, fresh milk, simple syrup</div>
-        </div>
-        <div class="item-price">IDR Ice.25K / Hot.21K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">RedVelvet Latte</div>
-          <div class="item-desc">Red Velvet powder, fresh milk, simple syrup</div>
-        </div>
-        <div class="item-price">IDR Ice.28K / Hot.25K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Velvet Float Ice</div>
-          <div class="item-desc">Red Velvet powder, fresh milk, simple syrup, ice cream</div>
-        </div>
-        <div class="item-price">IDR.25K</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Sweet Yaku Berry Ice</div>
-          <div class="item-desc">Strawberry flavour, fresh milk, Yakult</div>
-        </div>
-        <div class="item-price">IDR.20.5K</div>
-      </div>
-
+      <div class="item-price">IDR.22K</div>
     </div>
-
   </div>
+
+  <!-- CATEGORY 2 -->
+  <div class="menu-category">
+    <div class="section-title">Coffee Based</div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Americano</div>
+        <div class="item-desc">Espresso with hot water</div>
+      </div>
+      <div class="item-price">IDR.20K</div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3 -->
+  <div class="menu-category">
+    <div class="section-title">Mocktail</div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Ocean Blue</div>
+        <div class="item-desc">Blue curacao with soda</div>
+      </div>
+      <div class="item-price">IDR.24K</div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4 -->
+  <div class="menu-category">
+    <div class="section-title">Signature Special</div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Ocean Signature</div>
+        <div class="item-desc">Special house premium recipe</div>
+      </div>
+      <div class="item-price">IDR.35K</div>
+    </div>
+  </div>
+
+</div>
 </div>
 <div class="footer">
   
