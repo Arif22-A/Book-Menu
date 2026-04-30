@@ -844,17 +844,18 @@ body.theme-warm {
   display: none !important;
 }
 
- .menu-photo {
-  position: relative;
-  display: block;
-  height: 100%;
+.menu-photo {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-/* IMAGE TANPA FRAME */
+/* IMAGE TANPA FRAME, LEBIH BESAR */
 .menu-photo img {
-  position: absolute;
-  width: 90px; /* kecil & elegan */
+  width: 100%;
+  max-width: 160px; /* biar nggak kegedean */
   height: auto;
+
   object-fit: contain;
 
   border-radius: 0;
