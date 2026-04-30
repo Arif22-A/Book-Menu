@@ -843,6 +843,19 @@ body.theme-warm {
   content: none !important;
   display: none !important;
 }
+
+  .menu-photo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.menu-photo img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 </style>
 </head>
 
@@ -921,6 +934,14 @@ body.theme-warm {
     <div class="item-price">IDR 28K</div>
   </div>
 
+    <div class="menu-item">
+    <div>
+      <div class="item-name">Seblak</div>
+      <div class="item-desc">Sauce Choices : Seafood/mix meat ball/sausage</div>
+    </div>
+    <div class="item-price">IDR 28K</div>
+  </div>
+
 </div>
 
   <!-- CATEGORY -->
@@ -962,6 +983,15 @@ body.theme-warm {
     </div>
     <div class="item-price">IDR 24K</div>
   </div>
+</div>
+
+    <!-- PHOTO FILL -->
+<div class="menu-photo">
+
+  <img src="calamary.png">
+  <img src="ebi.png">
+  <img src="snitzel.png">
+
 </div>
 
   
