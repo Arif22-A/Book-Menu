@@ -822,6 +822,27 @@ body.theme-warm {
 
   opacity: 1;
 }
+
+/* ===== CLEAN CATEGORY TITLE (FIX FINAL) ===== */
+.menu-category .section-title {
+  position: static;
+  text-align: left;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  color: #d4af37;
+}
+
+/* MATIKAN ORNAMEN ✦ */
+.menu-category .section-title::before,
+.menu-category .section-title::after {
+  content: none !important;
+  display: none !important;
+}
 </style>
 </head>
 
