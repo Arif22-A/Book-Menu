@@ -775,6 +775,52 @@ body.theme-warm {
     grid-template-columns: 1fr;
   }
 }
+
+.menu-category {
+  position: relative;
+  padding: 10px 0;
+}
+
+/* HEADER (ICON + TITLE) */
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+/* ICON TRANSPARAN */
+.category-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+  transition: 0.3s;
+}
+
+.menu-category:hover .category-icon {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+/* TITLE */
+.menu-category .section-title {
+  font-size: 18px;
+  letter-spacing: 2px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-icon {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  width: 55px;
+  opacity: 0.15;
+}
 </style>
 </head>
 
@@ -810,88 +856,84 @@ body.theme-warm {
   <div class="menu-grid">
 
   <!-- CATEGORY -->
-  <div class="menu-category">
+ <div class="menu-category">
 
-    <div class="category-image">
-      <img src="burger.png">
-    </div>
-
+  <div class="category-header">
+    <img src="burger.png" class="category-icon">
     <div class="section-title">BURGER</div>
+  </div>
+
+  <div class="menu-item">
+    <div>
+      <div class="item-name">Beef Burger</div>
+      <div class="item-desc">Bun, beef patty, cheese, salad</div>
+    </div>
+    <div class="item-price">IDR 25K</div>
+  </div>
 
     <div class="menu-item">
-      <div>
-        <div class="item-name">Beef Burger</div>
-        <div class="item-desc">Bun, beef patty, cheese, salad, fries</div>
-      </div>
-      <div class="item-price">IDR 25K</div>
+    <div>
+      <div class="item-name">Chicken Burger</div>
+      <div class="item-desc">Bun,chicken patty, cheese, salad</div>
     </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Chicken Burger</div>
-        <div class="item-desc">Bun,chicken patty, cheese, salad, fries</div>
-      </div>
-      <div class="item-price">IDR 23K</div>
-    </div>
-
+    <div class="item-price">IDR 23K</div>
   </div>
+
+</div>
 
   <!-- CATEGORY -->
-  <div class="menu-category">
+ <div class="menu-category">
 
-    <div class="category-image">
-      <img src="juice.jpg">
-    </div>
-
-    <div class="section-title">SEASONAL JUICE</div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Dragon Fruit</div>
-        <div class="item-desc">Fresh dragon fruit, syrup</div>
-      </div>
-      <div class="item-price">IDR 18K</div>
-    </div>
-
+  <div class="category-header">
+    <img src="cordonbleu.png" class="category-icon">
+    <div class="section-title">ROLLS</div>
   </div>
+
+  <div class="menu-item">
+    <div>
+      <div class="item-name">Chicken Cordon Bleu</div>
+      <div class="item-desc">Chicken roll,mix vegie,sauce,french fries,salad</div>
+    </div>
+    <div class="item-price">IDR 28K</div>
+  </div>
+
+</div>
 
   <!-- CATEGORY -->
-  <div class="menu-category">
+ <div class="menu-category">
 
-    <div class="category-image">
-      <img src="tea.jpg">
-    </div>
-
-    <div class="section-title">TEA BASED</div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Black Tea</div>
-        <div class="item-desc">Premium tea selection</div>
-      </div>
-      <div class="item-price">IDR 8K</div>
-    </div>
-
+  <div class="category-header">
+    <img src="burger.png" class="category-icon">
+    <div class="section-title">BURGER</div>
   </div>
+
+  <div class="menu-item">
+    <div>
+      <div class="item-name">Beef Burger</div>
+      <div class="item-desc">Bun, beef patty, cheese, salad</div>
+    </div>
+    <div class="item-price">IDR 25K</div>
+  </div>
+
+</div>
 
   <!-- CATEGORY -->
-  <div class="menu-category">
+ <div class="menu-category">
 
-    <div class="category-image">
-      <img src="mocktail.jpg">
-    </div>
-
-    <div class="section-title">MOCKTAIL</div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Sun Blue</div>
-        <div class="item-desc">Ocean signature drink</div>
-      </div>
-      <div class="item-price">IDR 25K</div>
-    </div>
-
+  <div class="category-header">
+    <img src="burger.png" class="category-icon">
+    <div class="section-title">BURGER</div>
   </div>
+
+  <div class="menu-item">
+    <div>
+      <div class="item-name">Beef Burger</div>
+      <div class="item-desc">Bun, beef patty, cheese, salad</div>
+    </div>
+    <div class="item-price">IDR 25K</div>
+  </div>
+
+</div>
 
 </div>
 </div>
