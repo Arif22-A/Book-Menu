@@ -722,6 +722,59 @@ body.theme-warm {
   color: #d4af37;
   white-space: nowrap;
 }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 40px;
+  margin-top: 40px;
+}
+
+.menu-category {
+  position: relative;
+  padding: 20px;
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 16px;
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(6px);
+}
+
+/* IMAGE CATEGORY */
+.category-image {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: 0.4s;
+}
+
+.menu-category:hover .category-image img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* TITLE */
+.menu-category .section-title {
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
@@ -755,114 +808,81 @@ body.theme-warm {
   <div class="section-title-a">BREAD,STEAK & PASTA</div>
 
   <div class="menu-grid">
-    
-  <!-- CATEGORY 1 -->
+
+  <!-- CATEGORY -->
   <div class="menu-category">
+
+    <div class="category-image">
+      <img src="burger.jpg">
+    </div>
+
     <div class="section-title">BURGER</div>
 
     <div class="menu-item">
       <div>
         <div class="item-name">Beef Burger</div>
-        <div class="item-desc">Bun,beef paties,cheese,mix salad,frech fries</div>
+        <div class="item-desc">Bun, beef patty, cheese, salad, fries</div>
       </div>
-      <div class="item-price">IDR.25K</div>
+      <div class="item-price">IDR 25K</div>
     </div>
 
-
-  <!-- CATEGORY 2 -->
-  <div class="menu-category">
-    <div class="section-title">Ocean Seasonal Juice</div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Dragon Fruit Juice</div>
-        <div class="item-desc">Dragon fruits,simple syrup,skm,</div>
-      </div>
-      <div class="item-price">IDR.18K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Avocado Butter</div>
-        <div class="item-desc">Avocado fruits,simple syrup,skm,</div>
-      </div>
-      <div class="item-price">IDR.20K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Strawberry Juice</div>
-        <div class="item-desc">Strawberry fresh,simple syrup,skm</div>
-      </div>
-      <div class="item-price">IDR.19K</div>
-    </div>
-    
   </div>
 
-  <!-- CATEGORY 3 -->
+  <!-- CATEGORY -->
   <div class="menu-category">
-    <div class="section-title">Tea Based</div>
 
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Black Tea </div>
-        <div class="item-desc">Special tea from the ocean</div>
-      </div>
-      <div class="item-price">IDR Ice.8K/Hot.7K</div>
+    <div class="category-image">
+      <img src="juice.jpg">
     </div>
+
+    <div class="section-title">SEASONAL JUICE</div>
 
     <div class="menu-item">
       <div>
-        <div class="item-name">Lemon Tea </div>
-        <div class="item-desc">Special lemon tea from the ocean</div>
+        <div class="item-name">Dragon Fruit</div>
+        <div class="item-desc">Fresh dragon fruit, syrup</div>
       </div>
-      <div class="item-price">IDR Ice.15K/Hot.14K</div>
+      <div class="item-price">IDR 18K</div>
     </div>
 
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Lychee Tea </div>
-        <div class="item-desc">Black tea,lychee flavour,lychee fresh</div>
-      </div>
-      <div class="item-price">IDR Ice.19K/Hot.17K</div>
-    </div>
   </div>
 
-  <!-- CATEGORY 4 -->
+  <!-- CATEGORY -->
   <div class="menu-category">
-    <div class="section-title">Mocktail & Mojito</div>
+
+    <div class="category-image">
+      <img src="tea.jpg">
+    </div>
+
+    <div class="section-title">TEA BASED</div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Black Tea</div>
+        <div class="item-desc">Premium tea selection</div>
+      </div>
+      <div class="item-price">IDR 8K</div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY -->
+  <div class="menu-category">
+
+    <div class="category-image">
+      <img src="mocktail.jpg">
+    </div>
+
+    <div class="section-title">MOCKTAIL</div>
 
     <div class="menu-item">
       <div>
         <div class="item-name">Sun Blue</div>
-        <div class="item-desc">Special drink from ocean</div>
+        <div class="item-desc">Ocean signature drink</div>
       </div>
-      <div class="item-price">IDR.25K</div>
+      <div class="item-price">IDR 25K</div>
     </div>
 
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Berry Blue</div>
-        <div class="item-desc">Strawberry & blue curacao flavour,soda</div>
-      </div>
-      <div class="item-price">IDR.23K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Aquamarine</div>
-        <div class="item-desc">Strawberry & blue curacao flavour,passion fruits,soda</div>
-      </div>
-      <div class="item-price">IDR.19K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Lychee Mojito</div>
-        <div class="item-desc">Lychee flavour,pepermint,lychee fresh,soda water</div>
-      </div>
-      <div class="item-price">IDR.23K</div>
-    </div>
   </div>
 
 </div>
