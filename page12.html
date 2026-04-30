@@ -848,22 +848,34 @@ body.theme-warm {
   display: flex;
   flex-direction: column;
   gap: 18px;
-
-  align-items: center; 
-  padding-right: 20px;   /* kasih jarak */
+  align-items: center;
 }
 
-/* IMAGE TANPA FRAME, LEBIH BESAR */
-.menu-photo img {
+/* WRAPPER */
+.photo-item {
+  position: relative;
+  text-align: center;
+}
+
+/* IMAGE */
+.photo-item img {
   width: 100%;
-  max-width: 160px; /* biar nggak kegedean */
+  max-width: 160px;
   height: auto;
-
   object-fit: contain;
-
-  border-radius: 0;
-  background: none;
 }
+
+/* LABEL */
+.photo-label {
+  margin-top: 6px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #d4af37;
+
+  text-align: center;
+}
+  
 /* ===== PROMO BADGE ===== */
 .promo-badge {
   position: absolute;
@@ -1036,12 +1048,22 @@ body.theme-warm {
   </div>
 </div>
 
-    <!-- PHOTO FILL -->
-<div class="menu-photo">
+  <div class="menu-photo">
 
-  <img src="calamary.png">
-  <img src="ebi.png">
-  <img src="snitzel.png">
+  <div class="photo-item">
+    <img src="calamary.png">
+    <div class="photo-label">Calamary</div>
+  </div>
+
+  <div class="photo-item">
+    <img src="ebi.png">
+    <div class="photo-label">Ebi Furai</div>
+  </div>
+
+  <div class="photo-item">
+    <img src="seared-chicken.png">
+    <div class="photo-label">Pan Seared Chicken</div>
+  </div>
 
 </div>
 
