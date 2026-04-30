@@ -864,7 +864,43 @@ body.theme-warm {
   border-radius: 0;
   background: none;
 }
+/* ===== PROMO BADGE ===== */
+.promo-badge {
+  position: absolute;
+  top: -18px;
+  right: 20px;
 
+  background: #d4af37;
+  color: #000;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  padding: 8px 14px;
+  border-radius: 20px;
+
+  white-space: nowrap;
+}
+
+/* ekor chat */
+.promo-badge::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 20px;
+
+  width: 10px;
+  height: 10px;
+  background: #d4af37;
+
+  transform: rotate(45deg);
+}
+.promo-badge {
+  background: transparent;
+  color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.6);
+}
 </style>
 </head>
 
@@ -895,7 +931,13 @@ body.theme-warm {
  
 <!-- MENU -->
 <div class="menu-section">
+
+   <div class="promo-badge">
+  All Menu Free Ice Tea
+</div>
+  
   <div class="section-title-a">SCHOOL FOOD FUN</div>
+ 
 
   <div class="menu-grid">
 
@@ -913,7 +955,7 @@ body.theme-warm {
       <div class="item-desc">Topping :Chicken/seafood/sausage/meat ball mix</div>
       <div class="item-desc">Level choices :1-5</div>
     </div>
-    <div class="item-price">IDR 25K</div>
+    <div class="item-price">IDR 20K</div>
   </div>
 
     <div class="menu-item">
@@ -922,7 +964,7 @@ body.theme-warm {
       <div class="item-desc">Topping :Chicken/seafood/sausage/meat ball mix</div>
       <div class="item-desc">Level choices :1-5</div>
     </div>
-    <div class="item-price">IDR 25K</div>
+    <div class="item-price">IDR 20K</div>
   </div>
 
 </div>
@@ -948,7 +990,7 @@ body.theme-warm {
       <div class="item-name">Seblak</div>
       <div class="item-desc">Sauce Choices : Seafood/mix meat ball/sausage</div>
     </div>
-    <div class="item-price">IDR 28K</div>
+    <div class="item-price">IDR 17K</div>
   </div>
 
 </div>
@@ -966,7 +1008,7 @@ body.theme-warm {
       <div class="item-name">Calamary Frity</div>
       <div class="item-desc">Crispy squid,wedges potato,mix salad,black pepper cream sauce</div>
     </div>
-    <div class="item-price">IDR 24K</div>
+    <div class="item-price">IDR 26K</div>
   </div>
 
    <div class="menu-item">
@@ -974,7 +1016,7 @@ body.theme-warm {
       <div class="item-name">Ebi Furai</div>
       <div class="item-desc">Crispy Prawn,wedges potato,mix salad,black pepper cream sauce</div>
     </div>
-    <div class="item-price">IDR 24K</div>
+    <div class="item-price">IDR 26K</div>
   </div>
 
     <div class="menu-item">
@@ -982,7 +1024,7 @@ body.theme-warm {
       <div class="item-name">Chicken Schintzel (snitzel)</div>
       <div class="item-desc">Crispy chicken,wedges potato,mix salad,black pepper cream sauce</div>
     </div>
-    <div class="item-price">IDR 24K</div>
+    <div class="item-price">IDR 20K</div>
   </div>
 
     <div class="menu-item">
