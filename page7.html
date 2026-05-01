@@ -416,7 +416,17 @@ body.theme-warm {
   background: #d4af37;
   color: #000;
 }
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
 
+/* 🔥 khusus yang kecil */
+.zoom-fix img {
+  transform: scale(1.2); /* bisa lu adjust: 1.1 - 1.4 */
+}
 </style>
 </head>
 <body>
@@ -450,14 +460,14 @@ body.theme-warm {
 
     <div class="menu">
 
-      <div class="item">
-        <div class="image-box">
-        <div class="price-badge">IDR 45K</div>
-       <img src="iga-mercon.png">
-       </div>
-       <div class="title">Iga Mercon</div>
-       <div class="desc">Nasi,iga mercon,lalapan</div>
-      </div>
+     <div class="item zoom-fix">
+  <div class="image-box">
+    <div class="price-badge">IDR 45K</div>
+    <img src="iga-mercon.png">
+  </div>
+  <div class="title">Iga Mercon</div>
+  <div class="desc">Nasi,iga mercon,lalapan</div>
+</div>
 
       <div class="item">
         <div class="image-box">
