@@ -361,51 +361,138 @@ body.theme-warm {
     color: #ffffff !important;
   }
 
-  /* ========================= */
-/* BUNDLE CARD */
-/* ========================= */
+ /* ================================= */
+/* WEEKDAY TITLE */
+/* ================================= */
 
-.bundle-card{
+.weekday-title{
 
-  display:flex;
-  overflow:hidden;
+  text-align:center;
 
-  border-radius:32px;
+  font-size:34px;
+
+  letter-spacing:4px;
+
+  margin-top:40px;
+  margin-bottom:50px;
+
+  color:var(--gold-main);
+
+  position:relative;
+}
+
+.weekday-title::after{
+
+  content:"";
+
+  width:90px;
+  height:2px;
+
+  background:var(--gold-main);
+
+  display:block;
+
+  margin:18px auto 0;
+}
+
+/* ================================= */
+/* DAY LABEL */
+/* ================================= */
+
+.day-label{
+
+  display:inline-block;
+
+  padding:12px 26px;
+
+  margin-top:35px;
+  margin-bottom:25px;
+
+  border-radius:999px;
 
   background:
   linear-gradient(
     135deg,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.03)
+    rgba(212,175,55,0.18),
+    rgba(255,255,255,0.04)
+  );
+
+  border:1px solid rgba(212,175,55,0.35);
+
+  color:var(--gold-main);
+
+  font-size:15px;
+  letter-spacing:3px;
+  font-weight:700;
+}
+
+/* ================================= */
+/* GRID */
+/* ================================= */
+
+.bundle-grid{
+
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:28px;
+}
+
+/* ================================= */
+/* CARD */
+/* ================================= */
+
+.bundle-card{
+
+  display:flex;
+
+  overflow:hidden;
+
+  border-radius:34px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
   );
 
   border:1px solid rgba(255,255,255,0.08);
 
-  backdrop-filter:blur(14px);
-
   box-shadow:
-  0 10px 40px rgba(0,0,0,0.35);
+  0 12px 40px rgba(0,0,0,0.38);
 
-  margin:auto;
-  max-width:1000px;
+  backdrop-filter:blur(12px);
+
+  transition:0.35s;
 }
 
-/* ========================= */
+.bundle-card:hover{
+
+  transform:translateY(-4px);
+
+  border-color:rgba(212,175,55,0.35);
+}
+
+/* ================================= */
 /* LEFT */
-/* ========================= */
+/* ================================= */
 
 .bundle-food{
 
-  flex:1.4;
+  flex:1.5;
 
-  padding:50px;
-
-  position:relative;
+  padding:45px;
 }
 
 .promo-label{
 
   display:inline-block;
+
+  padding:10px 18px;
+
+  border-radius:999px;
 
   background:
   linear-gradient(135deg,#d4af37,#f6e27a);
@@ -416,20 +503,14 @@ body.theme-warm {
   font-weight:700;
   letter-spacing:2px;
 
-  padding:10px 18px;
-
-  border-radius:999px;
-
   margin-bottom:24px;
 }
 
 .bundle-food h2{
 
-  font-size:52px;
+  font-size:48px;
 
-  font-family:'Playfair Display',serif;
-
-  margin-bottom:18px;
+  margin-bottom:14px;
 
   line-height:1.1;
 }
@@ -438,16 +519,16 @@ body.theme-warm {
 
   color:rgba(255,255,255,0.72);
 
-  line-height:1.9;
+  line-height:1.8;
 
-  max-width:520px;
+  margin-bottom:28px;
 
-  margin-bottom:32px;
+  max-width:500px;
 }
 
-/* ========================= */
+/* ================================= */
 /* PRICE */
-/* ========================= */
+/* ================================= */
 
 .price-area{
 
@@ -460,28 +541,35 @@ body.theme-warm {
 
   text-decoration:line-through;
 
-  color:rgba(255,255,255,0.4);
+  color:rgba(255,255,255,0.35);
 
   font-size:18px;
 }
 
 .new-price{
 
-  font-size:48px;
+  font-size:46px;
   font-weight:700;
 
   color:#f6e27a;
 }
 
-/* ========================= */
+/* ================================= */
 /* RIGHT */
-/* ========================= */
+/* ================================= */
 
 .bundle-drink{
 
-  width:320px;
+  width:280px;
 
   position:relative;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  padding:35px;
 
   background:
   linear-gradient(
@@ -489,25 +577,18 @@ body.theme-warm {
     rgba(255,255,255,0.08),
     rgba(255,255,255,0.03)
   );
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  padding:35px;
 }
 
 .bundle-drink img{
 
-  width:180px;
-  height:180px;
+  width:170px;
+  height:170px;
 
   object-fit:cover;
 
-  border-radius:24px;
+  border-radius:26px;
 
-  margin-bottom:22px;
+  margin-bottom:20px;
 
   box-shadow:
   0 10px 30px rgba(0,0,0,0.35);
@@ -516,19 +597,18 @@ body.theme-warm {
 .free-title{
 
   position:absolute;
-  top:22px;
-  right:22px;
+
+  top:20px;
+  right:20px;
 
   background:
   linear-gradient(135deg,#00d2ff,#3a7bd5);
-
-  color:white;
 
   padding:10px 18px;
 
   border-radius:999px;
 
-  font-size:13px;
+  font-size:12px;
   font-weight:700;
   letter-spacing:2px;
 
@@ -540,14 +620,12 @@ body.theme-warm {
 
   font-size:24px;
 
-  font-family:'Playfair Display',serif;
-
   text-align:center;
 }
 
-/* ========================= */
+/* ================================= */
 /* MOBILE */
-/* ========================= */
+/* ================================= */
 
 @media(max-width:850px){
 
@@ -556,11 +634,11 @@ body.theme-warm {
 }
 
 .bundle-food{
-  padding:35px;
+  padding:34px;
 }
 
 .bundle-food h2{
-  font-size:40px;
+  font-size:38px;
 }
 
 .bundle-drink{
@@ -599,54 +677,218 @@ body.theme-warm {
   </div>
 </div>
 
-<!-- ========================= -->
-<!-- BUNDLING PROMO CARD -->
-<!-- ========================= -->
+<!-- ================================= -->
+<!-- WEEKDAY PROMO SECTION -->
+<!-- ================================= -->
 
-<div class="bundle-card">
+<div class="weekday-title">
+  WEEKDAY BUNDLING PROMO
+</div>
 
-  <!-- LEFT SIDE -->
-  <div class="bundle-food">
+<!-- ================= SENIN ================= -->
 
-    <div class="promo-label">
-      MOONDAY
+<div class="day-label">
+  MONDAY
+</div>
+
+<div class="bundle-grid">
+
+  <!-- CARD 1 -->
+  <div class="bundle-card">
+
+    <div class="bundle-food">
+
+      <div class="promo-label">
+        WEEKDAY DEAL
+      </div>
+
+      <h2>
+        Mie Leveling
+      </h2>
+
+      <p>
+        Spicy noodle with premium seasoning and special Ocean sambal.
+      </p>
+
+      <div class="price-area">
+
+        <span class="old-price">
+          Rp 38.000
+        </span>
+
+        <span class="new-price">
+          Rp 28K
+        </span>
+
+      </div>
+
     </div>
 
-    <h2>
-      Crispy Chicken Combo
-    </h2>
+    <div class="bundle-drink">
 
-    <p>
-      Crispy fried chicken with french fries and special signature sauce.
-      Perfect combo for weekday lunch promotion.
-    </p>
+      <div class="free-title">
+        FREE
+      </div>
 
-    <div class="price-area">
+      <img src="mojito.png">
 
-      <span class="old-price">
-        Rp 78.000
-      </span>
-
-      <span class="new-price">
-        Rp 49K
-      </span>
+      <div class="drink-name">
+        Mojito
+      </div>
 
     </div>
 
   </div>
 
-  <!-- RIGHT SIDE -->
-  <div class="bundle-drink">
+  <!-- CARD 2 -->
+  <div class="bundle-card">
 
-    <div class="free-title">
-      FREE
+    <div class="bundle-food">
+
+      <div class="promo-label">
+        CHEF SPECIAL
+      </div>
+
+      <h2>
+        Soup Iga
+      </h2>
+
+      <p>
+        Tender beef rib soup with rich broth and premium spices.
+      </p>
+
+      <div class="price-area">
+
+        <span class="old-price">
+          Rp 58.000
+        </span>
+
+        <span class="new-price">
+          Rp 45K
+        </span>
+
+      </div>
+
     </div>
 
-    <img src="cookies-cream.png">
+    <div class="bundle-drink">
 
-    <div class="drink-name">
-      Cookies & Cream
+      <div class="free-title">
+        FREE
+      </div>
+
+      <img src="tea.png">
+
+      <div class="drink-name">
+        Tea Hot / Ice
+      </div>
+
     </div>
+
+  </div>
+
+</div>
+
+<!-- ================= SELASA ================= -->
+
+<div class="day-label">
+  TUESDAY
+</div>
+
+<div class="bundle-grid">
+
+  <!-- CARD 1 -->
+  <div class="bundle-card">
+
+    <div class="bundle-food">
+
+      <div class="promo-label">
+        HOT PROMO
+      </div>
+
+      <h2>
+        Seblak
+      </h2>
+
+      <p>
+        Savory spicy seblak with seafood topping and homemade sauce.
+      </p>
+
+      <div class="price-area">
+
+        <span class="old-price">
+          Rp 35.000
+        </span>
+
+        <span class="new-price">
+          Rp 25K
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="bundle-drink">
+
+      <div class="free-title">
+        FREE
+      </div>
+
+      <img src="esteh.png">
+
+      <div class="drink-name">
+        Es Teh
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="bundle-card">
+
+    <div class="bundle-food">
+
+      <div class="promo-label">
+        BEST SELLER
+      </div>
+
+      <h2>
+        Iga Gongso
+      </h2>
+
+      <p>
+        Sweet savory beef ribs with signature Ocean gongso sauce.
+      </p>
+
+      <div class="price-area">
+
+        <span class="old-price">
+          Rp 62.000
+        </span>
+
+        <span class="new-price">
+          Rp 49K
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="bundle-drink">
+
+      <div class="free-title">
+        FREE
+      </div>
+
+      <img src="kopi-cendol.png">
+
+      <div class="drink-name">
+        Es Kopi Cendol
+      </div>
+
+    </div>
+
   </div>
 
 </div>
