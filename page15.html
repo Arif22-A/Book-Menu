@@ -882,19 +882,19 @@ body.theme-warm {
 }
 
 /* ================================= */
-/* LIST STYLE BUNDLE */
+/* SIMPLE BUNDLE */
 /* ================================= */
 
-.list-card{
+.simple-bundle{
 
   padding:0;
 
   overflow:hidden;
 }
 
-/* ROW */
+/* LINE */
 
-.promo-row{
+.promo-line{
 
   display:flex;
 
@@ -907,75 +907,103 @@ body.theme-warm {
   padding:14px 18px;
 }
 
-/* LEFT */
+/* LEFT WRAP */
 
-.promo-left{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
+.promo-food-wrap{
 
   flex:1;
 }
 
 /* FOOD NAME */
 
-.food-name{
+.promo-food{
 
   font-size:15px;
 
   color:#fff;
+
+  margin-bottom:3px;
+}
+
+/* DESCRIPTION */
+
+.promo-desc{
+
+  font-size:11px;
+
+  color:rgba(255,255,255,0.58);
+
+  line-height:1.4;
 }
 
 /* ARROW */
 
-.promo-middle{
+.promo-arrow{
 
   color:var(--gold-main);
 
-  font-size:18px;
-
   opacity:0.7;
+
+  font-size:15px;
 }
 
 /* RIGHT */
 
-.promo-right{
+.promo-drink{
 
   display:flex;
 
   align-items:center;
 
   gap:8px;
+
+  position:relative;
 }
 
-/* FREE MINI */
+/* IMAGE */
 
-.free-mini{
+.promo-drink img{
+
+  width:34px;
+  height:34px;
+
+  object-fit:cover;
+
+  border-radius:10px;
+
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* DRINK TEXT */
+
+.promo-drink span{
+
+  font-size:12px;
+
+  color:#ddd;
+}
+
+/* FREE BADGE */
+
+.free-badge-mini{
+
+  position:absolute;
+
+  top:-10px;
+  left:28px;
 
   background:
   linear-gradient(135deg,#00d2ff,#3a7bd5);
 
-  padding:4px 8px;
+  padding:2px 6px;
 
   border-radius:999px;
 
-  font-size:7px;
+  font-size:6px;
 
   font-weight:700;
 
   letter-spacing:1px;
-}
-
-/* DRINK */
-
-.drink-name-mini{
-
-  font-size:13px;
-
-  color:#ddd;
 }
 
 /* DIVIDER */
@@ -988,7 +1016,7 @@ body.theme-warm {
   linear-gradient(
     90deg,
     transparent,
-    rgba(212,175,55,0.2),
+    rgba(212,175,55,0.18),
     transparent
   );
 }
@@ -1023,78 +1051,82 @@ body.theme-warm {
   </div>
 </div>
 
-<div class="bundle-grid">
+<div class="bundle-card simple-bundle">
 
-  <div class="bundle-card list-card">
+  <!-- ROW 1 -->
+  <div class="promo-line">
 
-    <!-- ITEM -->
-    <div class="promo-row">
+    <!-- LEFT -->
+    <div class="promo-food-wrap">
 
-      <div class="promo-left">
-
-        <div class="promo-label">
-          DEAL
-        </div>
-
-        <span class="food-name">
-          Mie Leveling
-        </span>
-
+      <div class="promo-food">
+        Mie Leveling
       </div>
 
-      <div class="promo-middle">
-        →
-      </div>
-
-      <div class="promo-right">
-
-        <div class="free-mini">
-          FREE
-        </div>
-
-        <span class="drink-name-mini">
-          Mojito
-        </span>
-
+      <div class="promo-desc">
+        Spicy noodle favorite
       </div>
 
     </div>
 
-    <!-- DIVIDER -->
+    <!-- ARROW -->
+    <div class="promo-arrow">
+      →
+    </div>
 
-    <div class="compact-divider"></div>
+    <!-- RIGHT -->
+    <div class="promo-drink">
 
-    <!-- ITEM -->
-
-    <div class="promo-row">
-
-      <div class="promo-left">
-
-        <div class="promo-label">
-          SPECIAL
-        </div>
-
-        <span class="food-name">
-          Soup Iga
-        </span>
-
+      <div class="free-badge-mini">
+        FREE
       </div>
 
-      <div class="promo-middle">
-        →
+      <img src="mojito.png">
+
+      <span>
+        Mojito
+      </span>
+
+    </div>
+
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="compact-divider"></div>
+
+  <!-- ROW 2 -->
+  <div class="promo-line">
+
+    <!-- LEFT -->
+    <div class="promo-food-wrap">
+
+      <div class="promo-food">
+        Soup Iga
       </div>
 
-      <div class="promo-right">
-
-        <div class="free-mini">
-          FREE
-        </div>
-
-        <span class="drink-name-mini">
-          Tea Hot/Ice
-        </span>
-
+      <div class="promo-desc">
+        Tender beef rib soup
       </div>
+
+    </div>
+
+    <!-- ARROW -->
+    <div class="promo-arrow">
+      →
+    </div>
+
+    <!-- RIGHT -->
+    <div class="promo-drink">
+
+      <div class="free-badge-mini">
+        FREE
+      </div>
+
+      <img src="tea.png">
+
+      <span>
+        Tea Hot/Ice
+      </span>
 
     </div>
 
