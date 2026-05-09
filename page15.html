@@ -1020,6 +1020,145 @@ body.theme-warm {
     transparent
   );
 }
+
+/* ================================= */
+/* DOUBLE BUNDLE */
+/* ================================= */
+
+.double-bundle{
+
+  padding:0;
+
+  overflow:hidden;
+}
+
+/* ROW */
+
+.bundle-row{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  padding:16px 18px;
+}
+
+/* LEFT */
+
+.bundle-left{
+
+  flex:1;
+}
+
+/* FOOD */
+
+.food-title{
+
+  font-size:16px;
+
+  margin:5px 0 4px;
+
+  color:#fff;
+}
+
+/* DESC */
+
+.food-desc{
+
+  font-size:11px;
+
+  line-height:1.4;
+
+  color:rgba(255,255,255,0.58);
+
+  margin-bottom:10px;
+
+  max-width:300px;
+}
+
+/* ARROW */
+
+.bundle-arrow{
+
+  color:var(--gold-main);
+
+  font-size:18px;
+
+  opacity:0.7;
+}
+
+/* RIGHT */
+
+.bundle-right{
+
+  width:95px;
+
+  position:relative;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+/* IMAGE */
+
+.bundle-right img{
+
+  width:44px;
+  height:44px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+
+  margin-bottom:5px;
+
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* DRINK */
+
+.drink-title{
+
+  font-size:10px;
+
+  text-align:center;
+
+  line-height:1.2;
+
+  color:#ddd;
+}
+
+/* FREE */
+
+.free-title-mini{
+
+  position:absolute;
+
+  top:-2px;
+  right:4px;
+
+  background:
+  linear-gradient(135deg,#00d2ff,#3a7bd5);
+
+  padding:3px 6px;
+
+  border-radius:999px;
+
+  font-size:6px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+}
 </style>
 </head>
 
@@ -1051,89 +1190,122 @@ body.theme-warm {
   </div>
 </div>
 
-<div class="bundle-card simple-bundle">
+<div class="bundle-card double-bundle">
 
-  <!-- ROW 1 -->
-  <div class="promo-line">
+  <!-- PROMO 1 -->
+  <div class="bundle-row">
 
     <!-- LEFT -->
-    <div class="promo-food-wrap">
+    <div class="bundle-left">
 
-      <div class="promo-food">
+      <div class="promo-label">
+        WEEKDAY DEAL
+      </div>
+
+      <div class="food-title">
         Mie Leveling
       </div>
 
-      <div class="promo-desc">
-        Spicy noodle favorite
+      <div class="food-desc">
+        Spicy noodle favorite with signature sambal.
+      </div>
+
+      <div class="price-area">
+
+        <span class="old-price">
+          Rp 38.000
+        </span>
+
+        <span class="new-price">
+          Rp 28K
+        </span>
+
       </div>
 
     </div>
 
     <!-- ARROW -->
-    <div class="promo-arrow">
+    <div class="bundle-arrow">
       →
     </div>
 
     <!-- RIGHT -->
-    <div class="promo-drink">
+    <div class="bundle-right">
 
-      <div class="free-badge-mini">
+      <div class="free-title-mini">
         FREE
       </div>
 
       <img src="mojito.png">
 
-      <span>
+      <div class="drink-title">
         Mojito
-      </span>
+      </div>
 
     </div>
 
   </div>
 
   <!-- DIVIDER -->
+
   <div class="compact-divider"></div>
 
-  <!-- ROW 2 -->
-  <div class="promo-line">
+  <!-- PROMO 2 -->
+  <div class="bundle-row">
 
     <!-- LEFT -->
-    <div class="promo-food-wrap">
+    <div class="bundle-left">
 
-      <div class="promo-food">
+      <div class="promo-label">
+        CHEF SPECIAL
+      </div>
+
+      <div class="food-title">
         Soup Iga
       </div>
 
-      <div class="promo-desc">
-        Tender beef rib soup
+      <div class="food-desc">
+        Tender beef rib soup with premium spices.
+      </div>
+
+      <div class="price-area">
+
+        <span class="old-price">
+          Rp 58.000
+        </span>
+
+        <span class="new-price">
+          Rp 45K
+        </span>
+
       </div>
 
     </div>
 
     <!-- ARROW -->
-    <div class="promo-arrow">
+    <div class="bundle-arrow">
       →
     </div>
 
     <!-- RIGHT -->
-    <div class="promo-drink">
+    <div class="bundle-right">
 
-      <div class="free-badge-mini">
+      <div class="free-title-mini">
         FREE
       </div>
 
       <img src="tea.png">
 
-      <span>
+      <div class="drink-title">
         Tea Hot/Ice
-      </span>
+      </div>
 
     </div>
 
   </div>
 
 </div>
-
+  
 <div class="footer">
   
   <div class="social-inline">
