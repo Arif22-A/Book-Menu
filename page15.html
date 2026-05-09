@@ -361,6 +361,213 @@ body.theme-warm {
     color: #ffffff !important;
   }
 
+  /* ========================= */
+/* BUNDLE CARD */
+/* ========================= */
+
+.bundle-card{
+
+  display:flex;
+  overflow:hidden;
+
+  border-radius:32px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.03)
+  );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.35);
+
+  margin:auto;
+  max-width:1000px;
+}
+
+/* ========================= */
+/* LEFT */
+/* ========================= */
+
+.bundle-food{
+
+  flex:1.4;
+
+  padding:50px;
+
+  position:relative;
+}
+
+.promo-label{
+
+  display:inline-block;
+
+  background:
+  linear-gradient(135deg,#d4af37,#f6e27a);
+
+  color:#111;
+
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  margin-bottom:24px;
+}
+
+.bundle-food h2{
+
+  font-size:52px;
+
+  font-family:'Playfair Display',serif;
+
+  margin-bottom:18px;
+
+  line-height:1.1;
+}
+
+.bundle-food p{
+
+  color:rgba(255,255,255,0.72);
+
+  line-height:1.9;
+
+  max-width:520px;
+
+  margin-bottom:32px;
+}
+
+/* ========================= */
+/* PRICE */
+/* ========================= */
+
+.price-area{
+
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.old-price{
+
+  text-decoration:line-through;
+
+  color:rgba(255,255,255,0.4);
+
+  font-size:18px;
+}
+
+.new-price{
+
+  font-size:48px;
+  font-weight:700;
+
+  color:#f6e27a;
+}
+
+/* ========================= */
+/* RIGHT */
+/* ========================= */
+
+.bundle-drink{
+
+  width:320px;
+
+  position:relative;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:35px;
+}
+
+.bundle-drink img{
+
+  width:180px;
+  height:180px;
+
+  object-fit:cover;
+
+  border-radius:24px;
+
+  margin-bottom:22px;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.35);
+}
+
+.free-title{
+
+  position:absolute;
+  top:22px;
+  right:22px;
+
+  background:
+  linear-gradient(135deg,#00d2ff,#3a7bd5);
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+
+  box-shadow:
+  0 5px 20px rgba(0,210,255,0.35);
+}
+
+.drink-name{
+
+  font-size:24px;
+
+  font-family:'Playfair Display',serif;
+
+  text-align:center;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:850px){
+
+.bundle-card{
+  flex-direction:column;
+}
+
+.bundle-food{
+  padding:35px;
+}
+
+.bundle-food h2{
+  font-size:40px;
+}
+
+.bundle-drink{
+  width:100%;
+}
+
+}
 </style>
 </head>
 
@@ -392,141 +599,57 @@ body.theme-warm {
   </div>
 </div>
 
-<!-- MENU -->
-<div class="menu-section">
-  <div class="menu-content">
-    <div class="section-title">NUSANTARA TASTE</div>
+<!-- ========================= -->
+<!-- BUNDLING PROMO CARD -->
+<!-- ========================= -->
 
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Iga Gongso</div>
-        <div class="item-desc">Nasi,iga gongso,lalapan</div>
-      </div>
-      <div class="item-price">IDR.45.K</div>
+<div class="bundle-card">
+
+  <!-- LEFT SIDE -->
+  <div class="bundle-food">
+
+    <div class="promo-label">
+      WEEKDAY BUNDLE
     </div>
 
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Iga Bakar</div>
-        <div class="item-desc">Nasi,iga bakar,sambal,lalapan</div>
-      </div>
-      <div class="item-price">IDR.42K</div>
-    </div>
+    <h2>
+      Crispy Chicken Combo
+    </h2>
 
+    <p>
+      Crispy fried chicken with french fries and special signature sauce.
+      Perfect combo for weekday lunch promotion.
+    </p>
 
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Soup Iga</div>
-        <div class="item-desc">Nasi,soup iga,sambal</div>
-      </div>
-      <div class="item-price">IDR.40K</div>
-    </div>
+    <div class="price-area">
 
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Kampung Gongso</div>
-        <div class="item-desc">Nasi,ayam kampung gongso,lalapan</div>
-      </div>
-      <div class="item-price">IDR.43K</div>
-    </div>
+      <span class="old-price">
+        Rp 78.000
+      </span>
 
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Kampung Mercon</div>
-        <div class="item-desc">Nasi,ayam kampung mercon,lalapan</div>
-      </div>
-      <div class="item-price">IDR.43K</div>
-    </div>
+      <span class="new-price">
+        Rp 49K
+      </span>
 
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Kampung Kremes</div>
-        <div class="item-desc">Nasi,ayam kampung Kremes,sambal,lalapan</div>
-      </div>
-      <div class="item-price">IDR.40K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Kampung Bakar</div>
-        <div class="item-desc">Nasi,ayam kampung bakar,sambal,lalapan</div>
-      </div>
-      <div class="item-price">IDR.40K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Nila Gongso</div>
-        <div class="item-desc">Nasi,nila gongso,lalapan</div>
-      </div>
-      <div class="item-price">IDR.29K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Nila Bakar</div>
-        <div class="item-desc">Nasi,nila bakar,sambal,lalapan</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Nila Mercon</div>
-        <div class="item-desc">Nasi,nila mercon,lalapan</div>
-      </div>
-      <div class="item-price">IDR.29K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ikan Woku</div>
-        <div class="item-desc">Nasi,ikan woku,lalapan</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-     <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Woku</div>
-        <div class="item-desc">Nasi,ayam woku,lalapan</div>
-      </div>
-      <div class="item-price">IDR.26K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Gongso Negri</div>
-        <div class="item-desc">Nasi,ayam gongso negri,lalapan</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-      <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ayam Mercon Negri</div>
-        <div class="item-desc">Nasi,ayam mercon negri,lalapan</div>
-      </div>
-      <div class="item-price">IDR.28K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ati Gongso</div>
-        <div class="item-desc">Nasi,ati gongso,lalapan</div>
-      </div>
-      <div class="item-price">IDR.21K</div>
-    </div>
-
-    <div class="menu-item">
-      <div>
-        <div class="item-name">Nasi Ati Mercon</div>
-        <div class="item-desc">Nasi,ati mercon,lalapan</div>
-      </div>
-      <div class="item-price">IDR.21K</div>
     </div>
 
   </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="bundle-drink">
+
+    <div class="free-title">
+      FREE
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1f0d5?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="drink-name">
+      Ice Lychee Tea
+    </div>
+
+  </div>
+
 </div>
 <div class="footer">
   
