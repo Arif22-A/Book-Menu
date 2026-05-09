@@ -530,17 +530,11 @@ body.theme-warm {
   gap:10px;
 }
 
-/* ================================= */
-/* CARD SUPER COMPACT */
-/* ================================= */
-
 .bundle-card{
 
   display:flex;
-  align-items:center;
-  justify-content:space-between;
 
-  padding:10px 14px;
+  flex-direction:column;
 
   border-radius:18px;
 
@@ -553,16 +547,24 @@ body.theme-warm {
 
   border:1px solid rgba(255,255,255,0.05);
 
-  min-height:82px;
-
-  transition:0.25s;
+  overflow:hidden;
 }
+/* ROW PER PROMO */
 
-.bundle-card:hover{
+.bundle-row{
 
-  border-color:rgba(212,175,55,0.25);
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  padding:16px 18px;
 }
-
 /* ================================= */
 /* LEFT */
 /* ================================= */
