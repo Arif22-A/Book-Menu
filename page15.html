@@ -880,6 +880,118 @@ body.theme-warm {
 
   color:#ddd;
 }
+
+/* ================================= */
+/* LIST STYLE BUNDLE */
+/* ================================= */
+
+.list-card{
+
+  padding:0;
+
+  overflow:hidden;
+}
+
+/* ROW */
+
+.promo-row{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  padding:14px 18px;
+}
+
+/* LEFT */
+
+.promo-left{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  flex:1;
+}
+
+/* FOOD NAME */
+
+.food-name{
+
+  font-size:15px;
+
+  color:#fff;
+}
+
+/* ARROW */
+
+.promo-middle{
+
+  color:var(--gold-main);
+
+  font-size:18px;
+
+  opacity:0.7;
+}
+
+/* RIGHT */
+
+.promo-right{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+/* FREE MINI */
+
+.free-mini{
+
+  background:
+  linear-gradient(135deg,#00d2ff,#3a7bd5);
+
+  padding:4px 8px;
+
+  border-radius:999px;
+
+  font-size:7px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+}
+
+/* DRINK */
+
+.drink-name-mini{
+
+  font-size:13px;
+
+  color:#ddd;
+}
+
+/* DIVIDER */
+
+.compact-divider{
+
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,0.2),
+    transparent
+  );
+}
 </style>
 </head>
 
@@ -913,84 +1025,74 @@ body.theme-warm {
 
 <div class="bundle-grid">
 
-  <div class="bundle-card compact-card">
+  <div class="bundle-card list-card">
 
-    <!-- ITEM 1 -->
-    <div class="compact-item">
+    <!-- ITEM -->
+    <div class="promo-row">
 
-      <div class="food-side">
+      <div class="promo-left">
 
         <div class="promo-label">
-          WEEKDAY DEAL
+          DEAL
         </div>
 
-        <h3>Mie Leveling</h3>
-
-        <div class="price-line">
-
-          <span class="old-price">
-            Rp 38.000
-          </span>
-
-          <span class="new-price">
-            Rp 28K
-          </span>
-
-        </div>
+        <span class="food-name">
+          Mie Leveling
+        </span>
 
       </div>
 
-      <div class="drink-side">
+      <div class="promo-middle">
+        →
+      </div>
+
+      <div class="promo-right">
 
         <div class="free-mini">
           FREE
         </div>
 
-        <img src="mojito.png">
-
-        <span>Mojito</span>
+        <span class="drink-name-mini">
+          Mojito
+        </span>
 
       </div>
 
     </div>
 
-    <!-- GARIS -->
+    <!-- DIVIDER -->
+
     <div class="compact-divider"></div>
 
-    <!-- ITEM 2 -->
-    <div class="compact-item">
+    <!-- ITEM -->
 
-      <div class="food-side">
+    <div class="promo-row">
+
+      <div class="promo-left">
 
         <div class="promo-label">
-          CHEF SPECIAL
+          SPECIAL
         </div>
 
-        <h3>Soup Iga</h3>
-
-        <div class="price-line">
-
-          <span class="old-price">
-            Rp 58.000
-          </span>
-
-          <span class="new-price">
-            Rp 45K
-          </span>
-
-        </div>
+        <span class="food-name">
+          Soup Iga
+        </span>
 
       </div>
 
-      <div class="drink-side">
+      <div class="promo-middle">
+        →
+      </div>
+
+      <div class="promo-right">
 
         <div class="free-mini">
           FREE
         </div>
 
-        <img src="tea.png">
-
-        <span>Tea Hot/Ice</span>
+        <span class="drink-name-mini">
+          Tea Hot/Ice
+        </span>
 
       </div>
 
@@ -999,7 +1101,6 @@ body.theme-warm {
   </div>
 
 </div>
-
 
 <div class="footer">
   
