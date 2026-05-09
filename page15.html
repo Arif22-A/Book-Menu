@@ -519,38 +519,48 @@ body.theme-warm {
 /* CARD */
 /* ================================= */
 
+/* ================================= */
+/* GRID */
+/* ================================= */
+
+.bundle-grid{
+
+  display:grid;
+
+  gap:10px;
+}
+
+/* ================================= */
+/* CARD SUPER COMPACT */
+/* ================================= */
+
 .bundle-card{
 
   display:flex;
-
   align-items:center;
+  justify-content:space-between;
 
-  overflow:hidden;
+  padding:10px 14px;
 
-  border-radius:22px;
+  border-radius:18px;
 
   background:
   linear-gradient(
     135deg,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.02)
+    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.015)
   );
 
-  border:1px solid rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.05);
 
-  box-shadow:
-  0 6px 22px rgba(0,0,0,0.28);
+  min-height:82px;
 
-  min-height:150px;
-
-  transition:0.3s;
+  transition:0.25s;
 }
 
 .bundle-card:hover{
 
-  transform:translateY(-2px);
-
-  border-color:rgba(212,175,55,0.28);
+  border-color:rgba(212,175,55,0.25);
 }
 
 /* ================================= */
@@ -561,14 +571,16 @@ body.theme-warm {
 
   flex:1;
 
-  padding:24px 26px;
+  padding-right:10px;
 }
+
+/* LABEL */
 
 .promo-label{
 
   display:inline-block;
 
-  padding:6px 12px;
+  padding:3px 8px;
 
   border-radius:999px;
 
@@ -577,33 +589,37 @@ body.theme-warm {
 
   color:#111;
 
-  font-size:9px;
+  font-size:7px;
   font-weight:700;
-  letter-spacing:1.5px;
+  letter-spacing:1px;
 
-  margin-bottom:14px;
+  margin-bottom:6px;
 }
+
+/* TITLE */
 
 .bundle-food h2{
 
   font-size:16px;
 
-  margin-bottom:8px;
-
   line-height:1.1;
+
+  margin-bottom:4px;
 }
+
+/* DESC */
 
 .bundle-food p{
 
-  color:rgba(255,255,255,0.68);
+  font-size:10px;
 
-  line-height:1.5;
+  line-height:1.4;
 
-  margin-bottom:18px;
+  color:rgba(255,255,255,0.6);
 
-  font-size:12px;
+  margin-bottom:8px;
 
-  max-width:430px;
+  max-width:320px;
 }
 
 /* ================================= */
@@ -614,21 +630,21 @@ body.theme-warm {
 
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:8px;
 }
 
 .old-price{
 
+  font-size:10px;
+
+  color:rgba(255,255,255,0.3);
+
   text-decoration:line-through;
-
-  color:rgba(255,255,255,0.35);
-
-  font-size:13px;
 }
 
 .new-price{
 
-  font-size:16px;
+  font-size:18px;
   font-weight:700;
 
   color:#f6e27a;
@@ -640,35 +656,30 @@ body.theme-warm {
 
 .bundle-drink{
 
-  width:180px;
-
-  position:relative;
+  width:110px;
 
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
-  padding:18px;
+  position:relative;
 }
 
-/* FOTO MINIMALIS */
+/* IMAGE */
 
 .bundle-drink img{
 
-  width:82px;
-  height:82px;
+  width:46px;
+  height:46px;
+
+  border-radius:12px;
 
   object-fit:cover;
 
-  border-radius:18px;
-
-  margin-bottom:10px;
+  margin-bottom:5px;
 
   border:1px solid rgba(255,255,255,0.08);
-
-  box-shadow:
-  0 4px 15px rgba(0,0,0,0.25);
 }
 
 /* FREE BADGE */
@@ -677,33 +688,33 @@ body.theme-warm {
 
   position:absolute;
 
-  top:12px;
-  right:12px;
+  top:-2px;
+  right:0;
+
+  padding:3px 6px;
+
+  border-radius:999px;
 
   background:
   linear-gradient(135deg,#00d2ff,#3a7bd5);
 
-  padding:5px 10px;
-
-  border-radius:999px;
-
-  font-size:12px;
+  font-size:7px;
   font-weight:700;
-  letter-spacing:1px;
 
-  box-shadow:
-  0 4px 12px rgba(0,210,255,0.25);
+  letter-spacing:1px;
 }
 
 /* DRINK NAME */
 
 .drink-name{
 
-  font-size:14px;
+  font-size:10px;
 
   text-align:center;
 
-  line-height:1.3;
+  line-height:1.2;
+
+  color:#ddd;
 }
 
 /* ================================= */
@@ -713,28 +724,35 @@ body.theme-warm {
 @media(max-width:850px){
 
 .bundle-card{
-  flex-direction:row;
-}
 
-.bundle-food{
-  padding:18px;
+  min-height:76px;
+
+  padding:9px 10px;
 }
 
 .bundle-food h2{
-  font-size:16px;
+  font-size:14px;
 }
 
-.bundle-drink{
-  width:130px;
-}
-
-.bundle-drink img{
-  width:65px;
-  height:65px;
+.bundle-food p{
+  font-size:9px;
 }
 
 .new-price{
-  font-size:16px;
+  font-size:15px;
+}
+
+.bundle-drink{
+  width:90px;
+}
+
+.bundle-drink img{
+  width:38px;
+  height:38px;
+}
+
+.drink-name{
+  font-size:9px;
 }
 
 }
