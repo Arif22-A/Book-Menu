@@ -756,6 +756,130 @@ body.theme-warm {
 }
 
 }
+
+/* ================================= */
+/* COMPACT DOUBLE PROMO CARD */
+/* ================================= */
+
+.compact-card{
+
+  padding:0;
+
+  overflow:hidden;
+}
+
+/* ITEM */
+
+.compact-item{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:14px 18px;
+}
+
+/* GARIS PEMBATAS */
+
+.compact-divider{
+
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,0.25),
+    transparent
+  );
+}
+
+/* LEFT */
+
+.food-side h3{
+
+  font-size:16px;
+
+  margin:4px 0 8px;
+}
+
+/* PRICE */
+
+.price-line{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+/* RIGHT */
+
+.drink-side{
+
+  position:relative;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  width:85px;
+}
+
+/* MINI BADGE */
+
+.free-mini{
+
+  position:absolute;
+
+  top:-6px;
+  right:0;
+
+  background:
+  linear-gradient(135deg,#00d2ff,#3a7bd5);
+
+  padding:3px 6px;
+
+  border-radius:999px;
+
+  font-size:6px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+}
+
+/* MINI IMAGE */
+
+.drink-side img{
+
+  width:42px;
+  height:42px;
+
+  object-fit:cover;
+
+  border-radius:10px;
+
+  margin-bottom:4px;
+}
+
+/* DRINK TEXT */
+
+.drink-side span{
+
+  font-size:9px;
+
+  text-align:center;
+
+  line-height:1.2;
+
+  color:#ddd;
+}
 </style>
 </head>
 
@@ -787,208 +911,87 @@ body.theme-warm {
   </div>
 </div>
 
-<!-- ================================= -->
-<!-- WEEKDAY PROMO SECTION -->
-<!-- ================================= -->
-
-<div class="weekday-title">
-  WEEKDAY BUNDLING PROMO
-</div>
-
-<!-- ================= SENIN ================= -->
-
-<div class="day-label">
-  MONDAY
-</div>
-
 <div class="bundle-grid">
 
-  <!-- CARD 1 -->
-  <div class="bundle-card">
+  <div class="bundle-card compact-card">
 
-    <div class="bundle-food">
+    <!-- ITEM 1 -->
+    <div class="compact-item">
 
-      <div class="promo-label">
-        WEEKDAY DEAL
-      </div>
+      <div class="food-side">
 
-      <h2>
-        Mie Leveling
-      </h2>
+        <div class="promo-label">
+          WEEKDAY DEAL
+        </div>
 
-      <p>
-        Spicy noodle with premium seasoning and special Ocean sambal.
-      </p>
+        <h3>Mie Leveling</h3>
 
-      <div class="price-area">
+        <div class="price-line">
 
-        <span class="old-price">
-          Rp 38.000
-        </span>
+          <span class="old-price">
+            Rp 38.000
+          </span>
 
-        <span class="new-price">
-          Rp 28K
-        </span>
+          <span class="new-price">
+            Rp 28K
+          </span>
+
+        </div>
 
       </div>
 
-    </div>
+      <div class="drink-side">
 
-    <div class="bundle-drink">
+        <div class="free-mini">
+          FREE
+        </div>
 
-      <div class="free-title">
-        FREE
-      </div>
+        <img src="mojito.png">
 
-      <img src="mojito.png">
-
-      <div class="drink-name">
-        Mojito
-      </div>
-
-    </div>
-
-     <div class="bundle-food">
-
-      <div class="promo-label">
-        CHEF SPECIAL
-      </div>
-
-      <h2>
-        Soup Iga
-      </h2>
-
-      <p>
-        Tender beef rib soup with rich broth and premium spices.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 58.000
-        </span>
-
-        <span class="new-price">
-          Rp 45K
-        </span>
+        <span>Mojito</span>
 
       </div>
 
     </div>
 
-    <div class="bundle-drink">
+    <!-- GARIS -->
+    <div class="compact-divider"></div>
 
-      <div class="free-title">
-        FREE
-      </div>
+    <!-- ITEM 2 -->
+    <div class="compact-item">
 
-      <img src="tea.png">
+      <div class="food-side">
 
-      <div class="drink-name">
-        Tea Hot / Ice
-      </div>
+        <div class="promo-label">
+          CHEF SPECIAL
+        </div>
 
-    </div>
+        <h3>Soup Iga</h3>
 
-  </div>
-  </div>
+        <div class="price-line">
 
-  <!-- ================= SELASA ================= -->
+          <span class="old-price">
+            Rp 58.000
+          </span>
 
-<div class="day-label">
-  TUESDAY
-</div>
+          <span class="new-price">
+            Rp 45K
+          </span>
 
-<div class="bundle-grid">
-
-  <!-- CARD 1 -->
-  <div class="bundle-card">
-
-    <div class="bundle-food">
-
-      <div class="promo-label">
-        WEEKDAY DEAL
-      </div>
-
-      <h2>
-        Mie Leveling
-      </h2>
-
-      <p>
-        Spicy noodle with premium seasoning and special Ocean sambal.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 38.000
-        </span>
-
-        <span class="new-price">
-          Rp 28K
-        </span>
+        </div>
 
       </div>
 
-    </div>
+      <div class="drink-side">
 
-    <div class="bundle-drink">
+        <div class="free-mini">
+          FREE
+        </div>
 
-      <div class="free-title">
-        FREE
-      </div>
+        <img src="tea.png">
 
-      <img src="mojito.png">
+        <span>Tea Hot/Ice</span>
 
-      <div class="drink-name">
-        Mojito
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD 2 -->
-  <div class="bundle-card">
-
-    <div class="bundle-food">
-
-      <div class="promo-label">
-        CHEF SPECIAL
-      </div>
-
-      <h2>
-        Soup Iga
-      </h2>
-
-      <p>
-        Tender beef rib soup with rich broth and premium spices.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 58.000
-        </span>
-
-        <span class="new-price">
-          Rp 45K
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="bundle-drink">
-
-      <div class="free-title">
-        FREE
-      </div>
-
-      <img src="tea.png">
-
-      <div class="drink-name">
-        Tea Hot / Ice
       </div>
 
     </div>
@@ -997,215 +1000,7 @@ body.theme-warm {
 
 </div>
 
-  <!-- ================= RABU ================= -->
 
-<div class="day-label">
-  WEDNESDAY
-</div>
-
-<div class="bundle-grid">
-
-  <!-- CARD 1 -->
-  <div class="bundle-card">
-
-    <div class="bundle-food">
-
-      <div class="promo-label">
-        WEEKDAY DEAL
-      </div>
-
-      <h2>
-        Mie Leveling
-      </h2>
-
-      <p>
-        Spicy noodle with premium seasoning and special Ocean sambal.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 38.000
-        </span>
-
-        <span class="new-price">
-          Rp 28K
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="bundle-drink">
-
-      <div class="free-title">
-        FREE
-      </div>
-
-      <img src="mojito.png">
-
-      <div class="drink-name">
-        Mojito
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD 2 -->
-  <div class="bundle-card">
-
-    <div class="bundle-food">
-
-      <div class="promo-label">
-        CHEF SPECIAL
-      </div>
-
-      <h2>
-        Soup Iga
-      </h2>
-
-      <p>
-        Tender beef rib soup with rich broth and premium spices.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 58.000
-        </span>
-
-        <span class="new-price">
-          Rp 45K
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="bundle-drink">
-
-      <div class="free-title">
-        FREE
-      </div>
-
-      <img src="tea.png">
-
-      <div class="drink-name">
-        Tea Hot / Ice
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-  <!-- ================= KAMIS ================= -->
-
-<div class="day-label">
-  THURSDAY
-</div>
-
-<div class="bundle-grid">
-
-  <!-- CARD 1 -->
-  <div class="bundle-card">
-
-    <div class="bundle-food">
-
-      <div class="promo-label">
-        WEEKDAY DEAL
-      </div>
-
-      <h2>
-        Mie Leveling
-      </h2>
-
-      <p>
-        Spicy noodle with premium seasoning and special Ocean sambal.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 38.000
-        </span>
-
-        <span class="new-price">
-          Rp 28K
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="bundle-drink">
-
-      <div class="free-title">
-        FREE
-      </div>
-
-      <img src="mojito.png">
-
-      <div class="drink-name">
-        Mojito
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- CARD 2 -->
-  <div class="bundle-card">
-
-    <div class="bundle-food">
-
-      <div class="promo-label">
-        CHEF SPECIAL
-      </div>
-
-      <h2>
-        Soup Iga
-      </h2>
-
-      <p>
-        Tender beef rib soup with rich broth and premium spices.
-      </p>
-
-      <div class="price-area">
-
-        <span class="old-price">
-          Rp 58.000
-        </span>
-
-        <span class="new-price">
-          Rp 45K
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="bundle-drink">
-
-      <div class="free-title">
-        FREE
-      </div>
-
-      <img src="tea.png">
-
-      <div class="drink-name">
-        Tea Hot / Ice
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
- 
 <div class="footer">
   
   <div class="social-inline">
