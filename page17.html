@@ -191,63 +191,6 @@ body{
 }
 
 /* PERFORM */
-.perform{
-  margin-top:45px;
-  background:linear-gradient(135deg, rgba(255,170,0,.15), rgba(255,255,255,.06));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:28px;
-  padding:28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:30px;
-  backdrop-filter:blur(10px);
-}
-
-.perform-left{
-  flex:1;
-}
-
-.perform-title{
-  font-size:14px;
-  letter-spacing:3px;
-  color:#ffbe5c;
-  margin-bottom:14px;
-  font-weight:700;
-}
-
-.band-name{
-  font-size:56px;
-  font-weight:900;
-  line-height:1;
-}
-
-.band-desc{
-  margin-top:15px;
-  color:#d6d6d6;
-  line-height:1.7;
-  font-size:16px;
-}
-
-.band-image{
-   width:240px;
-  height:340px;
-
-  /* GANTI INI */
-  object-fit:contain;
-
-  background:rgba(255,255,255,.04);
-
-  padding:10px;
-
-  border-radius:25px;
-
-  border:2px solid rgba(212,166,79,.35);
-
-  box-shadow:
-  0 15px 40px rgba(0,0,0,.45),
-  0 0 25px rgba(212,166,79,.18);
-}
 
 /* FOOTER */
 .footer{
@@ -374,6 +317,25 @@ body{
   .footer{
     margin-top:22px;
     padding-top:18px;
+  }
+
+}
+
+@media(max-width:850px){
+
+  .perform{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .band-desc{
+    max-width:100%;
+  }
+
+  .band-image{
+    width:100%;
+    max-width:320px;
+    height:420px;
   }
 
 }
