@@ -53,26 +53,6 @@ body{
   outline:2px solid rgba(255,190,92,.75);
   outline-offset:-14px;
 }
-/* GLOW */
-.poster::before{
-  content:'';
-  position:absolute;
-  width:450px;
-  height:450px;
-  background:radial-gradient(circle, rgba(255,170,0,.25), transparent 70%);
-  top:-150px;
-  right:-120px;
-}
-
-.poster::after{
-  content:'';
-  position:absolute;
-  width:350px;
-  height:350px;
-  background:radial-gradient(circle, rgba(0,195,255,.18), transparent 70%);
-  bottom:-120px;
-  left:-100px;
-}
 
 /* HEADER */
 .header{
@@ -154,22 +134,15 @@ body{
 
   margin-top:20px;
 
-  background:
-  linear-gradient(
-    to bottom,
-    #fff,
-    #ffe6a3,
-    #d4a64f
-  );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#f8e7b0;
 
   text-shadow:
-  0 0 20px rgba(255,190,92,.15),
-  0 0 40px rgba(255,190,92,.08);
+  0 0 2px rgba(255,255,255,.4),
+  0 0 10px rgba(255,190,92,.25),
+  0 0 25px rgba(255,190,92,.15),
+  3px 3px 0 rgba(0,0,0,.35);
 }
-
+  
 .subtitle{
   margin-top:18px;
   font-size:20px;
@@ -763,7 +736,7 @@ async function downloadPNG() {
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: 2,
+    scale: 4,
     useCORS: true,
     backgroundColor: bgColor,
     logging: false
