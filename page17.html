@@ -33,8 +33,11 @@ body{
   max-width:950px;
   aspect-ratio:16/9;
   background:
-  linear-gradient(rgba(2,8,12,.82),rgba(2,8,12,.92)),
-  url('band.jpg') center/cover no-repeat;
+ linear-gradient(
+rgba(2,8,12,.68),
+rgba(2,8,12,.82)
+),
+url('band.jpg') center center/cover no-repeat;
   border-radius:30px;
   overflow:hidden;
   position:relative;
@@ -309,10 +312,42 @@ body{
     font-size:34px;
   }
 
-  .band-image{
-    width:210px;
-    height:210px;
-  }
+ .band-image{
+
+  width:260px;
+
+  /* portrait proper */
+  aspect-ratio:3/4;
+
+  object-fit:cover;
+  object-position:center top;
+
+  border-radius:26px;
+
+  /* BORDER GOLD */
+  border:3px solid rgba(212,166,79,.55);
+
+  /* INNER FRAME */
+  outline:1px solid rgba(255,255,255,.08);
+  outline-offset:-8px;
+
+  background:#111;
+
+  flex-shrink:0;
+
+  /* SHADOW */
+  box-shadow:
+  0 18px 50px rgba(0,0,0,.55),
+  0 0 35px rgba(212,166,79,.18),
+  inset 0 0 20px rgba(255,255,255,.04);
+
+  transition:.35s ease;
+}
+
+/* hover elegan */
+.band-image:hover{
+  transform:translateY(-4px) scale(1.01);
+}
 
   .footer{
     margin-top:22px;
@@ -335,7 +370,6 @@ body{
   .band-image{
     width:100%;
     max-width:320px;
-    height:420px;
   }
 
 }
