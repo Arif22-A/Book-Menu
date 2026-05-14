@@ -28,7 +28,10 @@ body{
 }
 
 .poster{
-  width:900px;
+  .poster{
+  width:100%;
+  max-width:950px;
+  aspect-ratio:16/9;
   background:
   linear-gradient(rgba(2,8,12,.82),rgba(2,8,12,.92)),
   url('band.jpg') center/cover no-repeat;
@@ -76,13 +79,15 @@ body{
 }
 
 .logo{
-  width:75px;
-  height:75px;
+  width:78px;
+  height:78px;
   object-fit:contain;
-  background:white;
-  border-radius:50%;
-  padding:6px;
-  box-shadow:0 0 20px rgba(255,255,255,.2);
+  background:transparent;
+  padding:0;
+
+  filter:
+  drop-shadow(0 0 10px rgba(255,255,255,.35))
+  drop-shadow(0 0 18px rgba(255,190,92,.25));
 }
 
 .brand h1{
@@ -292,6 +297,63 @@ body{
 
 }
 
+
+@media (max-height:500px) and (orientation:landscape){
+
+  body{
+    padding:0;
+  }
+
+  .poster{
+    border-radius:0;
+    min-height:100vh;
+  }
+
+  .header{
+    padding:20px 28px 5px;
+  }
+
+  .content{
+    padding:5px 28px 28px;
+  }
+
+  .title{
+    font-size:42px;
+  }
+
+  .subtitle{
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  .info-box{
+    gap:10px;
+  }
+
+  .card{
+    padding:14px;
+  }
+
+  .perform{
+    padding:18px;
+    gap:18px;
+  }
+
+  .band-name{
+    font-size:34px;
+  }
+
+  .band-image{
+    width:210px;
+    height:210px;
+  }
+
+  .footer{
+    margin-top:22px;
+    padding-top:18px;
+  }
+
+}
 </style>
 </head>
 
