@@ -7,6 +7,7 @@
 <title>Satnight Syahdu - Ocean Cafe & Resto</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">  
 
 <style>
 
@@ -32,22 +33,22 @@ body{
   max-width:950px;
   min-height:720px;
 
-  background:
-  linear-gradient(
-    rgba(2,8,12,.68),
-    rgba(2,8,12,.82)
-  ),
-  url('band.jpg') center center/cover no-repeat;
+ background:
+linear-gradient(
+rgba(0,0,0,.82),
+rgba(0,0,0,.92)
+),
+url('band.jpg') center/cover no-repeat;
 
   border-radius:30px;
   overflow:hidden;
   position:relative;
 
-  box-shadow:
-0 0 0 1px rgba(255,190,92,.18),
-0 0 40px rgba(255,190,92,.15),
-0 0 100px rgba(255,190,92,.08),
-0 30px 80px rgba(0,0,0,.65);
+ box-shadow:
+0 0 0 1px rgba(243,201,105,.25),
+0 0 25px rgba(243,201,105,.12),
+0 0 120px rgba(243,201,105,.10),
+0 40px 120px rgba(0,0,0,.9);
 
   border:1px solid rgba(255,255,255,.08);
   outline:2px solid rgba(255,190,92,.75);
@@ -79,7 +80,7 @@ body{
   border-radius:50%;
 
   /* BORDER EMAS */
-  border:2px solid #d4a64f;
+  border:2px solid #f3c969;
 
   /* GLOW LUXURY */
   box-shadow:
@@ -129,18 +130,18 @@ body{
 .title{
   font-family:'Playfair Display',serif;
 
-  font-size:92px;
-  line-height:.92;
+  font-size:110px;
 
-  margin-top:20px;
+  line-height:.88;
 
-  color:#f8e7b0;
+  color:#fff;
+
+  letter-spacing:-2px;
 
   text-shadow:
-  0 0 2px rgba(255,255,255,.4),
-  0 0 10px rgba(255,190,92,.25),
-  0 0 25px rgba(255,190,92,.15),
-  3px 3px 0 rgba(0,0,0,.35);
+  0 2px 0 rgba(0,0,0,.55),
+  0 10px 30px rgba(0,0,0,.55),
+  0 0 12px rgba(255,255,255,.08);
 }
   
 .subtitle{
@@ -153,10 +154,20 @@ body{
 
 /* INFO BOX */
 .info-box{
-  margin-top:38px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+
+  display:flex;
+
+  gap:0;
+
+  margin-top:35px;
+
+  border:1px solid rgba(243,201,105,.35);
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  background:rgba(0,0,0,.45);
 }
 
 .card{
@@ -181,6 +192,16 @@ body{
   inset 0 0 15px rgba(255,255,255,.03);
 
   transition:.3s;
+}
+.card{
+  flex:1;
+  border:none;
+  border-right:1px solid rgba(243,201,105,.18);
+  border-radius:0;
+}
+
+.card:last-child{
+  border-right:none;
 }
 
 .card:hover{
@@ -271,30 +292,24 @@ SPECIAL PERFORM SECTION
 .band-image{
 
   width:100%;
-
-  /* lebih tinggi */
-  height:640px;
+  height:760px;
 
   object-fit:cover;
+  object-position:center top;
 
-  /* fokus tengah */
-  object-position:center center;
+  border-radius:28px;
 
-  border-radius:30px;
+  border:3px solid rgba(243,201,105,.75);
 
-  border:3px solid rgba(255,190,92,.65);
+  padding:8px;
 
-  outline:1px solid rgba(255,255,255,.08);
-  outline-offset:-10px;
-
-  background:#111;
+  background:#0a0a0a;
 
   box-shadow:
-  0 0 25px rgba(255,190,92,.18),
-  0 30px 60px rgba(0,0,0,.65);
-
+  inset 0 0 25px rgba(243,201,105,.08),
+  0 0 35px rgba(243,201,105,.18),
+  0 35px 70px rgba(0,0,0,.8);
 }
-
 .band-image:hover{
   transform:translateY(-4px) scale(1.01);
 }
@@ -579,6 +594,23 @@ SPECIAL PERFORM SECTION
 
   pointer-events:none;
 }
+
+.title span{
+
+  display:block;
+
+  font-family:'Great Vibes',cursive;
+
+  font-size:120px;
+
+  color:#f3c969;
+
+  margin-top:-15px;
+
+  text-shadow:
+  0 0 18px rgba(243,201,105,.35),
+  0 0 35px rgba(243,201,105,.18);
+}
 </style>
 </head>
 
@@ -609,9 +641,10 @@ SPECIAL PERFORM SECTION
       LIVE MUSIC EVENT
     </div>
 
-    <div class="title">
-      Satnight<br>Syahdu
-    </div>
+   <div class="title">
+  Satnight
+  <span>Syahdu</span>
+</div>
 
     <div class="subtitle">
       Temani malam minggumu dengan suasana hangat,
@@ -736,7 +769,7 @@ async function downloadPNG() {
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: 4,
+    scale: window.devicePixelRatio * 2
     useCORS: true,
     backgroundColor: bgColor,
     logging: false
