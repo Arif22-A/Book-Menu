@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Poster Promo Anak Sekolah</title>
+<title>Satnight Syahdu - Ocean Cafe & Resto</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,798 +17,396 @@
 }
 
 body{
-   margin:0;
-  background:#111;
+  background:#07131c;
+  font-family:'Montserrat',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:20px;
+  color:white;
 }
-
-/* ===================== */
-/* POSTER */
-/* ===================== */
 
 .poster{
-  width:100%;
-  max-width:1080px;
-
-  min-height:1350px;
-
-  height:auto;
-
+  width:900px;
   background:
-  radial-gradient(circle at top right,#38bdf8 0%,transparent 30%),
-  radial-gradient(circle at bottom left,#22c55e 0%,transparent 30%),
-  linear-gradient(135deg,#0f172a,#111827,#1e293b);
-
-  border-radius:0;
-
+  linear-gradient(rgba(2,8,12,.82),rgba(2,8,12,.92)),
+  url('band.jpg') center/cover no-repeat;
+  border-radius:30px;
   overflow:hidden;
   position:relative;
-
   box-shadow:
-  0 25px 60px rgba(0,0,0,.45);
-
-  padding:
-70px 70px 20px 70px;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
+  0 0 50px rgba(0,0,0,.6),
+  0 0 80px rgba(255,179,71,.15);
+  border:1px solid rgba(255,255,255,.08);
 }
-  
-/* decorative blur */
 
+/* GLOW */
 .poster::before{
-  content:"";
+  content:'';
   position:absolute;
-  width:280px;
-  height:280px;
-  background:#06b6d4;
-  filter:blur(120px);
-  top:-120px;
-  right:-60px;
-  opacity:.35;
+  width:450px;
+  height:450px;
+  background:radial-gradient(circle, rgba(255,170,0,.25), transparent 70%);
+  top:-150px;
+  right:-120px;
 }
 
 .poster::after{
-  content:"";
+  content:'';
   position:absolute;
-  width:250px;
-  height:250px;
-  background:#22c55e;
-  filter:blur(120px);
-  bottom:-100px;
-  left:-50px;
-  opacity:.30;
+  width:350px;
+  height:350px;
+  background:radial-gradient(circle, rgba(0,195,255,.18), transparent 70%);
+  bottom:-120px;
+  left:-100px;
 }
 
-/* ===================== */
-/* TOP BAR */
-/* ===================== */
-
-.top-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-
-  padding:10px 22px;
-  border-radius:999px;
-
-  color:#fff;
-  font-size:14px;
-  font-weight:600;
-
-  backdrop-filter:blur(10px);
-
-  margin-bottom:28px;
-}
-
-.dot{
-  width:10px;
-  height:10px;
-  background:#22c55e;
-  border-radius:50%;
-  box-shadow:0 0 12px #22c55e;
-}
-
-/* ===================== */
-/* CONTENT */
-/* ===================== */
-
-.content{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:40px;
+/* HEADER */
+.header{
+  padding:35px 45px 10px;
   position:relative;
   z-index:2;
 }
 
-.left{
-  flex:1;
-}
-
-.right{
-  width:420px;
-  position:relative;
-}
-
-/* ===================== */
-/* TEXT */
-/* ===================== */
-
-.title-small{
-  color:#38bdf8;
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:1px;
-  margin-bottom:15px;
-  text-transform:uppercase;
-}
-
-.main-title{
-  color:#fff;
-  font-size:24px;
-  line-height:1;
-  font-weight:800;
-  margin-bottom:18px;
-}
-
-.main-title span{
-  color:#22c55e;
-}
-
-.desc{
-  color:#cbd5e1;
-  font-size:18px;
-  line-height:1.8;
-  margin-bottom:35px;
-  max-width:520px;
-}
-
-/* ===================== */
-/* PRICE BOX */
-/* ===================== */
-
-.price-box{
+.topbar{
   display:flex;
   align-items:center;
-  gap:25px;
-  margin-bottom:35px;
-}
-
-.old-price{
-  color:#94a3b8;
-  text-decoration:line-through;
-  font-size:18px;
-}
-
-.new-price{
-  color:#fff;
-  font-size:18px;
-  font-weight:800;
-}
-
-.discount{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:18px;
-  font-weight:700;
-  font-size:16px;
-  box-shadow:0 10px 25px rgba(34,197,94,.35);
-}
-
-/* ===================== */
-/* BUTTON */
-/* ===================== */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-
-  color:#fff;
-  text-decoration:none;
-
-  padding:15px 30px;
-  border-radius:18px;
-
-  font-size:14px;
-  font-weight:500;
-
-  box-shadow:
-  0 12px 30px rgba(14,165,233,.35);
-
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:translateY(-4px) scale(1.02);
-}
-
-/* ===================== */
-/* SCHOOL CARD */
-/* ===================== */
-
-.student-card{
-  position:relative;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:30px;
-  padding:25px;
-
-  backdrop-filter:blur(12px);
-
-  transform:rotate(-4deg);
-}
-
-.student-img{
-  width:100%;
-  border-radius:22px;
-  display:block;
-}
-
-/* floating badges */
-
-.float-badge{
-  position:absolute;
-  background:#fff;
-  color:#111827;
-  padding:12px 18px;
-  border-radius:18px;
-  font-weight:700;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.badge-1{
-  top:-18px;
-  right:-20px;
-}
-
-.badge-2{
-  bottom:-18px;
-  left:-20px;
-}
-
-/* ===================== */
-/* FOOTER INFO */
-/* ===================== */
-
-.footer-info{
-  margin-top:25px;
-  margin-bottom:20px;
-
-  display:flex;
   gap:18px;
-  flex-wrap:wrap;
 }
 
-.info-card{
-  flex:1;
-  min-width:180px;
+.logo{
+  width:75px;
+  height:75px;
+  object-fit:contain;
+  background:white;
+  border-radius:50%;
+  padding:6px;
+  box-shadow:0 0 20px rgba(255,255,255,.2);
+}
 
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
-
-  padding:18px;
-  border-radius:20px;
-
+.brand h1{
+  font-size:48px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:4px;
   color:#fff;
 }
 
-.info-title{
-  font-size:14px;
-  color:#94a3b8;
-  margin-bottom:6px;
+.brand p{
+  margin-top:6px;
+  font-size:15px;
+  color:#d7d7d7;
+  letter-spacing:2px;
 }
 
-.info-value{
-  font-size:18px;
+/* CONTENT */
+.content{
+  position:relative;
+  z-index:2;
+  padding:10px 45px 50px;
+}
+
+.event-badge{
+  display:inline-block;
+  background:linear-gradient(135deg,#ff9f1a,#ff6b00);
+  color:white;
+  padding:10px 24px;
+  border-radius:100px;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-top:30px;
+  box-shadow:0 8px 25px rgba(255,140,0,.35);
+}
+
+.title{
+  font-family:'Playfair Display',serif;
+  font-size:82px;
+  line-height:0.95;
+  margin-top:20px;
+  color:#fff;
+  text-shadow:0 0 25px rgba(255,255,255,.15);
+}
+
+.subtitle{
+  margin-top:18px;
+  font-size:20px;
+  color:#d9d9d9;
+  max-width:650px;
+  line-height:1.7;
+}
+
+/* INFO BOX */
+.info-box{
+  margin-top:38px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:22px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.12);
+}
+
+.label{
+  font-size:13px;
+  letter-spacing:2px;
+  color:#ffbe5c;
+  margin-bottom:10px;
   font-weight:700;
 }
 
-/* ===================== */
-/* RESPONSIVE */
-/* ===================== */
+.value{
+  font-size:18px;
+  line-height:1.5;
+  font-weight:600;
+}
 
+/* PERFORM */
+.perform{
+  margin-top:45px;
+  background:linear-gradient(135deg, rgba(255,170,0,.15), rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  backdrop-filter:blur(10px);
+}
+
+.perform-left{
+  flex:1;
+}
+
+.perform-title{
+  font-size:14px;
+  letter-spacing:3px;
+  color:#ffbe5c;
+  margin-bottom:14px;
+  font-weight:700;
+}
+
+.band-name{
+  font-size:56px;
+  font-weight:900;
+  line-height:1;
+}
+
+.band-desc{
+  margin-top:15px;
+  color:#d6d6d6;
+  line-height:1.7;
+  font-size:16px;
+}
+
+.band-image{
+  width:280px;
+  height:280px;
+  object-fit:cover;
+  border-radius:25px;
+  border:3px solid rgba(255,255,255,.12);
+  box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+/* FOOTER */
+.footer{
+  margin-top:45px;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.address{
+  font-size:15px;
+  color:#d6d6d6;
+  line-height:1.8;
+}
+
+.contact{
+  text-align:right;
+}
+
+.phone{
+  font-size:28px;
+  font-weight:800;
+  color:#ffbe5c;
+}
+
+.cta{
+  margin-top:8px;
+  font-size:14px;
+  letter-spacing:2px;
+  color:#d6d6d6;
+}
+
+/* RESPONSIVE */
 @media(max-width:850px){
 
   .poster{
-    padding:35px;
-  }
-
-  .content{
-    flex-direction:column;
-  }
-
-  .main-title{
-    font-size:24px;
-  }
-
-  .right{
     width:100%;
   }
 
-}
-
-@media(max-width:500px){
-
-  .poster{
-    padding:28px 22px;
-    border-radius:25px;
+  .title{
+    font-size:58px;
   }
 
-  .main-title{
-    font-size:24px;
-  }
-
-  .desc{
-    font-size:16px;
-  }
-
-  .new-price{
-    font-size:20px;
-  }
-
-  .price-box{
-    flex-wrap:wrap;
-  }
-
-}
-
-/* ===================== */
-/* BUSINESS IDENTITY */
-/* ===================== */
-
-.business-header{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:20px;
-
-  margin-bottom:30px;
-  position:relative;
-  z-index:5;
-}
-
-.brand-left{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.brand-logo{
-  width:64px;
-  height:64px;
-  border-radius:20px;
-
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  overflow:hidden;
-  padding:10px;
-
-  backdrop-filter:blur(10px);
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.25);
-}
-
-.brand-text{
-  display:flex;
-  flex-direction:column;
-}
-
-.brand-name{
-  color:#fff;
-  font-size:24px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.brand-tagline{
-  color:#94a3b8;
-  font-size:14px;
-  margin-top:2px;
-}
-
-.brand-social{
-  padding:12px 20px;
-  border-radius:999px;
-
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.10);
-
-  color:#fff;
-  font-weight:600;
-  font-size:14px;
-
-  backdrop-filter:blur(10px);
-}
-
-/* ===================== */
-/* MOBILE */
-/* ===================== */
-
-@media(max-width:650px){
-
-  .business-header{
+  .perform{
     flex-direction:column;
-    align-items:flex-start;
+    text-align:center;
   }
 
-  .brand-name{
-    font-size:20px;
+  .band-image{
+    width:100%;
+    height:320px;
+  }
+
+  .info-box{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .contact{
+    text-align:center;
   }
 
 }
 
-.brand-logo{
-  width:64px;
-  height:64px;
-  border-radius:20px;
-
-  background:#0f172a;
-
-  border:2px solid rgba(255,255,255,.15);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  overflow:hidden;
-  padding:10px;
-
-  box-shadow:
-  0 10px 25px rgba(0,0,0,.35);
-}
-
-.brand-logo img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-}
-
-/* ===================== */
-/* TERMS */
-/* ===================== */
-
-.terms{
-  margin-top:28px;
-
-  padding-top:18px;
-
-  border-top:
-  1px solid rgba(255,255,255,.08);
-
-  position:relative;
-  z-index:2;
-}
-
-.terms-title{
-  color:#94a3b8;
-  font-size:12px;
-  font-weight:700;
-
-  margin-bottom:8px;
-
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.terms ul{
-  padding-left:18px;
-}
-
-.terms li{
-  color:rgba(255,255,255,.55);
-
-  font-size:11px;
-  line-height:1.8;
-
-  margin-bottom:3px;
-}
-
-/* NAVIGATION ARROWS */
-.nav-arrow {
-  position: fixed;
-  bottom: 20px;
-  z-index: 999;
-}
-
-.nav-arrow a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid #d4af37;
-  border-radius: 50%;
-  color: #d4af37;
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-/* HOVER */
-.nav-arrow a:hover {
-  background: #d4af37;
-  color: #000;
-}
-
-/* POSISI */
-.nav-arrow.next {
-  right: 20px;
-}
-
-.nav-arrow.prev {
-  left: 20px;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.actions button {
-  padding: 12px 20px;
-  border: 1px solid #d4af37;
-  background: #111;
-  color: var(--gold-main);
-  cursor: pointer;
-  font-family: inherit;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.actions button:hover {
-  background: #d4af37;
-  color: #000;
-}
-
-.student-img{
-  width:100%;
-  height:420px;
-  object-fit:cover;
-
-  border-radius:22px;
-  display:block;
-}
-
-.student-card{
-  width:100%;
-  max-width:380px;
-}
-
-.content{
-  margin-top:60px;
-  margin-bottom:30px;
-}
-
-.brand-social{
-  margin-left:auto;
-}
 </style>
 </head>
+
 <body>
 
 <div class="poster">
 
-  <!-- ===================== -->
-<!-- HEADER IDENTITY -->
-<!-- taruh DI ATAS .top-badge -->
-<!-- ===================== -->
+  <!-- HEADER -->
+  <div class="header">
 
-<div class="business-header">
+    <div class="topbar">
 
-  <div class="brand-left">
+      <img src="logo.png" class="logo">
 
-    <div class="brand-logo">
-      <img src="logo.png" alt="Logo">
-    </div>
-
-    <div class="brand-text">
-
-      <div class="brand-name">
-        OCEAN
-      </div>
-
-       <div class="brand-tagline">
-        Cafe & Resto EST.2023
-      </div>
-
-      <div class="brand-tagline">
-        Jl.Ahmad Yani No.34,kutorejo,Sragen
-        <br>
-        0857-1246-9835
-      </div>
-       <div class="brand-tagline">
-        Food • Coffee • Hangout
+      <div class="brand">
+        <h1>OCEAN</h1>
+        <p>Cafe & Resto Est.2023</p>
       </div>
 
     </div>
 
   </div>
 
-  <div class="brand-social">
-    @ocean.srg
-  </div>
-
-</div>
-
-  <div class="top-badge">
-    <div class="dot"></div>
-    PROMO KHUSUS PELAJAR & MAHASISWA
-  </div>
-
+  <!-- CONTENT -->
   <div class="content">
 
-    <!-- LEFT -->
-    <div class="left">
+    <div class="event-badge">
+      LIVE MUSIC EVENT
+    </div>
 
-      <div class="title-small">
-        BACK TO SCHOOL DEAL
-      </div>
+    <div class="title">
+      Satnight<br>Syahdu
+    </div>
 
-      <div class="main-title">
-        Diskon <span>UP TO 20%</span><br>
-        Untuk Pelajar & Mahasiswa
-      </div>
+    <div class="subtitle">
+      Temani malam minggumu dengan suasana hangat,
+      live acoustic performance, dan vibes luxury modern
+      hanya di Ocean Cafe & Resto.
+    </div>
 
-      <div class="desc">
-        Tunjukkan kartu pelajar dan nikmati promo spesial
-        untuk makanan, minuman, atau produk favoritmu.
-        Modern vibes • hemat • kekinian.
-      </div>
+    <!-- INFO -->
+    <div class="info-box">
 
-      <div class="price-box">
-        <div class="old-price">
-          IDR 26K
-        </div>
-
-        <div class="new-price">
-          IDR 20K
-        </div>
-
-        <div class="discount">
-          SAVE 20%
+      <div class="card">
+        <div class="label">DATE</div>
+        <div class="value">
+          Sabtu<br>
+          16 Mei 2026
         </div>
       </div>
 
-      <a href="#" class="btn">
-        Klaim Promo Sekarang
-      </a>
+      <div class="card">
+        <div class="label">PLACE</div>
+        <div class="value">
+          Ocean Cafe & Resto
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">START</div>
+        <div class="value">
+          Open Gate 19.00 WIB
+        </div>
+      </div>
 
     </div>
 
-    <!-- RIGHT -->
-    <div class="right">
+    <!-- SPECIAL PERFORM -->
+    <div class="perform">
 
-      <div class="student-card">
+      <div class="perform-left">
 
-        <img
-        class="student-img"
-        src="cumi.jpg"
-        alt="Student">
-
-        <div class="float-badge badge-1">
-          🎒 Student Friendly
+        <div class="perform-title">
+          SPECIAL PERFORMANCE
         </div>
 
-        <div class="float-badge badge-2">
-          🔥 Limited Promo
+        <div class="band-name">
+          Eracoustic
         </div>
 
+        <div class="band-desc">
+          Nikmati penampilan acoustic spesial
+          dengan lagu-lagu terbaik yang siap
+          membuat malam minggumu semakin syahdu.
+        </div>
+
+      </div>
+
+      <img src="band.jpg" class="band-image">
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+      <div class="address">
+        Jl Ahmad Yani No 34 Kutorejo, Sragen<br>
+        Cozy Place • Good Music • Best Experience
+      </div>
+
+      <div class="contact">
+        <div class="phone">
+          0857-1246-9835
+        </div>
+
+        <div class="cta">
+          RESERVATION NOW
+        </div>
       </div>
 
     </div>
 
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer-info">
-
-    <div class="info-card">
-      <div class="info-title">Periode Promo</div>
-      <div class="info-value">Mei-Juni 2026</div>
-    </div>
-
-    <div class="info-card">
-       
-      <div class="info-title">Tersedia Package Menu</div>
-      <div class="info-value">Mulai-IDR 17K</div>
-    </div>
-
-    <div class="info-card">
-      <div class="info-title">Lokasi</div>
-      <div class="info-value">Ocean Cafe & Resto</div>
-    </div>
-
-  </div>
- <!-- TERMS -->
-<div class="terms">
-  <div class="terms-title">
-    Syarat & Ketentuan
-  </div>
-
-  <ul>
-    <li>Promo tidak dapat digabung dengan promo lainnya.</li>
-    <li>Promo tidak berlaku untuk menu bundling.</li>
-    <li>Wajib menunjukkan kartu pelajar atau mahasiswa.</li>
-    <li>Promo hanya berlaku untuk dine in.</li>
-    <li>Promo berlaku selama persediaan masih ada.</li>
-  </ul>
 </div>
-</div>
-
-  <div class="actions">
-  <button onclick="window.print()">Export PDF</button>
-  <button onclick="downloadPNG()">Download PNG</button>
-</div>
-  
- <div class="nav-arrow prev">
-  <a href="page15.html">
-    <i class="fas fa-arrow-left"></i>
-  </a>
-</div>
-
-  <div class="nav-arrow next">
-  <a href="page17.html">
-    <i class="fas fa-arrow-right"></i>
-  </a>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script>
-async function downloadPNG() {
-  const target = document.querySelector(".poster");
-
-  const actions = document.querySelector(".actions");
-  const themeSwitcher = document.querySelector(".theme-switcher");
-  const navArrows = document.querySelectorAll(".nav-arrow");
-
-  /* ambil warna aktif dari container */
-  const bgColor = getComputedStyle(target).backgroundColor;
-
-  if (actions) actions.style.display = "none";
-  if (themeSwitcher) themeSwitcher.style.display = "none";
-
-  navArrows.forEach(nav => {
-    nav.style.display = "none";
-  });
-
-  await new Promise(resolve => setTimeout(resolve, 200));
-
-  const canvas = await html2canvas(target, {
-    scale: 7,
-    useCORS: true,
-    backgroundColor: bgColor,
-    logging: false
-  });
-
-  const link = document.createElement("a");
-  link.download = "ocean-menu-premium.png";
-  link.href = canvas.toDataURL("image/png", 1.0);
-  link.click();
-
-  if (actions) actions.style.display = "flex";
-  if (themeSwitcher) themeSwitcher.style.display = "flex";
-
-  navArrows.forEach(nav => {
-    nav.style.display = "block";
-  });
-}
-</script>
 
 </body>
 </html>
