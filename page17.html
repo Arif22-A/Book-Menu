@@ -201,30 +201,35 @@ SPECIAL PERFORM SECTION
 ========================= */
 
 .perform{
-  margin-top:45px;
+  margin-top:50px;
+
+  display:grid;
+  grid-template-columns:1fr 320px;
+
+  gap:35px;
+
+  align-items:center;
 
   background:
   linear-gradient(
     135deg,
-    rgba(255,170,0,.12),
-    rgba(255,255,255,.05)
+    rgba(255,170,0,.10),
+    rgba(255,255,255,.04)
   );
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(212,166,79,.18);
 
-  border-radius:30px;
+  border-radius:34px;
 
-  padding:30px;
-
-  display:flex;
-  align-items:center;
-  gap:30px;
+  padding:34px;
 
   backdrop-filter:blur(12px);
 
+  position:relative;
+
   overflow:hidden;
 }
-
+  
 .perform-left{
   flex:1;
 }
@@ -238,9 +243,14 @@ SPECIAL PERFORM SECTION
 }
 
 .band-name{
-  font-size:58px;
+  font-size:64px;
   font-weight:900;
   line-height:1;
+
+  color:#fff;
+
+  text-shadow:
+  0 0 20px rgba(255,255,255,.08);
 }
 
 .band-desc{
@@ -253,34 +263,46 @@ SPECIAL PERFORM SECTION
 
 .band-image{
 
-  width:260px;
-
-  aspect-ratio:3/4;
+  width:100%;
+  height:520px;
 
   object-fit:cover;
+
+  /* fokus tengah atas */
   object-position:center top;
 
-  border-radius:26px;
+  border-radius:28px;
 
-  border:3px solid rgba(212,166,79,.55);
-
-  outline:1px solid rgba(255,255,255,.08);
-  outline-offset:-8px;
+  border:2px solid rgba(212,166,79,.45);
 
   background:#111;
 
-  flex-shrink:0;
-
   box-shadow:
-  0 18px 50px rgba(0,0,0,.55),
-  0 0 35px rgba(212,166,79,.18),
-  inset 0 0 20px rgba(255,255,255,.04);
+  0 25px 60px rgba(0,0,0,.6),
+  0 0 35px rgba(212,166,79,.18);
 
-  transition:.35s ease;
+  position:relative;
 }
 
 .band-image:hover{
   transform:translateY(-4px) scale(1.01);
+}
+
+.perform::before{
+  content:'';
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  radial-gradient(
+    circle at top right,
+    rgba(255,190,92,.12),
+    transparent 35%
+  );
+
+  pointer-events:none;
 }
 
 /* FOOTER */
@@ -447,21 +469,17 @@ SPECIAL PERFORM SECTION
 @media(max-width:850px){
 
   .perform{
-    flex-direction:column;
+    grid-template-columns:1fr;
     text-align:center;
   }
 
-  .band-desc{
-    max-width:100%;
-  }
-
   .band-image{
-    width:100%;
+    height:420px;
     max-width:320px;
+    margin:auto;
   }
 
 }
-
 /* NAVIGATION ARROWS */
 .nav-arrow {
   position: fixed;
