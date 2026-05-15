@@ -552,6 +552,262 @@ body{
   0 0 18px rgba(255,223,130,.5);
 
 }
+
+/* ===== CENTER ===== */
+
+.center{
+
+  position:relative;
+  z-index:2;
+
+  margin-top:18px;
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+}
+
+/* ===== TITLE ===== */
+
+.title{
+
+  color:white;
+
+  font-size:22px;
+  font-weight:700;
+
+  letter-spacing:3px;
+  line-height:1.05;
+
+  text-shadow:
+  0 0 10px rgba(255,215,120,.18);
+
+}
+
+/* ===== SUBTITLE ===== */
+
+.subtitle{
+
+  color:#f2c66d;
+
+  font-size:8px;
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+
+}
+
+/* ===== DESCRIPTION ===== */
+
+.description{
+
+  width:72%;
+
+  color:#d7d7d7;
+
+  font-size:7px;
+
+  line-height:1.8;
+
+  margin-top:4px;
+
+}
+
+/* ===== GOLD DIVIDER ===== */
+
+.divider{
+
+  width:100%;
+  height:1px;
+
+  margin-top:2px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,215,120,.9),
+    transparent
+  );
+
+  box-shadow:
+  0 0 10px rgba(255,215,120,.5);
+
+}
+
+/* ===== BENEFIT ===== */
+
+.benefit{
+
+  margin-top:2px;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(4,1fr);
+
+  gap:10px;
+
+  align-items:center;
+
+}
+
+/* ===== BENEFIT ITEM ===== */
+
+.benefit-item{
+
+  text-align:center;
+
+  position:relative;
+
+}
+
+/* garis pemisah */
+.benefit-item:not(:last-child)::after{
+
+  content:"";
+
+  position:absolute;
+
+  right:-5px;
+  top:8px;
+
+  width:1px;
+  height:38px;
+
+  background:
+  linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,215,120,.8),
+    transparent
+  );
+
+}
+
+/* ===== ICON ===== */
+
+.icon{
+
+  width:42px;
+  height:42px;
+
+  margin:auto;
+
+  border-radius:50%;
+
+  border:1px solid rgba(255,215,120,.7);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#ffd978;
+
+  font-size:18px;
+
+  box-shadow:
+  0 0 12px rgba(255,215,120,.25),
+  inset 0 0 10px rgba(255,215,120,.08);
+
+}
+
+/* ===== BENEFIT TITLE ===== */
+
+.benefit-title{
+
+  margin-top:8px;
+
+  color:white;
+
+  font-size:6.5px;
+
+  line-height:1.5;
+
+  letter-spacing:1px;
+
+}
+
+/* ===== BOTTOM ===== */
+
+.bottom{
+
+  position:absolute;
+
+  left:18px;
+  right:18px;
+  bottom:14px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding-top:10px;
+
+  border-top:1px solid rgba(255,215,120,.2);
+
+}
+
+/* ===== OWNER ===== */
+
+.owner-name{
+
+  color:white;
+
+  font-size:10px;
+  font-weight:600;
+
+  letter-spacing:1px;
+
+}
+
+.owner-role{
+
+  margin-top:3px;
+
+  color:#f2c66d;
+
+  font-size:7px;
+
+  letter-spacing:3px;
+
+}
+
+/* ===== MEMBER ID ===== */
+
+.member{
+
+  text-align:right;
+
+}
+
+.member-label{
+
+  color:#f2c66d;
+
+  font-size:7px;
+
+  letter-spacing:3px;
+
+}
+
+.number{
+
+  margin-top:3px;
+
+  color:#ffd978;
+
+  font-size:18px;
+  font-weight:700;
+
+  letter-spacing:4px;
+
+  text-shadow:
+  0 0 10px rgba(255,215,120,.7);
+
+}
 </style>
 </head>
 
@@ -579,53 +835,88 @@ body{
   <div class="chip"></div>
 
   <!-- CENTER -->
-  <div class="center">
+<div class="center">
 
-    <div class="title">
-      BLACK<br>
-      CARD
+  <div class="title">
+    BLACK CARD
+  </div>
+
+  <div class="subtitle">
+    VVIP STUDENT MEMBERSHIP
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="description">
+    Exclusive student membership card with luxury privileges,
+    priority access, and special VVIP treatment.
+  </div>
+
+  <div class="benefit">
+
+    <div class="benefit-item">
+
+      <div class="icon">%</div>
+
+      <div class="benefit-title">
+        10%<br>DISCOUNT
+      </div>
+
     </div>
 
-    <div class="subtitle">
-      Exclusive student membership card with luxury privileges,
-      priority access, and special VVIP treatment.
+    <div class="benefit-item">
+
+      <div class="icon">♛</div>
+
+      <div class="benefit-title">
+        PRIORITY<br>SERVICE
+      </div>
+
     </div>
 
-    <div class="benefit">
+    <div class="benefit-item">
 
-      <div class="badge">
-        10% DISCOUNT
+      <div class="icon">🔒</div>
+
+      <div class="benefit-title">
+        PRIVATE<br>ACCESS
       </div>
 
-      <div class="badge">
-        PRIORITY SERVICE
-      </div>
+    </div>
 
-      <div class="badge">
-        PRIVATE ACCESS
-      </div>
+    <div class="benefit-item">
 
-      <div class="badge">
-        ELITE MEMBER
+      <div class="icon">♦</div>
+
+      <div class="benefit-title">
+        ELITE<br>MEMBER
       </div>
 
     </div>
 
   </div>
 
+</div>
+
   <!-- BOTTOM -->
-  <div class="bottom">
+ <div class="bottom">
 
-    <div class="owner">
+  <div>
 
-      <div class="owner-name">
-        CARD HOLDER
-      </div>
+    <div class="owner-name">
+      CARD HOLDER
+    </div>
 
-      <div class="owner-role">
-        OCEAN STUDENT SOCIETY
-      </div>
+    <div class="owner-role">
+      OCEAN STUDENT SOCIETY
+    </div>
 
+  </div>
+
+  <div class="member">
+
+    <div class="member-label">
+      MEMBER ID
     </div>
 
     <div class="number">
@@ -633,6 +924,8 @@ body{
     </div>
 
   </div>
+
+</div>
   <div class="gold-line"></div>
 
 </div>
