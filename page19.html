@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>VVIP Student Black Card</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#0b0b0b;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* ===== PRINT SIZE ===== */
+/* ID CARD STANDARD */
+/* 85.6mm × 54mm */
+
+.card{
+
+  width:85.6mm;
+  height:54mm;
+
+  position:relative;
+  overflow:hidden;
+
+  border-radius:16px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #050505,
+    #121212 40%,
+    #1a1a1a 60%,
+    #050505
+  );
+
+  border:1px solid rgba(255,215,120,.25);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.65),
+  inset 0 1px 1px rgba(255,255,255,.08);
+
+  padding:18px;
+
+}
+
+/* ===== GOLD LIGHT ===== */
+
+.card::before{
+
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255,215,120,.08) 50%,
+    transparent 75%
+  );
+
+  animation:shine 5s linear infinite;
+
+}
+
+@keyframes shine{
+
+  from{
+    transform:translateX(-100%);
+  }
+
+  to{
+    transform:translateX(100%);
+  }
+
+}
+
+/* ===== DECOR ===== */
+
+.circle-top{
+
+  position:absolute;
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  top:-110px;
+  right:-60px;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,215,120,.18),
+    transparent 70%
+  );
+
+}
+
+.circle-bottom{
+
+  position:absolute;
+  width:140px;
+  height:140px;
+
+  border-radius:50%;
+
+  bottom:-80px;
+  left:-70px;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,215,120,.08),
+    transparent 70%
+  );
+
+}
+
+/* ===== TOP ===== */
+
+.top{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  position:relative;
+  z-index:2;
+
+}
+
+.brand{
+
+  color:#f5d18a;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:600;
+
+}
+
+.level{
+
+  color:#f5d18a;
+  border:1px solid rgba(245,209,138,.35);
+
+  padding:4px 10px;
+  border-radius:30px;
+
+  font-size:8px;
+  letter-spacing:1px;
+
+  background:rgba(255,215,120,.05);
+
+}
+
+/* ===== CENTER ===== */
+
+.center{
+
+  position:relative;
+  z-index:2;
+
+  margin-top:22px;
+
+}
+
+.title{
+
+  color:white;
+
+  font-size:28px;
+  font-weight:700;
+
+  letter-spacing:2px;
+  line-height:1;
+
+}
+
+.subtitle{
+
+  margin-top:8px;
+
+  color:#d0d0d0;
+
+  font-size:8px;
+  line-height:1.6;
+
+  width:70%;
+
+}
+
+/* ===== BENEFIT ===== */
+
+.benefit{
+
+  margin-top:12px;
+
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+
+}
+
+.badge{
+
+  font-size:7px;
+
+  color:#f5d18a;
+
+  border:1px solid rgba(245,209,138,.18);
+
+  background:rgba(255,215,120,.06);
+
+  padding:4px 7px;
+
+  border-radius:20px;
+
+  letter-spacing:.5px;
+
+}
+
+/* ===== BOTTOM ===== */
+
+.bottom{
+
+  position:absolute;
+
+  bottom:16px;
+  left:18px;
+  right:18px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  z-index:2;
+
+}
+
+.owner{
+
+  color:white;
+
+}
+
+.owner-name{
+
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1px;
+
+}
+
+.owner-role{
+
+  margin-top:2px;
+
+  font-size:7px;
+  color:#bbbbbb;
+
+  letter-spacing:1px;
+
+}
+
+.number{
+
+  color:#f5d18a;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+}
+
+/* ===== CHIP ===== */
+
+.chip{
+
+  position:absolute;
+
+  right:20px;
+  top:70px;
+
+  width:42px;
+  height:30px;
+
+  border-radius:8px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #caa85e,
+    #ffe7a8,
+    #9b7939
+  );
+
+  z-index:2;
+
+  box-shadow:
+  inset 0 1px 2px rgba(255,255,255,.35);
+
+}
+
+.chip::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  bottom:0;
+  left:50%;
+
+  width:1px;
+
+  background:rgba(0,0,0,.15);
+
+}
+
+.chip::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  top:50%;
+
+  height:1px;
+
+  background:rgba(0,0,0,.15);
+
+}
+
+/* ===== PRINT ===== */
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  .card{
+    box-shadow:none;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="circle-top"></div>
+  <div class="circle-bottom"></div>
+
+  <!-- TOP -->
+  <div class="top">
+
+    <div class="brand">
+      BLACK ELITE
+    </div>
+
+    <div class="level">
+      VVIP ACCESS
+    </div>
+
+  </div>
+
+  <!-- CHIP -->
+  <div class="chip"></div>
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <div class="title">
+      BLACK<br>
+      CARD
+    </div>
+
+    <div class="subtitle">
+      Exclusive student membership card with luxury privileges,
+      priority access, and special VVIP treatment.
+    </div>
+
+    <div class="benefit">
+
+      <div class="badge">
+        10% DISCOUNT
+      </div>
+
+      <div class="badge">
+        PRIORITY SERVICE
+      </div>
+
+      <div class="badge">
+        PRIVATE ACCESS
+      </div>
+
+      <div class="badge">
+        ELITE MEMBER
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+
+    <div class="owner">
+
+      <div class="owner-name">
+        CARD HOLDER
+      </div>
+
+      <div class="owner-role">
+        OCEAN STUDENT SOCIETY
+      </div>
+
+    </div>
+
+    <div class="number">
+      #0001
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
