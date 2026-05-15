@@ -320,6 +320,7 @@ body{
 
   animation:shine 6s linear infinite;
 
+  pointer-events:none;
   z-index:1;
 
 }
@@ -335,11 +336,16 @@ body{
   }
 
 }
-.card *{
+
+.top,
+.center,
+.bottom,
+.chip{
+
   position:relative;
   z-index:2;
+
 }
-  
 /* ===== GLOW LINE ===== */
 
 .gold-line{
