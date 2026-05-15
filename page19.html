@@ -24,59 +24,9 @@ body{
   min-height:100vh;
   font-family:'Poppins',sans-serif;
   overflow:hidden;
-}
 
-/* ===== PRINT SIZE ===== */
-/* ID CARD STANDARD */
-/* 85.6mm × 54mm */
-
-.card{
-
-  width:85.6mm;
-  height:54mm;
-
-  position:relative;
-  overflow:hidden;
-
-  border-radius:16px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #050505,
-    #121212 40%,
-    #1a1a1a 60%,
-    #050505
-  );
-
-  border:1px solid rgba(255,215,120,.25);
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.65),
-  inset 0 1px 1px rgba(255,255,255,.08);
-
-  padding:18px;
-
-}
-
-/* ===== GOLD LIGHT ===== */
-
-.card::before{
-
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-  linear-gradient(
-    120deg,
-    transparent 25%,
-    rgba(255,215,120,.08) 50%,
-    transparent 75%
-  );
-
-  animation:shine 5s linear infinite;
-
+  flex-direction:column;
+  gap:30px;
 }
 
 @keyframes shine{
@@ -181,43 +131,6 @@ body{
 
 }
 
-.title{
-
-  color:white;
-
-  font-size:28px;
-  font-weight:700;
-
-  letter-spacing:2px;
-  line-height:1;
-
-}
-
-.subtitle{
-
-  margin-top:8px;
-
-  color:#d0d0d0;
-
-  font-size:8px;
-  line-height:1.6;
-
-  width:70%;
-
-}
-
-/* ===== BENEFIT ===== */
-
-.benefit{
-
-  margin-top:12px;
-
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-
-}
-
 .badge{
 
   font-size:7px;
@@ -233,24 +146,6 @@ body{
   border-radius:20px;
 
   letter-spacing:.5px;
-
-}
-
-/* ===== BOTTOM ===== */
-
-.bottom{
-
-  position:absolute;
-
-  bottom:16px;
-  left:18px;
-  right:18px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-
-  z-index:2;
 
 }
 
@@ -898,7 +793,7 @@ body{
 <div class="center">
 
   <div class="title">
-    BLACK CARD
+    BAHA
   </div>
 
   <div class="subtitle">
@@ -987,6 +882,7 @@ body{
 
 </div>
   <div class="gold-line"></div>
+</div>
 
   <div class="actions">
   <button onclick="window.print()">Export PDF</button>
@@ -1005,7 +901,6 @@ body{
   </a>
 </div>
 
-</div>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 async function downloadPNG() {
