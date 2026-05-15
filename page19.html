@@ -364,6 +364,194 @@ body{
 
 }
 
+/* ===== CARD ===== */
+
+.card{
+
+  width:85.6mm;
+  height:54mm;
+
+  position:relative;
+  overflow:hidden;
+
+  border-radius:16px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #050505,
+    #121212 40%,
+    #1a1a1a 60%,
+    #050505
+  );
+
+  /* GLOW EMAS */
+  border:1.5px solid #ffd978;
+
+  box-shadow:
+  0 0 8px rgba(255,215,120,.9),
+  0 0 18px rgba(255,215,120,.65),
+  0 0 35px rgba(255,215,120,.45),
+  0 10px 30px rgba(0,0,0,.7),
+  inset 0 0 12px rgba(255,215,120,.12),
+  inset 0 1px 1px rgba(255,255,255,.1);
+
+  padding:18px;
+
+}
+
+/* ===== OUTER GOLD FRAME ===== */
+
+.card::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:7px;
+
+  border-radius:12px;
+
+  border:1px solid rgba(255,223,130,.65);
+
+  box-shadow:
+  0 0 10px rgba(255,223,130,.9),
+  0 0 25px rgba(255,223,130,.55),
+  inset 0 0 8px rgba(255,223,130,.25);
+
+  pointer-events:none;
+
+}
+
+/* ===== GOLD LIGHT EFFECT ===== */
+
+.card::before{
+
+  content:"";
+
+  position:absolute;
+  inset:-120%;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,230,150,.16) 45%,
+    rgba(255,255,255,.3) 50%,
+    rgba(255,230,150,.16) 55%,
+    transparent 70%
+  );
+
+  transform:rotate(15deg);
+
+  animation:shine 4s linear infinite;
+
+}
+
+@keyframes shine{
+
+  from{
+    transform:
+    translateX(-100%)
+    rotate(15deg);
+  }
+
+  to{
+    transform:
+    translateX(100%)
+    rotate(15deg);
+  }
+
+}
+
+/* ===== GLOW LINE ===== */
+
+.gold-line{
+
+  position:absolute;
+
+  left:18px;
+  right:18px;
+  bottom:48px;
+
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    #ffd978,
+    #fff1b3,
+    #ffd978,
+    transparent
+  );
+
+  box-shadow:
+  0 0 8px rgba(255,215,120,.95),
+  0 0 18px rgba(255,215,120,.75),
+  0 0 28px rgba(255,215,120,.55);
+
+  z-index:2;
+
+}
+
+/* ===== BADGE GLOW ===== */
+
+.badge{
+
+  font-size:7px;
+
+  color:#ffe7a8;
+
+  border:1px solid rgba(255,223,130,.35);
+
+  background:rgba(255,215,120,.07);
+
+  padding:4px 7px;
+
+  border-radius:20px;
+
+  letter-spacing:.5px;
+
+  box-shadow:
+  0 0 6px rgba(255,223,130,.4),
+  inset 0 0 6px rgba(255,223,130,.12);
+
+}
+
+/* ===== TITLE GLOW ===== */
+
+.title{
+
+  color:white;
+
+  font-size:28px;
+  font-weight:700;
+
+  letter-spacing:2px;
+  line-height:1;
+
+  text-shadow:
+  0 0 10px rgba(255,255,255,.15),
+  0 0 18px rgba(255,215,120,.25);
+
+}
+
+/* ===== NUMBER GLOW ===== */
+
+.number{
+
+  color:#ffe7a8;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+  text-shadow:
+  0 0 8px rgba(255,223,130,.9),
+  0 0 18px rgba(255,223,130,.5);
+
+}
 </style>
 </head>
 
@@ -445,6 +633,7 @@ body{
     </div>
 
   </div>
+  <div class="gold-line"></div>
 
 </div>
 
