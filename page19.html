@@ -295,6 +295,10 @@ body{
 
 }
 
+.card{
+  isolation:isolate;
+}
+
 /* ===== OUTER GOLD FRAME ===== */
 
 .card::after{
@@ -325,40 +329,43 @@ body{
   content:"";
 
   position:absolute;
-  inset:-120%;
+
+  top:-50%;
+  left:-50%;
+
+  width:60%;
+  height:200%;
 
   background:
   linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255,230,150,.16) 45%,
-    rgba(255,255,255,.3) 50%,
-    rgba(255,230,150,.16) 55%,
-    transparent 70%
+    90deg,
+    transparent,
+    rgba(255,215,120,.12),
+    rgba(255,255,255,.18),
+    rgba(255,215,120,.12),
+    transparent
   );
 
-  transform:rotate(15deg);
+  transform:rotate(18deg);
 
-  animation:shine 4s linear infinite;
+  animation:shine 5s linear infinite;
+
+  pointer-events:none;
 
 }
-
+  
 @keyframes shine{
 
   from{
-    transform:
-    translateX(-100%)
-    rotate(15deg);
+    left:-70%;
   }
 
   to{
-    transform:
-    translateX(100%)
-    rotate(15deg);
+    left:130%;
   }
 
 }
-
+  
 /* ===== GLOW LINE ===== */
 
 .gold-line{
@@ -907,7 +914,7 @@ async function downloadPNG() {
   const canvas = await html2canvas(target, {
     scale: window.devicePixelRatio * 2,
     useCORS: true,
-    backgroundColor: bgColor,
+    backgroundColor: null,
     logging: false
   });
 
