@@ -45,14 +45,50 @@ body{
 
 .circle-top{
 
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  top:-110px;
+  right:-60px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,215,120,.15),
+    transparent 70%
+  );
+
   opacity:.25;
+
   filter:blur(20px);
 
 }
 
 .circle-bottom{
 
+  position:absolute;
+
+  width:140px;
+  height:140px;
+
+  bottom:-80px;
+  left:-70px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,215,120,.08),
+    transparent 70%
+  );
+
   opacity:.15;
+
   filter:blur(20px);
 
 }
@@ -296,6 +332,8 @@ body{
 
 .card::before{
 
+  opacity:.7;
+
   content:"";
 
   position:absolute;
@@ -339,12 +377,15 @@ body{
 
 .top,
 .center,
-.bottom,
-.chip{
+.bottom{
 
   position:relative;
   z-index:2;
 
+}
+
+.chip{
+  z-index:2;
 }
 /* ===== GLOW LINE ===== */
 
@@ -892,7 +933,7 @@ async function downloadPNG() {
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: 4,
+    scale: 2,
     useCORS: true,
     backgroundColor: null,
     logging: false
