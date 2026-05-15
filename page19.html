@@ -46,52 +46,47 @@ body{
 .circle-top{
 
   position:absolute;
-
   width:180px;
   height:180px;
+
+  border-radius:50%;
 
   top:-110px;
   right:-60px;
 
-  border-radius:50%;
-
   background:
   radial-gradient(
     circle,
-    rgba(255,215,120,.15),
+    rgba(255,215,120,.10),
     transparent 70%
   );
 
-  opacity:.25;
-
-  filter:blur(20px);
+  z-index:0;
 
 }
 
 .circle-bottom{
 
   position:absolute;
-
   width:140px;
   height:140px;
+
+  border-radius:50%;
 
   bottom:-80px;
   left:-70px;
 
-  border-radius:50%;
-
   background:
   radial-gradient(
     circle,
-    rgba(255,215,120,.08),
+    rgba(255,215,120,.05),
     transparent 70%
   );
 
-  opacity:.15;
-
-  filter:blur(20px);
+  z-index:0;
 
 }
+  
 /* ===== TOP ===== */
 
 .top{
@@ -876,7 +871,7 @@ async function downloadPNG() {
   const canvas = await html2canvas(target, {
     scale: 2,
     useCORS: true,
-    backgroundColor: null,
+    backgroundColor: "#0b0b0b",
     logging: false
   });
 
