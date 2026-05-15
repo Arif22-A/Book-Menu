@@ -45,44 +45,17 @@ body{
 
 .circle-top{
 
-  position:absolute;
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-
-  top:-110px;
-  right:-60px;
-
-  background:
-  radial-gradient(
-    circle,
-    rgba(255,215,120,.18),
-    transparent 70%
-  );
+  opacity:.25;
+  filter:blur(20px);
 
 }
 
 .circle-bottom{
 
-  position:absolute;
-  width:140px;
-  height:140px;
-
-  border-radius:50%;
-
-  bottom:-80px;
-  left:-70px;
-
-  background:
-  radial-gradient(
-    circle,
-    rgba(255,215,120,.08),
-    transparent 70%
-  );
+  opacity:.15;
+  filter:blur(20px);
 
 }
-
 /* ===== TOP ===== */
 
 .top{
@@ -295,9 +268,6 @@ body{
 
 }
 
-.card{
-  isolation:isolate;
-}
 
 /* ===== OUTER GOLD FRAME ===== */
 
@@ -330,40 +300,44 @@ body{
 
   position:absolute;
 
-  top:-50%;
-  left:-50%;
+  top:0;
+  left:-120%;
 
-  width:60%;
-  height:200%;
+  width:80%;
+  height:100%;
 
   background:
   linear-gradient(
     90deg,
     transparent,
-    rgba(255,215,120,.12),
-    rgba(255,255,255,.18),
-    rgba(255,215,120,.12),
+    rgba(255,255,255,.05),
+    rgba(255,215,120,.10),
+    rgba(255,255,255,.05),
     transparent
   );
 
-  transform:rotate(18deg);
+  transform:skewX(-25deg);
 
-  animation:shine 5s linear infinite;
+  animation:shine 6s linear infinite;
 
-  pointer-events:none;
+  z-index:1;
 
 }
   
 @keyframes shine{
 
   from{
-    left:-70%;
+    left:-120%;
   }
 
   to{
-    left:130%;
+    left:140%;
   }
 
+}
+.card *{
+  position:relative;
+  z-index:2;
 }
   
 /* ===== GLOW LINE ===== */
@@ -912,7 +886,7 @@ async function downloadPNG() {
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: window.devicePixelRatio * 2,
+    scale: 4,
     useCORS: true,
     backgroundColor: null,
     logging: false
