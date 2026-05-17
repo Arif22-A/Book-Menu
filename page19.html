@@ -194,7 +194,7 @@ body{
 
   position:absolute;
 
-  right:20px;
+  right:8px;
   top:58px;
 
   width:42px;
@@ -438,11 +438,11 @@ body{
 
   color:white;
 
-  font-size:18px;
+  font-size:16px;
   font-weight:700;
 
-  letter-spacing:3px;
-  line-height:1.05;
+  letter-spacing:2px;
+  line-height:1;
 
   text-shadow:
   0 0 10px rgba(255,215,120,.18);
@@ -602,7 +602,7 @@ body{
 
   left:18px;
   right:18px;
-  bottom:10px;
+  bottom:4px;
 
   display:flex;
   justify-content:space-between;
@@ -666,7 +666,7 @@ body{
   font-size:14px;
   font-weight:700;
 
-  letter-spacing:4px;
+  letter-spacing:2px;
 
   text-shadow:
   0 0 10px rgba(255,215,120,.7);
@@ -732,12 +732,23 @@ body{
   color: #000;
 }
 
+.card-inner{
+  position:absolute;
+
+  top:14px;
+  left:14px;
+  right:14px;
+  bottom:14px;
+
+  overflow:hidden;
+}
 </style>
 </head>
 
 <body>
 
 <div class="card">
+   <div class="card-inner">
 
   <div class="circle-top"></div>
   <div class="circle-bottom"></div>
@@ -807,6 +818,7 @@ body{
 
 </div>
 
+</div>
 </div>
 
   <div class="actions">
