@@ -277,7 +277,7 @@ body{
 
   border-radius:16px;
 
-  background-color:#0b0b0b;
+  background-color:#111111;
 
   background-image:
   linear-gradient(
@@ -298,14 +298,12 @@ body{
   transparent 35%
   );
 
-  background-blend-mode:overlay;
 
-  border:1.5px solid #ffd978;
+  border:1.5px solid #f7e7a1;
 
-  box-shadow:
-  0 0 8px rgba(255,215,120,.9),
-  0 0 18px rgba(255,215,120,.65),
-  0 0 35px rgba(255,215,120,.35);
+ box-shadow:
+0 0 4px rgba(212,175,55,.45),
+0 0 10px rgba(212,175,55,.22);
 
   padding:18px;
 
@@ -364,9 +362,9 @@ body{
   linear-gradient(
     90deg,
     transparent,
-    #ffd978,
+    #f7e7a1,
     #fff1b3,
-    #ffd978,
+    #f7e7a1,
     transparent
   );
 
@@ -494,7 +492,7 @@ body{
   linear-gradient(
     90deg,
     transparent,
-    rgba(255,215,120,.9),
+    rgba(212,175,55,.55),
     transparent
   );
 
@@ -570,7 +568,7 @@ body{
   align-items:center;
   justify-content:center;
 
-  color:#ffd978;
+  color:#f7e7a1;
 
   font-size:12px;
 
@@ -663,7 +661,7 @@ body{
 
   margin-top:3px;
 
-  color:#ffd978;
+  color:#f7e7a1;
 
   font-size:14px;
   font-weight:700;
@@ -850,9 +848,9 @@ async function downloadPNG() {
   await new Promise(resolve => setTimeout(resolve, 200));
 
   const canvas = await html2canvas(target, {
-    scale: window.devicePixelRatio,
+    scale: 3,
     useCORS: true,
-    backgroundColor: "#0b0b0b",
+    backgroundColor: null,
     logging: false
   });
 
