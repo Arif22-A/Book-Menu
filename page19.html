@@ -778,6 +778,10 @@ body{
   Mr.BAHA
 </div>
 
+  <div class="subtitle" id="schoolName">
+  VIP STUDENT MEMBERSHIP
+</div>
+
   <div class="subtitle">
     VIP STUDENT MEMBERSHIP
   </div>
@@ -823,13 +827,20 @@ body{
 </div>
 </div>
 
- <div class="controls">
+<div class="controls">
 
   <input
     type="text"
     id="nameInput"
     placeholder="Input Member Name"
     oninput="updateName()"
+  >
+
+  <input
+    type="text"
+    id="schoolInput"
+    placeholder="Input School Name"
+    oninput="updateSchool()"
   >
 
 </div>
@@ -903,6 +914,18 @@ function updateName(){
   .innerText = input.toUpperCase();
 
 }
+
+function updateSchool(){
+
+  const school =
+  document.getElementById("schoolInput").value;
+
+  document.getElementById("schoolName")
+  .innerText = school.toUpperCase();
+
+}
+
+</script>
 
 </script>
 </body>
