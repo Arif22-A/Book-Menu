@@ -194,8 +194,8 @@ body{
 
   position:absolute;
 
-  right:8px;
-  top:58px;
+  right:20px;
+  top:40px;
 
   width:42px;
   height:30px;
@@ -273,42 +273,21 @@ body{
   position:relative;
   overflow:hidden;
 
-  transform:translateZ(0);
-
   border-radius:16px;
 
-  background-color:#111111;
-
-  background-image:
+  background:
   linear-gradient(
-  135deg,
-  #050505,
-  #121212 40%,
-  #1a1a1a 60%,
-  #050505
-  ),
-  radial-gradient(
-  circle at top left,
-  rgba(255,215,120,.08),
-  transparent 30%
-  ),
-  radial-gradient(
-  circle at bottom right,
-  rgba(255,215,120,.05),
-  transparent 35%
+    135deg,
+    #050505,
+    #111111 45%,
+    #181818 60%,
+    #050505
   );
 
+  border:1.5px solid #d4af37;
 
-  border:1.5px solid #f7e7a1;
-
- box-shadow:
-0 0 4px rgba(212,175,55,.45),
-0 0 10px rgba(212,175,55,.22);
-
-  padding:18px;
-
+  padding:20px;
 }
-
 /* ===== OUTER GOLD FRAME ===== */
 
 .card::after{
@@ -317,21 +296,14 @@ body{
 
   position:absolute;
 
-  inset:7px;
+  inset:10px;
 
   border-radius:12px;
 
-  border:1px solid rgba(255,223,130,.65);
-
-  box-shadow:
-  0 0 10px rgba(255,223,130,.9),
-  0 0 25px rgba(255,223,130,.55),
-  inset 0 0 8px rgba(255,223,130,.25);
+  border:1px solid rgba(212,175,55,.55);
 
   pointer-events:none;
-
 }
-
 /* ===== GOLD LIGHT EFFECT ===== */
 
 .top,
@@ -352,8 +324,8 @@ body{
 
   position:absolute;
 
-  left:18px;
-  right:18px;
+  left:22px;
+  right:22px;
   bottom:48px;
 
   height:1px;
@@ -600,8 +572,8 @@ body{
 
   position:absolute;
 
-  left:18px;
-  right:18px;
+  left:22px;
+  right:22px;
   bottom:4px;
 
   display:flex;
@@ -741,6 +713,10 @@ body{
   bottom:14px;
 
   overflow:hidden;
+}
+
+*{
+  box-sizing:border-box;
 }
 </style>
 </head>
