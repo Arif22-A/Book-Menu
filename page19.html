@@ -273,7 +273,7 @@ body{
   position:relative;
   overflow:hidden;
 
-  border-radius:16px;
+  border-radius:0;
 
   background:
   linear-gradient(
@@ -298,7 +298,7 @@ body{
 
   inset:10px;
 
-  border-radius:12px;
+  border-radius:0px;
 
   border:1px solid rgba(212,175,55,.55);
 
@@ -911,7 +911,7 @@ async function downloadPNG() {
   const canvas = await html2canvas(target, {
     scale: 3,
     useCORS: true,
-    backgroundColor: null,
+    backgroundColor:"#000000"
     logging: false
   });
 
