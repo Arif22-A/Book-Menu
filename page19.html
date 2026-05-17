@@ -410,7 +410,7 @@ body{
 
   color:white;
 
-  font-size:16px;
+  font-size:14px;
   font-weight:700;
 
   letter-spacing:2px;
@@ -718,6 +718,32 @@ body{
 *{
   box-sizing:border-box;
 }
+
+.controls{
+
+  margin-top:20px;
+
+}
+
+.controls input{
+
+  width:260px;
+
+  padding:12px 14px;
+
+  background:#111;
+
+  border:1px solid #d4af37;
+
+  border-radius:10px;
+
+  color:white;
+
+  font-size:14px;
+
+  outline:none;
+
+}
 </style>
 </head>
 
@@ -748,9 +774,9 @@ body{
   <!-- CENTER -->
 <div class="center">
 
-  <div class="title">
-    Mr.BAHA
-  </div>
+  <div class="title" id="memberName">
+  Mr.BAHA
+</div>
 
   <div class="subtitle">
     VIP STUDENT MEMBERSHIP
@@ -795,6 +821,17 @@ body{
 </div>
 
 </div>
+</div>
+
+ <div class="controls">
+
+  <input
+    type="text"
+    id="nameInput"
+    placeholder="Input Member Name"
+    oninput="updateName()"
+  >
+
 </div>
 
   <div class="actions">
@@ -854,6 +891,19 @@ async function downloadPNG() {
     nav.style.display = "block";
   });
 }
+</script>
+<script>
+
+function updateName(){
+
+  const input =
+  document.getElementById("nameInput").value;
+
+  document.getElementById("memberName")
+  .innerText = input.toUpperCase();
+
+}
+
 </script>
 </body>
 </html>
