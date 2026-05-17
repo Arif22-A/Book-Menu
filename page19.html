@@ -721,13 +721,20 @@ body{
 
 .controls{
 
+  width:85.6mm;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:12px;
+
   margin-top:20px;
 
 }
 
 .controls input{
 
-  width:260px;
+  width:100%;
 
   padding:12px 14px;
 
@@ -742,6 +749,17 @@ body{
   font-size:14px;
 
   outline:none;
+
+  font-family:'Poppins',sans-serif;
+
+}
+
+.controls input:focus{
+
+  border-color:#f7e7a1;
+
+  box-shadow:
+  0 0 8px rgba(212,175,55,.25);
 
 }
 </style>
