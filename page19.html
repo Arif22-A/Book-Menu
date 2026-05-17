@@ -816,9 +816,9 @@ body{
       MEMBER ID
     </div>
 
-    <div class="number">
-      #0001
-    </div>
+    <div class="number" id="memberId">
+  #0001
+</div>
 
   </div>
 
@@ -841,6 +841,13 @@ body{
     id="schoolInput"
     placeholder="Input School Name"
     oninput="updateSchool()"
+  >
+
+  <input
+    type="text"
+    id="memberIdInput"
+    placeholder="Input Member ID"
+    oninput="updateMemberId()"
   >
 
 </div>
@@ -922,6 +929,16 @@ function updateSchool(){
 
   document.getElementById("schoolName")
   .innerText = school.toUpperCase();
+
+}
+
+function updateMemberId(){
+
+  const memberId =
+  document.getElementById("memberIdInput").value;
+
+  document.getElementById("memberId")
+  .innerText = "#" + memberId;
 
 }
 
