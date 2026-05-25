@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Ocean Signature Menu</title>
+<title>Ocean Fine Dining Menu</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Cinzel:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,82 +17,56 @@
 }
 
 body{
-  background:#050505;
+
+  background:
+  linear-gradient(
+    180deg,
+    #050505,
+    #0b0b0b
+  );
+
   font-family:'Montserrat',sans-serif;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   min-height:100vh;
-  overflow:hidden;
-}
 
-/* POSTER */
-.poster{
-
-  position:relative;
-
-  width:100%;
-  max-width:430px;
-  height:100vh;
-
-  overflow:hidden;
-
-  background:#000;
+  padding:20px;
 
   color:white;
 }
 
-/* IMAGE SLIDER */
-.slider{
+/* MENU BOOK */
+.menu-book{
 
   width:100%;
-  height:100%;
-
-  position:relative;
-}
-
-.slide{
-
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  opacity:0;
-
-  transition:1.2s ease;
-}
-
-.slide.active{
-  opacity:1;
-  transform:scale(1.03);
-}
-
-/* OVERLAY */
-.poster::before{
-
-  content:'';
-
-  position:absolute;
-  inset:0;
+  max-width:430px;
 
   background:
   linear-gradient(
-    to bottom,
-    rgba(0,0,0,.88),
-    rgba(0,0,0,.15),
-    rgba(0,0,0,.88)
+    180deg,
+    #121212,
+    #090909
   );
 
-  z-index:1;
+  border-radius:34px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  border:1px solid rgba(243,201,105,.18);
+
+  box-shadow:
+  0 0 0 1px rgba(255,255,255,.03),
+  0 30px 80px rgba(0,0,0,.85),
+  0 0 50px rgba(243,201,105,.08);
 }
 
 /* GOLD FRAME */
-.poster::after{
+.menu-book::before{
 
   content:'';
 
@@ -100,11 +74,9 @@ body{
 
   inset:14px;
 
-  border:1px solid rgba(243,201,105,.35);
+  border:1px solid rgba(243,201,105,.18);
 
   border-radius:24px;
-
-  z-index:2;
 
   pointer-events:none;
 }
@@ -112,17 +84,13 @@ body{
 /* HEADER */
 .header{
 
-  position:absolute;
+  padding:28px 28px 22px;
 
-  top:24px;
-  left:24px;
-  right:24px;
-
-  z-index:5;
+  border-bottom:1px solid rgba(255,255,255,.06);
 
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
 .brand{
@@ -143,22 +111,20 @@ body{
 
   padding:6px;
 
-  background:rgba(255,255,255,.05);
+  background:rgba(255,255,255,.03);
 
-  border:1px solid rgba(243,201,105,.45);
-
-  box-shadow:
-  0 0 20px rgba(243,201,105,.18);
+  border:1px solid rgba(243,201,105,.35);
 }
 
 .brand-text h1{
 
-  font-size:28px;
+  font-size:30px;
+
   line-height:1;
 
-  letter-spacing:4px;
-
   font-weight:900;
+
+  letter-spacing:4px;
 }
 
 .brand-text p{
@@ -169,7 +135,7 @@ body{
 
   letter-spacing:2px;
 
-  color:#d6d6d6;
+  color:#bdbdbd;
 }
 
 /* CONTACT */
@@ -188,119 +154,197 @@ body{
 
 .address{
 
-  margin-top:4px;
+  margin-top:5px;
 
   font-size:10px;
+
+  color:#9f9f9f;
+
   line-height:1.5;
-
-  color:#d6d6d6;
-}
-
-/* CONTENT */
-.content{
-
-  position:absolute;
-
-  inset:0;
-
-  z-index:4;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  text-align:center;
-
-  padding:40px;
-}
-
-/* MINI TEXT */
-.menu-label{
-
-  font-size:13px;
-
-  letter-spacing:4px;
-
-  color:#f3c969;
-
-  margin-bottom:12px;
-
-  font-weight:700;
 }
 
 /* TITLE */
-.title{
+.hero{
 
-  font-family:'Cinzel',serif;
+  padding:34px 28px 14px;
 
-  font-size:44px;
-
-  line-height:1.1;
-
-  font-weight:700;
-
-  text-shadow:
-  0 5px 20px rgba(0,0,0,.55);
+  text-align:center;
 }
 
-.title span{
+.hero small{
+
+  letter-spacing:4px;
+
+  font-size:11px;
+
+  color:#f3c969;
+}
+
+.hero h2{
+
+  margin-top:12px;
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:48px;
+
+  line-height:1;
+}
+
+.hero span{
 
   display:block;
 
   font-family:'Great Vibes',cursive;
 
-  font-size:58px;
+  font-size:52px;
+
+  margin-top:6px;
 
   color:#f3c969;
-
-  margin-top:10px;
-
-  letter-spacing:1px;
-
-  text-shadow:
-  0 0 25px rgba(243,201,105,.25);
 }
 
-/* PREMIUM LINE */
-.line{
+/* MENU LIST */
+.menu-list{
 
-  width:120px;
-  height:1px;
+  padding:0 22px 30px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:26px;
+}
+
+/* CARD */
+.menu-card{
 
   background:
   linear-gradient(
-    to right,
-    transparent,
-    #f3c969,
-    transparent
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.02)
   );
 
-  margin:28px 0;
+  border:1px solid rgba(243,201,105,.12);
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.45);
+
+  position:relative;
 }
 
-/* TAGLINE */
-.tagline{
+/* IMAGE */
+.menu-image{
+
+  width:100%;
+  height:260px;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+/* CONTENT */
+.menu-content{
+
+  padding:22px;
+}
+
+/* TOP */
+.menu-top{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:14px;
+}
+
+/* NAME */
+.menu-name{
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:34px;
+
+  line-height:1;
+
+  font-weight:700;
+}
+
+/* PRICE BADGE */
+.price{
+
+  background:
+  linear-gradient(
+    135deg,
+    #f3c969,
+    #ffb84d
+  );
+
+  color:#111;
+
+  padding:10px 16px;
+
+  border-radius:100px;
+
+  font-size:14px;
+  font-weight:800;
+
+  box-shadow:
+  0 8px 20px rgba(243,201,105,.22);
+}
+
+/* DESC */
+.desc{
+
+  margin-top:16px;
+
+  color:#d7d7d7;
 
   font-size:14px;
 
   line-height:1.8;
+}
 
-  color:#efefef;
+/* BADGE */
+.badge{
 
-  max-width:290px;
+  position:absolute;
+
+  top:18px;
+  left:18px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ffcc4d,
+    #ff9800
+  );
+
+  color:#111;
+
+  padding:8px 14px;
+
+  border-radius:100px;
+
+  font-size:11px;
+  font-weight:800;
+
+  letter-spacing:1px;
+
+  box-shadow:
+  0 8px 18px rgba(255,140,0,.35);
 }
 
 /* FOOTER */
 .footer{
 
-  position:absolute;
-
-  bottom:24px;
-  left:24px;
-  right:24px;
-
-  z-index:5;
+  padding:0 28px 30px;
 
   display:flex;
   justify-content:space-between;
@@ -320,7 +364,7 @@ body{
 
   color:#f3c969;
 
-  border:1px solid rgba(243,201,105,.35);
+  border:1px solid rgba(243,201,105,.22);
 
   padding:8px 14px;
 
@@ -328,28 +372,17 @@ body{
 
   font-size:11px;
   font-weight:700;
-  letter-spacing:1px;
 
-  background:rgba(255,255,255,.04);
-
-  backdrop-filter:blur(10px);
-
-  transition:.3s;
+  background:rgba(255,255,255,.03);
 }
 
-.social a:hover{
-
-  background:#f3c969;
-  color:#111;
-}
-
-/* OPEN TIME */
+/* OPEN */
 .open{
 
   text-align:right;
 }
 
-.open-title{
+.open small{
 
   font-size:10px;
 
@@ -358,28 +391,13 @@ body{
   color:#999;
 }
 
-.open-time{
+.open p{
 
-  margin-top:3px;
+  margin-top:4px;
 
   font-size:13px;
 
   font-weight:700;
-
-  color:white;
-}
-
-/* MOBILE */
-@media(max-width:480px){
-
-  .title{
-    font-size:38px;
-  }
-
-  .title span{
-    font-size:52px;
-  }
-
 }
 
 </style>
@@ -387,15 +405,7 @@ body{
 
 <body>
 
-<div class="poster">
-
-  <!-- SLIDER -->
-  <div class="slider">
-
-    <img src="rawon-iga.jpg" class="slide active">
-    <img src="rawon.jpg" class="slide">
-
-  </div>
+<div class="menu-book">
 
   <!-- HEADER -->
   <div class="header">
@@ -405,8 +415,11 @@ body{
       <img src="logo.png" class="logo">
 
       <div class="brand-text">
+
         <h1>OCEAN</h1>
+
         <p>Cafe & Resto EST.2023</p>
+
       </div>
 
     </div>
@@ -418,31 +431,93 @@ body{
       </div>
 
       <div class="address">
-        Jl Ahmad Yani No 34 Kutorejo, Sragen
+        Jl Ahmad Yani No 34<br>
+        Kutorejo, Sragen
       </div>
 
     </div>
 
   </div>
 
-  <!-- CONTENT -->
-  <div class="content">
+  <!-- HERO -->
+  <div class="hero">
 
-    <div class="menu-label">
-      PREMIUM TASTE EXPERIENCE
-    </div>
+    <small>PREMIUM INDONESIAN TASTE</small>
 
-    <div class="title">
+    <h2>
       OCEAN
       <span>Signature Menu</span>
+    </h2>
+
+  </div>
+
+  <!-- MENU -->
+  <div class="menu-list">
+
+    <!-- MENU 1 -->
+    <div class="menu-card">
+
+      <div class="badge">
+        BEST SELLER
+      </div>
+
+      <img src="rawon-iga.jpg" class="menu-image">
+
+      <div class="menu-content">
+
+        <div class="menu-top">
+
+          <div class="menu-name">
+            Rawon Iga
+          </div>
+
+          <div class="price">
+            48K
+          </div>
+
+        </div>
+
+        <div class="desc">
+          Rawon premium dengan iga sapi empuk,
+          kuah hitam khas rempah Nusantara,
+          disajikan hangat dengan nasi dan sambal pilihan.
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="line"></div>
+    <!-- MENU 2 -->
+    <div class="menu-card">
 
-    <div class="tagline">
-      Nikmati sajian spesial dengan cita rasa premium,
-      plating elegan, dan pengalaman kuliner yang
-      berkelas hanya di Ocean Cafe & Resto.
+      <div class="badge">
+        FAVORITE MENU
+      </div>
+
+      <img src="rawon.jpg" class="menu-image">
+
+      <div class="menu-content">
+
+        <div class="menu-top">
+
+          <div class="menu-name">
+            Rawon Komplit
+          </div>
+
+          <div class="price">
+            35K
+          </div>
+
+        </div>
+
+        <div class="desc">
+          Perpaduan rawon tradisional dengan topping lengkap,
+          telur asin, kerupuk, dan daging sapi pilihan
+          untuk pengalaman rasa yang autentik.
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -464,38 +539,15 @@ body{
 
     <div class="open">
 
-      <div class="open-title">
-        OPEN DAILY
-      </div>
+      <small>OPEN DAILY</small>
 
-      <div class="open-time">
-        10.00 AM - 11.00 PM
-      </div>
+      <p>10.00 AM - 11.00 PM</p>
 
     </div>
 
   </div>
 
 </div>
-
-<script>
-
-/* AUTO SLIDE */
-const slides = document.querySelectorAll('.slide');
-
-let index = 0;
-
-setInterval(() => {
-
-  slides[index].classList.remove('active');
-
-  index = (index + 1) % slides.length;
-
-  slides[index].classList.add('active');
-
-}, 3500);
-
-</script>
 
 </body>
 </html>
