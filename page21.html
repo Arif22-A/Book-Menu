@@ -4,7 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Poster Mobile</title>
+<title>Ocean Signature Menu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Cinzel:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,7 +17,8 @@
 }
 
 body{
-  background:#000;
+  background:#050505;
+  font-family:'Montserrat',sans-serif;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -23,23 +26,35 @@ body{
   overflow:hidden;
 }
 
-/* POSTER KHUSUS HP */
+/* POSTER */
 .poster{
 
   position:relative;
 
-  width:100vw;
-  height:100vh;
-
+  width:100%;
   max-width:430px;
+  height:100vh;
 
   overflow:hidden;
 
   background:#000;
+
+  color:white;
 }
 
-/* IMAGE FULL */
-.poster img{
+/* IMAGE SLIDER */
+.slider{
+
+  width:100%;
+  height:100%;
+
+  position:relative;
+}
+
+.slide{
+
+  position:absolute;
+  inset:0;
 
   width:100%;
   height:100%;
@@ -47,11 +62,18 @@ body{
   object-fit:cover;
   object-position:center;
 
-  display:block;
+  opacity:0;
+
+  transition:1.2s ease;
 }
 
-/* OPTIONAL DARK OVERLAY */
-.poster::after{
+.slide.active{
+  opacity:1;
+  transform:scale(1.03);
+}
+
+/* OVERLAY */
+.poster::before{
 
   content:'';
 
@@ -60,20 +82,302 @@ body{
 
   background:
   linear-gradient(
-    to top,
-    rgba(0,0,0,.35),
-    rgba(0,0,0,.05)
+    to bottom,
+    rgba(0,0,0,.88),
+    rgba(0,0,0,.15),
+    rgba(0,0,0,.88)
   );
+
+  z-index:1;
+}
+
+/* GOLD FRAME */
+.poster::after{
+
+  content:'';
+
+  position:absolute;
+
+  inset:14px;
+
+  border:1px solid rgba(243,201,105,.35);
+
+  border-radius:24px;
+
+  z-index:2;
 
   pointer-events:none;
 }
 
-/* MOBILE OPTIMIZE */
+/* HEADER */
+.header{
+
+  position:absolute;
+
+  top:24px;
+  left:24px;
+  right:24px;
+
+  z-index:5;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo{
+
+  width:58px;
+  height:58px;
+
+  object-fit:contain;
+
+  border-radius:50%;
+
+  padding:6px;
+
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(243,201,105,.45);
+
+  box-shadow:
+  0 0 20px rgba(243,201,105,.18);
+}
+
+.brand-text h1{
+
+  font-size:28px;
+  line-height:1;
+
+  letter-spacing:4px;
+
+  font-weight:900;
+}
+
+.brand-text p{
+
+  margin-top:5px;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  color:#d6d6d6;
+}
+
+/* CONTACT */
+.contact{
+
+  text-align:right;
+}
+
+.phone{
+
+  font-size:12px;
+  font-weight:700;
+
+  color:#f3c969;
+}
+
+.address{
+
+  margin-top:4px;
+
+  font-size:10px;
+  line-height:1.5;
+
+  color:#d6d6d6;
+}
+
+/* CONTENT */
+.content{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:4;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:40px;
+}
+
+/* MINI TEXT */
+.menu-label{
+
+  font-size:13px;
+
+  letter-spacing:4px;
+
+  color:#f3c969;
+
+  margin-bottom:12px;
+
+  font-weight:700;
+}
+
+/* TITLE */
+.title{
+
+  font-family:'Cinzel',serif;
+
+  font-size:44px;
+
+  line-height:1.1;
+
+  font-weight:700;
+
+  text-shadow:
+  0 5px 20px rgba(0,0,0,.55);
+}
+
+.title span{
+
+  display:block;
+
+  font-family:'Great Vibes',cursive;
+
+  font-size:58px;
+
+  color:#f3c969;
+
+  margin-top:10px;
+
+  letter-spacing:1px;
+
+  text-shadow:
+  0 0 25px rgba(243,201,105,.25);
+}
+
+/* PREMIUM LINE */
+.line{
+
+  width:120px;
+  height:1px;
+
+  background:
+  linear-gradient(
+    to right,
+    transparent,
+    #f3c969,
+    transparent
+  );
+
+  margin:28px 0;
+}
+
+/* TAGLINE */
+.tagline{
+
+  font-size:14px;
+
+  line-height:1.8;
+
+  color:#efefef;
+
+  max-width:290px;
+}
+
+/* FOOTER */
+.footer{
+
+  position:absolute;
+
+  bottom:24px;
+  left:24px;
+  right:24px;
+
+  z-index:5;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* SOCIAL */
+.social{
+
+  display:flex;
+  gap:10px;
+}
+
+.social a{
+
+  text-decoration:none;
+
+  color:#f3c969;
+
+  border:1px solid rgba(243,201,105,.35);
+
+  padding:8px 14px;
+
+  border-radius:100px;
+
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+
+  background:rgba(255,255,255,.04);
+
+  backdrop-filter:blur(10px);
+
+  transition:.3s;
+}
+
+.social a:hover{
+
+  background:#f3c969;
+  color:#111;
+}
+
+/* OPEN TIME */
+.open{
+
+  text-align:right;
+}
+
+.open-title{
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  color:#999;
+}
+
+.open-time{
+
+  margin-top:3px;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  color:white;
+}
+
+/* MOBILE */
 @media(max-width:480px){
 
-  .poster{
-    max-width:100%;
-    border-radius:0;
+  .title{
+    font-size:38px;
+  }
+
+  .title span{
+    font-size:52px;
   }
 
 }
@@ -85,11 +389,113 @@ body{
 
 <div class="poster">
 
-  <!-- GANTI MENJADI POSTER/JPG FINAL -->
-  <img src="rawon-iga.jpg" alt="Poster">
-   <img src="rawon.jpg" alt="Poster">
+  <!-- SLIDER -->
+  <div class="slider">
+
+    <img src="rawon-iga.jpg" class="slide active">
+    <img src="rawon.jpg" class="slide">
+
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <div class="brand">
+
+      <img src="logo.png" class="logo">
+
+      <div class="brand-text">
+        <h1>OCEAN</h1>
+        <p>Cafe & Resto EST.2023</p>
+      </div>
+
+    </div>
+
+    <div class="contact">
+
+      <div class="phone">
+        0857-1246-9835
+      </div>
+
+      <div class="address">
+        Jl Ahmad Yani No 34 Kutorejo, Sragen
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="menu-label">
+      PREMIUM TASTE EXPERIENCE
+    </div>
+
+    <div class="title">
+      OCEAN
+      <span>Signature Menu</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="tagline">
+      Nikmati sajian spesial dengan cita rasa premium,
+      plating elegan, dan pengalaman kuliner yang
+      berkelas hanya di Ocean Cafe & Resto.
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+
+    <div class="social">
+
+      <a href="#">
+        @ocean.srg
+      </a>
+
+      <a href="#">
+        Ocean Cafe
+      </a>
+
+    </div>
+
+    <div class="open">
+
+      <div class="open-title">
+        OPEN DAILY
+      </div>
+
+      <div class="open-time">
+        10.00 AM - 11.00 PM
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
+
+<script>
+
+/* AUTO SLIDE */
+const slides = document.querySelectorAll('.slide');
+
+let index = 0;
+
+setInterval(() => {
+
+  slides[index].classList.remove('active');
+
+  index = (index + 1) % slides.length;
+
+  slides[index].classList.add('active');
+
+}, 3500);
+
+</script>
 
 </body>
 </html>
