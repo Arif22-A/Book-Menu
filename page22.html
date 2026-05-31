@@ -762,6 +762,17 @@ body{
   0 0 8px rgba(212,175,55,.25);
 
 }
+
+#discountValue{
+  font-size:42px;
+  font-weight:800;
+
+  text-shadow:
+  0 0 10px rgba(255,215,120,.8),
+  0 0 25px rgba(255,215,120,.5);
+
+  color:#ffe7a8;
+}
 </style>
 </head>
 
@@ -792,23 +803,45 @@ body{
   <!-- CENTER -->
 <div class="center">
 
-  <div class="title" id="memberName">
-  Mr.BAHA
-</div>
-
-  <div class="subtitle" id="schoolName">
-PREMIUM MEMBERSHIP
+  <div class="title" id="promoTitle">
+HAPPY HOUR
 </div>
 
 <div class="subtitle">
-OCEAN BLACK PRIVILEGE
+OCEAN RESTO SPECIAL
 </div>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div class="description">
-Exclusive membership with priority access,
-special offers, and premium dining privileges.
+<div
+  id="discountValue"
+  style="
+  color:#f7e7a1;
+  font-size:34px;
+  font-weight:700;
+  line-height:1;
+  "
+>
+15% OFF
+</div>
+
+<div
+  id="promoTime"
+  style="
+  color:white;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-top:8px;
+  "
+>
+14:00 - 17:00
+</div>
+
+<div
+  id="promoDesc"
+  class="description"
+>
+VALID FOR ALL MENU
 </div>
 
 </div>
@@ -830,12 +863,18 @@ special offers, and premium dining privileges.
 
   <div class="member">
 
-    <div class="member-label">
-      MEMBER ID
-    </div>
+  <div class="member-label">
+      VALID UNTIL
+  </div>
 
-    <div class="number" id="memberId">
-  #0001
+  <div
+    class="number"
+    id="expiryDate"
+    style="font-size:11px;"
+  >
+      31 DEC
+  </div>
+
 </div>
 
   </div>
@@ -847,26 +886,40 @@ special offers, and premium dining privileges.
 
 <div class="controls">
 
-  <input
-    type="text"
-    id="nameInput"
-    placeholder="Input Member Name"
-    oninput="updateName()"
-  >
+ <input
+  type="text"
+  id="promoTitleInput"
+  placeholder="Promo Name"
+  oninput="updatePromoTitle()"
+>
 
-  <input
-    type="text"
-    id="schoolInput"
-    placeholder="Input Membership Type"
-    oninput="updateSchool()"
-  >
+<input
+  type="text"
+  id="discountInput"
+  placeholder="Discount Example 15% OFF"
+  oninput="updateDiscount()"
+>
 
-  <input
-    type="text"
-    id="memberIdInput"
-    placeholder="Input Member ID"
-    oninput="updateMemberId()"
-  >
+<input
+  type="text"
+  id="timeInput"
+  placeholder="14:00 - 17:00"
+  oninput="updateTime()"
+>
+
+<input
+  type="text"
+  id="descInput"
+  placeholder="Valid For All Menu"
+  oninput="updateDesc()"
+>
+
+<input
+  type="text"
+  id="expiryInput"
+  placeholder="31 DEC 2026"
+  oninput="updateExpiry()"
+>
 
 </div>
 
@@ -930,33 +983,48 @@ async function downloadPNG() {
 </script>
 <script>
 
-function updateName(){
+function updatePromoTitle(){
 
-  const input =
-  document.getElementById("nameInput").value;
-
-  document.getElementById("memberName")
-  .innerText = input.toUpperCase();
-
-}
-
-function updateSchool(){
-
-  const school =
-  document.getElementById("schoolInput").value;
-
-  document.getElementById("schoolName")
-  .innerText = school.toUpperCase();
+  document.getElementById("promoTitle")
+  .innerText =
+  document.getElementById("promoTitleInput")
+  .value.toUpperCase();
 
 }
 
-function updateMemberId(){
+function updateDiscount(){
 
-  const memberId =
-  document.getElementById("memberIdInput").value;
+  document.getElementById("discountValue")
+  .innerText =
+  document.getElementById("discountInput")
+  .value.toUpperCase();
 
-  document.getElementById("memberId")
-  .innerText = "#" + memberId;
+}
+
+function updateTime(){
+
+  document.getElementById("promoTime")
+  .innerText =
+  document.getElementById("timeInput")
+  .value.toUpperCase();
+
+}
+
+function updateDesc(){
+
+  document.getElementById("promoDesc")
+  .innerText =
+  document.getElementById("descInput")
+  .value.toUpperCase();
+
+}
+
+function updateExpiry(){
+
+  document.getElementById("expiryDate")
+  .innerText =
+  document.getElementById("expiryInput")
+  .value.toUpperCase();
 
 }
 
