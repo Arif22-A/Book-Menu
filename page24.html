@@ -365,11 +365,15 @@ linear-gradient(
   left: 20px;
 }
 
-.actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 20px;
+.actions{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+
+  display:flex;
+  gap:15px;
+  z-index:999;
 }
 
 .actions button {
@@ -388,29 +392,20 @@ linear-gradient(
   color: #000;
 }
 .challenge-contact span{
-
+  display:block;
+  margin-top:4px;
   font-size:42px;
-
   font-weight:900;
-
   color:#d50000;
+  letter-spacing:1px;
 }
-
+  
 .challenge-contact{
   margin-top:15px;
   text-align:center;
   color:#e2e8f0;
   font-size:14px;
   line-height:1.7;
-}
-
-.challenge-contact span{
-  display:block;
-  margin-top:4px;
-  font-size:22px;
-  font-weight:800;
-  color:#fbbf24;
-  letter-spacing:1px;
 }
 
 .grand-opening{
@@ -524,6 +519,17 @@ linear-gradient(
   font-weight:800;
 
   color:#7a0000;
+}
+
+.challenge-reward{
+  background:#0d6b38;
+  color:#fff;
+  font-size:32px;
+  font-weight:800;
+  border-radius:25px;
+  padding:25px;
+  margin-top:25px;
+  text-align:center;
 }
 </style>
 </head>
