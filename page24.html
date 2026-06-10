@@ -31,11 +31,15 @@ body{
 /* ===================== */
 
 .poster{
-  width:900px;
+  width:1083px;
+  height:1600px;
   background:
-  radial-gradient(circle at top right,#38bdf8 0%,transparent 30%),
-  radial-gradient(circle at bottom left,#22c55e 0%,transparent 30%),
-  linear-gradient(135deg,#0f172a,#111827,#1e293b);
+linear-gradient(
+180deg,
+#ffe45c 0%,
+#ffc107 40%,
+#ff9800 100%
+);
 
   border-radius:35px;
   overflow:hidden;
@@ -45,33 +49,7 @@ body{
 
   padding:55px;
 }
-
-/* decorative blur */
-
-.poster::before{
-  content:"";
-  position:absolute;
-  width:280px;
-  height:280px;
-  background:#06b6d4;
-  filter:blur(120px);
-  top:-120px;
-  right:-60px;
-  opacity:.35;
-}
-
-.poster::after{
-  content:"";
-  position:absolute;
-  width:250px;
-  height:250px;
-  background:#22c55e;
-  filter:blur(120px);
-  bottom:-100px;
-  left:-50px;
-  opacity:.30;
-}
-
+  
 /* ===================== */
 /* TOP BAR */
 /* ===================== */
@@ -409,15 +387,13 @@ body{
   background: #d4af37;
   color: #000;
 }
-.challenge-reward{
-  margin-top:25px;
-  color:#fff;
-  font-size:15px;
-  line-height:1.8;
-  background:rgba(255,255,255,.08);
-  padding:18px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.12);
+.challenge-contact span{
+
+  font-size:42px;
+
+  font-weight:900;
+
+  color:#d50000;
 }
 
 .challenge-contact{
@@ -436,30 +412,144 @@ body{
   color:#fbbf24;
   letter-spacing:1px;
 }
+
+.grand-opening{
+  text-align:center;
+  font-size:38px;
+  font-weight:900;
+  color:#fff;
+
+  background:#d50000;
+
+  padding:20px;
+  border-radius:20px;
+
+  margin-bottom:30px;
+}
+.hero-title{
+  text-align:center;
+  font-size:110px;
+  font-weight:900;
+  color:#fff;
+
+  -webkit-text-stroke:6px #c40000;
+}
+
+.hero-title-red{
+  text-align:center;
+  font-size:140px;
+  font-weight:900;
+
+  color:#ffe600;
+
+  -webkit-text-stroke:8px #8b0000;
+}
+
+.hero-subtitle{
+  margin-top:10px;
+
+  text-align:center;
+
+  background:#0a6b35;
+
+  color:#fff;
+
+  padding:15px;
+
+  border-radius:20px;
+
+  font-size:55px;
+
+  font-weight:900;
+}
+
+.content-column{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.challenge-image{
+  width:650px;
+  margin:30px auto;
+  display:block;
+}
+
+.promo-box{
+  width:450px;
+
+  margin:20px auto;
+
+  background:#fff;
+
+  border:10px solid #d50000;
+
+  border-radius:30px;
+
+  text-align:center;
+
+  padding:20px;
+}
+
+.promo-title{
+  font-size:38px;
+  font-weight:800;
+}
+
+.promo-big{
+  font-size:110px;
+  font-weight:900;
+  color:#d50000;
+}
+
+.promo-sub{
+  font-size:40px;
+  font-weight:800;
+}
+
+.location-board{
+
+  margin-top:30px;
+
+  background:#fff3c2;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  text-align:center;
+
+  font-size:32px;
+
+  font-weight:800;
+
+  color:#7a0000;
+}
 </style>
 </head>
 <body>
 
 <div class="poster">
 
-  <div class="top-badge">
-    <div class="dot"></div>
-    🔥 EVERY WEEKDAY CHALLENGE
-  </div>
+ <div class="grand-opening">
+🔥 OCEAN FIRE CHALLENGE 🔥
+</div>
 
-  <div class="content">
+  <div class="content-column">
 
     <!-- LEFT -->
     <div class="left">
 
-      <div class="title-small">
-       JUMBO FIRE NOODLE CHALLENGE
-      </div>
+     <div class="hero-title">
+HABISKAN
+</div>
 
-     <div class="main-title">
-  HABISKAN<br>
-  <span>MIE JUMBO</span><br>
-  DALAM 8 MENIT
+<div class="hero-title-red">
+MIE JUMBO
+</div>
+
+<div class="hero-subtitle">
+DALAM 8 MENIT
 </div>
 
      <div class="desc">
@@ -478,8 +568,20 @@ body{
   20K
 </div>
 
-<div class="discount">
-  GRATIS JIKA MENANG
+<div class="promo-box">
+
+<div class="promo-title">
+CHALLENGE
+</div>
+
+<div class="promo-big">
+GRATIS
+</div>
+
+<div class="promo-sub">
+JIKA MENANG
+</div>
+
 </div>
       </div>
 
@@ -505,22 +607,9 @@ body{
     <!-- RIGHT -->
     <div class="right">
 
-      <div class="student-card">
-
-        <img
-        class="student-img"
-        src="challenge.png"
-        alt="Student">
-
-        <div class="float-badge badge-1">
-         🏆 Hall Of Fame
-        </div>
-
-        <div class="float-badge badge-2">
-          🌶️ Level Fire & Volcano
-        </div>
-
-      </div>
+     <img
+src="challenge.png"
+class="challenge-image">
 
     </div>
 
@@ -549,12 +638,17 @@ Voucher Hingga Rp100K
 Hall Of Fame
 </div>
 
-    <div class="info-card">
-      <div class="info-title">Lokasi</div>
-      <div class="info-value">Ocean Cafe & Resto</div>
-      <div class="info-value">jl Ahmad Yani 34,kutorejo sragen</div>
-      <div class="info-value">0857-1246-9835</div>
-    </div>
+  <div class="location-board">
+
+📍 OCEAN CAFE & RESTO
+
+<br><br>
+
+Jl Ahmad Yani 34
+<br>
+Kutorejo Sragen
+
+</div>
 
   </div>
 
