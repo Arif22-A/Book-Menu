@@ -130,11 +130,18 @@ linear-gradient(
 }
 
 .desc{
-  color:#cbd5e1;
-  font-size:18px;
-  line-height:1.8;
-  margin-bottom:35px;
-  max-width:520px;
+
+  color:#8b0000;
+
+  font-size:24px;
+
+  font-weight:700;
+
+  text-align:center;
+
+  max-width:850px;
+
+  margin:auto;
 }
 
 /* ===================== */
@@ -421,41 +428,72 @@ linear-gradient(
 
   margin-bottom:30px;
 }
+  
 .hero-title{
-  text-align:center;
-  font-size:110px;
-  font-weight:900;
-  color:#fff;
 
-  -webkit-text-stroke:6px #c40000;
+  text-align:center;
+
+  font-size:130px;
+
+  font-weight:900;
+
+  color:#ffffff;
+
+  -webkit-text-stroke:6px #b30000;
+
+  text-shadow:
+  0 3px 0 #ffcccc,
+  0 6px 0 #ff9999,
+  0 9px 0 #ff6666,
+  0 12px 0 #d50000,
+  0 15px 20px rgba(0,0,0,.35);
 }
 
 .hero-title-red{
+
   text-align:center;
-  font-size:140px;
+
+  font-size:180px;
+
   font-weight:900;
 
   color:#ffe600;
 
   -webkit-text-stroke:8px #8b0000;
+
+  text-shadow:
+  0 4px 0 #ffd000,
+  0 8px 0 #ffbf00,
+  0 12px 0 #ff9800,
+  0 16px 0 #c62828,
+  0 22px 25px rgba(0,0,0,.4);
 }
-
+  
 .hero-subtitle{
-  margin-top:10px;
 
-  text-align:center;
+  width:85%;
+
+  margin:auto;
 
   background:#0a6b35;
 
-  color:#fff;
+  color:white;
 
-  padding:15px;
+  padding:20px;
 
-  border-radius:20px;
+  border-radius:30px;
 
-  font-size:55px;
+  border:6px solid #ffd54f;
+
+  font-size:60px;
 
   font-weight:900;
+
+  text-align:center;
+
+  box-shadow:
+  0 8px 0 #075127,
+  0 15px 25px rgba(0,0,0,.25);
 }
 
 .content-column{
@@ -465,9 +503,9 @@ linear-gradient(
 }
 
 .challenge-image{
-  width:650px;
-  margin:30px auto;
+  width:850px;
   display:block;
+  margin:-20px auto;
 }
 
 .promo-box{
@@ -484,6 +522,15 @@ linear-gradient(
   text-align:center;
 
   padding:20px;
+}
+
+.promo-box{
+
+  transform:rotate(-6deg);
+
+  box-shadow:
+  0 15px 30px rgba(0,0,0,.3);
+
 }
 
 .promo-title{
@@ -522,20 +569,76 @@ linear-gradient(
 }
 
 .challenge-reward{
-  background:#0d6b38;
-  color:#fff;
-  font-size:32px;
-  font-weight:800;
-  border-radius:25px;
-  padding:25px;
-  margin-top:25px;
-  text-align:center;
+
+  font-size:48px;
+
+  line-height:1.7;
+
+  border:8px solid #ffd54f;
+
+  box-shadow:
+  0 10px 0 #0a512a;
+}
+
+.confetti{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:red;
+  transform:rotate(35deg);
+}
+
+.c1{top:150px;left:50px;}
+.c2{top:300px;right:80px;}
+.c3{top:600px;left:100px;}
+.c4{top:900px;right:60px;}
+
+  .promo-wrapper{
+  position:relative;
+  width:500px;
+  margin:auto;
+}
+
+.burst{
+
+  position:absolute;
+
+  inset:-40px;
+
+  background:
+  repeating-conic-gradient(
+  #ffeb3b 0deg 10deg,
+  #ff9800 10deg 20deg
+  );
+
+  clip-path:polygon(
+  50% 0%,
+  60% 30%,
+  100% 50%,
+  60% 70%,
+  50% 100%,
+  40% 70%,
+  0% 50%,
+  40% 30%
+  );
+
+  z-index:1;
+}
+
+.promo-box{
+  position:relative;
+  z-index:2;
 }
 </style>
 </head>
 <body>
 
 <div class="poster">
+
+  <div class="confetti c1"></div>
+<div class="confetti c2"></div>
+<div class="confetti c3"></div>
+<div class="confetti c4"></div>
 
  <div class="grand-opening">
 🔥 OCEAN FIRE CHALLENGE 🔥
@@ -565,28 +668,47 @@ DALAM 8 MENIT
   Rp 100.000 serta kesempatan mendapatkan sertifikat Ocean Fire Challenge dan masuk Hall Of Fame.
 </div>
 
-      <div class="price-box">
-        <div class="old-price">
-  NORMAL 25K
+<div class="promo-wrapper">
+
+  <div class="burst"></div>
+
+  <div class="promo-box">
+
+    <div class="promo-title">
+      CHALLENGE
+    </div>
+
+    <div class="promo-big">
+      GRATIS
+    </div>
+
+    <div class="promo-sub">
+      JIKA MENANG
+    </div>
+
+  </div>
+
 </div>
 
-<div class="new-price">
-  20K
-</div>
+<div class="promo-wrapper">
 
-<div class="promo-box">
+  <div class="burst"></div>
 
-<div class="promo-title">
-CHALLENGE
-</div>
+  <div class="promo-box">
 
-<div class="promo-big">
-GRATIS
-</div>
+    <div class="promo-title">
+      CHALLENGE
+    </div>
 
-<div class="promo-sub">
-JIKA MENANG
-</div>
+    <div class="promo-big">
+      GRATIS
+    </div>
+
+    <div class="promo-sub">
+      JIKA MENANG
+    </div>
+
+  </div>
 
 </div>
       </div>
