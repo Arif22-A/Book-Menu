@@ -1070,11 +1070,245 @@ transform:rotate(360deg);
 }
 
 }
+
+.certificate-footer{
+
+margin-top:170px;
+
+padding:0 180px;
+
+position:relative;
+
+z-index:5;
+
+}
+
+.certificate-number{
+
+text-align:center;
+
+font-size:42px;
+
+letter-spacing:6px;
+
+color:#d7b55b;
+
+}
+
+.certificate-number span{
+
+display:block;
+
+margin-top:15px;
+
+font-size:72px;
+
+font-weight:900;
+
+color:white;
+
+}
+
+.signature-area{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:170px;
+
+}
+
+.signature-box{
+
+width:800px;
+
+text-align:center;
+
+}
+
+.signature-line{
+
+height:4px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+#d4af37,
+
+#fff1a8,
+
+#d4af37,
+
+transparent
+
+);
+
+margin-bottom:25px;
+
+}
+
+.signature-title{
+
+font-size:42px;
+
+font-weight:700;
+
+color:#ffe28d;
+
+letter-spacing:4px;
+
+}
+
+.legend-text{
+
+margin-top:160px;
+
+text-align:center;
+
+font-size:74px;
+
+font-weight:900;
+
+letter-spacing:8px;
+
+color:#ffcb45;
+
+text-shadow:
+
+0 0 20px rgba(255,180,0,.45);
+
+}
+
+.corner{
+
+position:absolute;
+
+width:160px;
+
+height:160px;
+
+border:8px solid #d4af37;
+
+z-index:20;
+
+}
+
+.top-left{
+
+top:55px;
+
+left:55px;
+
+border-right:none;
+
+border-bottom:none;
+
+}
+
+.top-right{
+
+top:55px;
+
+right:55px;
+
+border-left:none;
+
+border-bottom:none;
+
+}
+
+.bottom-left{
+
+bottom:55px;
+
+left:55px;
+
+border-right:none;
+
+border-top:none;
+
+}
+
+.bottom-right{
+
+bottom:55px;
+
+right:55px;
+
+border-left:none;
+
+border-top:none;
+
+}
+
+.fire-overlay{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(circle at top left,
+rgba(255,80,0,.10),
+transparent 30%),
+
+radial-gradient(circle at top right,
+rgba(255,120,0,.10),
+transparent 30%),
+
+radial-gradient(circle at bottom left,
+rgba(255,80,0,.10),
+transparent 30%),
+
+radial-gradient(circle at bottom right,
+rgba(255,120,0,.10),
+transparent 30%);
+
+}
+
+.footer-quote{
+
+margin-top:25px;
+
+text-align:center;
+
+font-size:38px;
+
+font-style:italic;
+
+letter-spacing:4px;
+
+color:#bfa46a;
+
+opacity:.85;
+
+}
 </style>
 </head>
 <body>
 
 <div class="poster">
+
+<div class="corner top-left"></div>
+
+<div class="corner top-right"></div>
+
+<div class="corner bottom-left"></div>
+
+<div class="corner bottom-right"></div>
+
+<div class="fire-overlay"></div>
 
 <div class="watermark">
 🔥
@@ -1193,6 +1427,56 @@ ARIF TRIYANTO
         </div>
 
     </div>
+
+</div>
+
+  <div class="certificate-footer">
+
+    <div class="certificate-number">
+
+        Certificate No.
+
+        <span contenteditable="true">
+            OFC-2026-00001
+        </span>
+
+    </div>
+
+    <div class="signature-area">
+
+        <div class="signature-box">
+
+            <div class="signature-line"></div>
+
+            <div class="signature-title">
+                RESTAURANT MANAGER
+            </div>
+
+        </div>
+
+        <div class="signature-box">
+
+            <div class="signature-line"></div>
+
+            <div class="signature-title">
+                CHALLENGE REFEREE
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="legend-text">
+
+        🔥 ONLY LEGENDS FINISH THE FIRE 🔥
+
+    </div>
+
+</div>
+
+  <div class="footer-quote">
+
+Not Everyone Can Finish The Fire
 
 </div>
 
