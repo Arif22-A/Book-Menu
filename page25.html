@@ -936,6 +936,232 @@ text-shadow:
 0 2px 4px black;
 
 }
+
+.king-badge{
+
+height:100%;
+
+border-radius:22px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#1f1f1f,
+
+#090909
+
+);
+
+border:2px solid #d6a63c;
+
+box-shadow:
+
+0 0 18px rgba(255,185,70,.2),
+
+inset 0 0 20px rgba(255,255,255,.04);
+
+}
+
+.badge-top{
+
+font-size:60px;
+
+margin-bottom:12px;
+
+filter:
+
+drop-shadow(0 0 10px gold);
+
+}
+
+.badge-title{
+
+font-family:"Cinzel",serif;
+
+font-size:46px;
+
+font-weight:900;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#fff7cb,
+
+#ffcf55,
+
+#ba7c18
+
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.badge-subtitle{
+
+font-size:22px;
+
+letter-spacing:3px;
+
+color:#ffffff;
+
+margin-top:6px;
+
+}
+
+.badge-level{
+
+margin-top:18px;
+
+padding:8px 20px;
+
+border-radius:30px;
+
+background:#8c0000;
+
+border:1px solid #ffcf55;
+
+color:white;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+}
+
+.record-area{
+
+background:#101010;
+
+border:2px solid #d6a63c;
+
+border-radius:18px;
+
+padding:22px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+}
+
+.record-title{
+
+font-family:"Cinzel",serif;
+
+font-size:24px;
+
+text-align:center;
+
+margin-bottom:12px;
+
+color:#f5d27b;
+
+}
+
+.record-item{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:12px;
+
+border-bottom:1px solid rgba(255,200,80,.18);
+
+}
+
+.record-item span{
+
+color:#cccccc;
+
+letter-spacing:2px;
+
+font-size:15px;
+
+}
+
+.record-item strong{
+
+color:#ffd36b;
+
+font-size:17px;
+
+}
+
+.hall-of-fame{
+
+border:2px solid #d6a63c;
+
+border-radius:18px;
+
+padding:18px;
+
+text-align:center;
+
+background:#111;
+
+}
+
+.qr-image{
+
+width:120px;
+
+height:120px;
+
+margin:15px auto;
+
+display:block;
+
+background:white;
+
+padding:8px;
+
+border-radius:10px;
+
+}
+
+.qr-title{
+
+font-family:"Cinzel",serif;
+
+font-size:22px;
+
+color:#f4d180;
+
+}
+
+.scan-text{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:#bbbbbb;
+
+}
+
+
 </style>
 </head>
 <body>
@@ -1099,19 +1325,104 @@ text-shadow:
 
     <aside class="right-panel">
 
-        <div class="badge-area">
+    <!-- KING BADGE -->
+    <div class="badge-area">
+
+        <div class="king-badge">
+
+            <div class="badge-top">
+                👑
+            </div>
+
+            <div class="badge-title">
+                KING
+            </div>
+
+            <div class="badge-subtitle">
+                OF FIRE
+            </div>
+
+            <div class="badge-level">
+                EXTREME
+            </div>
 
         </div>
 
-        <div class="record-area">
+    </div>
+
+    <!-- RECORD -->
+
+    <div class="record-area">
+
+        <div class="record-title">
+            CHALLENGE RECORD
+        </div>
+
+        <div class="record-item">
+
+            <span>LEVEL</span>
+
+            <strong id="level">
+                EXTREME
+            </strong>
 
         </div>
 
-        <div class="hall-of-fame">
+        <div class="record-item">
+
+            <span>TIME</span>
+
+            <strong id="time">
+                05:48
+            </strong>
 
         </div>
 
-    </aside>
+        <div class="record-item">
+
+            <span>DATE</span>
+
+            <strong id="date">
+                10 JUN 2026
+            </strong>
+
+        </div>
+
+        <div class="record-item">
+
+            <span>MENU</span>
+
+            <strong id="menu">
+                1.5 KG FIRE NOODLE
+            </strong>
+
+        </div>
+
+    </div>
+
+    <!-- QR -->
+
+    <div class="hall-of-fame">
+
+        <div class="qr-title">
+
+            HALL OF FAME
+
+        </div>
+
+        <img
+            src="assets/qr.png"
+            class="qr-image">
+
+        <div class="scan-text">
+
+            SCAN TO VERIFY
+
+        </div>
+
+    </div>
+
+</aside>
 
 </main>
 
@@ -1138,18 +1449,33 @@ text-shadow:
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 
-  const participant={
+const participant = {
 
-name:"ARIF TRIYANTO",
+name: "ARIF TRIYANTO",
 
-photo:"assets/participant.jpg"
+photo: "assets/participant.jpg",
+
+level: "EXTREME",
+
+time: "05:48",
+
+date: "10 JUN 2026",
+
+menu: "1.5 KG FIRE NOODLE"
 
 };
 
-document.getElementById("participantName").textContent=participant.name;
+document.getElementById("participantName").textContent = participant.name;
 
-document.getElementById("participantPhoto").src=participant.photo;
+document.getElementById("participantPhoto").src = participant.photo;
 
+document.getElementById("level").textContent = participant.level;
+
+document.getElementById("time").textContent = participant.time;
+
+document.getElementById("date").textContent = participant.date;
+
+document.getElementById("menu").textContent = participant.menu;
   
 async function downloadPNG() {
   const target = document.querySelector(".poster");
