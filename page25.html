@@ -49,20 +49,69 @@ overflow:hidden;
 
 .certificate{
 
-background:
-
-radial-gradient(circle at center,
-
-#1f1b16 0%,
-
-#0f0f0f 55%,
-
-#050505 100%);
+radial-gradient(circle at top,#34210d 0%,#111 35%,#050505 100%);
 
 }
+
+.certificate::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+linear-gradient(
+180deg,
+rgba(255,180,70,.05),
+transparent 25%),
+
+radial-gradient(
+circle at 50% 0%,
+rgba(255,170,60,.08),
+transparent 45%);
+
+opacity:.9;
+
+}
+
+.certificate::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+url("assets/leather.jpg")
+
+center center /
+
+cover;
+
+opacity:.08;
+
+mix-blend-mode:screen;
+
+}
+
 .certificate{
 
 border:4px solid #d6a63c;
+
+box-shadow:
+
+0 0 0 2px #7b5313,
+
+0 0 0 6px rgba(255,206,110,.15),
+
+0 25px 80px rgba(0,0,0,.75);
 
 }
 
@@ -1299,7 +1348,159 @@ box-shadow:
 
 }
 
+.embers{
 
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.embers span{
+
+position:absolute;
+
+width:6px;
+
+height:6px;
+
+border-radius:50%;
+
+background:#ffb347;
+
+filter:blur(1px);
+
+animation:float 6s linear infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(120px);
+
+opacity:0;
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-900px);
+
+opacity:0;
+
+}
+
+}
+
+.embers span:nth-child(1){
+
+left:10%;
+
+animation-delay:0s;
+
+}
+
+.embers span:nth-child(2){
+
+left:28%;
+
+animation-delay:1s;
+
+}
+
+.embers span:nth-child(3){
+
+left:46%;
+
+animation-delay:2s;
+
+}
+
+.embers span:nth-child(4){
+
+left:64%;
+
+animation-delay:3s;
+
+}
+
+.embers span:nth-child(5){
+
+left:82%;
+
+animation-delay:4s;
+
+}
+
+.embers span:nth-child(6){
+
+left:94%;
+
+animation-delay:5s;
+
+}
+
+.certificate-footer{
+
+position:absolute;
+
+bottom:22px;
+
+left:0;
+
+width:100%;
+
+text-align:center;
+
+font-size:16px;
+
+font-style:italic;
+
+letter-spacing:1px;
+
+color:#d7c9a2;
+
+opacity:.9;
+
+}
+
+.title,
+#participantName,
+.record-title{
+
+filter:
+
+drop-shadow(0 0 6px rgba(255,190,60,.25));
+
+}
+
+.photo-border{
+
+transition:.4s;
+
+}
+
+.photo-border:hover{
+
+transform:scale(1.02);
+
+box-shadow:
+
+0 0 40px rgba(255,180,60,.45);
+
+}
 </style>
 </head>
 <body>
@@ -1316,7 +1517,7 @@ box-shadow:
     class="participant-photo"
     src="assets/participant.jpg">
 
-</div>
+
 
   <!-- ================= HEADER ================= -->
 
@@ -1639,6 +1840,31 @@ box-shadow:
 </aside>
 
 </main>
+
+    <div class="embers">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+    <footer class="certificate-footer">
+
+"Courage is not the absence of fear,
+but the triumph over it."
+
+</footer>
+
+    </div>
 
 
    <div class="actions">
