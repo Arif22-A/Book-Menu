@@ -1160,6 +1160,145 @@ color:#bbbbbb;
 
 }
 
+.bottom-grid{
+
+width:100%;
+
+display:grid;
+
+grid-template-columns:
+
+220px
+1fr
+170px
+1fr;
+
+align-items:end;
+
+column-gap:25px;
+
+margin-top:35px;
+
+}
+
+.certificate-box{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:flex-end;
+
+height:140px;
+
+}
+
+.small-title{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:#b9b9b9;
+
+margin-bottom:8px;
+
+}
+
+#certificateNo{
+
+font-family:"Cinzel",serif;
+
+font-size:24px;
+
+color:#f4cb67;
+
+}
+
+.signature-box{
+
+text-align:center;
+
+}
+
+.signature-img{
+
+height:65px;
+
+object-fit:contain;
+
+margin-bottom:5px;
+
+}
+
+.signature-line{
+
+height:2px;
+
+background:#c99933;
+
+margin-top:5px;
+
+margin-bottom:10px;
+
+}
+
+.signature-label{
+
+font-size:14px;
+
+letter-spacing:2px;
+
+color:#d7d7d7;
+
+}
+
+.seal-box{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.seal-circle{
+
+width:130px;
+
+height:130px;
+
+border-radius:50%;
+
+border:4px solid #d6a63c;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:55px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+#3b1200,
+
+#140800
+
+);
+
+box-shadow:
+
+0 0 25px rgba(255,170,30,.35);
+
+}
+
 
 </style>
 </head>
@@ -1313,6 +1452,82 @@ color:#bbbbbb;
 </div>
 
         <div class="signature-area">
+
+            <div class="bottom-grid">
+
+    <!-- Certificate -->
+
+    <div class="certificate-box">
+
+        <div class="small-title">
+
+            CERTIFICATE NO.
+
+        </div>
+
+        <div id="certificateNo">
+
+            OFC-2026-00001
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Manager -->
+
+    <div class="signature-box">
+
+        <img
+        src="assets/sign-manager.png"
+        class="signature-img">
+
+        <div class="signature-line"></div>
+
+        <div class="signature-label">
+
+            EVENT MANAGER
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Seal -->
+
+    <div class="seal-box">
+
+        <div class="seal-circle">
+
+            🔥
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Referee -->
+
+    <div class="signature-box">
+
+        <img
+        src="assets/sign-referee.png"
+        class="signature-img">
+
+        <div class="signature-line"></div>
+
+        <div class="signature-label">
+
+            CHIEF REFEREE
+
+        </div>
+
+    </div>
+
+</div>
 
         </div>
 
@@ -1475,6 +1690,11 @@ document.getElementById("time").textContent = participant.time;
 document.getElementById("date").textContent = participant.date;
 
 document.getElementById("menu").textContent = participant.menu;
+
+participant.certificate="OFC-2026-00001";
+
+document.getElementById("certificateNo").textContent=
+participant.certificate;
   
 async function downloadPNG() {
   const target = document.querySelector(".poster");
