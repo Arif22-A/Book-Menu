@@ -882,6 +882,194 @@ font-size:92px;
 color:#ffffff;
 
 }
+
+.certificate-info{
+
+margin-top:140px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:150px;
+
+padding:0 220px;
+
+position:relative;
+
+z-index:5;
+
+}
+
+.record-box{
+
+width:1300px;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.03),
+
+rgba(255,255,255,.01)
+
+);
+
+border:6px solid #cfa94d;
+
+border-radius:35px;
+
+padding:60px;
+
+box-shadow:
+
+0 0 50px rgba(255,180,0,.08);
+
+}
+
+.record-title{
+
+text-align:center;
+
+font-size:72px;
+
+font-weight:900;
+
+color:#ffd76b;
+
+margin-bottom:45px;
+
+letter-spacing:5px;
+
+}
+
+.record-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:28px 0;
+
+font-size:54px;
+
+border-bottom:2px solid rgba(255,215,100,.15);
+
+color:white;
+
+}
+
+.record-row:last-child{
+
+border:none;
+
+}
+
+.record-row b{
+
+color:#ffe28c;
+
+font-size:58px;
+
+}
+
+.fire-badge{
+
+width:620px;
+
+height:620px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,#ffd54f,#b8860b);
+
+border:14px solid #fff4b0;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:
+
+0 0 60px rgba(255,180,0,.35),
+
+inset 0 0 60px rgba(255,255,255,.25);
+
+}
+
+.badge-top{
+
+font-size:70px;
+
+font-weight:900;
+
+color:#6b0000;
+
+}
+
+.badge-middle{
+
+font-size:170px;
+
+margin:10px 0;
+
+}
+
+.badge-bottom{
+
+font-size:62px;
+
+font-weight:900;
+
+color:#6b0000;
+
+}
+
+.fire-badge::before{
+
+content:"";
+
+position:absolute;
+
+width:670px;
+
+height:670px;
+
+border-radius:50%;
+
+border:4px dashed rgba(255,240,180,.45);
+
+animation:spin 25s linear infinite;
+
+}
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
 </style>
 </head>
 <body>
@@ -933,6 +1121,76 @@ ARIF TRIYANTO
         by finishing the
 
         <b>1.5 KG FIRE NOODLE</b>
+
+    </div>
+
+</div>
+
+  <div class="certificate-info">
+
+    <!-- RECORD -->
+
+    <div class="record-box">
+
+        <div class="record-title">
+            CHALLENGE RECORD
+        </div>
+
+        <div class="record-row">
+
+            <span>🌶 LEVEL</span>
+
+            <b>EXTREME</b>
+
+        </div>
+
+        <div class="record-row">
+
+            <span>⏱ TIME</span>
+
+            <b contenteditable="true">05 : 48</b>
+
+        </div>
+
+        <div class="record-row">
+
+            <span>📅 DATE</span>
+
+            <b contenteditable="true">10 JUNE 2026</b>
+
+        </div>
+
+        <div class="record-row">
+
+            <span>🍜 MENU</span>
+
+            <b>1.5 KG FIRE NOODLE</b>
+
+        </div>
+
+    </div>
+
+    <!-- BADGE -->
+
+    <div class="fire-badge">
+
+        <div class="badge-top">
+
+            KING
+
+        </div>
+
+        <div class="badge-middle">
+
+            🔥
+
+        </div>
+
+        <div class="badge-bottom">
+
+            OF FIRE
+
+        </div>
 
     </div>
 
