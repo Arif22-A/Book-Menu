@@ -17,13 +17,23 @@
 }
 
 body{
-  font-family:'Poppins',sans-serif;
-  background:#0f172a;
+
+  margin:0;
+
+  background:#222;
+
   display:flex;
+
   justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  padding:30px;
+
+  align-items:flex-start;
+
+  padding:40px;
+
+  overflow:auto;
+
+  font-family:'Poppins',sans-serif;
+
 }
 
 /* ===================== */
@@ -31,23 +41,101 @@ body{
 /* ===================== */
 
 .poster{
-  width:1083px;
-  height:1600px;
+
+  width:3508px;
+  height:2480px;
+
+  transform:scale(.28);
+  transform-origin:top center;
+
   background:
-linear-gradient(
-180deg,
-#ffe45c 0%,
-#ffc107 40%,
-#ff9800 100%
-);
+  radial-gradient(circle at top,#4b0000 0%,#1b0000 18%,#080808 45%,#050505 100%);
 
-  border-radius:35px;
+  border:18px solid #cfa94d;
+
+  border-radius:0;
+
   overflow:hidden;
-  position:relative;
-  box-shadow:
-  0 25px 60px rgba(0,0,0,.45);
 
-  padding:55px;
+  position:relative;
+
+  box-shadow:
+  0 0 0 6px #7f5b18,
+  0 0 0 14px #f7de87,
+  0 25px 80px rgba(0,0,0,.6);
+
+  padding:120px;
+}
+
+.poster::before{
+
+content:"";
+
+position:absolute;
+
+top:35px;
+left:35px;
+right:35px;
+bottom:35px;
+
+border:6px solid #d9b55b;
+
+pointer-events:none;
+
+}
+
+.poster::after{
+
+content:"";
+
+position:absolute;
+
+top:70px;
+left:70px;
+right:70px;
+bottom:70px;
+
+border:2px solid rgba(255,220,120,.35);
+
+pointer-events:none;
+
+}
+
+.poster-frame{
+
+position:absolute;
+
+inset:100px;
+
+border:10px double #f6da7c;
+
+pointer-events:none;
+
+}
+
+.watermark{
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+font-size:520px;
+
+font-weight:900;
+
+color:rgba(255,215,0,.035);
+
+letter-spacing:25px;
+
+pointer-events:none;
+
+user-select:none;
+
+z-index:0;
+
 }
   
 /* ===================== */
@@ -635,7 +723,13 @@ linear-gradient(
 
 <div class="poster">
 
-  <div class="confetti c1"></div>
+<div class="watermark">
+🔥
+</div>
+
+<div class="poster-frame"></div>
+
+<div class="confetti c1"></div>
 <div class="confetti c2"></div>
 <div class="confetti c3"></div>
 <div class="confetti c4"></div>
