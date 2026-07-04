@@ -738,6 +738,204 @@ rgba(255,170,30,.05),
 transparent 70%);
 
 }
+
+.name-area{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+.presented-text{
+
+font-size:15px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#d2b36a;
+
+font-family:"Cinzel",serif;
+
+margin-bottom:14px;
+
+}
+
+#participantName{
+
+font-family:"Cinzel",serif;
+
+font-size:56px;
+
+font-weight:900;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+}
+
+#participantName{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#fff8d6 0%,
+
+#ffd86f 20%,
+
+#d69f31 45%,
+
+#8b5d10 70%,
+
+#fff3b2 100%
+
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+#participantName{
+
+text-shadow:
+
+0 2px 0 #5a3600,
+
+0 4px 0 #3a2200,
+
+0 8px 14px rgba(0,0,0,.5),
+
+0 0 15px rgba(255,190,70,.25);
+
+}
+
+.gold-divider{
+
+margin-top:18px;
+
+width:320px;
+
+height:2px;
+
+background:
+
+linear-gradient(
+
+to right,
+
+transparent,
+
+#d6a63c,
+
+transparent
+
+);
+
+}
+
+.description{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:0 30px;
+
+}
+
+.description p:first-child{
+
+font-size:18px;
+
+letter-spacing:3px;
+
+color:#d5d5d5;
+
+margin-bottom:16px;
+
+}
+
+.description h3{
+
+font-size:42px;
+
+font-family:"Cinzel",serif;
+
+color:#e4b347;
+
+letter-spacing:2px;
+
+margin-bottom:18px;
+
+}
+
+.fire-menu{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:70px;
+
+border-radius:40px;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#ff6233,
+
+#c30b00
+
+);
+
+border:2px solid #ffcf66;
+
+box-shadow:
+
+0 0 18px rgba(255,90,20,.35);
+
+}
+
+.fire-menu span{
+
+font-size:28px;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+color:white;
+
+text-shadow:
+
+0 2px 4px black;
+
+}
 </style>
 </head>
 <body>
@@ -838,17 +1036,56 @@ transparent 70%);
 
     <section class="center-panel">
 
-        <div class="name-area">
+       <div class="name-area">
 
-        </div>
+    <div class="presented-text">
+
+        THIS CERTIFICATE IS PROUDLY PRESENTED TO
+
+    </div>
+
+    <h2 id="participantName">
+
+        ARIF TRIYANTO
+
+    </h2>
+
+    <div class="gold-divider"></div>
+
+</div>
 
         <div class="description">
 
-        </div>
+    <p>
+
+        FOR SUCCESSFULLY COMPLETING THE
+
+    </p>
+
+    <h3>
+
+        OCEAN FIRE CHALLENGE
+
+    </h3>
+
+    <p>
+
+        WITH EXCEPTIONAL COURAGE, DETERMINATION,
+        AND A SPIRIT THAT REFUSES TO GIVE UP.
+
+    </p>
+
+</div>
 
         <div class="fire-menu">
 
-        </div>
+    <span>
+
+        🔥 JUMBO FIRE NOODLE 🔥
+
+    </span>
+
+</div>
 
         <div class="signature-area">
 
@@ -901,15 +1138,17 @@ transparent 70%);
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 
-  const participant = {
+  const participant={
 
-name: "YOUR NAME",
+name:"ARIF TRIYANTO",
 
-photo: "assets/participant.jpg"
+photo:"assets/participant.jpg"
 
 };
 
-document.getElementById("participantPhoto").src = participant.photo;
+document.getElementById("participantName").textContent=participant.name;
+
+document.getElementById("participantPhoto").src=participant.photo;
 
   
 async function downloadPNG() {
