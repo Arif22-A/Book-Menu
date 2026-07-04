@@ -1867,25 +1867,6 @@ but the triumph over it."
     </div>
 
 
-   <div class="actions">
-  <button onclick="window.print()">Export PDF</button>
-  <button onclick="downloadPNG()">Download PNG</button>
-</div>
-  
- <div class="nav-arrow prev">
-  <a href="page17.html">
-    <i class="fas fa-arrow-left"></i>
-  </a>
-</div>
-
-  <div class="nav-arrow next">
-  <a href="page19.html">
-    <i class="fas fa-arrow-right"></i>
-  </a>
-</div>
-  
-</div>
-
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 
@@ -1922,44 +1903,6 @@ participant.certificate="OFC-2026-00001";
 document.getElementById("certificateNo").textContent=
 participant.certificate;
   
-async function downloadPNG() {
-  const target = document.querySelector(".poster");
-
-  const actions = document.querySelector(".actions");
-  const themeSwitcher = document.querySelector(".theme-switcher");
-  const navArrows = document.querySelectorAll(".nav-arrow");
-
-  /* ambil warna aktif dari container */
-  const bgColor = getComputedStyle(target).backgroundColor;
-
-  if (actions) actions.style.display = "none";
-  if (themeSwitcher) themeSwitcher.style.display = "none";
-
-  navArrows.forEach(nav => {
-    nav.style.display = "none";
-  });
-
-  await new Promise(resolve => setTimeout(resolve, 200));
-
-  const canvas = await html2canvas(target, {
-    scale: window.devicePixelRatio * 2,
-    useCORS: true,
-    backgroundColor: bgColor,
-    logging: false
-  });
-
-  const link = document.createElement("a");
-  link.download = "ocean-menu-premium.png";
-  link.href = canvas.toDataURL("image/png", 1.0);
-  link.click();
-
-  if (actions) actions.style.display = "flex";
-  if (themeSwitcher) themeSwitcher.style.display = "flex";
-
-  navArrows.forEach(nav => {
-    nav.style.display = "block";
-  });
-}
 </script>
 
 </body>
