@@ -39,8 +39,6 @@ width:1400px;
 
 height:990px;
 
-background:#090909;
-
 position:relative;
 
 overflow:hidden;
@@ -49,7 +47,23 @@ overflow:hidden;
 
 .certificate{
 
-radial-gradient(circle at top,#34210d 0%,#111 35%,#050505 100%);
+position:relative;
+
+background:#0a0a0a;
+
+border:3px solid #9a6b1b;
+
+padding:18px;
+
+box-shadow:
+
+0 0 0 2px #e8c061,
+
+0 0 0 8px #5d3b08,
+
+0 0 0 10px rgba(255,215,120,.35),
+
+0 30px 80px rgba(0,0,0,.75);
 
 }
 
@@ -142,6 +156,24 @@ box-shadow:
 0 0 80px rgba(0,0,0,.7),
 
 0 0 35px rgba(255,180,40,.15);
+
+}
+
+.frame{
+
+position:absolute;
+
+left:18px;
+
+top:18px;
+
+right:18px;
+
+bottom:18px;
+
+border:1px solid rgba(255,218,140,.6);
+
+pointer-events:none;
 
 }
 
@@ -1189,6 +1221,22 @@ border-radius:10px;
 
 }
 
+.qr-image{
+
+background:white;
+
+padding:12px;
+
+border-radius:10px;
+
+border:2px solid gold;
+
+box-shadow:
+
+0 0 15px rgba(255,180,40,.25);
+
+}
+
 .qr-title{
 
 font-family:"Cinzel",serif;
@@ -1256,13 +1304,36 @@ margin-bottom:8px;
 
 #certificateNo{
 
-font-family:"Cinzel",serif;
+display:inline-block;
 
-font-size:24px;
+padding:
 
-color:#f4cb67;
+10px
+
+20px;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#1b1b1b,
+
+#090909
+
+);
+
+border:
+
+1px solid
+
+#d7a845;
+
+border-radius:8px;
 
 }
+
 
 .signature-box{
 
@@ -1499,6 +1570,58 @@ transform:scale(1.02);
 box-shadow:
 
 0 0 40px rgba(255,180,60,.45);
+
+}
+
+.corner{
+
+position:absolute;
+
+width:115px;
+
+opacity:.95;
+
+filter:
+
+drop-shadow(0 0 8px rgba(255,190,60,.25));
+
+}
+
+.tl{
+
+left:8px;
+
+top:8px;
+
+}
+
+.tr{
+
+right:8px;
+
+top:8px;
+
+transform:rotate(90deg);
+
+}
+
+.bl{
+
+left:8px;
+
+bottom:8px;
+
+transform:rotate(-90deg);
+
+}
+
+.br{
+
+right:8px;
+
+bottom:8px;
+
+transform:rotate(180deg);
 
 }
 </style>
@@ -1864,6 +1987,33 @@ but the triumph over it."
 
 </footer>
 
+    <div class="frame"></div>
+
+    <img class="corner tl" src="assets/corner.svg">
+
+<img class="corner tr" src="assets/corner.svg">
+
+<img class="corner bl" src="assets/corner.svg">
+
+<img class="corner br" src="assets/corner.svg">
+
+    
+    <div class="medal">
+
+<div class="ring">
+
+🔥
+
+</div>
+
+<div class="ribbon">
+
+EXTREME
+
+</div>
+
+</div>
+    
     </div>
 
 
