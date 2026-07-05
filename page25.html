@@ -85,7 +85,7 @@ url("assets/leather.jpg") center/cover,
 
 /* Brown Glow */
 radial-gradient(circle at center,
-rgba(120,70,20,.45),
+rgba(90,55,15,.14)
 transparent 72%),
 
 /* Top Light */
@@ -138,7 +138,7 @@ radial-gradient(
 
 circle at 50% 15%,
 
-rgba(255,210,110,.10),
+rgba(255,205,120,.05)
 
 transparent 38%),
 
@@ -146,7 +146,7 @@ radial-gradient(
 
 circle at 50% 100%,
 
-rgba(255,120,40,.10),
+rgba(255,90,20,.04)
 
 transparent 50%);
 
@@ -185,29 +185,29 @@ border:3px solid #d4a53d;
 
 position:absolute;
 
-top:-180px;
+width:700px;
 
-left:-120px;
+height:380px;
 
-width:900px;
+top:-80px;
 
-height:500px;
-
-pointer-events:none;
+left:120px;
 
 background:
 
 radial-gradient(circle,
 
-rgba(255,220,130,.12),
+rgba(255,205,120,.14),
 
-transparent 70%);
+transparent 72%);
 
-transform:rotate(-18deg);
+filter:blur(70px);
 
-filter:blur(35px);
+opacity:.22;
 
-opacity:.7;
+pointer-events:none;
+
+z-index:1;
 
 }
 
@@ -477,7 +477,7 @@ text-shadow:
 
 position:absolute;
 
-top:185px;
+top:700px;
 
 left:50px;
 
@@ -1604,19 +1604,23 @@ position:absolute;
 
 inset:0;
 
-opacity:.035;
+background-image:
+
+radial-gradient(
+
+rgba(255,255,255,.28) .8px,
+
+transparent .8px);
+
+background-size:6px 6px;
+
+opacity:.025;
+
+mix-blend-mode:overlay;
 
 pointer-events:none;
 
-background-image:
-
-radial-gradient(circle,
-rgba(255,255,255,.3) 1px,
-transparent 1px);
-
-background-size:5px 5px;
-
-mix-blend-mode:overlay;
+z-index:3;
 
 }
 
@@ -1628,21 +1632,23 @@ left:0;
 
 right:0;
 
-bottom:-120px;
+bottom:-180px;
 
-height:340px;
-
-pointer-events:none;
+height:260px;
 
 background:
 
 radial-gradient(circle,
 
-rgba(255,90,20,.22),
+rgba(255,90,30,.22),
 
-transparent 72%);
+transparent 70%);
 
-filter:blur(45px);
+filter:blur(55px);
+
+pointer-events:none;
+
+z-index:1;
 
 }
 
@@ -1652,37 +1658,91 @@ position:absolute;
 
 left:50%;
 
-top:52%;
+top:54%;
 
 transform:translate(-50%,-50%);
 
-font-size:650px;
+font-size:470px;
 
-font-weight:bold;
+color:#d89225;
 
-opacity:.025;
+opacity:.018;
 
-color:#ffb347;
+filter:blur(2px);
 
 pointer-events:none;
 
-filter:blur(1px);
+user-select:none;
+
+z-index:2;
 
 }
 
+.background{
+
+z-index:0;
+
+}
+
+.gold-reflection{
+
+z-index:1;
+
+}
+
+.fire-glow{
+
+z-index:1;
+
+}
+
+.fire-watermark{
+
+z-index:2;
+
+}
+
+.noise{
+
+z-index:3;
+
+}
+
+.content{
+
+position:relative;
+
+z-index:20;
+
+}
 </style>
 </head>
 <body>
 
 <div class="certificate">
 
-<span class="corner tl"></span>
-<span class="corner tr"></span>
-<span class="corner bl"></span>
-<span class="corner br"></span>
+<span class="frame-corner tl"></span>
+<span class="frame-corner tr"></span>
+<span class="photo-corner bl"></span>
+<span class="photo-corner br"></span>
+
+     <div class="background"></div>
+
+    <div class="fire-watermark">
+        🔥
+    </div>
+
+    <div class="gold-reflection"></div>
+
+    <div class="noise"></div>
+
+    <div class="fire-glow"></div>
+
+    <div class="embers">
 
 
   <!-- ================= HEADER ================= -->
+    
 
 <header class="header">
 
@@ -1718,13 +1778,6 @@ filter:blur(1px);
 
 </header>
 
-   
-    <div class="fire-watermark">
-
-🔥
-
-</div>
-
   <!-- ================= MAIN ================= -->
 
 <main class="main-layout">
@@ -1746,22 +1799,6 @@ filter:blur(1px);
     </div>
 
 </div>
-
-        <div class="certificate-number">
-
-            <div class="label">
-
-                CERTIFICATE NO.
-
-            </div>
-
-            <div class="number">
-
-                OFC-2026-00001
-
-            </div>
-
-        </div>
 
     </aside>
 
@@ -1987,38 +2024,25 @@ filter:blur(1px);
 
     <!-- QR -->
 
-    <img class="frame-corner tl">
+   <div class="hall-of-fame">
 
-        <div class="qr-title">
-
-            HALL OF FAME
-
-        </div>
-
-        <img
-            src="assets/qr.png"
-            class="qr-image">
-
-        <div class="scan-text">
-
-            SCAN TO VERIFY
-
-        </div>
-
+    <div class="qr-title">
+        HALL OF FAME
     </div>
+
+    <img src="assets/qr.png" class="qr-image">
+
+    <div class="scan-text">
+        SCAN TO VERIFY
+    </div>
+
+</div>
 
 </aside>
 
 </main>
 
-    <div class="gold-reflection"></div>
-
-    <div class="noise"></div>
-
-    <div class="fire-glow"></div>
-
-    <div class="embers">
-
+    
 <span></span>
 
 <span></span>
@@ -2042,13 +2066,13 @@ but the triumph over it."
 
     <div class="photo-corner tl">
 
-    <img class="corner tl" src="assets/corner.svg">
+    <img class="frame-corner tl" src="assets/corner.svg">
 
-<img class="corner tr" src="assets/corner.svg">
+<img class="frame-corner tr" src="assets/corner.svg">
 
-<img class="corner bl" src="assets/corner.svg">
+<img class="photo-corner bl" src="assets/corner.svg">
 
-<img class="corner br" src="assets/corner.svg">
+<img class="photo-corner br" src="assets/corner.svg">
 
     </div>
 
