@@ -33,28 +33,6 @@ font-family:Arial;
 
 }
 
-.certificate::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-url("assets/leather.jpg") center/cover,
-
-radial-gradient(circle at center,
-rgba(255,175,70,.08),
-transparent 70%);
-
-opacity:.12;
-
-pointer-events:none;
-
-}
-
 .certificate{
 
 position:relative;
@@ -74,9 +52,75 @@ box-shadow:
 0 0 0 2px #6c430a,
 0 0 0 5px #e4b347,
 0 0 40px rgba(255,180,60,.18),
+0 30px 80px rgba(0,0,0,.75),
+
+inset 0 0 180px rgba(0,0,0,.55),
+
+inset 0 0 50px rgba(255,180,40,.06),
+
+0 0 40px rgba(255,180,60,.18),
+
 0 30px 80px rgba(0,0,0,.75);
 
 }
+
+/*=========================================
+PREMIUM BACKGROUND
+=========================================*/
+
+.certificate::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+/* Leather */
+url("assets/leather.jpg") center/cover,
+
+/* Brown Glow */
+radial-gradient(circle at center,
+rgba(120,70,20,.45),
+transparent 72%),
+
+/* Top Light */
+linear-gradient(
+180deg,
+rgba(255,210,120,.07),
+transparent 30%),
+
+/* Bottom Burn */
+linear-gradient(
+0deg,
+rgba(40,10,0,.55),
+transparent 45%),
+
+/* Base */
+#080808;
+
+background-blend-mode:
+
+overlay,
+
+screen,
+
+normal,
+
+multiply,
+
+normal;
+
+opacity:1;
+
+z-index:0;
+
+}
+
 
 .certificate::after{
 
@@ -90,17 +134,28 @@ pointer-events:none;
 
 background:
 
-linear-gradient(
-180deg,
-rgba(255,255,255,.03),
-transparent 35%),
+radial-gradient(
+
+circle at 50% 15%,
+
+rgba(255,210,110,.10),
+
+transparent 38%),
 
 radial-gradient(
-circle at bottom,
-rgba(255,110,20,.08),
-transparent 60%);
+
+circle at 50% 100%,
+
+rgba(255,120,40,.10),
+
+transparent 50%);
+
+mix-blend-mode:screen;
+
+z-index:1;
 
 }
+
 
 .photo-corner{
 
@@ -123,6 +178,36 @@ width:80px;
 height:80px;
 
 border:3px solid #d4a53d;
+
+}
+
+.gold-reflection{
+
+position:absolute;
+
+top:-180px;
+
+left:-120px;
+
+width:900px;
+
+height:500px;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(circle,
+
+rgba(255,220,130,.12),
+
+transparent 70%);
+
+transform:rotate(-18deg);
+
+filter:blur(35px);
+
+opacity:.7;
 
 }
 
@@ -1512,6 +1597,79 @@ margin-bottom:10px;
 text-transform:uppercase;
 
 }
+
+.noise{
+
+position:absolute;
+
+inset:0;
+
+opacity:.035;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(circle,
+rgba(255,255,255,.3) 1px,
+transparent 1px);
+
+background-size:5px 5px;
+
+mix-blend-mode:overlay;
+
+}
+
+.fire-glow{
+
+position:absolute;
+
+left:0;
+
+right:0;
+
+bottom:-120px;
+
+height:340px;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(circle,
+
+rgba(255,90,20,.22),
+
+transparent 72%);
+
+filter:blur(45px);
+
+}
+
+.fire-watermark{
+
+position:absolute;
+
+left:50%;
+
+top:52%;
+
+transform:translate(-50%,-50%);
+
+font-size:650px;
+
+font-weight:bold;
+
+opacity:.025;
+
+color:#ffb347;
+
+pointer-events:none;
+
+filter:blur(1px);
+
+}
+
 </style>
 </head>
 <body>
@@ -1559,6 +1717,13 @@ text-transform:uppercase;
     </div>
 
 </header>
+
+   
+    <div class="fire-watermark">
+
+🔥
+
+</div>
 
   <!-- ================= MAIN ================= -->
 
@@ -1845,6 +2010,12 @@ text-transform:uppercase;
 </aside>
 
 </main>
+
+    <div class="gold-reflection"></div>
+
+    <div class="noise"></div>
+
+    <div class="fire-glow"></div>
 
     <div class="embers">
 
