@@ -28,17 +28,14 @@ body{
 }
 
 /* ================= CONTAINER UTAMA (PROPORSIONAL A4 LANDSCAPE) ================= */
-.certificate{
+.certificate {
     position: relative;
     width: 1400px;
-    height: 990px; /* Diubah dari 950px ke 990px, tapi kita optimalkan ruang vertikalnya */
-    /* ATAU kalau mau pas cetak A4 standard, rasionya diganti ke: */
-    width: 1414px;  /* Rasio presisi A4 */
-    height: 1000px; /* Rasio presisi A4 */
+    height: 940px; /* Pangkas tingginya biar ceper & persegi panjang, gak kotak lagi */
     overflow: hidden;
     background: #060606;
     border: 6px solid #d7a845;
-    padding: 40px 50px; /* Ditambah padding samping agar seimbang */
+    padding: 30px 45px;
     box-shadow: 
         0 0 0 3px #4e3006, 
         0 0 0 6px #ffd984,
@@ -240,11 +237,13 @@ body{
     position: relative;
     display: grid;
     grid-template-columns: 320px 1fr 340px;
-    gap: 40px;
-    z-index: 5;
+    gap: 35px;
+    z-index: 20;
     padding: 0 10px;
-    height: calc(100% - 220px); /* Memaksa layout menghabiskan sisa tinggi kertas */
+    /* Kita kunci tingginya biar elemen di dalam otomatis ngisi ruang vertikal secara pas */
+    height: 580px; 
 }
+
 
 /* --- PANEL KIRI: FOTO & NO SERTIFIKAT --- */
 .left-panel{
@@ -317,8 +316,7 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-top: 0px;
-    justify-content: space-between; /* Membuat konten menyebar rata ke bawah, menghapus ruang kosong */
+    justify-content: space-between; /* Menghilangkan sisa ruang kosong di bawah tanda tangan */
     height: 100%;
 }
 
