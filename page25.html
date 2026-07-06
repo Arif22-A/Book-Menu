@@ -9,2110 +9,795 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-    
+
+
 <style>
+/* Import Font Premium */
+@import url('https://googleapis.com');
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
-
-background:#111;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:40px;
-
-font-family:Arial;
-
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
 }
 
+/* ================= CONTAINER UTAMA ================= */
 .certificate{
-
-position:relative;
-
-width:1400px;
-height:990px;
-
-overflow:hidden;
-
-background:#090909;
-
-border:4px solid #d7a845;
-
-padding:18px;
-
-box-shadow:
-0 0 0 2px #6c430a,
-0 0 0 5px #e4b347,
-0 0 40px rgba(255,180,60,.18),
-0 30px 80px rgba(0,0,0,.75),
-
-inset 0 0 180px rgba(0,0,0,.55),
-
-inset 0 0 50px rgba(255,180,40,.06),
-
-0 0 40px rgba(255,180,60,.18),
-
-0 30px 80px rgba(0,0,0,.75);
-
+    position: relative;
+    width: 1400px;
+    height: 950px;
+    overflow: hidden;
+    background: #060606;
+    border: 6px solid #d7a845;
+    padding: 30px;
+    box-shadow: 
+        0 0 0 3px #4e3006, 
+        0 0 0 6px #ffd984,
+        0 20px 60px rgba(0,0,0,0.9),
+        inset 0 0 200px rgba(0,0,0,0.9);
 }
 
-/*=========================================
-PREMIUM BACKGROUND
-=========================================*/
-
+/* Background Efek Kulit + Cahaya Bara Api */
 .certificate::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-pointer-events:none;
-
-background:
-
-/* Leather */
-url("assets/leather.jpg") center/cover,
-
-/* Brown Glow */
-radial-gradient(circle at center,
-rgba(90,55,15,.14)
-transparent 72%),
-
-/* Top Light */
-linear-gradient(
-180deg,
-rgba(255,210,120,.07),
-transparent 30%),
-
-/* Bottom Burn */
-linear-gradient(
-0deg,
-rgba(40,10,0,.55),
-transparent 45%),
-
-/* Base */
-#080808;
-
-background-blend-mode:
-
-overlay,
-
-screen,
-
-normal,
-
-multiply,
-
-normal;
-
-opacity:1;
-
-z-index:0;
-
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 50% 30%, rgba(139, 42, 0, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 85% 25%, rgba(214, 166, 60, 0.12) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(20, 5, 0, 0.6) 100%);
+    z-index: 0;
 }
 
+/* Bingkai Ornamen Sudut Sertifikat Utama */
+.certificate-frames img {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    z-index: 10;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+}
+.certificate-frames .tl { top: 15px; left: 15px; }
+.certificate-frames .tr { top: 15px; right: 15px; transform: rotate(90deg); }
+.certificate-frames .bl { bottom: 15px; left: 15px; transform: rotate(-90deg); }
+.certificate-frames .br { bottom: 15px; right: 15px; transform: rotate(180deg); }
 
-.certificate::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-pointer-events:none;
-
-background:
-
-radial-gradient(
-
-circle at 50% 15%,
-
-rgba(255,205,120,.05)
-
-transparent 38%),
-
-radial-gradient(
-
-circle at 50% 100%,
-
-rgba(255,90,20,.04)
-
-transparent 50%);
-
-mix-blend-mode:screen;
-
-z-index:1;
-
+/* ================= SPECIAL EFFECTS BACKGROUND ================= */
+.noise{
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.28) 0.8px, transparent 0.8px);
+    background-size: 6px 6px;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 3;
 }
 
-
-.photo-corner{
-
-position:absolute;
-
-width:80px;
-
-height:80px;
-
-border:3px solid #d4a53d;
-
-}
-
-.frame-corner{
-
-position:absolute;
-
-width:80px;
-
-height:80px;
-
-border:3px solid #d4a53d;
-
+.fire-glow{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255,90,30,0.22), transparent 70%);
+    filter: blur(55px);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .gold-reflection{
-
-position:absolute;
-
-width:700px;
-
-height:380px;
-
-top:-80px;
-
-left:120px;
-
-background:
-
-radial-gradient(circle,
-
-rgba(255,205,120,.14),
-
-transparent 72%);
-
-filter:blur(70px);
-
-opacity:.22;
-
-pointer-events:none;
-
-z-index:1;
-
-}
-
-.tl{
-
-left:10px;
-top:10px;
-
-border-right:none;
-border-bottom:none;
-
-}
-
-.tr{
-
-right:10px;
-top:10px;
-
-border-left:none;
-border-bottom:none;
-
-}
-
-.bl{
-
-left:10px;
-bottom:10px;
-
-border-right:none;
-border-top:none;
-
-}
-
-.br{
-
-right:10px;
-bottom:10px;
-
-border-left:none;
-border-top:none;
-
-}
-
-/*================ HEADER ================*/
-
-.header{
-
-position:absolute;
-
-top:35px;
-
-left:0;
-
-width:100%;
-
-text-align:center;
-
-}
-
-.brand{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:20px;
-
-margin-bottom:18px;
-
-}
-
-.brand .line{
-
-width:140px;
-
-height:2px;
-
-background:linear-gradient(
-
-to right,
-
-transparent,
-
-#d8ab47,
-
-transparent
-
-);
-
-}
-
-.brand-text{
-
-font-size:19px;
-
-letter-spacing:6px;
-
-font-family:"Cinzel",serif;
-
-color:#d8ab47;
-
-text-transform:uppercase;
-
-}
-
-
-
-.title span:last-child{
-
-font-size:76px;
-
-font-family:"Cinzel",serif;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#f5d17a;
-
-}
-
-.title span:last-child{
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#fff7c4 0%,
-
-#ffd86f 15%,
-
-#d6a133 45%,
-
-#8f5e10 70%,
-
-#fff2b0 100%
-
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-
-.title{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:18px;
-
-text-shadow:
-
-0 2px 0 #593500,
-
-0 4px 0 #2d1800,
-
-0 8px 12px rgba(0,0,0,.55),
-
-0 0 25px rgba(255,180,40,.35);
-
-}
-    
-.fire-left{
-
-font-size:72px;
-
-filter:
-
-drop-shadow(0 0 10px orange)
-
-drop-shadow(0 0 20px red);
-
-}
-
-.certificate-title{
-
-margin-top:18px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:18px;
-
-}
-
-.certificate-title{
-
-margin-top:18px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:18px;
-
-}
-
-.certificate-title h2{
-
-font-family:"Cinzel",serif;
-
-font-size:34px;
-
-letter-spacing:3px;
-
-font-weight:700;
-
-color:#f2f2f2;
-
-text-shadow:
-
-0 2px 4px black;
-
-}
-
-.divider{
-
-width:220px;
-
-height:2px;
-
-background:
-
-linear-gradient(
-
-to right,
-
-transparent,
-
-#c9982f,
-
-transparent
-
-);
-
-}
-
-.certificate-title h2{
-
-text-shadow:
-
-0 0 8px rgba(255,255,255,.3),
-
-0 2px 5px black;
-
-}
-
-/*================ MAIN =================*/
-
-.main-layout{
-
-position:absolute;
-
-top:700px;
-
-left:50px;
-
-right:50px;
-
-bottom:85px;
-
-display:grid;
-
-grid-template-columns:
-
-320px
-1fr
-340px;
-
-gap:35px;
-
-}
-
-.left-panel{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:space-between;
-
-}
-
-.center-panel{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.right-panel{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.photo-frame,
-.badge-area,
-.record-area,
-.hall-of-fame,
-.name-area,
-.description,
-.fire-menu,
-.signature-area,
-.certificate-number{
-
-border:1px dashed rgba(255,180,70,.25);
-
-}
-
-.photo-frame{
-
-height:390px;
-
-margin-bottom:25px;
-
-}
-
-.name-area{
-
-height:130px;
-
-width:100%;
-
-margin-bottom:18px;
-
-}
-
-.description{
-
-height:150px;
-
-width:100%;
-
-margin-bottom:18px;
-
-}
-
-.fire-menu{
-
-height:70px;
-
-width:60%;
-
-margin:auto;
-
-margin-bottom:30px;
-
-}
-
-.signature-area{
-
-height:180px;
-
-width:100%;
-
-margin-top:auto;
-
-}
-
-.badge-area{
-
-height:300px;
-
-width:100%;
-
-margin-bottom:25px;
-
-}
-
-.record-area{
-
-height:250px;
-
-width:100%;
-
-margin-bottom:25px;
-
-}
-
-.hall-of-fame{
-
-height:140px;
-
-width:100%;
-
-}
-
-.certificate-number{
-
-height:90px;
-
-}
-
-.photo-frame{
-
-position:relative;
-
-width:100%;
-
-height:420px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-.participant-photo{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-object-position:center top;
-
-border-radius:10px;
-
-display:block;
-
-}
-
-.photo-border::before{
-
-content:"";
-
-position:absolute;
-
-left:6px;
-
-top:6px;
-
-right:6px;
-
-bottom:6px;
-
-border:1px solid rgba(255,214,120,.55);
-
-border-radius:12px;
-
-pointer-events:none;
-
-}
-
-.photo-border .corner{
-
-position:absolute;
-
-width:28px;
-
-height:28px;
-
-border:2px solid #d6a63c;
-
-z-index:5;
-
-}
-
-.photo-border .tl{
-
-left:8px;
-
-top:8px;
-
-border-right:none;
-
-border-bottom:none;
-
-border-radius:8px 0 0 0;
-
-}
-
-.photo-border .tr{
-
-right:8px;
-
-top:8px;
-
-border-left:none;
-
-border-bottom:none;
-
-border-radius:0 8px 0 0;
-
-}
-
-.photo-border .bl{
-
-left:8px;
-
-bottom:8px;
-
-border-right:none;
-
-border-top:none;
-
-border-radius:0 0 0 8px;
-
-}
-
-.photo-border .br{
-
-right:8px;
-
-bottom:8px;
-
-border-left:none;
-
-border-top:none;
-
-border-radius:0 0 8px 0;
-
-}
-
-.photo-border{
-
-position:relative;
-
-width:290px;
-
-height:360px;
-
-padding:10px;
-
-background:#111;
-
-border:3px solid #d6a63c;
-
-border-radius:18px;
-
-overflow:hidden;
-
-box-shadow:
-
-0 0 20px rgba(255,190,70,.22),
-
-0 0 40px rgba(255,120,20,.08),
-
-inset 0 0 18px rgba(255,255,255,.05);
-
-}
-
-.photo-frame{
-
-background:
-
-radial-gradient(circle,
-
-rgba(255,170,30,.05),
-
-transparent 70%);
-
-}
-
-.name-area{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-}
-
-.presented-text{
-
-font-size:15px;
-
-letter-spacing:4px;
-
-text-transform:uppercase;
-
-color:#d2b36a;
-
-font-family:"Cinzel",serif;
-
-margin-bottom:14px;
-
-}
-
-#participantName{
-
-font-family:"Cinzel",serif;
-
-font-size:56px;
-
-font-weight:900;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-}
-
-#participantName{
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#fff8d6 0%,
-
-#ffd86f 20%,
-
-#d69f31 45%,
-
-#8b5d10 70%,
-
-#fff3b2 100%
-
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-
-#participantName{
-
-text-shadow:
-
-0 2px 0 #5a3600,
-
-0 4px 0 #3a2200,
-
-0 8px 14px rgba(0,0,0,.5),
-
-0 0 15px rgba(255,190,70,.25);
-
-}
-
-.gold-divider{
-
-margin-top:18px;
-
-width:320px;
-
-height:2px;
-
-background:
-
-linear-gradient(
-
-to right,
-
-transparent,
-
-#d6a63c,
-
-transparent
-
-);
-
-}
-
-.description{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:0 30px;
-
-}
-
-.description p:first-child{
-
-font-size:18px;
-
-letter-spacing:3px;
-
-color:#d5d5d5;
-
-margin-bottom:16px;
-
-}
-
-.description h3{
-
-font-size:42px;
-
-font-family:"Cinzel",serif;
-
-color:#e4b347;
-
-letter-spacing:2px;
-
-margin-bottom:18px;
-
-}
-
-.fire-menu{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:70px;
-
-border-radius:40px;
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#ff6233,
-
-#c30b00
-
-);
-
-border:2px solid #ffcf66;
-
-box-shadow:
-
-0 0 18px rgba(255,90,20,.35);
-
-}
-
-.fire-menu span{
-
-font-size:28px;
-
-font-weight:bold;
-
-letter-spacing:2px;
-
-color:white;
-
-text-shadow:
-
-0 2px 4px black;
-
-}
-
-.king-badge{
-
-height:100%;
-
-border-radius:22px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#1f1f1f,
-
-#090909
-
-);
-
-border:2px solid #d6a63c;
-
-box-shadow:
-
-0 0 18px rgba(255,185,70,.2),
-
-inset 0 0 20px rgba(255,255,255,.04);
-
-}
-
-.badge-top{
-
-font-size:60px;
-
-margin-bottom:12px;
-
-filter:
-
-drop-shadow(0 0 10px gold);
-
-}
-
-.badge-title{
-
-font-family:"Cinzel",serif;
-
-font-size:46px;
-
-font-weight:900;
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#fff7cb,
-
-#ffcf55,
-
-#ba7c18
-
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-
-.badge-subtitle{
-
-font-size:22px;
-
-letter-spacing:3px;
-
-color:#ffffff;
-
-margin-top:6px;
-
-}
-
-.badge-level{
-
-margin-top:18px;
-
-padding:8px 20px;
-
-border-radius:30px;
-
-background:#8c0000;
-
-border:1px solid #ffcf55;
-
-color:white;
-
-font-weight:bold;
-
-letter-spacing:2px;
-
-}
-
-.record-area{
-
-background:#101010;
-
-border:2px solid #d6a63c;
-
-border-radius:18px;
-
-padding:22px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:16px;
-
-}
-
-.record-title{
-
-font-family:"Cinzel",serif;
-
-font-size:24px;
-
-text-align:center;
-
-margin-bottom:12px;
-
-color:#f5d27b;
-
-}
-
-.record-item{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:12px;
-
-border-bottom:1px solid rgba(255,200,80,.18);
-
-}
-
-.record-item span{
-
-color:#cccccc;
-
-letter-spacing:2px;
-
-font-size:15px;
-
-}
-
-.record-item strong{
-
-color:#ffd36b;
-
-font-size:17px;
-
-}
-
-.hall-of-fame{
-
-border:2px solid #d6a63c;
-
-border-radius:18px;
-
-padding:18px;
-
-text-align:center;
-
-background:#111;
-
-}
-
-.qr-image{
-
-width:120px;
-
-height:120px;
-
-margin:15px auto;
-
-display:block;
-
-background:white;
-
-padding:8px;
-
-border-radius:10px;
-
-}
-
-.qr-image{
-
-background:white;
-
-padding:12px;
-
-border-radius:10px;
-
-border:2px solid gold;
-
-box-shadow:
-
-0 0 15px rgba(255,180,40,.25);
-
-}
-
-.qr-title{
-
-font-family:"Cinzel",serif;
-
-font-size:22px;
-
-color:#f4d180;
-
-}
-
-.scan-text{
-
-font-size:13px;
-
-letter-spacing:2px;
-
-color:#bbbbbb;
-
-}
-
-.bottom-grid{
-
-width:100%;
-
-display:grid;
-
-grid-template-columns:
-
-220px
-1fr
-170px
-1fr;
-
-align-items:end;
-
-column-gap:25px;
-
-margin-top:35px;
-
-}
-
-.certificate-box{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:flex-end;
-
-height:140px;
-
-}
-
-.small-title{
-
-font-size:13px;
-
-letter-spacing:2px;
-
-color:#b9b9b9;
-
-margin-bottom:8px;
-
-}
-
-#certificateNo{
-
-display:inline-block;
-
-padding:
-
-10px
-
-20px;
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#1b1b1b,
-
-#090909
-
-);
-
-border:
-
-1px solid
-
-#d7a845;
-
-border-radius:8px;
-
-}
-
-
-.signature-box{
-
-text-align:center;
-
-}
-
-.signature-img{
-
-height:65px;
-
-object-fit:contain;
-
-margin-bottom:5px;
-
-}
-
-.signature-line{
-
-height:2px;
-
-background:#c99933;
-
-margin-top:5px;
-
-margin-bottom:10px;
-
-}
-
-.signature-label{
-
-font-size:14px;
-
-letter-spacing:2px;
-
-color:#d7d7d7;
-
-}
-
-.seal-box{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-.seal-circle{
-
-width:130px;
-
-height:130px;
-
-border-radius:50%;
-
-border:4px solid #d6a63c;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:55px;
-
-background:
-
-radial-gradient(
-
-circle,
-
-#3b1200,
-
-#140800
-
-);
-
-box-shadow:
-
-0 0 25px rgba(255,170,30,.35);
-
-}
-
+    position: absolute;
+    width: 700px;
+    height: 380px;
+    top: -80px;
+    left: 120px;
+    background: radial-gradient(circle, rgba(255,205,120,0.14), transparent 72%);
+    filter: blur(70px);
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.fire-watermark {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 450px;
+    color: #d89225;
+    opacity: 0.015;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(2px);
+    user-select: none;
+}
+
+/* Efek Animasi Bara Api Melayang */
 .embers{
-
-position:absolute;
-
-inset:0;
-
-pointer-events:none;
-
-overflow:hidden;
-
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .embers span{
-
-position:absolute;
-
-width:6px;
-
-height:6px;
-
-border-radius:50%;
-
-background:#ffb347;
-
-filter:blur(1px);
-
-animation:float 6s linear infinite;
-
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffb347;
+    filter: blur(1px);
+    animation: float 7s linear infinite;
 }
 
 @keyframes float{
-
-0%{
-
-transform:translateY(120px);
-
-opacity:0;
-
+    0%{ transform: translateY(980px) translateX(0) scale(1); opacity: 0; }
+    30%{ opacity: 0.7; }
+    90%{ opacity: 0.4; }
+    100%{ transform: translateY(-100px) translateX(30px) scale(0.5); opacity: 0; }
 }
 
-30%{
+.embers span:nth-child(1){ left: 10%; animation-delay: 0s; animation-duration: 6s; }
+.embers span:nth-child(2){ left: 25%; animation-delay: 1.5s; animation-duration: 8s; }
+.embers span:nth-child(3){ left: 45%; animation-delay: 0.5s; animation-duration: 7s; }
+.embers span:nth-child(4){ left: 65%; animation-delay: 3s; animation-duration: 5s; }
+.embers span:nth-child(5){ left: 80%; animation-delay: 2s; animation-duration: 9s; }
+.embers span:nth-child(6){ left: 92%; animation-delay: 4s; animation-duration: 6s; }
 
-opacity:1;
-
+/* ================= HEADER AREA ================= */
+.header{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    margin-top: 15px;
+    margin-bottom: 35px;
 }
 
-100%{
-
-transform:translateY(-900px);
-
-opacity:0;
-
+.brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
 }
 
+.brand .line{
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ffd984, transparent);
 }
 
-.embers span:nth-child(1){
-
-left:10%;
-
-animation-delay:0s;
-
+.brand-text{
+    font-size: 16px;
+    letter-spacing: 5px;
+    font-family: 'Cinzel', serif;
+    color: #e2b44f;
+    font-weight: 700;
 }
 
-.embers span:nth-child(2){
-
-left:28%;
-
-animation-delay:1s;
-
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 8px rgba(255,190,60,0.3));
 }
 
-.embers span:nth-child(3){
-
-left:46%;
-
-animation-delay:2s;
-
+.title span:last-child {
+    font-size: 64px;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #fffcf0 0%, #ffd269 30%, #b5801a 65%, #fff2b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
 }
 
-.embers span:nth-child(4){
-
-left:64%;
-
-animation-delay:3s;
-
+.fire-left {
+    font-size: 52px;
+    filter: drop-shadow(0 0 15px #ff4500);
 }
 
-.embers span:nth-child(5){
-
-left:82%;
-
-animation-delay:4s;
-
+.certificate-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-.embers span:nth-child(6){
-
-left:94%;
-
-animation-delay:5s;
-
+.certificate-title h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(255,255,255,0.2), 0 2px 5px black;
 }
 
-.certificate-footer{
-
-position:absolute;
-
-bottom:22px;
-
-left:0;
-
-width:100%;
-
-text-align:center;
-
-font-size:16px;
-
-font-style:italic;
-
-letter-spacing:1px;
-
-color:#d7c9a2;
-
-opacity:.9;
-
+.divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #b5801a, transparent);
 }
 
-.title,
-#participantName,
-.record-title{
-
-filter:
-
-drop-shadow(0 0 6px rgba(255,190,60,.25));
-
+/* ================= INDUK LAYOUT (GRID SYSTEM) ================= */
+.main-layout{
+    position: relative;
+    display: grid;
+    grid-template-columns: 320px 1fr 340px;
+    gap: 35px;
+    z-index: 5;
+    padding: 0 20px;
 }
 
-.photo-border{
-
-transition:.4s;
-
+/* --- PANEL KIRI: FOTO & NO SERTIFIKAT --- */
+.left-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.photo-border:hover{
+.photo-frame {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #1a1510, #0a0a0a);
+    border: 3px solid #c59632;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    transition: 0.4s;
+}
 
-transform:scale(1.02);
+.photo-frame:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(255,180,60,0.45);
+}
 
-box-shadow:
+.photo-border {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
 
-0 0 40px rgba(255,180,60,.45);
+.participant-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
 
+/* Nomor Sertifikat Premium Box */
+.certificate-box {
+    margin-top: 35px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.small-title {
+    font-size: 12px;
+    color: #b9b9b9;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+#certificateNo {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #1b1b1b, #090909);
+    border: 1px solid #d7a845;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #e4b347;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* --- PANEL TENGAH: INTI DATA --- */
+.center-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.presented-text {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #d2b36a;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 12px;
+}
+
+#participantName {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(180deg, #fff8d6 0%, #ffd86f 20%, #d69f31 45%, #8b5d10 70%, #fff3b2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) drop-shadow(0 0 6px rgba(255,190,60,0.25));
+    margin-bottom: 5px;
+}
+
+.gold-divider {
+    width: 280px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d6a63c, transparent);
+    margin: 15px 0 20px 0;
+}
+
+.description p {
+    font-size: 15px;
+    color: #d5d5d5;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.description h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: #e4b347;
+    letter-spacing: 2px;
+    margin: 8px 0;
+}
+
+.description .sub-desc {
+    font-style: italic;
+    color: #999;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* BOX PITA MENU ELEGAN ACCENT */
+.fire-menu {
+    background: linear-gradient(180deg, #991b1b 0%, #4c0519 100%);
+    border: 2px solid #ffcf66;
+    padding: 12px 45px;
+    box-shadow: 0 0 20px rgba(255, 90, 20, 0.3);
+    margin-bottom: 45px;
+    border-radius: 4px;
+}
+
+.fire-menu span {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Area Grid Tanda Tangan & Stempel */
+.signature-area {
+    width: 100%;
+    margin-top: auto;
+}
+
+.bottom-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.signature-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 160px;
+    text-align: center;
+}
+
+.signature-img {
+    height: 55px;
+    object-fit: contain;
+    filter: invert(1) brightness(0.9);
+    margin-bottom: 2px;
+}
+
+.signature-line {
+    width: 100%;
+    height: 1px;
+    background: #c99933;
+    margin-bottom: 8px;
+}
+
+.signature-label {
+    font-size: 11px;
+    color: #d7d7d7;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* KOMPONEN STEMPEL EMAS RESMI */
+.seal-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seal-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #d6a63c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #3b1200, #140800);
+    box-shadow: 0 0 25px rgba(255,170,30,0.35);
+    padding: 5px;
+}
+
+.seal-text {
+    font-size: 10px;
+    color: #d6a63c;
+    font-weight: 700;
+
+letter-spacing: 1px;
+text-align: center;
+line-height: 1.3;
+}
+.motivational-text {
+font-size: 13px;
+color: #e2b44f;
+letter-spacing: 4px;
+font-weight: 700;
+margin-top: 30px;
+text-align: center;
+}
+/* --- PANEL KANAN: BADGE & RECORD --- */
+.right-panel{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* BADGE KING OF FIRE */
+.badge-area {
+width: 100%;
+display: flex;
+justify-content: center;
+margin-bottom: 25px;
+}
+.king-badge {
+text-align: center;
+border: 2px solid rgba(197, 150, 50, 0.3);
+padding: 20px;
+border-radius: 50%;
+width: 190px;
+height: 190px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: radial-gradient(circle, rgba(59, 18, 0, 0.5) 0%, transparent 75%);
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.badge-crown {
+font-size: 32px;
+margin-bottom: -2px;
+filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+.badge-title {
+font-family: 'Cinzel', serif;
+font-size: 26px;
+font-weight: 900;
+color: #fff;
+letter-spacing: 1px;
+}
+.badge-subtitle {
+font-size: 12px;
+color: #dcb053;
+letter-spacing: 2px;
+font-weight: 600;
+margin-top: -2px;
+}
+.badge-level {
+font-size: 13px;
+color: #fff;
+font-weight: 800;
+letter-spacing: 2px;
+margin-top: 8px;
+background: #991b1b;
+padding: 3px 14px;
+border-radius: 3px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+/* RECORD CARD COMPONENT */
+.record-area{
+width: 100%;
+background: rgba(12, 12, 12, 0.85);
+border: 1px solid #332512;
+padding: 18px;
+margin-bottom: 25px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.record-title {
+font-size: 13px;
+color: #e2b44f;
+font-weight: 700;
+letter-spacing: 2px;
+text-align: center;
+margin-bottom: 15px;
+border-bottom: 1px solid #332512;
+padding-bottom: 8px;
+filter: drop-shadow(0 0 6px rgba(255,190,60,0.25));
+}
+.record-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
+font-size: 13px;
+}
+.record-item:last-child { margin-bottom: 0; }
+.record-item span {
+color: #999;
+font-weight: 600;
+letter-spacing: 0.5px;
+}
+.record-item strong {
+color: #fff;
+font-weight: 700;
+}
+/* HALL OF FAME QR AREA */
+.hall-of-fame {
+display: flex;
+align-items: center;
+gap: 15px;
+width: 100%;
+background: rgba(10, 10, 10, 0.6);
+padding: 14px;
+border: 1px dashed rgba(197, 150, 50, 0.25);
+margin-top: auto;
+}
+.qr-image {
+width: 70px;
+height: 70px;
+filter: invert(1) contrast(1.25);
+}
+.qr-info {
+display: flex;
+flex-direction: column;
+}
+.qr-title {
+font-size: 14px;
+color: #fff;
+font-weight: 700;
+letter-spacing: 1px;
+}
+.scan-text {
+font-size: 11px;
+color: #888;
+margin-top: 2px;
+letter-spacing: 0.5px;
 }
 
 
-.tl{
-
-left:8px;
-
-top:8px;
-
-}
-
-.tr{
-
-right:8px;
-
-top:8px;
-
-transform:rotate(90deg);
-
-}
-
-.bl{
-
-left:8px;
-
-bottom:8px;
-
-transform:rotate(-90deg);
-
-}
-
-.br{
-
-right:8px;
-
-bottom:8px;
-
-transform:rotate(180deg);
-
-}
-
-.label{
-
-font-family:"Cinzel",serif;
-
-font-size:15px;
-
-letter-spacing:3px;
-
-color:#d8b364;
-
-margin-bottom:10px;
-
-text-transform:uppercase;
-
-}
-
-.noise{
-
-position:absolute;
-
-inset:0;
-
-background-image:
-
-radial-gradient(
-
-rgba(255,255,255,.28) .8px,
-
-transparent .8px);
-
-background-size:6px 6px;
-
-opacity:.025;
-
-mix-blend-mode:overlay;
-
-pointer-events:none;
-
-z-index:3;
-
-}
-
-.fire-glow{
-
-position:absolute;
-
-left:0;
-
-right:0;
-
-bottom:-180px;
-
-height:260px;
-
-background:
-
-radial-gradient(circle,
-
-rgba(255,90,30,.22),
-
-transparent 70%);
-
-filter:blur(55px);
-
-pointer-events:none;
-
-z-index:1;
-
-}
-
-.fire-watermark{
-
-position:absolute;
-
-left:50%;
-
-top:54%;
-
-transform:translate(-50%,-50%);
-
-font-size:470px;
-
-color:#d89225;
-
-opacity:.018;
-
-filter:blur(2px);
-
-pointer-events:none;
-
-user-select:none;
-
-z-index:2;
-
-}
-
-.background{
-
-z-index:0;
-
-}
-
-.gold-reflection{
-
-z-index:1;
-
-}
-
-.fire-glow{
-
-z-index:1;
-
-}
-
-.fire-watermark{
-
-z-index:2;
-
-}
-
-.noise{
-
-z-index:3;
-
-}
-
-.content{
-
-position:relative;
-
-z-index:20;
-
-}
+    /* ================= FOOTER QUOTE & LAYER MANAGEMENT ================= */
+    .certificate-footer {
+        position: absolute;
+        bottom: 22px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        font-style: italic;
+        letter-spacing: 1px;
+        color: #d7c9a2;
+        opacity: 0.8;
+        z-index: 5;
+    }
+
+    /* Pengaturan Layer agar Background tidak Menutupi Tulisan */
+    .background { z-index: 0; }
+    .gold-reflection { z-index: 1; }
+    .fire-glow { z-index: 1; }
+    .fire-watermark { z-index: 1; }
+    .embers { z-index: 2; }
+    .noise { z-index: 3; }
+    
+    /* Memastikan semua teks di dalam panel berada di lapisan paling depan */
+    .left-panel, .center-panel, .right-panel {
+        position: relative;
+        z-index: 20;
+    }
 </style>
 </head>
 <body>
 
 <div class="certificate">
 
-<span class="frame-corner tl"></span>
-<span class="frame-corner tr"></span>
-<span class="photo-corner bl"></span>
-<span class="photo-corner br"></span>
-
-     <div class="background"></div>
-
-    <div class="fire-watermark">
-        🔥
+    <!-- BINGKAI SUDUT UTAMA SERTIFIKAT (4 SUDUT) -->
+    <div class="certificate-frames">
+        <img class="frame-corner tl" src="assets/corner.svg" alt="Top Left">
+        <img class="frame-corner tr" src="assets/corner.svg" alt="Top Right">
+        <img class="frame-corner bl" src="assets/corner.svg" alt="Bottom Left">
+        <img class="frame-corner br" src="assets/corner.svg" alt="Bottom Right">
     </div>
 
+    <!-- EFEK LATAR BELAKANG -->
+    <div class="background"></div>
     <div class="gold-reflection"></div>
-
     <div class="noise"></div>
-
     <div class="fire-glow"></div>
-
-    <div class="embers">
-
-
-  <!-- ================= HEADER ================= -->
-    
-
-<header class="header">
-
-    <div class="brand">
-
-        <div class="line"></div>
-
-        <span class="brand-text">
-            OCEAN CAFE & RESTO
-        </span>
-
-        <div class="line"></div>
-
-    </div>
-
-    <h1 class="title">
-
-        <span class="fire-left">🔥</span>
-
-        <span>OCEAN FIRE CHALLENGE</span>
-
-    </h1>
-
-    <div class="certificate-title">
-
-        <div class="divider"></div>
-
-        <h2>CERTIFICATE OF COURAGE</h2>
-
-        <div class="divider"></div>
-
-    </div>
-
-</header>
-
-  <!-- ================= MAIN ================= -->
-
-<main class="main-layout">
-
-    <!-- LEFT -->
-
-    <aside class="left-panel">
-
-       <div class="photo-frame">
-
-    <div class="photo-border">
-
-        <img
-            id="participantPhoto"
-            class="participant-photo"
-            src="assets/participant.jpg"
-            alt="Participant">
-
-    </div>
-
-</div>
-
-    </aside>
-
-
-
-    <!-- CENTER -->
-
-    <section class="center-panel">
-
-       <div class="name-area">
-
-    <div class="presented-text">
-
-        THIS CERTIFICATE IS PROUDLY PRESENTED TO
-
-    </div>
-
-    <h2 id="participantName">
-
-        ARIF TRIYANTO
-
-    </h2>
-
-    <div class="gold-divider"></div>
-
-</div>
-
-        <div class="description">
-
-    <p>
-
-        FOR SUCCESSFULLY COMPLETING THE
-
-    </p>
-
-    <h3>
-
-        OCEAN FIRE CHALLENGE
-
-    </h3>
-
-    <p>
-
-        WITH EXCEPTIONAL COURAGE, DETERMINATION,
-        AND A SPIRIT THAT REFUSES TO GIVE UP.
-
-    </p>
-
-</div>
-
-        <div class="fire-menu">
-
-    <span>
-
-        🔥 JUMBO FIRE NOODLE 🔥
-
-    </span>
-
-</div>
-
-        <div class="signature-area">
-
-            <div class="bottom-grid">
-
-    <!-- Certificate -->
-
-    <div class="certificate-box">
-
-        <div class="small-title">
-
-            CERTIFICATE NO.
-
+    <div class="embers"></div>
+    <div class="fire-watermark">🔥</div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="brand">
+            <div class="line"></div>
+            <span class="brand-text">OCEAN CAFE & RESTO</span>
+            <div class="line"></div>
         </div>
 
-        <div id="certificateNo">
+        <h1 class="title">
+            <span class="fire-left">🔥</span>
+            <span>OCEAN FIRE CHALLENGE</span>
+        </h1>
 
-            OFC-2026-00001
-
+        <div class="certificate-title">
+            <div class="divider"></div>
+            <h2>CERTIFICATE OF COURAGE</h2>
+            <div class="divider"></div>
         </div>
+    </header>
 
-    </div>
+    <!-- ================= MAIN LAYOUT ================= -->
+    <main class="main-layout">
 
+        <!-- LEFT PANEL (FOTO & NOMOR SERTIFIKAT) -->
+        <aside class="left-panel">
+            <div class="photo-frame">
+                <div class="photo-border">
+                    <img id="participantPhoto" class="participant-photo" src="assets/participant.jpg" alt="Participant">
+                </div>
+            </div>
+            
+            <!-- Nomor sertifikat dipindah ke sini agar sejajar di bawah foto seperti referensi -->
+            <div class="certificate-box">
+                <div class="small-title">CERTIFICATE NO.</div>
+                <div id="certificateNo">OFC-2026-00001</div>
+            </div>
+        </aside>
 
-
-    <!-- Manager -->
-
-    <div class="signature-box">
-
-        <img
-        src="assets/sign-manager.png"
-        class="signature-img">
-
-        <div class="signature-line"></div>
-
-        <div class="signature-label">
-
-            EVENT MANAGER
-
-        </div>
-
-    </div>
-
-
-
-    <!-- Seal -->
-
-    <div class="seal-box">
-
-        <div class="seal-circle">
-
-            🔥
-
-        </div>
-
-    </div>
-
-
-
-    <!-- Referee -->
-
-    <div class="signature-box">
-
-        <img
-        src="assets/sign-referee.png"
-        class="signature-img">
-
-        <div class="signature-line"></div>
-
-        <div class="signature-label">
-
-            CHIEF REFEREE
-
-        </div>
-
-    </div>
-
-</div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- RIGHT -->
-
-    <aside class="right-panel">
-
-    <!-- KING BADGE -->
-    <div class="badge-area">
-
-        <div class="king-badge">
-
-            <div class="badge-top">
-                👑
+        <!-- CENTER PANEL (NAMA, DESKRIPSI, MENU, FOOTER SIGNATURE) -->
+        <section class="center-panel">
+            <div class="name-area">
+                <div class="presented-text">THIS CERTIFICATE IS PROUDLY PRESENTED TO</div>
+                <h2 id="participantName">ARIF TRIYANTO</h2>
+                <div class="gold-divider"></div>
             </div>
 
-            <div class="badge-title">
-                KING
+            <div class="description">
+                <p>For Successfully Completing The</p>
+                <h3>OCEAN FIRE CHALLENGE</h3>
+                <p class="sub-desc">by finishing the</p>
             </div>
 
-            <div class="badge-subtitle">
-                OF FIRE
+            <!-- Box Menu Makanan (Akan dibuat efek pita emas di CSS) -->
+            <div class="fire-menu">
+                <span>1.5 KG FIRE NOODLE</span>
             </div>
 
-            <div class="badge-level">
-                EXTREME
+            <!-- Area Tanda Tangan & Stempel -->
+            <div class="signature-area">
+                <div class="bottom-grid">
+                    <!-- Manager -->
+                    <div class="signature-box">
+                        <img src="assets/sign-manager.png" class="signature-img" alt="Signature">
+                        <div class="signature-line"></div>
+                        <div class="signature-label">RESTAURANT MANAGER</div>
+                    </div>
+
+                    <!-- Seal / Stempel Resmi -->
+                    <div class="seal-box">
+                        <div class="seal-circle">
+                            <span class="seal-text">OFFICIAL SEAL</span>
+                        </div>
+                    </div>
+
+                    <!-- Referee -->
+                    <div class="signature-box">
+                        <img src="assets/sign-referee.png" class="signature-img" alt="Signature">
+                        <div class="signature-line"></div>
+                        <div class="signature-label">CHALLENGE REFEREE</div>
+                    </div>
+                </div>
+                
+                <div class="motivational-text">ONLY LEGENDS FINISH THE FIRE</div>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL (BADGE, RECORD, QR) -->
+        <aside class="right-panel">
+            <!-- KING BADGE LEGEND -->
+            <div class="badge-area">
+                <div class="king-badge">
+                    <div class="badge-crown">👑</div>
+                    <div class="badge-title">KING</div>
+                    <div class="badge-subtitle">OF FIRE</div>
+                    <div class="badge-level">LEGEND</div>
+                </div>
             </div>
 
-        </div>
+            <!-- CHALLENGE RECORD -->
+            <div class="record-area">
+                <div class="record-title">CHALLENGE RECORD</div>
+                
+                <div class="record-item">
+                    <span>LEVEL</span>
+                    <strong id="level">EXTREME</strong>
+                </div>
+                <div class="record-item">
+                    <span>TIME</span>
+                    <strong id="time">05:48</strong>
+                </div>
+                <div class="record-item">
+                    <span>DATE</span>
+                    <strong id="date">10 JUNE 2026</strong>
+                </div>
+                <div class="record-item">
+                    <span>MENU</span>
+                    <strong id="menu">1.5 KG FIRE NOODLE</strong>
+                </div>
+            </div>
 
-    </div>
+            <!-- QR CODE HALL OF FAME -->
+            <div class="hall-of-fame">
+                <img src="assets/qr.png" class="qr-image" alt="QR Code">
+                <div class="qr-info">
+                    <div class="qr-title">HALL OF FAME</div>
+                    <div class="scan-text">SCAN TO VIEW</div>
+                </div>
+            </div>
+        </aside>
 
-    <!-- RECORD -->
-
-    <div class="record-area">
-
-        <div class="record-title">
-            CHALLENGE RECORD
-        </div>
-
-        <div class="record-item">
-
-            <span>LEVEL</span>
-
-            <strong id="level">
-                EXTREME
-            </strong>
-
-        </div>
-
-        <div class="record-item">
-
-            <span>TIME</span>
-
-            <strong id="time">
-                05:48
-            </strong>
-
-        </div>
-
-        <div class="record-item">
-
-            <span>DATE</span>
-
-            <strong id="date">
-                10 JUN 2026
-            </strong>
-
-        </div>
-
-        <div class="record-item">
-
-            <span>MENU</span>
-
-            <strong id="menu">
-                1.5 KG FIRE NOODLE
-            </strong>
-
-        </div>
-
-    </div>
-
-    <!-- QR -->
-
-   <div class="hall-of-fame">
-
-    <div class="qr-title">
-        HALL OF FAME
-    </div>
-
-    <img src="assets/qr.png" class="qr-image">
-
-    <div class="scan-text">
-        SCAN TO VERIFY
-    </div>
+    </main>
 
 </div>
 
-</aside>
-
-</main>
-
-    
-<span></span>
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-</div>
-
-    <footer class="certificate-footer">
-
-"Courage is not the absence of fear,
-but the triumph over it."
-
-</footer>
-
-    <div class="photo-corner tl">
-
-    <img class="frame-corner tl" src="assets/corner.svg">
-
-<img class="frame-corner tr" src="assets/corner.svg">
-
-<img class="photo-corner bl" src="assets/corner.svg">
-
-<img class="photo-corner br" src="assets/corner.svg">
-
-    </div>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
+    const participant = {
+        name: "ARIF TRIYANTO",
+        photo: "assets/participant.jpg",
+        level: "EXTREME",
+        time: "05:48",
+        date: "10 JUN 2026",
+        menu: "1.5 KG FIRE NOODLE",
+        certificate: "OFC-2026-00001"
+    };
 
-const participant = {
-
-name: "ARIF TRIYANTO",
-
-photo: "assets/participant.jpg",
-
-level: "EXTREME",
-
-time: "05:48",
-
-date: "10 JUN 2026",
-
-menu: "1.5 KG FIRE NOODLE"
-
-};
-
-document.getElementById("participantName").textContent = participant.name;
-
-document.getElementById("participantPhoto").src = participant.photo;
-
-document.getElementById("level").textContent = participant.level;
-
-document.getElementById("time").textContent = participant.time;
-
-document.getElementById("date").textContent = participant.date;
-
-document.getElementById("menu").textContent = participant.menu;
-
-participant.certificate="OFC-2026-00001";
-
-document.getElementById("certificateNo").textContent=
-participant.certificate;
-  
+    document.getElementById("participantName").textContent = participant.name;
+    document.getElementById("participantPhoto").src = participant.photo;
+    document.getElementById("level").textContent = participant.level;
+    document.getElementById("time").textContent = participant.time;
+    document.getElementById("date").textContent = participant.date;
+    document.getElementById("menu").textContent = participant.menu;
+    document.getElementById("certificateNo").textContent = participant.certificate;
 </script>
 
 </body>
