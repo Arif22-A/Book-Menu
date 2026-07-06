@@ -42,15 +42,16 @@ body{
 }
 
 /* Background Efek Kulit + Cahaya Bara Api */
-.certificate::before{
+.certificate::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
+    background: #060606; /* Fallback warna dasar aman */
     background: 
-        radial-gradient(circle at 50% 30%, rgba(139, 42, 0, 0.25) 0%, transparent 60%),
-        radial-gradient(circle at 85% 25%, rgba(214, 166, 60, 0.12) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(20, 5, 0, 0.6) 100%);
+        radial-gradient(circle at 50% 30%, rgba(139, 42, 0, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 85% 25%, rgba(214, 166, 60, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(20, 5, 0, 0.7) 100%);
     z-index: 0;
 }
 
@@ -769,9 +770,14 @@ letter-spacing: 0.5px;
                 <div class="bottom-grid">
                     <!-- Manager -->
                     <div class="signature-box">
-                        <img src="assets/sign-manager.png" class="signature-img" alt="Signature">
-                        <div class="signature-line"></div>
-                        <div class="signature-label">RESTAURANT MANAGER</div>
+                        <!-- TTD Manager -->
+<img src="https://wikimedia.org" class="signature-img" alt="Signature">
+
+<!-- TTD Referee -->
+<img src="https://wikimedia.org" class="signature-img" alt="Signature">
+
+<!-- QR Code -->
+<img src="https://qrserver.com" class="qr-image" alt="QR Code">
                     </div>
 
                     <!-- Seal / Stempel Resmi -->
@@ -839,9 +845,14 @@ letter-spacing: 0.5px;
 
     </main>
 
+    <div class="certificate-frames">
+    <img class="frame-corner tl" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='100' height='100' viewBox='0 0 100 100'><path d='M0,0 L40,0 L40,6 L6,6 L6,40 L0,40 Z' fill='%23d7a845'/></svg>" alt="Top Left">
+    <img class="frame-corner tr" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='100' height='100' viewBox='0 0 100 100'><path d='M0,0 L40,0 L40,6 L6,6 L6,40 L0,40 Z' fill='%23d7a845'/></svg>" alt="Top Right">
+    <img class="frame-corner bl" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='100' height='100' viewBox='0 0 100 100'><path d='M0,0 L40,0 L40,6 L6,6 L6,40 L0,40 Z' fill='%23d7a845'/></svg>" alt="Bottom Left">
+    <img class="frame-corner br" src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='100' height='100' viewBox='0 0 100 100'><path d='M0,0 L40,0 L40,6 L6,6 L6,40 L0,40 Z' fill='%23d7a845'/></svg>" alt="Bottom Right">
 </div>
 
-    <!-- TABEL INPUT EDITABLE (HANYA MUNCUL DI LAYAR EDIT, GAK IKUT KECETAK) -->
+ <!-- TABEL INPUT EDITABLE (HANYA MUNCUL DI LAYAR EDIT, GAK IKUT KECETAK) -->
 <div class="editor-panel">
     <h3>🔥 DASHBOARD INPUT PESERTA 🔥</h3>
     <div class="form-grid">
@@ -872,6 +883,10 @@ letter-spacing: 0.5px;
     </div>
     <button id="btnDownload" class="btn-download">🚀 GENERATE & DOWNLOAD GAMBAR</button>
 </div>
+    
+</div>
+
+   
 
 <!-- JAVASCRIPT -->
 <!-- Kita cuma butuh SATU library ini aja, bro. Jangan ditambahin link aneh lagi -->
