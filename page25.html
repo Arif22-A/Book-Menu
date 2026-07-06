@@ -874,8 +874,9 @@ letter-spacing: 0.5px;
 </div>
 
 <!-- JAVASCRIPT -->
+<!-- Kita cuma butuh SATU library ini aja, bro. Jangan ditambahin link aneh lagi -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="https://jsdelivr.net"></script>
+
 <script>
 // 1. Sinkronisasi Real-Time antara Kolom Input dan Tampilan Sertifikat
 const inputName = document.getElementById('inputName');
@@ -913,12 +914,13 @@ document.getElementById('btnDownload').addEventListener('click', function() {
     this.textContent = "⌛ MENGOMPRES GAMBAR, TUNGGU BENTAR BRO...";
     this.disabled = true;
 
+    // KONFIGURASI BARU ANTI-EROR BROWSER
     html2canvas(certificateElement, {
-        useCORS: true,           // Mengatasi masalah gambar broken dari domain luar
-        allowTaint: true,
-        scale: 2,                // Bikin resolusi gambar 2x lipat lebih HD pas dicetak A4
-        logging: false,
-        backgroundColor: null    // Biar gak ada background putih aneh di luar border
+        useCORS: true,           // Izinkan penarikan aset gambar
+        allowTaint: false,       // UBAH JADI FALSE: Biar gak diblokir sistem keamanan browser
+        scale: 2,                // Resolusi mantap HD buat dicetak A4
+        logging: false,          // Matikan log biar proses cetak enteng
+        backgroundColor: "#060606" // Mengunci warna background sertifikat pas kefoto
     }).then(canvas => {
         // Mengubah canvas menjadi link download otomatis
         const link = document.createElement('a');
@@ -932,6 +934,7 @@ document.getElementById('btnDownload').addEventListener('click', function() {
         this.textContent = "🚀 GENERATE & DOWNLOAD GAMBAR";
         this.disabled = false;
     }).catch(err => {
+        console.error(err); // Biar ketahuan eror aslinya di console browser (F12) jika masih gagal
         alert("Waduh eror bro! Coba cek gambarnya dulu.");
         this.textContent = "🚀 GENERATE & DOWNLOAD GAMBAR";
         this.disabled = false;
