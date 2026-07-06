@@ -16,13 +16,16 @@
     box-sizing: border-box;
 }
 body{
-    background: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    font-family: 'Montserrat', sans-serif;
-    min-height: 100vh;
+    background:#111;
+    margin:0;
+    padding:40px 20px;
+    font-family:'Montserrat',sans-serif;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    min-height:100vh;
 }
 
 /* ================= CONTAINER UTAMA (PROPORSIONAL A4 LANDSCAPE) ================= */
@@ -624,17 +627,26 @@ letter-spacing: 0.5px;
         z-index: 20;
     }
 
-.editor-panel {
-    width: 1400px;
-    margin: 40px auto 0 auto;
-    background: #1a1a1a;
-    border: 2px solid #d7a845;
-    padding: 25px;
-    border-radius: 12px;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.editor-panel{
+
+    width:1400px;
+    max-width:100%;
+
+    margin-top:35px;
+
+    background:#1a1a1a;
+
+    border:2px solid #d7a845;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    color:#fff;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
 }
+    
 .editor-panel h3 {
     text-align: center;
     color: #ffd269;
