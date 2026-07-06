@@ -31,15 +31,18 @@ body{
     min-height: 100vh;
 }
 
-/* ================= CONTAINER UTAMA ================= */
+/* ================= CONTAINER UTAMA (PROPORSIONAL A4 LANDSCAPE) ================= */
 .certificate{
     position: relative;
     width: 1400px;
-    height: 950px;
+    height: 990px; /* Diubah dari 950px ke 990px, tapi kita optimalkan ruang vertikalnya */
+    /* ATAU kalau mau pas cetak A4 standard, rasionya diganti ke: */
+    width: 1414px;  /* Rasio presisi A4 */
+    height: 1000px; /* Rasio presisi A4 */
     overflow: hidden;
     background: #060606;
     border: 6px solid #d7a845;
-    padding: 30px;
+    padding: 40px 50px; /* Ditambah padding samping agar seimbang */
     box-shadow: 
         0 0 0 3px #4e3006, 
         0 0 0 6px #ffd984,
@@ -157,14 +160,14 @@ body{
 .embers span:nth-child(5){ left: 80%; animation-delay: 2s; animation-duration: 9s; }
 .embers span:nth-child(6){ left: 92%; animation-delay: 4s; animation-duration: 6s; }
 
-/* ================= HEADER AREA ================= */
+/* ================= HEADER AREA (DIRAPETIN KE ATAS) ================= */
 .header{
     position: relative;
     width: 100%;
     text-align: center;
     z-index: 5;
-    margin-top: 15px;
-    margin-bottom: 35px;
+    margin-top: 25px;    /* Memberi ruang nafas dari border atas */
+    margin-bottom: 45px; /* Mengurangi jarak ke konten bawah agar tidak lowong */
 }
 
 .brand{
@@ -236,14 +239,15 @@ body{
     background: linear-gradient(to right, transparent, #b5801a, transparent);
 }
 
-/* ================= INDUK LAYOUT (GRID SYSTEM) ================= */
-.main-layout{
+/* ================= INDUK LAYOUT (MENGOPTIMALKAN RUANG KOSONG) ================= */
+.main-layout {
     position: relative;
     display: grid;
     grid-template-columns: 320px 1fr 340px;
-    gap: 35px;
+    gap: 40px;
     z-index: 5;
-    padding: 0 20px;
+    padding: 0 10px;
+    height: calc(100% - 220px); /* Memaksa layout menghabiskan sisa tinggi kertas */
 }
 
 /* --- PANEL KIRI: FOTO & NO SERTIFIKAT --- */
@@ -311,12 +315,15 @@ body{
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-/* --- PANEL TENGAH: INTI DATA --- */
-.center-panel{
+/* --- ADJUSTMENT PANEL TENGAH AGAR PROPORSIONAL --- */
+.center-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
+    text-align: center;
+    padding-top: 0px;
+    justify-content: space-between; /* Membuat konten menyebar rata ke bawah, menghapus ruang kosong */
+    height: 100%;
 }
 
 .presented-text {
@@ -340,10 +347,10 @@ body{
 }
 
 .gold-divider {
-    width: 280px;
+    width: 320px; /* Sedikit diperlebar agar seimbang dengan ruang landscape */
     height: 1px;
     background: linear-gradient(to right, transparent, #d6a63c, transparent);
-    margin: 15px 0 20px 0;
+    margin: 12px 0 15px 0;
 }
 
 .description p {
@@ -372,9 +379,9 @@ body{
 .fire-menu {
     background: linear-gradient(180deg, #991b1b 0%, #4c0519 100%);
     border: 2px solid #ffcf66;
-    padding: 12px 45px;
+    padding: 12px 60px; /* Diperlebar ke samping agar lebih kokoh di mode landscape */
     box-shadow: 0 0 20px rgba(255, 90, 20, 0.3);
-    margin-bottom: 45px;
+    margin-bottom: 30px; /* Jarak dikurangi agar area tanda tangan naik naik */
     border-radius: 4px;
 }
 
@@ -386,10 +393,11 @@ body{
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
-/* Area Grid Tanda Tangan & Stempel */
+/* Area Grid Tanda Tangan digeser full ke bawah panel */
 .signature-area {
     width: 100%;
-    margin-top: auto;
+    margin-top: auto; 
+    padding-bottom: 10px;
 }
 
 .bottom-grid {
