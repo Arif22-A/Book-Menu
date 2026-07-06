@@ -622,6 +622,69 @@ letter-spacing: 0.5px;
         position: relative;
         z-index: 20;
     }
+
+.editor-panel {
+    width: 1400px;
+    margin: 40px auto 0 auto;
+    background: #1a1a1a;
+    border: 2px solid #d7a845;
+    padding: 25px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.editor-panel h3 {
+    text-align: center;
+    color: #ffd269;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.form-group label {
+    font-size: 13px;
+    color: #c59632;
+    font-weight: 600;
+}
+.form-group input {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+}
+.form-group input:focus {
+    border-color: #d7a845;
+    outline: none;
+}
+.btn-download {
+    width: 100%;
+    background: linear-gradient(180deg, #b5801a 0%, #7c540c 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-download:hover {
+    background: linear-gradient(180deg, #ffd269 0%, #b5801a 100%);
+    box-shadow: 0 0 15px rgba(214, 166, 60, 0.4);
+}
 </style>
 </head>
 <body>
@@ -778,26 +841,102 @@ letter-spacing: 0.5px;
 
 </div>
 
+    <!-- TABEL INPUT EDITABLE (HANYA MUNCUL DI LAYAR EDIT, GAK IKUT KECETAK) -->
+<div class="editor-panel">
+    <h3>🔥 DASHBOARD INPUT PESERTA 🔥</h3>
+    <div class="form-grid">
+        <div class="form-group">
+            <label>Nama Peserta:</label>
+            <input type="text" id="inputName" value="ARIF TRIYANTO">
+        </div>
+        <div class="form-group">
+            <label>No. Sertifikat:</label>
+            <input type="text" id="inputNo" value="OFC-2026-00001">
+        </div>
+        <div class="form-group">
+            <label>Waktu Rekor (MM:SS):</label>
+            <input type="text" id="inputTime" value="05:48">
+        </div>
+        <div class="form-group">
+            <label>Tanggal Challenge:</label>
+            <input type="text" id="inputDate" value="10 JUN 2026">
+        </div>
+        <div class="form-group">
+            <label>Menu Makanan:</label>
+            <input type="text" id="inputMenu" value="1.5 KG FIRE NOODLE">
+        </div>
+        <div class="form-group">
+            <label>Ganti Foto Peserta:</label>
+            <input type="file" id="inputPhoto" accept="image/*">
+        </div>
+    </div>
+    <button id="btnDownload" class="btn-download">🚀 GENERATE & DOWNLOAD GAMBAR</button>
+</div>
+
 <!-- JAVASCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://jsdelivr.net"></script>
 <script>
-    const participant = {
-        name: "ARIF TRIYANTO",
-        photo: "assets/participant.jpg",
-        level: "EXTREME",
-        time: "05:48",
-        date: "10 JUN 2026",
-        menu: "1.5 KG FIRE NOODLE",
-        certificate: "OFC-2026-00001"
-    };
+// 1. Sinkronisasi Real-Time antara Kolom Input dan Tampilan Sertifikat
+const inputName = document.getElementById('inputName');
+const inputNo = document.getElementById('inputNo');
+const inputTime = document.getElementById('inputTime');
+const inputDate = document.getElementById('inputDate');
+const inputMenu = document.getElementById('inputMenu');
+const inputPhoto = document.getElementById('inputPhoto');
 
-    document.getElementById("participantName").textContent = participant.name;
-    document.getElementById("participantPhoto").src = participant.photo;
-    document.getElementById("level").textContent = participant.level;
-    document.getElementById("time").textContent = participant.time;
-    document.getElementById("date").textContent = participant.date;
-    document.getElementById("menu").textContent = participant.menu;
-    document.getElementById("certificateNo").textContent = participant.certificate;
+inputName.addEventListener('input', (e) => { document.getElementById('participantName').textContent = e.target.value.toUpperCase(); });
+inputNo.addEventListener('input', (e) => { document.getElementById('certificateNo').textContent = e.target.value.toUpperCase(); });
+inputTime.addEventListener('input', (e) => { document.getElementById('time').textContent = e.target.value; });
+inputDate.addEventListener('input', (e) => { document.getElementById('date').textContent = e.target.value.toUpperCase(); });
+inputMenu.addEventListener('input', (e) => { 
+    document.getElementById('menu').textContent = e.target.value.toUpperCase();
+    document.querySelector('.fire-menu span').textContent = e.target.value.toUpperCase(); // Update otomatis pita emas tengah
+});
+
+// 2. Logika Unggah Foto Peserta Secara Langsung dari Laptop
+inputPhoto.addEventListener('change', function(e) {
+    if (this.files && this.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            document.getElementById('participantPhoto').src = event.target.result;
+        }
+        reader.readAsDataURL(this.files[0]);
+    }
+});
+
+// 3. Fungsi Sakti Tombol Download Menjadi File Gambar (PNG) Tanpa Merusak Layout
+document.getElementById('btnDownload').addEventListener('click', function() {
+    const certificateElement = document.querySelector('.certificate');
+    
+    // Animasi tombol saat proses render
+    this.textContent = "⌛ MENGOMPRES GAMBAR, TUNGGU BENTAR BRO...";
+    this.disabled = true;
+
+    html2canvas(certificateElement, {
+        useCORS: true,           // Mengatasi masalah gambar broken dari domain luar
+        allowTaint: true,
+        scale: 2,                // Bikin resolusi gambar 2x lipat lebih HD pas dicetak A4
+        logging: false,
+        backgroundColor: null    // Biar gak ada background putih aneh di luar border
+    }).then(canvas => {
+        // Mengubah canvas menjadi link download otomatis
+        const link = document.createElement('a');
+        const fileName = `Sertifikat_${inputName.value.replace(/\s+/g, '_')}.png`;
+        
+        link.download = fileName;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        // Mengembalikan status tombol
+        this.textContent = "🚀 GENERATE & DOWNLOAD GAMBAR";
+        this.disabled = false;
+    }).catch(err => {
+        alert("Waduh eror bro! Coba cek gambarnya dulu.");
+        this.textContent = "🚀 GENERATE & DOWNLOAD GAMBAR";
+        this.disabled = false;
+    });
+});
 </script>
 </body>
 </html>
