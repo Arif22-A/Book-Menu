@@ -1009,70 +1009,26 @@ function waitImages(container){
 
 async function downloadPNG(){
 
-    const certificate = document.querySelector(".certificate");
+    const target=document.querySelector(".certificate");
 
-    const suspects = [
-        ".certificate-frames",
-        ".noise",
-        ".gold-reflection",
-        ".fire-glow",
-        ".fire-watermark",
-        ".embers"
-    ];
+    await new Promise(r=>setTimeout(r,200));
 
-    // Simpan display asli
-    const original = [];
+    const canvas=await html2canvas(target,{
 
-    for(const selector of suspects){
+        scale:3,
+        useCORS:true,
+        backgroundColor:"#060606",
+        logging:false
 
-        // tampilkan semua dulu
-        suspects.forEach(s=>{
-            const e=document.querySelector(s);
-            if(e) e.style.display="";
-        });
-
-        // sembunyikan satu elemen
-        const el=document.querySelector(selector);
-
-        if(el){
-
-            original.push({
-                el,
-                display:el.style.display
-            });
-
-            el.style.display="none";
-        }
-
-        try{
-
-            console.log("===== TEST =====");
-            console.log("Hide :",selector);
-
-            await html2canvas(certificate,{
-                scale:2,
-                useCORS:true,
-                backgroundColor:"#060606",
-                logging:false
-            });
-
-            console.log("✅ BERHASIL :",selector);
-
-        }catch(err){
-
-            console.error("❌ GAGAL :",selector);
-
-            console.error(err);
-
-        }
-
-    }
-
-    // tampilkan lagi semuanya
-    suspects.forEach(s=>{
-        const e=document.querySelector(s);
-        if(e) e.style.display="";
     });
+
+    const link=document.createElement("a");
+
+    link.download="sertifikat.png";
+
+    link.href=canvas.toDataURL("image/png",1);
+
+    link.click();
 
 }
 </script>
