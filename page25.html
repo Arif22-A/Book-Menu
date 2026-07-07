@@ -72,14 +72,13 @@ body{
 
 /* ================= SPECIAL EFFECTS BACKGROUND ================= */
 .noise{
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.28) 0.8px, transparent 0.8px);
-    background-size: 6px 6px;
-    opacity: 0.025;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: 3;
+    position:absolute;
+    inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.28) .8px, transparent .8px);
+    background-size:6px 6px;
+    opacity:.02;
+    pointer-events:none;
+    z-index:3;
 }
 
 .fire-glow{
@@ -89,7 +88,8 @@ body{
     bottom: -100px;
     height: 260px;
     background: radial-gradient(circle, rgba(255,90,30,0.22), transparent 70%);
-    filter: blur(55px);
+    filter:none;
+    opacity:.18;
     pointer-events: none;
     z-index: 1;
 }
@@ -101,7 +101,7 @@ body{
     top: -80px;
     left: 120px;
     background: radial-gradient(circle, rgba(255,205,120,0.14), transparent 72%);
-    filter: blur(70px);
+    opacity:.18;
     opacity: 0.22;
     pointer-events: none;
     z-index: 1;
@@ -117,7 +117,7 @@ body{
     opacity: 0.015;
     pointer-events: none;
     z-index: 1;
-    filter: blur(2px);
+    filter:none;
     user-select: none;
 }
 
@@ -192,7 +192,7 @@ body{
     align-items: center;
     gap: 15px;
     margin-bottom: 8px;
-    filter: drop-shadow(0 0 8px rgba(255,190,60,0.3));
+    filter:none;
 }
 
 .title span:last-child {
