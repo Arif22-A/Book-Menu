@@ -7,13 +7,6 @@
 <title>Ocean Fire Certificate</title>
     
 <style>
-/* Import Font Premium */
-@import url('https://googleapis.com');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
     background:#111;
     margin:0;
@@ -1013,49 +1006,44 @@ function waitImages(container){
 
 async function downloadPNG(){
 
-    try{
+    const certificate = document.querySelector(".certificate");
 
-        const certificate=document.querySelector(".certificate");
+    const list = [
+        ".noise",
+        ".gold-reflection",
+        ".fire-glow",
+        ".fire-watermark",
+        ".embers"
+    ];
 
-        if(!certificate){
+    for(const css of list){
 
-            alert("Container .certificate tidak ditemukan.");
+        const el = document.querySelector(css);
 
-            return;
+        if(el){
+            el.style.display="none";
+        }
+
+        try{
+
+            console.log("TEST :",css);
+
+            await html2canvas(certificate,{
+                scale:2,
+                useCORS:true
+            });
+
+            console.log("AMAN =",css);
 
         }
 
-        await waitImages(certificate);
+        catch(err){
 
-        const canvas=await html2canvas(certificate,{
+            console.error("ERROR =",css);
 
-            scale:3,
-            useCORS:true,
-            allowTaint:false,
-            backgroundColor:"#060606",
-            logging:false
+            console.error(err);
 
-        });
-
-        const link=document.createElement("a");
-
-        const filename="Sertifikat_"+inputName.value.replace(/\s+/g,"_")+".png";
-
-        link.download=filename;
-
-        link.href=canvas.toDataURL("image/png");
-
-        link.click();
-
-        console.log("Download berhasil");
-
-    }
-
-    catch(err){
-
-        console.error(err);
-
-        alert("Gagal membuat PNG. Lihat Console (F12).");
+        }
 
     }
 
