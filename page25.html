@@ -945,44 +945,9 @@ inputPhoto.addEventListener('change', function(e) {
     }
 });
 
-// 3. Fungsi Sakti Tombol Download Menjadi File Gambar (PNG) Tanpa Merusak Layout
-document.getElementById('btnDownload').addEventListener('click', function() {
-    const certificateElement = document.querySelector('.certificate');
-    
-    // Animasi tombol saat proses render
-    this.textContent = "⌛ MENGOMPRES GAMBAR, TUNGGU BENTAR BRO...";
-    this.disabled = true;
-
-    // KONFIGURASI BARU ANTI-EROR BROWSER
-    html2canvas(certificateElement, {
-        useCORS: true,           // Izinkan penarikan aset gambar
-        allowTaint: false,       // UBAH JADI FALSE: Biar gak diblokir sistem keamanan browser
-        scale: 2,                // Resolusi mantap HD buat dicetak A4
-        logging: false,          // Matikan log biar proses cetak enteng
-        backgroundColor: "#060606" // Mengunci warna background sertifikat pas kefoto
-    }).then(canvas => {
-        // Mengubah canvas menjadi link download otomatis
-        const link = document.createElement('a');
-        const fileName = `Sertifikat_${inputName.value.replace(/\s+/g, '_')}.png`;
-        
-        link.download = fileName;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-
-        // Mengembalikan status tombol
-        this.textContent = "🚀 GENERATE & DOWNLOAD GAMBAR";
-        this.disabled = false;
-    }).catch(err => {
-        console.error(err); // Biar ketahuan eror aslinya di console browser (F12) jika masih gagal
-        alert("Waduh eror bro! Coba cek gambarnya dulu.");
-        this.textContent = "🚀 GENERATE & DOWNLOAD GAMBAR";
-        this.disabled = false;
-    });
-});
-
 async function downloadPNG(){
 
-    const certificate = document.getElementById("certificate");
+    const certificate = document.querySelector(".certificate");
 
     try{
 
