@@ -1008,7 +1008,8 @@ async function downloadPNG(){
 
     const certificate = document.querySelector(".certificate");
 
-    const list = [
+    const suspects = [
+        ".certificate-frames",
         ".noise",
         ".gold-reflection",
         ".fire-glow",
@@ -1016,36 +1017,59 @@ async function downloadPNG(){
         ".embers"
     ];
 
-    for(const css of list){
+    // Simpan display asli
+    const original = [];
 
-        const el = document.querySelector(css);
+    for(const selector of suspects){
+
+        // tampilkan semua dulu
+        suspects.forEach(s=>{
+            const e=document.querySelector(s);
+            if(e) e.style.display="";
+        });
+
+        // sembunyikan satu elemen
+        const el=document.querySelector(selector);
 
         if(el){
+
+            original.push({
+                el,
+                display:el.style.display
+            });
+
             el.style.display="none";
         }
 
         try{
 
-            console.log("TEST :",css);
+            console.log("===== TEST =====");
+            console.log("Hide :",selector);
 
             await html2canvas(certificate,{
                 scale:2,
-                useCORS:true
+                useCORS:true,
+                backgroundColor:"#060606",
+                logging:false
             });
 
-            console.log("AMAN =",css);
+            console.log("✅ BERHASIL :",selector);
 
-        }
+        }catch(err){
 
-        catch(err){
-
-            console.error("ERROR =",css);
+            console.error("❌ GAGAL :",selector);
 
             console.error(err);
 
         }
 
     }
+
+    // tampilkan lagi semuanya
+    suspects.forEach(s=>{
+        const e=document.querySelector(s);
+        if(e) e.style.display="";
+    });
 
 }
 </script>
