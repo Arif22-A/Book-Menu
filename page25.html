@@ -749,10 +749,11 @@ letter-spacing: 0.5px;
             <div class="photo-frame">
                 <div class="photo-border">
                     <!-- Link foto dummy aman pakai Unsplash HD, bisa diganti lewat dashboard -->
-                    <img id="participantPhoto"
+                    <img
+                    id="participantPhoto"
                     class="participant-photo"
-                    src=""
-                    alt="Participant">
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Participant">
                 </div>
             </div>
             
@@ -917,55 +918,144 @@ COMING SOON
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <script>
-// 1. Sinkronisasi Real-Time antara Kolom Input dan Tampilan Sertifikat
-const inputName = document.getElementById('inputName');
-const inputNo = document.getElementById('inputNo');
-const inputTime = document.getElementById('inputTime');
-const inputDate = document.getElementById('inputDate');
-const inputMenu = document.getElementById('inputMenu');
-const inputPhoto = document.getElementById('inputPhoto');
+// ======================
+// DASHBOARD SERTIFIKAT
+// ======================
 
-inputName.addEventListener('input', (e) => { document.getElementById('participantName').textContent = e.target.value.toUpperCase(); });
-inputNo.addEventListener('input', (e) => { document.getElementById('certificateNo').textContent = e.target.value.toUpperCase(); });
-inputTime.addEventListener('input', (e) => { document.getElementById('time').textContent = e.target.value; });
-inputDate.addEventListener('input', (e) => { document.getElementById('date').textContent = e.target.value.toUpperCase(); });
-inputMenu.addEventListener('input', (e) => { 
-    document.getElementById('menu').textContent = e.target.value.toUpperCase();
-    document.querySelector('.fire-menu span').textContent = e.target.value.toUpperCase(); // Update otomatis pita emas tengah
+const inputName = document.getElementById("inputName");
+const inputNo = document.getElementById("inputNo");
+const inputTime = document.getElementById("inputTime");
+const inputDate = document.getElementById("inputDate");
+const inputMenu = document.getElementById("inputMenu");
+const inputPhoto = document.getElementById("inputPhoto");
+
+// Update realtime
+inputName.addEventListener("input", e => {
+    document.getElementById("participantName").textContent = e.target.value.toUpperCase();
 });
 
-// 2. Logika Unggah Foto Peserta Secara Langsung dari Laptop
-inputPhoto.addEventListener('change', function(e) {
-    if (this.files && this.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            document.getElementById('participantPhoto').src = event.target.result;
-        }
-        reader.readAsDataURL(this.files[0]);
+inputNo.addEventListener("input", e => {
+    document.getElementById("certificateNo").textContent = e.target.value.toUpperCase();
+});
+
+inputTime.addEventListener("input", e => {
+    document.getElementById("time").textContent = e.target.value;
+});
+
+inputDate.addEventListener("input", e => {
+    document.getElementById("date").textContent = e.target.value.toUpperCase();
+});
+
+inputMenu.addEventListener("input", e => {
+
+    const value = e.target.value.toUpperCase();
+
+    document.getElementById("menu").textContent = value;
+
+    const fireMenu = document.querySelector(".fire-menu span");
+
+    if(fireMenu){
+        fireMenu.textContent = value;
     }
+
 });
+
+// ======================
+// UPLOAD FOTO
+// ======================
+
+inputPhoto.addEventListener("change", function(){
+
+    if(!this.files.length) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        document.getElementById("participantPhoto").src = e.target.result;
+
+    };
+
+    reader.readAsDataURL(this.files[0]);
+
+});
+
+// ======================
+// TUNGGU SEMUA GAMBAR
+// ======================
+
+function waitImages(container){
+
+    const images = container.querySelectorAll("img");
+
+    return Promise.all(
+
+        [...images].map(img=>{
+
+            if(img.complete) return Promise.resolve();
+
+            return new Promise(resolve=>{
+
+                img.onload=resolve;
+                img.onerror=resolve;
+
+            });
+
+        })
+
+    );
+
+}
+
+// ======================
+// DOWNLOAD PNG
+// ======================
 
 async function downloadPNG(){
 
-    const certificate = document.querySelector(".certificate");
-
     try{
 
-        const canvas = await html2canvas(certificate,{
-            scale:2,
+        const certificate=document.querySelector(".certificate");
+
+        if(!certificate){
+
+            alert("Container .certificate tidak ditemukan.");
+
+            return;
+
+        }
+
+        await waitImages(certificate);
+
+        const canvas=await html2canvas(certificate,{
+
+            scale:3,
             useCORS:true,
-            backgroundColor:null
+            allowTaint:false,
+            backgroundColor:"#060606",
+            logging:false
+
         });
 
-        console.log("SUCCESS");
-        console.log(canvas.width);
-        console.log(canvas.height);
+        const link=document.createElement("a");
 
-    }catch(err){
+        const filename="Sertifikat_"+inputName.value.replace(/\s+/g,"_")+".png";
+
+        link.download=filename;
+
+        link.href=canvas.toDataURL("image/png");
+
+        link.click();
+
+        console.log("Download berhasil");
+
+    }
+
+    catch(err){
 
         console.error(err);
 
-        alert("Masih error bro.");
+        alert("Gagal membuat PNG. Lihat Console (F12).");
 
     }
 
