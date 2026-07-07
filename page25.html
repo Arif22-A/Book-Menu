@@ -905,7 +905,7 @@ COMING SOON
             <input type="file" id="inputPhoto" accept="image/*">
         </div>
     </div>
-    <button id="btnDownload" class="btn-download">🚀 GENERATE & DOWNLOAD GAMBAR</button>
+    downloadBtn.addEventListener("click", downloadPNG);
 </div>
 
    
@@ -977,6 +977,32 @@ document.getElementById('btnDownload').addEventListener('click', function() {
         this.disabled = false;
     });
 });
+
+async function downloadPNG(){
+
+    const certificate = document.getElementById("certificate");
+
+    try{
+
+        const canvas = await html2canvas(certificate,{
+            scale:2,
+            useCORS:true,
+            backgroundColor:null
+        });
+
+        console.log("SUCCESS");
+        console.log(canvas.width);
+        console.log(canvas.height);
+
+    }catch(err){
+
+        console.error(err);
+
+        alert("Masih error bro.");
+
+    }
+
+}
 </script>
 </body>
 </html>
