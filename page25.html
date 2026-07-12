@@ -876,22 +876,22 @@ body{
 </div>
 
    
-<!-- LOAD LIBRARY VIA CDN RESMI (DENGAN BEKUP INJEKSI OTOMATIS) -->
-<script src="https://cloudflare.com" 
-        onerror="injectBackupScript()"></script>
-
+<!-- 1. DEFINISIKAN FUNGSI BACKUP DULUAN (BIAR BROWSER GAK BINGUNG PAS ERROR) -->
 <script>
-// Fungsi Darurat: Jika CDN utama diblokir atau gagal dimuat, sistem otomatis narik dari CDN cadangan
 function injectBackupScript() {
     console.log("CDN Utama gagal, mencoba memuat CDN cadangan...");
     const backupScript = document.createElement('script');
     backupScript.src = "https://jsdelivr.net";
     document.head.appendChild(backupScript);
 }
+</script>
 
-// ======================
-// DASHBOARD SERTIFIKAT LOGIC
-// ======================
+<!-- 2. BARU PANGGIL CDN UTAMA NYA -->
+<script src="https://cloudflare.com" 
+        onerror="injectBackupScript()"></script>
+
+<!-- 3. LOGIKA UTAMA DASHBOARD & DOWNLOAD -->
+<script>
 const inputName = document.getElementById("inputName");
 const inputNo = document.getElementById("inputNo");
 const inputTime = document.getElementById("inputTime");
@@ -929,7 +929,7 @@ if(inputMenu) {
     });
 }
 
-// Handler Upload Foto Unggulan
+// Handler Upload Foto Realtime
 if(inputPhoto) {
     inputPhoto.addEventListener("change", function(){
         if(!this.files.length) return;
@@ -937,25 +937,23 @@ if(inputPhoto) {
         reader.onload = function(e){
             document.getElementById("participantPhoto").src = e.target.result;
         };
-        reader.readAsDataURL(this.files[0]);
+        reader.readAsDataURL(this.files[0]); // Ditambahkan indeks [0] biar aman baca file
     });
 }
 
 // ======================
-// FUNGSI UTAMA DOWNLOAD PNG (ANTI-CRASH)
+// FUNGSI UTAMA DOWNLOAD PNG
 // ======================
 function downloadPNG(){
-    // Validasi apakah library sudah siap di memori browser
     if (typeof domtoimage === 'undefined') {
         alert("Sistem sedang memuat library gambar, bro. Tunggu 3 detik terus klik lagi ya!");
-        injectBackupScript(); // Paksa muat ulang cadangan jika belum sedia
+        injectBackupScript(); 
         return;
     }
 
     const target = document.querySelector(".certificate");
     if (!target) return alert("Kontainer sertifikat tidak ditemukan!");
 
-    // Kasih feedback visual ke tombol pas proses konversi berjalan
     const btn = document.querySelector(".btn-download") || document.querySelector("button[onclick='downloadPNG()']");
     const textAwal = btn.textContent;
     btn.textContent = "Processing...";
@@ -973,23 +971,20 @@ function downloadPNG(){
         }
     };
 
-    // Proses pembuatan file PNG
     domtoimage.toPng(target, options)
         .then(function (dataUrl) {
             const link = document.createElement('a');
-            // Format nama file dinamis otomatis (contoh: sertifikat_arif_triyanto.png)
             const namaFile = inputName ? inputName.value.replace(/\s+/g, '_').toLowerCase() : 'peserta';
             link.download = `sertifikat_${namaFile}.png`;
             link.href = dataUrl;
             link.click();
             
-            // Kembalikan status tombol
             btn.textContent = textAwal;
             btn.disabled = false;
         })
         .catch(function (error) {
             console.error('Ada masalah konversi gambar:', error);
-            alert('Waduh bro, gagal convert elemen ke gambar. Cek konsol browser!');
+            alert('Waduh bro, gagal konversi halaman ke gambar.');
             btn.textContent = textAwal;
             btn.disabled = false;
         });
