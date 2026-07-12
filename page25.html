@@ -1004,28 +1004,25 @@ if(inputPhoto){
 async function downloadPNG(){
 
     const certificate=document.getElementById("certificateContainer");
-    const editor=document.querySelector(".editor-panel");
 
-    // sembunyikan dashboard
-    editor.style.display="none";
+    try{
 
-    // tunggu render selesai
-    await new Promise(r=>setTimeout(r,300));
+        const canvas=await html2canvas(certificate,{
+            logging:true,
+            scale:1,
+            useCORS:false,
+            allowTaint:true,
+            backgroundColor:"#060606"
+        });
 
-    const canvas=await html2canvas(certificate,{
-        scale:2,
-        useCORS:true,
-        allowTaint:false,
-        backgroundColor:"#060606",
-        logging:false
-    });
+        document.body.appendChild(canvas);
 
-    editor.style.display="block";
+    }catch(err){
 
-    const link=document.createElement("a");
-    link.download="Ocean-Fire-Certificate.png";
-    link.href=canvas.toDataURL("image/png");
-    link.click();
+        console.error(err);
+
+    }
+
 }
 </script>
 </body>
