@@ -876,65 +876,7 @@ body{
 </div>
 
    
-<!-- KODE JAVASCRIPT LOKAL (ANTI INTERNET & ANTI TIMEOUT) -->
 <script>
-/* =======================================================================
-   SUNTIKAN UTUH LIBRARY HTML2CANVAS v1.0.0-rc.5 (Tanam Langsung Di Sini)
-   ======================================================================= */
-!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t=t||self).html2canvas=e()}(this,function(){"use strict";var t="undefined"!=typeof window?window:Object.defineProperty({},"indexedDB",{get:function(){return null}});function e(t,e){var n=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter(function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable})),n.push.apply(n,r)}return n}function n(t){for(var n=1;n<arguments.length;n++){var r=null!=arguments[n]?arguments[n]:{};n%2?e(Object(r),!0).forEach(function(e){o(t,e,r[e])}):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):e(Object(r)).forEach(function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))})}return t}function r(t){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!===Symbol.prototype?"symbol":typeof t})(t)}function o(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}
-// Kode internal mini-renderer bypass bug createPattern
-var html2canvas = function(element, options) {
-    options = options || {};
-    var width = options.width || element.offsetWidth || 1400;
-    var height = options.height || element.offsetHeight || 940;
-    
-    // Solusi Skakmat: Gunakan SVG foreignObject murni secara lokal
-    var clone = element.cloneNode(true);
-    // Bersihkan elemen bara api yang bikin rusak posisi canvas luar
-    var embers = clone.querySelector('.embers');
-    if(embers) embers.remove();
-    
-    var svg = document.createElementNS("http://w3.org", "svg");
-    svg.setAttribute("width", width);
-    svg.setAttribute("height", height);
-    
-    var foreignObject = document.createElementNS("http://w3.org", "foreignObject");
-    foreignObject.setAttribute("width", "100%");
-    foreignObject.setAttribute("height", "100%");
-    
-    var container = document.createElement("div");
-    container.setAttribute("xmlns", "http://w3.org");
-    // Suntik style dasar agar warna teks & font nempel di image
-    container.style.cssText = window.getComputedStyle(element).cssText;
-    container.innerHTML = clone.innerHTML;
-    
-    foreignObject.appendChild(container);
-    svg.appendChild(foreignObject);
-    
-    var svgString = new XMLSerializer().serializeToString(svg);
-    var svgBlob = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
-    var url = URL.createObjectURL(svgBlob);
-    
-    return new Promise(function(resolve, reject) {
-        var img = new Image();
-        img.width = width * (options.scale || 2);
-        img.height = height * (options.scale || 2);
-        img.onload = function() {
-            var canvas = document.createElement("canvas");
-            canvas.width = width * (options.scale || 2);
-            canvas.height = height * (options.scale || 2);
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            URL.revokeObjectURL(url);
-            resolve(canvas);
-        };
-        img.onerror = function(e) {
-            reject(e);
-        };
-        img.src = url;
-    });
-};
-
 // ======================
 // INTEGRASI REALTIME DASHBOARD
 // ======================
@@ -987,9 +929,9 @@ if(inputPhoto) {
 }
 
 // ======================
-// FUNGSI UTAMA DOWNLOAD (LOKAL & ANTI-GAGAL)
+// FUNGSI UTAMA DOWNLOAD (NATIVE SVG ENGINE - 100% LOKAL & BEBAS LIBRARY)
 // ======================
-function downloadPNG(){
+function downloadPNG() {
     const target = document.querySelector(".certificate");
     if (!target) return alert("Kontainer sertifikat tidak ditemukan!");
 
@@ -998,13 +940,65 @@ function downloadPNG(){
     btn.textContent = "Processing...";
     btn.disabled = true;
 
-    // Hajar konversi menggunakan engine bypass SVG lokal buatan kita
-    html2canvas(target, {
-        width: 1400,
-        height: 940,
-        scale: 2 // Menggandakan ketajaman agar tulisan sertifikat tidak blur
-    })
-    .then(function (canvas) {
+    // 1. Kloning elemen sertifikat asli agar modifikasi tidak merusak tampilan layar
+    const clone = target.cloneNode(true);
+    
+    // 2. Buang partikel bara api melayang (.embers) karena bikin berat kalkulasi canvas
+    const embers = clone.querySelector('.embers');
+    if(embers) embers.remove();
+
+    // 3. Ambil seluruh aturan style CSS yang sedang aktif di halaman
+    let styles = "";
+    for (const sheet of document.styleSheets) {
+        try {
+            for (const rule of sheet.cssRules) {
+                styles += rule.cssText + "\n";
+            }
+        } catch (e) {
+            // Bypass jika ada cross-origin stylesheet (misal Google Fonts)
+        }
+    }
+
+    // 4. Bungkus kloning HTML & CSS ke dalam dokumen SVG murni (foreignObject)
+    const width = 1400;
+    const height = 940;
+    const scale = 2; // Naikkan skala ke 2x agar teks sertifikat tajam dan HD
+
+    const svgString = `
+        <svg xmlns="http://w3.org" width="${width}" height="${height}">
+            <foreignObject width="100%" height="100%">
+                <div xmlns="http://w3.org">
+                    <style>
+                        ${styles}
+                        /* Memastikan font nempel di engine render SVG */
+                        @import url('https://googleapis.com');
+                    </style>
+                    ${clone.outerHTML}
+                </div>
+            </foreignObject>
+        </svg>
+    `;
+
+    // 5. Konversi string SVG menjadi Blob URL aman
+    const svgBlob = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+    const url = URL.createObjectURL(svgBlob);
+
+    // 6. Buat canvas internal untuk menembak blob menjadi file PNG siap unduh
+    const img = new Image();
+    img.width = width * scale;
+    img.height = height * scale;
+    
+    img.onload = function() {
+        const canvas = document.createElement("canvas");
+        canvas.width = width * scale;
+        canvas.height = height * scale;
+        const ctx = canvas.getContext("2d");
+        
+        // Gambar struktur ke canvas
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+
+        // Trigger download PNG otomatis ke komputer user
         const link = document.createElement('a');
         const namaFile = inputName ? inputName.value.replace(/\s+/g, '_').toLowerCase() : 'sertifikat';
         link.download = `sertifikat_${namaFile}.png`;
@@ -1013,13 +1007,16 @@ function downloadPNG(){
         
         btn.textContent = textAwal;
         btn.disabled = false;
-    })
-    .catch(function (error) {
-        console.error('Kendala render:', error);
-        alert('Gagal convert, tapi tenang bro kita coba pakai taktik cadangan.');
+    };
+
+    img.onerror = function(err) {
+        console.error("Gagal convert gambar:", err);
+        alert("Gagal memproses gambar sertifikat, bro.");
         btn.textContent = textAwal;
         btn.disabled = false;
-    });
+    };
+
+    img.src = url;
 }
 </script>
 </body>
