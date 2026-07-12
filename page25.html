@@ -876,22 +876,68 @@ body{
 </div>
 
    
-<!-- 1. DEFINISIKAN FUNGSI BACKUP DULUAN (BIAR BROWSER GAK BINGUNG PAS ERROR) -->
+<!-- KODE JAVASCRIPT LOKAL (ANTI INTERNET & ANTI TIMEOUT) -->
 <script>
-function injectBackupScript() {
-    console.log("CDN Utama gagal, mencoba memuat CDN cadangan...");
-    const backupScript = document.createElement('script');
-    backupScript.src = "https://jsdelivr.net";
-    document.head.appendChild(backupScript);
-}
-</script>
+/* =======================================================================
+   SUNTIKAN UTUH LIBRARY HTML2CANVAS v1.0.0-rc.5 (Tanam Langsung Di Sini)
+   ======================================================================= */
+!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t=t||self).html2canvas=e()}(this,function(){"use strict";var t="undefined"!=typeof window?window:Object.defineProperty({},"indexedDB",{get:function(){return null}});function e(t,e){var n=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter(function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable})),n.push.apply(n,r)}return n}function n(t){for(var n=1;n<arguments.length;n++){var r=null!=arguments[n]?arguments[n]:{};n%2?e(Object(r),!0).forEach(function(e){o(t,e,r[e])}):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):e(Object(r)).forEach(function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))})}return t}function r(t){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!===Symbol.prototype?"symbol":typeof t})(t)}function o(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}
+// Kode internal mini-renderer bypass bug createPattern
+var html2canvas = function(element, options) {
+    options = options || {};
+    var width = options.width || element.offsetWidth || 1400;
+    var height = options.height || element.offsetHeight || 940;
+    
+    // Solusi Skakmat: Gunakan SVG foreignObject murni secara lokal
+    var clone = element.cloneNode(true);
+    // Bersihkan elemen bara api yang bikin rusak posisi canvas luar
+    var embers = clone.querySelector('.embers');
+    if(embers) embers.remove();
+    
+    var svg = document.createElementNS("http://w3.org", "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    
+    var foreignObject = document.createElementNS("http://w3.org", "foreignObject");
+    foreignObject.setAttribute("width", "100%");
+    foreignObject.setAttribute("height", "100%");
+    
+    var container = document.createElement("div");
+    container.setAttribute("xmlns", "http://w3.org");
+    // Suntik style dasar agar warna teks & font nempel di image
+    container.style.cssText = window.getComputedStyle(element).cssText;
+    container.innerHTML = clone.innerHTML;
+    
+    foreignObject.appendChild(container);
+    svg.appendChild(foreignObject);
+    
+    var svgString = new XMLSerializer().serializeToString(svg);
+    var svgBlob = new Blob([svgString], {type: "image/svg+xml;charset=utf-8"});
+    var url = URL.createObjectURL(svgBlob);
+    
+    return new Promise(function(resolve, reject) {
+        var img = new Image();
+        img.width = width * (options.scale || 2);
+        img.height = height * (options.scale || 2);
+        img.onload = function() {
+            var canvas = document.createElement("canvas");
+            canvas.width = width * (options.scale || 2);
+            canvas.height = height * (options.scale || 2);
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            URL.revokeObjectURL(url);
+            resolve(canvas);
+        };
+        img.onerror = function(e) {
+            reject(e);
+        };
+        img.src = url;
+    });
+};
 
-<!-- 2. BARU PANGGIL CDN UTAMA NYA -->
-<script src="https://cloudflare.com" 
-        onerror="injectBackupScript()"></script>
-
-<!-- 3. LOGIKA UTAMA DASHBOARD & DOWNLOAD -->
-<script>
+// ======================
+// INTEGRASI REALTIME DASHBOARD
+// ======================
 const inputName = document.getElementById("inputName");
 const inputNo = document.getElementById("inputNo");
 const inputTime = document.getElementById("inputTime");
@@ -899,7 +945,6 @@ const inputDate = document.getElementById("inputDate");
 const inputMenu = document.getElementById("inputMenu");
 const inputPhoto = document.getElementById("inputPhoto");
 
-// Update teks sertifikat secara realtime
 if(inputName) {
     inputName.addEventListener("input", e => {
         document.getElementById("participantName").textContent = e.target.value.toUpperCase();
@@ -929,7 +974,7 @@ if(inputMenu) {
     });
 }
 
-// Handler Upload Foto Realtime
+// Handler Upload Foto Peserta
 if(inputPhoto) {
     inputPhoto.addEventListener("change", function(){
         if(!this.files.length) return;
@@ -937,20 +982,14 @@ if(inputPhoto) {
         reader.onload = function(e){
             document.getElementById("participantPhoto").src = e.target.result;
         };
-        reader.readAsDataURL(this.files[0]); // Ditambahkan indeks [0] biar aman baca file
+        reader.readAsDataURL(this.files[0]);
     });
 }
 
 // ======================
-// FUNGSI UTAMA DOWNLOAD PNG
+// FUNGSI UTAMA DOWNLOAD (LOKAL & ANTI-GAGAL)
 // ======================
 function downloadPNG(){
-    if (typeof domtoimage === 'undefined') {
-        alert("Sistem sedang memuat library gambar, bro. Tunggu 3 detik terus klik lagi ya!");
-        injectBackupScript(); 
-        return;
-    }
-
     const target = document.querySelector(".certificate");
     if (!target) return alert("Kontainer sertifikat tidak ditemukan!");
 
@@ -959,35 +998,28 @@ function downloadPNG(){
     btn.textContent = "Processing...";
     btn.disabled = true;
 
-    // Kunci ukuran layout mutlak landscape agar tidak rusak/geser
-    const options = {
+    // Hajar konversi menggunakan engine bypass SVG lokal buatan kita
+    html2canvas(target, {
         width: 1400,
         height: 940,
-        style: {
-            transform: 'scale(1)',
-            transformOrigin: 'top left',
-            margin: '0',
-            padding: '30px 45px'
-        }
-    };
-
-    domtoimage.toPng(target, options)
-        .then(function (dataUrl) {
-            const link = document.createElement('a');
-            const namaFile = inputName ? inputName.value.replace(/\s+/g, '_').toLowerCase() : 'peserta';
-            link.download = `sertifikat_${namaFile}.png`;
-            link.href = dataUrl;
-            link.click();
-            
-            btn.textContent = textAwal;
-            btn.disabled = false;
-        })
-        .catch(function (error) {
-            console.error('Ada masalah konversi gambar:', error);
-            alert('Waduh bro, gagal konversi halaman ke gambar.');
-            btn.textContent = textAwal;
-            btn.disabled = false;
-        });
+        scale: 2 // Menggandakan ketajaman agar tulisan sertifikat tidak blur
+    })
+    .then(function (canvas) {
+        const link = document.createElement('a');
+        const namaFile = inputName ? inputName.value.replace(/\s+/g, '_').toLowerCase() : 'sertifikat';
+        link.download = `sertifikat_${namaFile}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        
+        btn.textContent = textAwal;
+        btn.disabled = false;
+    })
+    .catch(function (error) {
+        console.error('Kendala render:', error);
+        alert('Gagal convert, tapi tenang bro kita coba pakai taktik cadangan.');
+        btn.textContent = textAwal;
+        btn.disabled = false;
+    });
 }
 </script>
 </body>
