@@ -693,25 +693,51 @@ body{
 
 * ================= CSS KHUSUS CETAK DIGITAL ================= */
 @media print {
-    /* Sembunyikan body background bawaan dan panel dashboard input */
-    body {
+    /* 1. Reset total setelan body bawaan browser */
+    html, body {
+        background-color: #060606 !important;
         background: #060606 !important;
-        padding: 0 !important;
         margin: 0 !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        display: block !important; /* Matikan flexbox body agar layout grid panel gak buyar */
+        -webkit-print-color-adjust: exact !important; /* Paksa warna gelap & gradien wajib keluar */
+        print-color-adjust: exact !important;
     }
-    .editor-panel, button {
+
+    /* 2. Sembunyikan panel dashboard input biar gak ikut kefoto */
+    .editor-panel, button, .btn-download {
         display: none !important;
     }
-    /* Paksa sertifikat pas dengan ukuran kertas landscape A4 */
+
+    /* 3. Kunci ukuran sertifikat secara kaku sesuai resolusi layar asli */
     .certificate {
-        border: none !important;
+        position: relative !important;
+        display: block !important;
+        width: 1400px !important;
+        height: 940px !important;
+        margin: 0 auto !important;
+        padding: 30px 45px !important;
+        border: 6px solid #d7a845 !important;
+        background-color: #060606 !important;
         box-shadow: none !important;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        page-break-inside: avoid;
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        overflow: hidden !important;
+    }
+
+    /* 4. Pastikan susunan grid tiga panel kiri-tengah-kanan tetap tegak lurus */
+    .main-layout {
+        display: grid !important;
+        grid-template-columns: 320px 1fr 340px !important;
+        gap: 35px !important;
+        height: 580px !important;
+    }
+
+    /* 5. Paksa semua teks berwarna emas dan putih wajib muncul di atas kertas */
+    #participantName, .title span, .brand-text, .badge-title, h2, h3, p, span, strong {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 }
 </style>
