@@ -21,19 +21,25 @@ body{
 }
 
 /* ================= CONTAINER UTAMA (PROPORSIONAL A4 LANDSCAPE) ================= */
-.certificate {
-    position: relative;
-    width: 1400px;
-    height: 940px; /* Pangkas tingginya biar ceper & persegi panjang, gak kotak lagi */
-    overflow: hidden;
-    background: #060606;
-    border: 6px solid #d7a845;
-    padding: 30px 45px;
-    box-shadow: 
-        0 0 0 3px #4e3006, 
+.certificate{
+    position:relative;
+    width:1400px;
+    height:940px;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 50% 25%, rgba(120,40,0,.28), transparent 55%),
+        radial-gradient(circle at 85% 15%, rgba(255,180,60,.12), transparent 45%),
+        linear-gradient(180deg,#111,#060606 45%,#000);
+
+    border:6px solid #d7a845;
+
+    padding:30px 45px;
+
+    box-shadow:
+        0 0 0 3px #4e3006,
         0 0 0 6px #ffd984,
-        0 20px 60px rgba(0,0,0,0.9),
-        inset 0 0 200px rgba(0,0,0,0.9);
+        0 20px 60px rgba(0,0,0,.9);
 }
 
 /* Background Efek Kulit + Cahaya Bara Api */
@@ -609,17 +615,6 @@ body{
 }
 
 /* Pengaturan Layer Terbaca Aman oleh html2canvas */
-.cert-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-color: #060606;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='1400' height='940'><defs><radialGradient id='g1' cx='50%' cy='30%' r='60%'><stop offset='0%' stop-color='%238b2a00' stop-opacity='0.3'/><stop offset='100%' stop-color='%23000000' stop-opacity='0'/></radialGradient><radialGradient id='g2' cx='85%' cy='25%' r='50%'><stop offset='0%' stop-color='%23d6a63c' stop-opacity='0.15'/><stop offset='100%' stop-color='%23000000' stop-opacity='0'/></radialGradient><linearGradient id='g3' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' stop-color='%23000000' stop-opacity='0.4'/><stop offset='100%' stop-color='%23140500' stop-opacity='0.7'/></linearGradient></defs><rect width='1400' height='940' fill='%23060606'/><rect width='1400' height='940' fill='url(%23g1)'/><rect width='1400' height='940' fill='url(%23g2)'/><rect width='1400' height='940' fill='url(%23g3)'/></svg>");
-    background-size: 1400px 940px;
-    background-repeat: no-repeat;
-}
-
 .editor-panel{
     width:1400px;
     max-width:100%;
@@ -747,7 +742,6 @@ body{
 <div class="certificate" id="certificateContainer">
 
     <!-- EFEK LATAR BELAKANG PREMIUM (Sudah disesuaikan dengan CSS baru) -->
-    <div class="cert-bg"></div>
     <div class="gold-reflection"></div>
     <div class="noise"></div>
     <div class="fire-glow"></div>
