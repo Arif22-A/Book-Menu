@@ -609,16 +609,15 @@ body{
 }
 
 /* Pengaturan Layer Terbaca Aman oleh html2canvas */
-.cert-bg { z-index: 0; }
-.gold-reflection { z-index: 1; }
-.fire-glow { z-index: 1; }
-.fire-watermark { z-index: 1; }
-.embers { z-index: 2; }
-.noise { z-index: 3; }
-
-.left-panel, .center-panel, .right-panel {
-    position: relative;
-    z-index: 20;
+.cert-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-color: #060606;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='1400' height='940'><defs><radialGradient id='g1' cx='50%' cy='30%' r='60%'><stop offset='0%' stop-color='%238b2a00' stop-opacity='0.3'/><stop offset='100%' stop-color='%23000000' stop-opacity='0'/></radialGradient><radialGradient id='g2' cx='85%' cy='25%' r='50%'><stop offset='0%' stop-color='%23d6a63c' stop-opacity='0.15'/><stop offset='100%' stop-color='%23000000' stop-opacity='0'/></radialGradient><linearGradient id='g3' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' stop-color='%23000000' stop-opacity='0.4'/><stop offset='100%' stop-color='%23140500' stop-opacity='0.7'/></linearGradient></defs><rect width='1400' height='940' fill='%23060606'/><rect width='1400' height='940' fill='url(%23g1)'/><rect width='1400' height='940' fill='url(%23g2)'/><rect width='1400' height='940' fill='url(%23g3)'/></svg>");
+    background-size: 1400px 940px;
+    background-repeat: no-repeat;
 }
 
 .editor-panel{
@@ -953,26 +952,33 @@ async function downloadPNG(){
     const target = document.querySelector(".certificate");
     if (!target) return alert("Kontainer sertifikat tidak ditemukan!");
 
-    // 1. Eksekusi fungsi penunggu gambar lo biar aset foto kelar di-load
+    // Pastikan semua gambar kelar di-load
     await waitImages(target);
     
-    // 2. Beri jeda napas 300ms ekstra buat browser kalkulasi ulang layouting
-    await new Promise(r => setTimeout(r, 300));
+    // Beri jeda ekstra agar DOM benar-benar siap
+    await new Promise(r => setTimeout(r, 400));
 
     try {
-        // 3. Render canvas dengan konfigurasi ketat anti-lebar 0
         const canvas = await html2canvas(target, {
-            scale: 3,                 // Hasil resolusi HD tajam
-            useCORS: true,            // Izinkan load gambar lintas domain (Unsplash/Imgur)
+            scale: 3,                 // Hasil gambar resolusi tinggi (HD)
+            useCORS: true,            // Izinkan cross-origin gambar eksternal
             backgroundColor: "#060606",
             logging: false,
-            width: 1400,              // Kunci lebar mutlak sesuai ukuran CSS sertifikat lo
-            height: 940,              // Kunci tinggi mutlak sesuai ukuran CSS sertifikat lo
+            width: 1400,              // Kunci lebar elemen
+            height: 940,              // Kunci tinggi elemen
             scrollX: 0,
-            scrollY: -window.scrollY  // Cegah pergeseran koordinat jika halaman di-scroll ke bawah
+            scrollY: -window.scrollY, // Cegah gambar terpotong saat halaman di-scroll
+            
+            // Trik jitu: Abaikan elemen animasi bara api (.embers) agar tidak merusak kalkulasi canvas
+            ignoreElements: function(element) {
+                if (element.classList.contains('embers')) {
+                    return true; 
+                }
+                return false;
+            }
         });
 
-        // 4. Proses Trigger Unduhan
+        // Eksekusi trigger download file
         const link = document.createElement("a");
         link.download = `sertifikat_${inputName.value.replace(/\s+/g, '_').toLowerCase()}.png`;
         link.href = canvas.toDataURL("image/png", 1.0);
@@ -980,7 +986,7 @@ async function downloadPNG(){
         
     } catch (error) {
         console.error("Gagal generate gambar:", error);
-        alert("Waduh bro, ada kendala pas bikin gambar. Cek konsol browser lo!");
+        alert("Waduh bro, masih ada kendala. Coba cek konsol browser lo!");
     }
 }
 </script>
