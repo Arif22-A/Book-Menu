@@ -784,7 +784,7 @@ body{
             <div class="photo-frame">
                 <div class="photo-border">
                     <!-- Menggunakan placeholder gambar valid (Bukan 1x1px base64) -->
-                    <img id="participantPhoto" class="participant-photo" src="https://unsplash.com" alt="Participant">
+                    <img id="participantPhoto" class="participant-photo"  src="" alt="Participant">
                 </div>
             </div>
             
@@ -925,7 +925,7 @@ body{
     <button class="btn-download" onclick="downloadPNG()">Download Sertifikat</button>
 </div>
 
-   
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 // ======================
 // INTEGRASI REALTIME DASHBOARD
@@ -936,6 +936,18 @@ const inputTime = document.getElementById("inputTime");
 const inputDate = document.getElementById("inputDate");
 const inputMenu = document.getElementById("inputMenu");
 const inputPhoto = document.getElementById("inputPhoto");
+
+// ======================
+// LOAD FOTO DARI LOCAL STORAGE
+// ======================
+
+const savedPhoto = localStorage.getItem("certificatePhoto");
+
+if(savedPhoto){
+
+    document.getElementById("participantPhoto").src = savedPhoto;
+
+}
 
 if(inputName) {
     inputName.addEventListener("input", e => {
@@ -967,23 +979,59 @@ if(inputMenu) {
 }
 
 // Handler Upload Foto Peserta
-if(inputPhoto) {
-    inputPhoto.addEventListener("change", function(){
+if(inputPhoto){
+
+    inputPhoto.addEventListener("change",function(){
+
         if(!this.files.length) return;
-        const reader = new FileReader();
-        reader.onload = function(e){
-            document.getElementById("participantPhoto").src = e.target.result;
+
+        const reader=new FileReader();
+
+        reader.onload=function(e){
+
+            const photo=e.target.result;
+
+            document.getElementById("participantPhoto").src=photo;
+
+            // simpan ke localStorage
+            localStorage.setItem("certificatePhoto",photo);
+
         };
+
         reader.readAsDataURL(this.files[0]);
+
     });
+
 }
 
 // ======================
 // FUNGSI SKAKMAT CETAK DIGITAL (ANTI-ERROR & 100% SUKSES)
 // ======================
-function downloadPNG() {
-    // Jalankan mesin print bawaan browser
-    window.print();
+async function downloadPNG(){
+
+    const certificate=document.getElementById("certificateContainer");
+    const editor=document.querySelector(".editor-panel");
+
+    // sembunyikan dashboard
+    editor.style.display="none";
+
+    // tunggu render selesai
+    await new Promise(r=>setTimeout(r,300));
+
+    const canvas=await html2canvas(certificate,{
+        scale:2,
+        useCORS:true,
+        allowTaint:false,
+        backgroundColor:"#060606",
+        logging:false
+    });
+
+    editor.style.display="block";
+
+    const link=document.createElement("a");
+    link.download="Ocean-Fire-Certificate.png";
+    link.href=canvas.toDataURL("image/png");
+    link.click();
 }
 </script>
 </body>
