@@ -876,9 +876,8 @@ body{
 </div>
 
    
-<!-- JAVASCRIPT -->
-<!-- Kita cuma butuh SATU library ini aja, bro. Jangan ditambahin link aneh lagi -->
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<!-- 1. KITA GANTI LINK LIBRARY KE DOM-TO-IMAGE (ANTI-CRASH GRADIENT) -->
+<script src="https://cloudflare.com"></script>
 
 <script>
 // ======================
@@ -891,7 +890,7 @@ const inputDate = document.getElementById("inputDate");
 const inputMenu = document.getElementById("inputMenu");
 const inputPhoto = document.getElementById("inputPhoto");
 
-// Update realtime
+// Update realtime data ke sertifikat
 inputName.addEventListener("input", e => {
     document.getElementById("participantName").textContent = e.target.value.toUpperCase();
 });
@@ -930,64 +929,48 @@ inputPhoto.addEventListener("change", function(){
 });
 
 // ======================
-// TUNGGU SEMUA GAMBAR
+// DOWNLOAD PNG BARU (METODE SKAKMAT)
 // ======================
-function waitImages(container){
-    const images = container.querySelectorAll("img");
-    return Promise.all(
-        [...images].map(img=>{
-            if(img.complete) return Promise.resolve();
-            return new Promise(resolve=>{
-                img.onload=resolve;
-                img.onerror=resolve;
-            });
-        })
-    );
-}
-
-// ======================
-// DOWNLOAD PNG (Fix Error & Anti-Cacat)
-// ======================
-async function downloadPNG(){
+function downloadPNG(){
     const target = document.querySelector(".certificate");
     if (!target) return alert("Kontainer sertifikat tidak ditemukan!");
 
-    // Pastikan semua gambar kelar di-load
-    await waitImages(target);
-    
-    // Beri jeda ekstra agar DOM benar-benar siap
-    await new Promise(r => setTimeout(r, 400));
+    // Menampilkan status loading sederhana di tombol
+    const btn = document.querySelector(".btn-download") || document.querySelector("button[onclick='downloadPNG()']");
+    const textAwal = btn.textContent;
+    btn.textContent = "Processing...";
+    btn.disabled = true;
 
-    try {
-        const canvas = await html2canvas(target, {
-            scale: 3,                 // Hasil gambar resolusi tinggi (HD)
-            useCORS: true,            // Izinkan cross-origin gambar eksternal
-            backgroundColor: "#060606",
-            logging: false,
-            width: 1400,              // Kunci lebar elemen
-            height: 940,              // Kunci tinggi elemen
-            scrollX: 0,
-            scrollY: -window.scrollY, // Cegah gambar terpotong saat halaman di-scroll
+    // Menentukan opsi ukuran mutlak sesuai CSS landscape lo
+    const options = {
+        width: 1400,
+        height: 940,
+        style: {
+            transform: 'scale(1)',
+            transformOrigin: 'top left',
+            margin: '0',
+            padding: '30px 45px'
+        }
+    };
+
+    // Eksekusi penangkapan elemen HTML menjadi gambar PNG murni
+    domtoimage.toPng(target, options)
+        .then(function (dataUrl) {
+            const link = document.createElement('a');
+            link.download = `sertifikat_${inputName.value.replace(/\s+/g, '_').toLowerCase()}.png`;
+            link.href = dataUrl;
+            link.click();
             
-            // Trik jitu: Abaikan elemen animasi bara api (.embers) agar tidak merusak kalkulasi canvas
-            ignoreElements: function(element) {
-                if (element.classList.contains('embers')) {
-                    return true; 
-                }
-                return false;
-            }
+            // Kembalikan tombol seperti semula
+            btn.textContent = textAwal;
+            btn.disabled = false;
+        })
+        .catch(function (error) {
+            console.error('Ada masalah sistem:', error);
+            alert('Gagal mendownload, cek koneksi internet atau konsol browser, bro!');
+            btn.textContent = textAwal;
+            btn.disabled = false;
         });
-
-        // Eksekusi trigger download file
-        const link = document.createElement("a");
-        link.download = `sertifikat_${inputName.value.replace(/\s+/g, '_').toLowerCase()}.png`;
-        link.href = canvas.toDataURL("image/png", 1.0);
-        link.click();
-        
-    } catch (error) {
-        console.error("Gagal generate gambar:", error);
-        alert("Waduh bro, masih ada kendala. Coba cek konsol browser lo!");
-    }
 }
 </script>
 </body>
