@@ -27,35 +27,89 @@ body{
     height:940px;
     overflow:hidden;
 
-    background:
-        radial-gradient(circle at 50% 25%, rgba(120,40,0,.28), transparent 55%),
-        radial-gradient(circle at 85% 15%, rgba(255,180,60,.12), transparent 45%),
-        linear-gradient(180deg,#111,#060606 45%,#000);
+   background:
+
+linear-gradient(
+180deg,
+#181512 0%,
+#0f0d0b 35%,
+#090909 65%,
+#050505 100%
+);
 
     border:6px solid #d7a845;
 
     padding:30px 45px;
 
     box-shadow:
-        0 0 0 3px #4e3006,
-        0 0 0 6px #ffd984,
-        0 20px 60px rgba(0,0,0,.9);
+inset 0 0 120px rgba(0,0,0,.65),
+inset 0 0 40px rgba(255,180,60,.05);
 }
 
 /* Background Efek Kulit + Cahaya Bara Api */
     
+.certificate::before{
 
-.certificate::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: #060606; /* Fallback warna dasar aman */
-    background: 
-        radial-gradient(circle at 50% 30%, rgba(139, 42, 0, 0.3) 0%, transparent 60%),
-        radial-gradient(circle at 85% 25%, rgba(214, 166, 60, 0.15) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(20, 5, 0, 0.7) 100%);
-    z-index: 0;
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+opacity:.12;
+
+background-image:
+
+radial-gradient(circle at 20% 20%,
+rgba(255,255,255,.05) 1px,
+transparent 1.2px),
+
+radial-gradient(circle at 70% 60%,
+rgba(255,255,255,.04) 1px,
+transparent 1.2px),
+
+radial-gradient(circle at 40% 80%,
+rgba(255,255,255,.03) 1px,
+transparent 1.2px);
+
+background-size:
+
+22px 22px,
+28px 28px,
+18px 18px;
+
+mix-blend-mode:soft-light;
+
+}
+
+.certificate::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+right:0;
+top:0;
+
+height:180px;
+
+pointer-events:none;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,210,120,.10),
+
+transparent
+
+);
+
 }
 
 /* ================= SPECIAL EFFECTS BACKGROUND ================= */
