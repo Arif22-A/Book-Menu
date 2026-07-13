@@ -109,39 +109,6 @@ body{
     user-select: none;
 }
 
-/* Efek Animasi Bara Api Melayang */
-.embers{
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.embers span{
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #ffb347;
-    filter: blur(1px);
-    animation: float 7s linear infinite;
-}
-
-@keyframes float{
-    0%{ transform: translateY(980px) translateX(0) scale(1); opacity: 0; }
-    30%{ opacity: 0.7; }
-    90%{ opacity: 0.4; }
-    100%{ transform: translateY(-100px) translateX(30px) scale(0.5); opacity: 0; }
-}
-
-.embers span:nth-child(1){ left: 10%; animation-delay: 0s; animation-duration: 6s; }
-.embers span:nth-child(2){ left: 25%; animation-delay: 1.5s; animation-duration: 8s; }
-.embers span:nth-child(3){ left: 45%; animation-delay: 0.5s; animation-duration: 7s; }
-.embers span:nth-child(4){ left: 65%; animation-delay: 3s; animation-duration: 5s; }
-.embers span:nth-child(5){ left: 80%; animation-delay: 2s; animation-duration: 9s; }
-.embers span:nth-child(6){ left: 92%; animation-delay: 4s; animation-duration: 6s; }
-
 /* ================= HEADER AREA (DIRAPETIN KE ATAS) ================= */
 .header{
     position: relative;
@@ -191,12 +158,10 @@ body{
     background: linear-gradient(180deg, #fffcf0 0%, #ffd269 30%, #b5801a 65%, #fff2b0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
 }
 
 .fire-left {
     font-size: 52px;
-    filter: drop-shadow(0 0 15px #ff4500);
 }
 
 .certificate-title {
@@ -248,7 +213,7 @@ body{
     border: 3px solid #c59632;
     padding: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    transition: 0.4s;
+
 }
 
 .photo-frame:hover {
@@ -325,7 +290,6 @@ body{
     background: linear-gradient(180deg, #fff8d6 0%, #ffd86f 20%, #d69f31 45%, #8b5d10 70%, #fff3b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) drop-shadow(0 0 6px rgba(255,190,60,0.25));
     margin-bottom: 5px;
 }
 
@@ -490,7 +454,6 @@ body{
 .badge-crown {
     font-size: 32px;
     margin-bottom: -2px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
 .badge-title {
@@ -540,7 +503,6 @@ body{
     margin-bottom: 15px;
     border-bottom: 1px solid #332512;
     padding-bottom: 8px;
-    filter: drop-shadow(0 0 6px rgba(255,190,60,0.25));
 }
 
 .record-item {
@@ -678,7 +640,7 @@ body{
     letter-spacing: 1px;
     border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s;
+    
 }
 
 .btn-download:hover {
@@ -686,7 +648,7 @@ body{
     box-shadow: 0 0 15px rgba(214, 166, 60, 0.4);
 }
 
-* ================= CSS KHUSUS CETAK DIGITAL ================= */
+/* ================= CSS KHUSUS CETAK DIGITAL ================= */
 @media print {
     /* 1. Reset total setelan body bawaan browser */
     html, body {
@@ -745,9 +707,6 @@ body{
     <div class="gold-reflection"></div>
     <div class="noise"></div>
     <div class="fire-glow"></div>
-    <div class="embers">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
     <div class="fire-watermark">F</div>
 
     <!-- ================= HEADER ================= -->
