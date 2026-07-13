@@ -967,14 +967,19 @@ async function downloadPNG(){
     try{
 
         const canvas=await html2canvas(certificate,{
-            logging:true,
-            scale:1,
-            useCORS:false,
-            allowTaint:true,
-            backgroundColor:"#060606"
+            scale:3,
+            useCORS:true,
+            backgroundColor:"#060606",
+            logging:false
         });
 
-        document.body.appendChild(canvas);
+        const link=document.createElement("a");
+
+        link.download="Ocean-Fire-Certificate.png";
+
+        link.href=canvas.toDataURL("image/png");
+
+        link.click();
 
     }catch(err){
 
