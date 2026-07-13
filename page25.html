@@ -37,13 +37,77 @@ linear-gradient(
 #050505 100%
 );
 
-    border:6px solid #d7a845;
+border:2px solid #f8dc83;
 
-    padding:30px 45px;
+box-shadow:
 
-    box-shadow:
-inset 0 0 120px rgba(0,0,0,.65),
-inset 0 0 40px rgba(255,180,60,.05);
+0 0 0 2px #8a5c12,
+
+0 0 0 4px #d8aa43,
+
+0 0 0 6px #3b2506,
+
+0 0 0 8px #f0cf74,
+
+0 12px 35px rgba(0,0,0,.55),
+
+inset 0 0 0 1px rgba(255,255,255,.10),
+
+inset 0 0 25px rgba(255,205,90,.06);
+
+background-clip:padding-box;
+}
+
+.certificate .inner-border{
+
+position:absolute;
+
+top:14px;
+
+left:14px;
+
+right:14px;
+
+bottom:14px;
+
+border:1px solid rgba(255,220,120,.45);
+
+pointer-events:none;
+
+}
+
+.inner-border::before{
+
+content:"";
+
+position:absolute;
+
+top:8px;
+
+left:8px;
+
+right:8px;
+
+bottom:8px;
+
+border:1px solid rgba(180,120,20,.55);
+
+}
+
+.inner-border::after{
+
+content:"";
+
+position:absolute;
+
+inset:-2px;
+
+box-shadow:
+
+0 0 25px rgba(255,200,70,.12);
+
+pointer-events:none;
+
 }
 
 /* Background Efek Kulit + Cahaya Bara Api */
@@ -82,6 +146,11 @@ background-size:
 
 mix-blend-mode:soft-light;
 
+box-shadow:
+
+inset 0 1px 0 rgba(255,250,210,.45),
+
+inset 0 -1px 0 rgba(90,45,0,.45);
 }
 
 .certificate::after{
@@ -803,6 +872,7 @@ transparent
 <body>
 
 <div class="certificate" id="certificateContainer">
+    <div class="inner-border"></div>
 
     <!-- EFEK LATAR BELAKANG PREMIUM (Sudah disesuaikan dengan CSS baru) -->
     <div class="gold-reflection"></div>
@@ -1068,7 +1138,7 @@ async function downloadPNG(){
     try{
 
         const canvas=await html2canvas(certificate,{
-            scale:3,
+            scale:2,
             useCORS:true,
             backgroundColor:"#060606",
             logging:false
