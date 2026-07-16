@@ -274,7 +274,7 @@ transparent
     filter:none;
 }
 
-.title span:last-child{
+.title-text{
 
     font-size:64px;
     font-family:'Cinzel',serif;
@@ -285,27 +285,29 @@ transparent
 
     text-shadow:
 
-        /* Highlight atas */
         0 -1px 0 #fff6c5,
         0 -2px 0 #ffe89b,
 
-        /* Body */
         0 1px 0 #d9a739,
         0 2px 0 #c58b21,
         0 3px 0 #9d6810,
 
-        /* Bayangan */
         0 4px 6px rgba(0,0,0,.45),
         0 8px 12px rgba(0,0,0,.35),
 
-        /* Glow emas */
         0 0 12px rgba(255,210,90,.28);
 
 }
     
 .fire-icon{
-    font-size:52px;
-    line-height:1;
+
+font-size:52px;
+line-height:1;
+
+filter:
+drop-shadow(0 0 6px rgba(255,180,50,.5))
+drop-shadow(0 0 12px rgba(255,90,0,.4));
+
 }
     
 .certificate-title {
