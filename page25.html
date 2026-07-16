@@ -601,7 +601,7 @@ align-items:flex-start;
     align-items: center;
     padding-right:48px;
 
-    transform:translateY(-20px);
+    transform:translateY(-30px);
 }
 
 /* BADGE KING OF FIRE */
@@ -890,6 +890,32 @@ align-items:flex-start;
         print-color-adjust: exact !important;
     }
 }
+
+.seal-logo{
+
+    width:82px;
+
+    height:82px;
+
+    object-fit:contain;
+
+    filter:
+
+        drop-shadow(0 0 10px rgba(255,200,70,.45));
+
+}
+
+.signature-img{
+
+    width:150px;
+
+    height:55px;
+
+    object-fit:contain;
+
+    margin-bottom:8px;
+
+}
 </style>
 </head>
 <body>
@@ -961,32 +987,79 @@ align-items:flex-start;
                 <span id="certMenu">1.5 KG FIRE NOODLE</span>
             </div>
 
-            <!-- Area Tanda Tangan & Stempel -->
-            <div class="signature-area">
-                <div class="bottom-grid">
-                    
-                    <!-- Box TTD Utama: Event Manager -->
-                    <div class="signature-box">
-                        <div class="signature-line"></div>
-                        <div class="signature-label">RESTAURANT MANAGER</div>
-                    </div>
+            <!-- ================= SIGNATURE AREA ================= -->
 
-                    <!-- Seal / Stempel Resmi Cafe Tengah -->
-                    <div class="seal-box">
-                        <div class="seal-circle">
-                            <span class="seal-text">OFFICIAL SEAL</span>
-                        </div>
-                    </div>
+<div class="signature-area">
 
-                    <!-- Box TTD Kedua: Chief Referee -->
-                    <div class="signature-box">
-                        <div class="signature-line"></div>
-                        <div class="signature-label">CHALLENGE REFEREE</div>
-                    </div>
-                </div>
-                
-                <div class="motivational-text">ONLY LEGENDS FINISH THE FIRE</div>
+    <div class="bottom-grid">
+
+        <!-- MANAGER -->
+
+        <div class="signature-box">
+
+            <img
+                id="managerSignatureImg"
+                class="signature-img"
+                src=""
+                alt="Manager Signature"
+            >
+
+            <div class="signature-line"></div>
+
+            <div class="signature-label">
+                RESTAURANT MANAGER
             </div>
+
+        </div>
+
+
+        <!-- LOGO RESTO -->
+
+        <div class="seal-box">
+
+            <div class="seal-circle">
+
+                <img
+                    id="sealLogo"
+                    class="seal-logo"
+                    src=""
+                    alt="Restaurant Logo"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- REFEREE -->
+
+        <div class="signature-box">
+
+            <img
+                id="refereeSignatureImg"
+                class="signature-img"
+                src=""
+                alt="Referee Signature"
+            >
+
+            <div class="signature-line"></div>
+
+            <div class="signature-label">
+                CHALLENGE REFEREE
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="motivational-text">
+
+        ONLY LEGENDS FINISH THE FIRE
+
+    </div>
+
+</div>
+           
         </section>
 
         <!-- RIGHT PANEL (BADGE, RECORD, QR) -->
@@ -1069,6 +1142,42 @@ align-items:flex-start;
             <label>Ganti Foto Peserta:</label>
             <input type="file" id="inputPhoto" accept="image/*">
         </div>
+
+        <div class="form-group">
+
+<label>Logo Restaurant</label>
+
+<input
+type="file"
+id="inputLogo"
+accept="image/*">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Signature Manager</label>
+
+<input
+type="file"
+id="inputManagerSignature"
+accept="image/*">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Signature Referee</label>
+
+<input
+type="file"
+id="inputRefereeSignature"
+accept="image/*">
+
+</div>
+        
     </div>
     <button class="btn-download" onclick="downloadPNG()">Download Sertifikat</button>
 </div>
@@ -1084,6 +1193,9 @@ const inputTime = document.getElementById("inputTime");
 const inputDate = document.getElementById("inputDate");
 const inputMenu = document.getElementById("inputMenu");
 const inputPhoto = document.getElementById("inputPhoto");
+const inputLogo = document.getElementById("inputLogo");
+const inputManagerSignature = document.getElementById("inputManagerSignature");
+const inputRefereeSignature = document.getElementById("inputRefereeSignature");
 
 // ======================
 // LOAD FOTO DARI LOCAL STORAGE
@@ -1094,6 +1206,42 @@ const savedPhoto = localStorage.getItem("certificatePhoto");
 if(savedPhoto){
 
     document.getElementById("participantPhoto").src = savedPhoto;
+
+}
+
+// ======================
+// LOAD LOGO
+// ======================
+
+const savedLogo = localStorage.getItem("certificateLogo");
+
+if(savedLogo){
+
+    document.getElementById("sealLogo").src = savedLogo;
+
+}
+
+// ======================
+// LOAD MANAGER SIGNATURE
+// ======================
+
+const savedManager = localStorage.getItem("managerSignature");
+
+if(savedManager){
+
+    document.getElementById("managerSignatureImg").src = savedManager;
+
+}
+
+// ======================
+// LOAD REFEREE SIGNATURE
+// ======================
+
+const savedReferee = localStorage.getItem("refereeSignature");
+
+if(savedReferee){
+
+    document.getElementById("refereeSignatureImg").src = savedReferee;
 
 }
 
@@ -1143,6 +1291,91 @@ if(inputPhoto){
 
             // simpan ke localStorage
             localStorage.setItem("certificatePhoto",photo);
+
+        };
+
+        reader.readAsDataURL(this.files[0]);
+
+    });
+
+}
+
+
+// ======================
+// UPLOAD LOGO RESTAURANT
+// ======================
+
+if(inputLogo){
+
+    inputLogo.addEventListener("change",function(){
+
+        if(!this.files.length) return;
+
+        const reader=new FileReader();
+
+        reader.onload=function(e){
+
+            const logo=e.target.result;
+
+            document.getElementById("sealLogo").src=logo;
+
+            localStorage.setItem("certificateLogo",logo);
+
+        };
+
+        reader.readAsDataURL(this.files[0]);
+
+    });
+
+}
+
+// ======================
+// UPLOAD SIGNATURE MANAGER
+// ======================
+
+if(inputManagerSignature){
+
+    inputManagerSignature.addEventListener("change",function(){
+
+        if(!this.files.length) return;
+
+        const reader=new FileReader();
+
+        reader.onload=function(e){
+
+            const img=e.target.result;
+
+            document.getElementById("managerSignatureImg").src=img;
+
+            localStorage.setItem("managerSignature",img);
+
+        };
+
+        reader.readAsDataURL(this.files[0]);
+
+    });
+
+}
+
+// ======================
+// UPLOAD SIGNATURE REFEREE
+// ======================
+
+if(inputRefereeSignature){
+
+    inputRefereeSignature.addEventListener("change",function(){
+
+        if(!this.files.length) return;
+
+        const reader=new FileReader();
+
+        reader.onload=function(e){
+
+            const img=e.target.result;
+
+            document.getElementById("refereeSignatureImg").src=img;
+
+            localStorage.setItem("refereeSignature",img);
 
         };
 
