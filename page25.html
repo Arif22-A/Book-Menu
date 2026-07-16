@@ -238,8 +238,8 @@ transparent
     width: 100%;
     text-align: center;
     z-index: 5;
-    margin-top: 25px;    /* Memberi ruang nafas dari border atas */
-    margin-bottom: 45px; /* Mengurangi jarak ke konten bawah agar tidak lowong */
+    margin-top: 40px;    /* Memberi ruang nafas dari border atas */
+    margin-bottom: 35px; /* Mengurangi jarak ke konten bawah agar tidak lowong */
 }
 
 .brand{
@@ -248,6 +248,7 @@ transparent
     align-items: center;
     gap: 15px;
     margin-bottom: 8px;
+    margin-top:12px;
 }
 
 .brand .line{
@@ -343,9 +344,11 @@ transparent
 
 /* --- PANEL KIRI: FOTO & NO SERTIFIKAT --- */
 .left-panel{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding-left:30px;
 }
 
 .photo-frame {
@@ -507,20 +510,23 @@ transparent
     padding-bottom: 10px;
 }
 
-.bottom-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    padding: 0 10px;
+.bottom-grid{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
+
 }
 
 .signature-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 160px;
     text-align: center;
+    width:200px;
+    height:90px;
 }
 
 .signature-img {
@@ -586,6 +592,7 @@ transparent
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-right:30px;
 }
 
 /* BADGE KING OF FIRE */
@@ -608,7 +615,13 @@ transparent
     justify-content: center;
     align-items: center;
     background: radial-gradient(circle, rgba(59, 18, 0, 0.5) 0%, transparent 75%);
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow:
+
+    0 0 25px rgba(255,170,30,.18),
+
+    inset 0 1px rgba(255,255,255,.25),
+
+    inset 0 -8px rgba(0,0,0,.35);
 }
 
 .badge-crown{
@@ -734,7 +747,7 @@ transparent
 /* ================= FOOTER QUOTE & LAYER MANAGEMENT ================= */
 .certificate-footer {
     position: absolute;
-    bottom: 22px;
+    bottom: 38px;
     left: 0;
     width: 100%;
     text-align: center;
